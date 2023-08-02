@@ -3,6 +3,8 @@
  * Testar quais parametros sao realmente necessarios nas api calls
 */
 
+const fs = require('fs');
+
 async function fetchTabelaReferencia() {
     let response = await fetch("https://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", {
         "credentials": "include",
@@ -19,8 +21,15 @@ async function fetchTabelaReferencia() {
         "method": "POST",
         "mode": "cors"
     });
-    let jsonData = await response.json();
-    return jsonData;
+    if (response.status !== 200) {
+        return undefined;
+    }
+    try {
+        let jsonData = await response.json();
+        return jsonData;
+    } catch {
+        return undefined;
+    }
 
 }
 
@@ -42,8 +51,15 @@ async function fetchMarcas(ref=1) {
         "method": "POST",
         "mode": "cors"
     });
-    let jsonData = await response.json();
-    return jsonData;
+    if (response.status !== 200) {
+        return undefined;
+    }
+    try {
+        let jsonData = await response.json();
+        return jsonData;
+    } catch {
+        return undefined;
+    }
 }
 
 async function fetchModelos(ref=1, marca=1) {
@@ -64,8 +80,15 @@ async function fetchModelos(ref=1, marca=1) {
         "method": "POST",
         "mode": "cors"
     });
-    let jsonData = await response.json();
-    return jsonData;
+    if (response.status !== 200) {
+        return undefined;
+    }
+    try {
+        let jsonData = await response.json();
+        return jsonData;
+    } catch {
+        return undefined;
+    }
 }
 
 async function fetchAnoModelo(ref=1, marca=1, modelo=1) {
@@ -86,8 +109,15 @@ async function fetchAnoModelo(ref=1, marca=1, modelo=1) {
         "method": "POST",
         "mode": "cors"
     });
-    let jsonData = await response.json();
-    return jsonData;
+    if (response.status !== 200) {
+        return undefined;
+    }
+    try {
+        let jsonData = await response.json();
+        return jsonData;
+    } catch {
+        return undefined;
+    }
 }
 
 async function fetchModeloAtravesdoAno(ref=1, marca=1, ano='2023-1') {
@@ -108,8 +138,15 @@ async function fetchModeloAtravesdoAno(ref=1, marca=1, ano='2023-1') {
         "method": "POST",
         "mode": "cors"
     });
-    let jsonData = await response.json();
-    return jsonData;
+    if (response.status !== 200) {
+        return undefined;
+    }
+    try {
+        let jsonData = await response.json();
+        return jsonData;
+    } catch {
+        return undefined;
+    }
 }
 
 async function fetchCarro(ref=1, marca=1, modelo=1, ano='2023-1') {
@@ -130,21 +167,90 @@ async function fetchCarro(ref=1, marca=1, modelo=1, ano='2023-1') {
         "method": "POST",
         "mode": "cors"
     });
-    let jsonData = await response.json();
-    return jsonData;
+    if (response.status !== 200) {
+        return undefined;
+    }
+    try {
+        let jsonData = await response.json();
+        return jsonData;
+    } catch {
+        return undefined;
+    }
 }
 
 async function main() {
     
-    referencias = await fetchTabelaReferencia();
-    marcas = await fetchMarcas(299);
-    console.log(marcas)
-    modelos = await fetchModelos(299, 7);
-    ano_modelo = await fetchAnoModelo(299, 7, 6146);
-    carros_do_ano = await fetchModeloAtravesdoAno(299, 6, "2015-1");
-    console.log(carros_do_ano);
-    carro = await fetchCarro(299, 7, 6146, "2015-1");
-    console.log(carro);
+    refs = await fetchTabelaReferencia();
+
+    for (const ref of refs) {
+        let filename_root = `${ref['Mes'].trim()}`;
+        let codigoRef = ref['Codigo'];
+        let marcas = await fetchMarcas(codigoRef);
+        if (!marcas) {
+            console.log(`[ERROR] ${filename_root}`);
+            fs.writeFileSync("errors.txt", `${filename_root}\n`, {flag: 'a'});
+            continue;
+        }
+
+        for (const marca of marcas) {
+            let filename_marca = filename_root + `#${marca['Label'].trim()}`;
+            let codigoMarca = Number(marca['Value']);
+            let modelos = await fetchModelos(codigoRef, codigoMarca);
+            if (!modelos) {
+                console.log(`[ERROR] ${filename_marca}`);
+                fs.writeFileSync("errors.txt", `${filename_marca}\n`, {flag: 'a'});
+                continue;
+            }
+
+            for (const modelo of modelos['Modelos']) {
+                let filename_model = filename_marca + `#${modelo['Label'].trim()}`;
+                let codigoModelo = modelo['Value'];
+                let anos = await fetchAnoModelo(codigoRef, codigoMarca, codigoModelo);
+                if (!anos) {
+                    console.log(`[ERROR] ${filename_model}`);
+                    fs.writeFileSync("errors.txt", `${filename_model}\n`, {flag: 'a'});
+                    continue;
+                }
+                
+                for (const ano of anos) {
+                    let filename = filename_model + `#${ano['Value']}.json`
+                    filename = filename.replaceAll('/', '-').replaceAll(' ', '_');
+                    let codigoAno = ano['Value'];
+                    let carro = await fetchCarro(codigoRef, codigoMarca, codigoModelo, codigoAno);
+                    if (!carro) {
+                        console.log(`[ERROR] ${filename}`);
+                        fs.writeFileSync("errors.txt", `${filename}\n`, {flag: 'a'});
+                        continue;
+                    }
+                    try {
+                        let carro_content = JSON.stringify(carro);
+                        fs.writeFileSync(`data/${filename}`, carro_content);
+                        console.log(filename);
+                    }
+                    catch {
+                        console.log(`[ERROR] ${filename}`);
+                        fs.writeFileSync("errors.txt", `${filename}\n`, {flag: 'a'});
+                        continue;
+                    }
+                }
+
+            }
+
+        }
+    }
+
 
 }
 main();
+
+// EXEMPLOS:
+    // marcas = await fetchMarcas(299);
+    // console.log(marcas)
+    // modelos = await fetchModelos(299, 7);
+    // console.log(modelos);
+    // ano_modelo = await fetchAnoModelo(299, 7, 6146);
+    // console.log(ano_modelo);
+    // carros_do_ano = await fetchModeloAtravesdoAno(299, 6, "2015-1");
+    // console.log(carros_do_ano);
+    // carro = await fetchCarro(299, 7, 6146, "2015-1");
+    // console.log(carro);
