@@ -19,8 +19,20 @@ def csvs_to_df(dir):
 def transform_df(df):
     trans_df = df.copy()
 
+    # mes_ref to int
+    trans_df['mes_ref'] = df['mes_ref'].apply(mes_ref_to_int)
+
     # reais to float
     trans_df['valor'] = df['valor'].apply(reais_to_float)
+
+    # combustivel to char
+    trans_df['combustivel'] = df['combustivel'].apply(combustivel_to_char)
+
+    # combustivel add eletrics
+    trans_df['combustivel'] = df['modelo'].apply(filter_eletrics)
+
+    # codigo_fipe to int
+    trans_df['codigo_fipe'] = df['codigo_fipe'].apply(codigo_fipe_to_int)
 
     # add column gear (cambio)
     trans_df['cambio'] = df['modelo'].apply(extrai_cambio)
@@ -28,8 +40,54 @@ def transform_df(df):
     # add column engine size (tamanho do motor)
     trans_df['tam_motor'] = df['modelo'].apply(extrai_tam_motor)
         
-
+ 
     return trans_df
+
+def mes_ref_to_int(mes):
+    if mes == 'janeiro':
+        mes = 1
+    elif mes == 'fevereiro':
+        mes = 2
+    elif mes == 'março':
+        mes = 3
+    elif mes == 'abril':
+        mes = 4
+    elif mes == 'maio':
+        mes = 5
+    elif mes == 'junho':
+        mes = 6
+    elif mes == 'julho':
+        mes = 7
+    elif mes == 'agosto':
+        mes = 8
+    elif mes == 'setembro':
+        mes = 9
+    elif mes == 'outubro':
+        mes = 10
+    elif mes == 'novembro':
+        mes = 11
+    else:
+        mes == 12
+    return mes
+
+def combustivel_to_char(combustivel):
+    if combustivel == 'Gasolina':
+        combustivel = 'g'
+    elif combustivel == 'Álcool':
+        combustivel = 'a'
+    elif combustivel == 'Diesel':
+        combustivel = 'd'
+    return combustivel
+
+def filter_eletrics(modelo):
+    match = re.search('Elétrico', modelo)
+    if match:
+        return 'e'
+
+def codigo_fipe_to_int(cod):
+    # 012345-7
+    return int(''.join(cod.split('-')))
+
 
 def reais_to_float(valor):
     valor = valor.replace('R$', '').replace('.', '').replace(',', '.').strip()
@@ -39,9 +97,9 @@ def extrai_cambio(modelo):
     # semi auto were included in automatico
     match = re.search(r'Aut\.', modelo)
     if match:
-        return 'automatico'
+        return 'a'
     else:
-        return 'manual' 
+        return 'm' 
 
 def extrai_tam_motor(modelo):
     match = re.search(r'\d+\.\d+', modelo)
