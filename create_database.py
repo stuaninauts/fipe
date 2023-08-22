@@ -25,11 +25,12 @@ def transform_df(df):
     # reais to float
     trans_df['valor'] = df['valor'].apply(reais_to_float)
 
-    # combustivel to char
-    trans_df['combustivel'] = df['combustivel'].apply(combustivel_to_char)
-
     # combustivel add eletrics
-    trans_df['combustivel'] = df['modelo'].apply(filter_eletrics)
+    trans_df.loc[trans_df.modelo.str.contains('Elétrico', regex=True, na=False), "combustivel"] = 'e'
+
+    # combustivel to char
+    trans_df['combustivel'] = trans_df['combustivel'].apply(combustivel_to_char)
+
 
     # codigo_fipe to int
     trans_df['codigo_fipe'] = df['codigo_fipe'].apply(codigo_fipe_to_int)
@@ -79,10 +80,12 @@ def combustivel_to_char(combustivel):
         combustivel = 'd'
     return combustivel
 
-def filter_eletrics(modelo):
-    match = re.search('Elétrico', modelo)
+def filter_eletrics(df):
+    print(df)
+    match = re.search('Elétrico', df['modelo'])
     if match:
-        return 'e'
+        df['combustivel'] = 'e'
+    return
 
 def codigo_fipe_to_int(cod):
     # 012345-7
