@@ -31,23 +31,24 @@ typedef enum {
 } Cambio;
 
 typedef struct {
-    int id;
+    int cod;
     char nome[STR_MAX];
 } Marca;
 
 typedef struct {
-    int id;
+    int cod;
     char nome[STR_MAX];
-    int id_marca;
+    int cod_marca;
 } Modelo;
 
 typedef struct {
-    int id;
+    int cod;
     int ano_ref;
     Mes mes_ref;
-    int id_marca;
-    int id_modelo;
+    int cod_marca;
+    int cod_modelo;
     int ano_fab;
+    float valor;
     Combustivel combustivel;
     int cod_fipe;
     Cambio cambio;
