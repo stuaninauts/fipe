@@ -25,7 +25,7 @@ void create_trie(Trie *t, char *filename);
 // this function does not need params because of globalcode
 TrieNode *allocate_trienode();
 void free_trienode(TrieNode *node);
-Trie *insert_trienode(Trie *t, char *word);
+int insert_trienode(Trie *t, char *word);
 int search_trie(Trie *trie, char *word);
 void *load_trie(Trie *t);
 void print_search(Trie *t, char *word);

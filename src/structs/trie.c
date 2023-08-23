@@ -9,7 +9,7 @@
  *          exists just for visualization  
  * 
  *      Trie.globalcode:
- *          exists for code reference in the trienodes (can be optimized, TODO)
+ *          exists for code reference in the trienodes (can be optimized)
  *      
  * 
  * FILE STRUCTURE
@@ -38,7 +38,6 @@
  *  Search for alternative alphabets
  *  Documentation
  *  Deletion
- *  Optimize globalcode
  */
 
 #include <stdio.h>
@@ -87,7 +86,7 @@ void free_trienode(TrieNode *node) {
     return;
 }
 
-Trie *insert_trienode(Trie *t, char *word) {
+int insert_trienode(Trie *t, char *word) {
     TrieNode *aux = t->root;  
     int i;
     
@@ -105,13 +104,13 @@ Trie *insert_trienode(Trie *t, char *word) {
     FILE *file = fopen(t->filename, "ab");
     if (file == NULL) {
         perror("Error opening the file");
-        return t;
+        return 0;
     }
 
     fwrite(aux, sizeof(TrieNode), 1, file);
     fclose(file);
 
-    return t;
+    return aux->code;
 }
 
 int search_trie(Trie *trie, char *word) {
@@ -133,7 +132,7 @@ int search_trie(Trie *trie, char *word) {
 }
 
 void *load_trie(Trie *t) {
-    FILE *file = fopen(t->filename, "r+");
+    FILE *file = fopen(t->filename, "rb");
     if (file == NULL) {
         perror("Error opening the trie file");
         return NULL;
