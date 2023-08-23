@@ -1,22 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "structs/entities.h"
-#include "structs/trie.h"
+#include "../structs/entities.h"
+#include "../structs/trie.h"
+#include "../structs/btree.h"
 
 #define MAX_LINE_SIZE 1024
 #define NUM_FIELDS 11
 
 
 int main() {
-    char *csvFilename = "little_db.csv";
-    char *binFilename = "sequencial.bin";
-    char *delim = ",";
+    char csvFilename[] = "../../database.csv";
+    char binFilename[] = "sequencial.bin";
+    char delim[] = ",";
     char line[MAX_LINE_SIZE];
     int i = 0;
 
     // cria trie marcas
     // cria btree
+    BTree btree;
+    BTree_create(512, "index.btree", &btree);
+
 
     FILE *csvFile = fopen(csvFilename, "r");
     if (csvFile == NULL) {
@@ -31,13 +35,12 @@ int main() {
         return -1;
     }
 
+    Trie *brand_root;
+    create_trie(brand_root, "brands.trie");
 
     // read the lines from the csvFile
     while(fgets(line, sizeof(line), csvFile) != NULL) {
         Carro car;
-
-        Trie *brand_root;
-        create_trie(brand_root, "brands.trie");
         
         char *fields[NUM_FIELDS];
         char *token;
@@ -54,8 +57,8 @@ int main() {
 
         int brand_code;
         char *brand_name = fields[3];
-        // check if the brand not exists in the trie
-        if (!(brand_code = search_trie(brand_root, brand_name))) {
+        brand_code = search_trie(brand_root, brand_name);
+        if (!(brand_code)) {
             // add the brand to the marcas.trie trie
             brand_code = insert_trienode(brand_root, brand_name);
         }
@@ -72,13 +75,14 @@ int main() {
         */
 
         // mount the car struct
-        car.cod = fields[0];
-        car.ano_ref = fields[1];
-        car.mes_ref = fields[2];
+        car.cod = atoi(fields[0]);
+        car.ano_ref = atoi(fields[1]);
+        car.mes_ref = atoi(fields[2]);
         car.cod_marca = brand_code;
         car.cod_modelo = model_code;
-        car.ano_fab = fields[5];
+        car.ano_fab = atoi(fields[5]);
         car.valor = atof(fields[6]);
+
         char combustivel = (char)fields[7];
         switch (combustivel) {
         case 'g':
@@ -94,7 +98,7 @@ int main() {
             car.combustivel = ELETRICO;
             break;        
         }
-        car.cod_fipe = fields[8];
+        car.cod_fipe = atoi(fields[8]);
         char cambio = (char)fields[9];
         switch (cambio) {
         case 'a':
@@ -106,9 +110,26 @@ int main() {
         car.tam_motor = atof(fields[10]);
 
         // encode the struct for the btree
+        Data d;
+        // ano mes marca modelo fab
+        // dd  dd   ddd  dddd    dd
+        // 8   8    12    16     8     = 52 bits
+        KEY_TYPE btree_key = 0;
+        btree_key += (car.ano_ref % 100);
+        btree_key << 8;
+        btree_key += car.mes_ref;
+        btree_key << 8;
+        btree_key += car.cod_marca;
+        btree_key << 12;
+        btree_key += car.cod_modelo;
+        btree_key << 16;
+        btree_key += car.ano_fab;
+        printf("%16lx\n", btree_key);
 
+        d.key = btree_key;
+        d.value = car.cod;
         // add car in the btree
-
+        BTree_insert(d, &btree);
 
         // write the car fields into the binFile
         fwrite(&car, sizeof(Carro), 1, binFile);
@@ -116,6 +137,8 @@ int main() {
 
     fclose(binFile);
     fclose(csvFile);
+
+    deallocate_node(btree.root);
 
     return 0;
 }
