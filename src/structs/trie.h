@@ -1,11 +1,11 @@
 #ifndef TRIE_H
 #define TRIE_H
 
-#include <stdbool.h>
 #include <stdlib.h>
 
 #define MAX_FILENAME 64
 #define ALPHABET_SIZE 255 // redefine
+#define WORD_SIZE 128
 
 typedef struct TrieNode TrieNode;
 struct TrieNode {
@@ -27,9 +27,9 @@ TrieNode *allocate_trienode();
 void free_trienode(TrieNode *node);
 int insert_trienode(Trie *t, char *word);
 int search_trie(Trie *trie, char *word);
-void *load_trie(Trie *t);
+void load_trie_from_file(Trie *t, char filename[]);
 void print_search(Trie *t, char *word);
 void print_trie(Trie *t);
-// void sequencial_print(Trie *t);
+void print_trienode(TrieNode *node);
 
 #endif
