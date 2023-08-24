@@ -14,32 +14,17 @@
  * 
  * FILE STRUCTURE
  *  |-------------|
- *  | Trie *t     |  location of t->root
+ *  | word        |  0
  *  |-------------|
- *  | TrieNode    |  1
+ *  | word        |  1
  *  |-------------|
- *  | TrieNode    |  2
+ *  | word        |  2
  *  |-------------|
- *  | TrieNode    |  3
+ *  | word        |  3
  *  |-------------|
  *  | ...         |  ...
  *
- *  Where TrieNode:
- *  |---------------------------|
- *  | *children[ALPHABET_SIZE]  | 
- *  |---------------------------|
- *  | int code                  |
- *  |---------------------------|
- *  | char data;                |
- *  |---------------------------|
- * 
- *  TODO
- *  load_trie
- *  Search for alternative alphabets
- *  Documentation
- *  Deletion
- */
-
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -50,8 +35,11 @@ void create_trie(Trie *t, char *filename) {
     strcpy(t->filename, filename);
     t->global_code = 0;
     
-    FILE *file = fopen(t->filename, "wb");
-    fwrite(&t->root, sizeof(TrieNode*), 1, file);
+    FILE *file = fopen(t->filename, "w");
+    if (file == NULL) {
+        perror("Error opening the file");
+        return;
+    }
     fclose(file);
 
     return;
@@ -90,9 +78,8 @@ int insert_trienode(Trie *t, char *word) {
     TrieNode *aux = t->root;  
     int i;
     
-    // TODO LOOK ATHIS DUDE
     for (i=0; word[i] != '\0'; i++) {
-        int index = (int) word[i] - 'a';
+        int index = (int) word[i];
         if (aux->children[index] == NULL) {
             aux->children[index] = allocate_trienode();
             aux->children[index]->data = word[i];
@@ -101,13 +88,12 @@ int insert_trienode(Trie *t, char *word) {
     }
     aux->code = ++t->global_code;
 
-    FILE *file = fopen(t->filename, "ab");
+    FILE *file = fopen(t->filename, "a");
     if (file == NULL) {
         perror("Error opening the file");
         return 0;
     }
-
-    fwrite(aux, sizeof(TrieNode), 1, file);
+    fwrite(word, sizeof(char), WORD_SIZE, file);
     fclose(file);
 
     return aux->code;
@@ -118,7 +104,7 @@ int search_trie(Trie *trie, char *word) {
     int i;
 
     for(i=0; word[i]!='\0'; i++) {
-        int position = word[i] - 'a';
+        int position = word[i];
         if (aux->children[position] == NULL)
             return 0;
         aux = aux->children[position];
@@ -131,23 +117,38 @@ int search_trie(Trie *trie, char *word) {
     return 0;
 }
 
-void *load_trie(Trie *t) {
-    FILE *file = fopen(t->filename, "rb");
+void load_trie_from_file(Trie *t, char filename[]) {
+    // create the trie
+    t->root = allocate_trienode();
+    strcpy(t->filename, filename);
+    t->global_code = 0;
+
+    FILE *file = fopen(t->filename, "r");
     if (file == NULL) {
         perror("Error opening the trie file");
-        return NULL;
+        return;
     }
 
-    // TODO
-
-
+    // read the content
+    char word[WORD_SIZE];
+    while (fread(word, sizeof(char), WORD_SIZE, file)) {
+        TrieNode *aux = t->root;  
+        int i;
+        
+        for (i=0; word[i] != '\0'; i++) {
+            int index = (int) word[i];
+            if (aux->children[index] == NULL) {
+                aux->children[index] = allocate_trienode();
+                aux->children[index]->data = word[i];
+            }
+            aux = aux->children[index];
+        }
+        aux->code = ++t->global_code;
+    }
+    
     fclose(file);
-
-
-    return t;
+    return;
 }
-
-
 
 void print_search(Trie *t, char *word) {
     int code;
@@ -157,6 +158,7 @@ void print_search(Trie *t, char *word) {
         printf("Not Found\n");
     else
         printf("Found! Code: %d\n", code);
+    return;
 }
 
 void print_trie_recursive(TrieNode *node, int depth) {
@@ -178,14 +180,22 @@ void print_trie_recursive(TrieNode *node, int depth) {
     for (int i = 0; i < ALPHABET_SIZE; i++) 
         print_trie_recursive(node->children[i], depth + 1);
 
+    return;
+
 }
 
 void print_trie(Trie *t) {
     printf("Trie Structure:\n");
     print_trie_recursive(t->root, 0);
+    return;
 }
 
-// TODO
-// void sequencial_print(Trie *t) {
-
-// }
+void print_trienode(TrieNode *node) {
+    int i;
+    printf("Code: %d Data: %c Childrens: ", node->code, node->data);
+    for (i=0; i<ALPHABET_SIZE; i++)
+        if (node->children[i] != NULL)
+            printf("%c, ", node->children[i]->data);
+    printf("\n");
+    return;
+}
