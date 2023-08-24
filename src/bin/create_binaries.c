@@ -9,14 +9,16 @@
 #define NUM_FIELDS 11
 
 
-int main() {
-    char csvFilename[] = "../../database.csv";
+int main(void) {
+    char csvFilename[] = "../../db.csv";
     char binFilename[] = "sequencial.bin";
     char delim[] = ",";
     char line[MAX_LINE_SIZE];
     int i = 0;
 
     // cria trie marcas
+    // Trie *brand_root;
+    // create_trie(brand_root, "brands.trie");
     // cria btree
     BTree btree;
     BTree_create(512, "index.btree", &btree);
@@ -35,33 +37,47 @@ int main() {
         return -1;
     }
 
-    Trie *brand_root;
-    create_trie(brand_root, "brands.trie");
-
-    // read the lines from the csvFile
-    while(fgets(line, sizeof(line), csvFile) != NULL) {
-        Carro car;
-        
-        char *fields[NUM_FIELDS];
-        char *token;
-        int fieldCount = 0;
-        // get the fields from the line
-        token = strtok(line, delim);
-        while (token != NULL) { 
-            fields[fieldCount++] = token;
-            token = strtok(NULL, delim);
-        }
+    Carro car;
+    char *fields[NUM_FIELDS];
+    char *token;
+    int fieldCount = 0;
+    // Skip csv header
+    fgets(line, sizeof(line), csvFile);
+    while (fgets(line, sizeof(line), csvFile) != NULL) {
         fieldCount = 0;
 
+        token = strtok(line, delim);
+        while (token != NULL) {
+            // Ensure you don't exceed the bounds of the fields array
+            if (fieldCount >= NUM_FIELDS) {
+                fprintf(stderr, "Too many fields in the line.\n");
+                break;
+            }
 
+            // Allocate memory for the field and copy the token
+            fields[fieldCount] = strdup(token);
 
-        int brand_code;
-        char *brand_name = fields[3];
-        brand_code = search_trie(brand_root, brand_name);
-        if (!(brand_code)) {
-            // add the brand to the marcas.trie trie
-            brand_code = insert_trienode(brand_root, brand_name);
+            if (fields[fieldCount] == NULL) {
+                perror("Memory allocation error");
+                return 1;
+            }
+
+            fieldCount++;
+            token = strtok(NULL, delim);
         }
+
+
+        int brand_code = 0;
+        // printf("%d\n", fieldCount);
+        printf("%s\n", fields[0]);
+        // brand_code = search_trie(brand_root, fields[3]);
+        // printf("%d\n", brand_code);
+        // if (brand_code == 0) {
+        //     // add the brand to the marcas.trie trie
+        //     printf("before %d\n", brand_code);
+        //     brand_code = insert_trienode(brand_root, brand_name);
+        //     printf("after %d\n", brand_code);
+        // }
         
 
         int model_code = 0; // fix
@@ -83,7 +99,7 @@ int main() {
         car.ano_fab = atoi(fields[5]);
         car.valor = atof(fields[6]);
 
-        char combustivel = (char)fields[7];
+        char combustivel = fields[7][0];
         switch (combustivel) {
         case 'g':
             car.combustivel = GASOLINA;
@@ -99,7 +115,7 @@ int main() {
             break;        
         }
         car.cod_fipe = atoi(fields[8]);
-        char cambio = (char)fields[9];
+        char cambio = fields[9][0];
         switch (cambio) {
         case 'a':
             car.cambio = AUTOMATICO;
@@ -124,7 +140,7 @@ int main() {
         btree_key += car.cod_modelo;
         btree_key << 16;
         btree_key += car.ano_fab;
-        printf("%16lx\n", btree_key);
+        // printf("%16lx\n", btree_key);
 
         d.key = btree_key;
         d.value = car.cod;
@@ -133,6 +149,10 @@ int main() {
 
         // write the car fields into the binFile
         fwrite(&car, sizeof(Carro), 1, binFile);
+
+        for (int i = 0; i < fieldCount; i++) {
+            free(fields[i]); // Free the allocated memory for each field
+        }
     }
 
     fclose(binFile);
