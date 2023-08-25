@@ -126,7 +126,7 @@ void load_trie_from_file(Trie *t, char filename[]) {
 
     FILE *file = fopen(t->filename, "r");
     if (file == NULL) {
-        perror("Error opening the trie file");
+        // perror("Error opening the trie file");
         return;
     }
 
@@ -202,18 +202,4 @@ void print_trienode(TrieNode *node) {
             printf("%c, ", node->children[i]->data);
     printf("\n");
     return;
-}
-
-int main() {
-    Trie t;
-    create_trie(&t, "brands.trie");
-    insert_trienode(&t, "bmw");
-    insert_trienode(&t, "audi");
-    insert_trienode(&t, "fiat");
-
-    Trie nova;
-    load_trie_from_file(&nova, "brands.trie");
-    print_trie(&nova);
-
-    return 0;
 }

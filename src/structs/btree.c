@@ -56,6 +56,7 @@ Node *allocate_node(BTree *b) {
     n->ptr = 0;
     for (int i = 0; i < (2 * b->t - 1); i++) {
         n->d[i].key = 0;
+        n->d[i].value = 0;
     }
     for (int i = 0; i < 2 * b->t; i++) {
         n->c[i] = 0;

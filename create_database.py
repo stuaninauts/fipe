@@ -118,4 +118,4 @@ df = csvs_to_df(dir)
 final_df = transform_df(df)
 
 # include dir
-final_df.to_csv('database.csv')
+final_df.to_csv('database.csv', sep=';')
