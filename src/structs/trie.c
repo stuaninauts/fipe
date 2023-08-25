@@ -93,7 +93,8 @@ int insert_trienode(Trie *t, char *word) {
         perror("Error opening the file");
         return 0;
     }
-    fwrite(word, sizeof(char), WORD_SIZE, file);
+    
+    fprintf(file, "%s\n", word);
     fclose(file);
 
     return aux->code;
@@ -131,7 +132,10 @@ void load_trie_from_file(Trie *t, char filename[]) {
 
     // read the content
     char word[WORD_SIZE];
-    while (fread(word, sizeof(char), WORD_SIZE, file)) {
+    while (fgets(word, sizeof(word), file)) {
+        // remove the \n
+        size_t length = strcspn(word, "\n");
+        word[length] = '\0';
         TrieNode *aux = t->root;  
         int i;
         
@@ -198,4 +202,18 @@ void print_trienode(TrieNode *node) {
             printf("%c, ", node->children[i]->data);
     printf("\n");
     return;
+}
+
+int main() {
+    Trie t;
+    create_trie(&t, "brands.trie");
+    insert_trienode(&t, "bmw");
+    insert_trienode(&t, "audi");
+    insert_trienode(&t, "fiat");
+
+    Trie nova;
+    load_trie_from_file(&nova, "brands.trie");
+    print_trie(&nova);
+
+    return 0;
 }
