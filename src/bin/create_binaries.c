@@ -10,15 +10,15 @@
 
 
 int main(void) {
-    char csvFilename[] = "../../db.csv";
+    char csvFilename[] = "../../database.csv";
     char binFilename[] = "sequencial.bin";
-    char delim[] = ",";
+    char delim[] = ";";
     char line[MAX_LINE_SIZE];
     int i = 0;
 
     // cria trie marcas
-    // Trie *brand_root;
-    // create_trie(brand_root, "brands.trie");
+    Trie brand_trie;
+    create_trie(&brand_trie, "brands.trie");
     // cria btree
     BTree btree;
     BTree_create(512, "index.btree", &btree);
@@ -41,16 +41,18 @@ int main(void) {
     char *fields[NUM_FIELDS];
     char *token;
     int fieldCount = 0;
+    long int line_counter = 1;
     // Skip csv header
     fgets(line, sizeof(line), csvFile);
     while (fgets(line, sizeof(line), csvFile) != NULL) {
         fieldCount = 0;
+        line_counter++;
 
         token = strtok(line, delim);
         while (token != NULL) {
             // Ensure you don't exceed the bounds of the fields array
             if (fieldCount >= NUM_FIELDS) {
-                fprintf(stderr, "Too many fields in the line.\n");
+                fprintf(stderr, "Too many fields in line %ld.\n", line_counter);
                 break;
             }
 
@@ -68,27 +70,30 @@ int main(void) {
 
 
         int brand_code = 0;
-        // printf("%d\n", fieldCount);
-        printf("%s\n", fields[0]);
-        // brand_code = search_trie(brand_root, fields[3]);
-        // printf("%d\n", brand_code);
-        // if (brand_code == 0) {
-        //     // add the brand to the marcas.trie trie
-        //     printf("before %d\n", brand_code);
-        //     brand_code = insert_trienode(brand_root, brand_name);
-        //     printf("after %d\n", brand_code);
-        // }
+        char *brand_name = fields[3];
+        brand_code = search_trie(&brand_trie, brand_name);
+        if (brand_code == 0) {
+            // add the brand to the marcas.trie trie
+            brand_code = insert_trienode(&brand_trie, brand_name);
+        }
         
 
         int model_code = 0; // fix
         char *model_name = fields[4];
         // check if the model not exist in the trie
-        /*
-        if (!(model_code = search_trie(???, model_name))) {
+        char models_filename[MAX_FILENAME];
+        sprintf(models_filename, "%d.trie", brand_code);
+        Trie models_trie;
+        load_trie_from_file(&models_trie, models_filename);
+        if (models_trie.global_code == 0) {
+            free_trienode(models_trie.root);
+            create_trie(&models_trie, models_filename);
+        }
+        model_code = search_trie(&models_trie, model_name);
+        if (model_code == 0) {
             // add the model to the cod_marca.trie trie (this .trie refers the models of this brand)
-            model_code = insert_trienode(???, model_name);
+            model_code = insert_trienode(&models_trie, model_name);
         }        
-        */
 
         // mount the car struct
         car.cod = atoi(fields[0]);
@@ -132,15 +137,14 @@ int main(void) {
         // 8   8    12    16     8     = 52 bits
         KEY_TYPE btree_key = 0;
         btree_key += (car.ano_ref % 100);
-        btree_key << 8;
+        btree_key = btree_key << 8;
         btree_key += car.mes_ref;
-        btree_key << 8;
+        btree_key = btree_key << 8;
         btree_key += car.cod_marca;
-        btree_key << 12;
+        btree_key = btree_key << 12;
         btree_key += car.cod_modelo;
-        btree_key << 16;
+        btree_key = btree_key << 16;
         btree_key += car.ano_fab;
-        // printf("%16lx\n", btree_key);
 
         d.key = btree_key;
         d.value = car.cod;
@@ -150,6 +154,7 @@ int main(void) {
         // write the car fields into the binFile
         fwrite(&car, sizeof(Carro), 1, binFile);
 
+        free_trienode(models_trie.root);
         for (int i = 0; i < fieldCount; i++) {
             free(fields[i]); // Free the allocated memory for each field
         }
@@ -158,6 +163,7 @@ int main(void) {
     fclose(binFile);
     fclose(csvFile);
 
+    free_trienode(brand_trie.root);
     deallocate_node(btree.root);
 
     return 0;
