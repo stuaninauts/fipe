@@ -21,6 +21,12 @@ struct Trie {
     int global_code;
 };
 
+typedef struct WordLinkedListS {
+    struct WordLinkedListS *next;
+    char word[WORD_SIZE];
+    int code;
+} WordLinkedList;
+
 void create_trie(Trie *t, char *filename);
 // this function does not need params because of globalcode
 TrieNode *allocate_trienode();
@@ -31,5 +37,7 @@ void load_trie_from_file(Trie *t, char filename[]);
 void print_search(Trie *t, char *word);
 void print_trie(Trie *t);
 void print_trienode(TrieNode *node);
+WordLinkedList *prefix_trie_search(TrieNode *node, char prefix[], WordLinkedList *words);
+WordLinkedList *list_trienode_words(TrieNode *node, char word[], WordLinkedList *words);
 
 #endif

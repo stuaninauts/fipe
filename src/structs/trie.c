@@ -56,7 +56,7 @@ TrieNode *allocate_trienode() {
     for (i=0; i<ALPHABET_SIZE; i++) {
         node->children[i] = NULL;
     }
-    //node->data
+    node->data = 0;
     node->code = -1;
     
     return node;
@@ -202,4 +202,51 @@ void print_trienode(TrieNode *node) {
             printf("%c, ", node->children[i]->data);
     printf("\n");
     return;
+}
+
+WordLinkedList *list_trienode_words(TrieNode *node, char word[], WordLinkedList *words) {
+    char *word_cpy = calloc(WORD_SIZE, sizeof(char));
+    strcpy(word_cpy, word);
+    int i = strlen(word_cpy);
+    word_cpy[i] = node->data;
+    word_cpy[i+1] = '\0';
+    if (node->code != -1) { // Found one word
+        WordLinkedList *new_word = calloc(1, sizeof(WordLinkedList));
+        new_word->next = NULL;
+        strcpy(new_word->word, word_cpy);
+        new_word->code = node->code;
+        if (words == NULL) {
+            words = new_word;
+        } else {
+            new_word->next = words;
+            words = new_word;
+        }
+    } else {
+        for (i = 0; i < ALPHABET_SIZE; i++) {
+            if (node->children[i] != NULL) {
+                words = list_trienode_words(node->children[i], word_cpy, words);
+            }
+        }
+    }
+    free(word_cpy);
+    return words;
+}
+
+WordLinkedList *prefix_trie_search(TrieNode *node, char prefix[], WordLinkedList *words) {
+    TrieNode *aux = node;
+    int i = 0; int pos;
+    while (prefix[i] != '\0') {
+        pos = prefix[i];
+        if (aux->children[pos] == NULL) {
+            // Prefix is invalid
+            printf("Invalid prefix at %c\n", prefix[i]);
+            return words;
+        }
+        aux = aux->children[pos];
+        i++;
+    }
+    if (i > 0) {
+        prefix[i-1] = '\0';
+    }
+    return list_trienode_words(aux, prefix, words);
 }
