@@ -3,19 +3,24 @@
  * USAGE:
  *  $ ./main
  * 
- *  $ > list -b
+ *  $ > list
  *  $ Acura - 1
  *  $ Agrale - 2
  *  $ [brand] - [cod]
  *  $ ....
  * 
- *  $ > list -b Su
+ *  $ > list Su
  *  $ Subaru - 78
  *  $ Suzuki - 79
  * 
- *  $ > list -b Subaru -m
+ *  $ > list Subaru -m
  *  $ Forester ... - 1
  *  $ ...
+ *  $ Impreza ... - 8
+ *  $ [model] - [cod]
+ *  $ ...
+
+ *  $ > list Subaru Im
  *  $ Impreza ... - 8
  *  $ [model] - [cod]
  *  $ ...
@@ -68,8 +73,8 @@ typedef struct {
 } CONTEXT;
 
 void help_command(void);
-void list_command(const char *args[], CONTEXT context);
-void search_command(const char *args[], CONTEXT context);
+void list_command(char *args[], CONTEXT context);
+void search_command(char *args[], CONTEXT context);
 
 void read_car(Carro *c, PTR_TYPE offset); // Read car from sequencial.bin
 void print_car(Carro c);
@@ -154,19 +159,55 @@ void help_command(void) {
     "Available Commands:\n"
     "help - displays this help message\n"
     "list - list brands or models\n"
-    "\teg. list -b Subaru -m\n"
+    "\teg. list Subaru -m\n"
     "search - search for cars\n"
     "\teg. search 22 1 36 69 2010\n";
 
     printf("%s", help_message);
 }
 
-void list_command(const char *args[], CONTEXT context) {
-    for (int i = 0; i < MAX_ARGS && args[i] != NULL; i++) { }
+void list_command(char *args[], CONTEXT context) {
+    int i;
     WordLinkedList *words = NULL;
     char *word = calloc(WORD_SIZE, sizeof(char));
-    strcpy(word, "A");
-    words = prefix_trie_search(context.brands->root, word, words);
+    for (i = 0; i < MAX_ARGS && args[i] != NULL; i++) { }
+    if (i == 0) {   // No args, list all brands
+        printf("Listing all brand names...\n");
+        words = prefix_trie_search(context.brands->root, word, words);
+    } else if (i == 1) { // Brand prefix search
+        printf("Brand prefix search...\n");
+        strcpy(word, args[0]);
+        words = prefix_trie_search(context.brands->root, word, words);
+    } else if (i == 2 && !strcmp(args[i-1], "-m")) { // List all models for brand
+        printf("Listing all models for %s...\n", args[0]);
+        int brand_code = search_trie(context.brands, args[0]);
+        if (!brand_code) {
+            printf("Invalid brand name...\n");
+        } else {
+            char models_filename[MAX_FILENAME];
+            sprintf(models_filename, "../bin/%d.trie", brand_code);
+            Trie models;
+            load_trie_from_file(&models, models_filename);
+            words = prefix_trie_search(models.root, word, words);
+            free_trienode(models.root);
+        }
+    } else if (i == 2) { // Model prefix search
+        printf("Model prefix search...\n");
+        int brand_code = search_trie(context.brands, args[0]);
+        if (!brand_code) {
+            printf("Invalid brand name...\n");
+        } else {
+            char models_filename[MAX_FILENAME];
+            sprintf(models_filename, "../bin/%d.trie", brand_code);
+            Trie models;
+            load_trie_from_file(&models, models_filename);
+            strcpy(word, args[1]);
+            words = prefix_trie_search(models.root, word, words);
+            free_trienode(models.root);
+        }
+    } else {
+        printf("Invalid args...\n");
+    }
     free(word);
     WordLinkedList *aux = words; 
     while (aux != NULL) {
@@ -183,7 +224,7 @@ void list_command(const char *args[], CONTEXT context) {
     return;
 }
 
-void search_command(const char *args[], CONTEXT context) {
+void search_command(char *args[], CONTEXT context) {
     int i;
     for (i = 0; i < MAX_ARGS && args[i] != NULL; i++) { }
     if (i < 3) {
