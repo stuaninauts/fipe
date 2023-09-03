@@ -1,27 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../structs/entities.h"
-#include "../structs/trie.h"
-#include "../structs/btree.h"
+#include "structs/entities.h"
+#include "structs/trie.h"
+#include "structs/btree.h"
 
 #define MAX_LINE_SIZE 1024
 #define NUM_FIELDS 11
 
 
 int main(void) {
-    char csvFilename[] = "../../database.csv";
-    char binFilename[] = "sequencial.bin";
+    char csvFilename[] = "data/database.csv";
+    char binFilename[] = "bin/sequencial.bin";
     char delim[] = ";";
     char line[MAX_LINE_SIZE];
-    int i = 0;
 
     // cria trie marcas
     Trie brand_trie;
-    create_trie(&brand_trie, "brands.trie");
+    create_trie(&brand_trie, "bin/brands.trie");
     // cria btree
     BTree btree;
-    BTree_create(512, "index.btree", &btree);
+    BTree_create(512, "bin/index.btree", &btree);
 
 
     FILE *csvFile = fopen(csvFilename, "r");
@@ -82,7 +81,7 @@ int main(void) {
         char *model_name = fields[4];
         // check if the model not exist in the trie
         char models_filename[MAX_FILENAME];
-        sprintf(models_filename, "%d.trie", brand_code);
+        sprintf(models_filename, "bin/%d.trie", brand_code);
         Trie models_trie;
         load_trie_from_file(&models_trie, models_filename);
         if (models_trie.global_code == 0) {

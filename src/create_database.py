@@ -7,6 +7,8 @@ def csvs_to_df(dir):
     files = os.listdir(dir)
     list_dfs = []
     for file in files:
+        if file == "ref.json":
+            continue
         if 'erro' not in file.lower():
             df = pd.read_csv(f'{dir}/{file}', sep=';')
             list_dfs.append(df)   
@@ -113,9 +115,9 @@ def extrai_tam_motor(modelo):
         return None    
 
 
-dir = 'fipe_data'
+dir = 'data'
 df = csvs_to_df(dir)
 final_df = transform_df(df)
 
 # include dir
-final_df.to_csv('database.csv', sep=';')
+final_df.to_csv('data/database.csv', sep=';')
