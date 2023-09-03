@@ -88,12 +88,12 @@ int main(void) {
     };
 
     // Load BTree index
-    char index_filename[] = "../bin/index.btree";
+    char index_filename[] = "bin/index.btree";
     BTree index;
     BTree_load(index_filename, &index);
 
     // Load brands.trie
-    char brands_filename[] = "../bin/brands.trie";
+    char brands_filename[] = "bin/brands.trie";
     Trie brands;
     load_trie_from_file(&brands, brands_filename);
 
@@ -185,7 +185,7 @@ void list_command(char *args[], CONTEXT context) {
             printf("Invalid brand name...\n");
         } else {
             char models_filename[MAX_FILENAME];
-            sprintf(models_filename, "../bin/%d.trie", brand_code);
+            sprintf(models_filename, "bin/%d.trie", brand_code);
             Trie models;
             load_trie_from_file(&models, models_filename);
             words = prefix_trie_search(models.root, word, words);
@@ -198,7 +198,7 @@ void list_command(char *args[], CONTEXT context) {
             printf("Invalid brand name...\n");
         } else {
             char models_filename[MAX_FILENAME];
-            sprintf(models_filename, "../bin/%d.trie", brand_code);
+            sprintf(models_filename, "bin/%d.trie", brand_code);
             Trie models;
             load_trie_from_file(&models, models_filename);
             strcpy(word, args[1]);
@@ -259,7 +259,7 @@ void search_command(char *args[], CONTEXT context) {
 }
 
 void read_car(Carro *c, PTR_TYPE offset) {
-    char bin_filename[] = "../bin/sequencial.bin";
+    char bin_filename[] = "bin/sequencial.bin";
     FILE *bin = fopen(bin_filename, "rb");
     fseek(bin, sizeof(Carro)*offset, SEEK_SET);
     if (fread(c, sizeof(Carro), 1, bin) != 1) {
