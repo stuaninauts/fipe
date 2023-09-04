@@ -5,8 +5,8 @@ from pathlib import Path
 from shiny import App, reactive, render, ui
 # from plotnine import ggplot, aes, geom_bar, coord_flip, theme_minimal
 
-
-df = pd.read_csv(Path(__file__).parent / "../database.csv")
+paht_to_db = Path(__file__).parent.parent.parent / "data" / "database.csv"
+df = pd.read_csv(paht_to_db)
 # ui interface
 app_ui = ui.page_fluid(    
     ui.h1({"style": "text-align: center;"},"Análise de dados tabela Fipe"),
