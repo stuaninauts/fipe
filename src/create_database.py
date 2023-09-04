@@ -7,7 +7,7 @@ def csvs_to_df(dir):
     files = os.listdir(dir)
     list_dfs = []
     for file in files:
-        if file == "ref.json":
+        if file == "ref.json" or file =="database.csv":
             continue
         if 'erro' not in file.lower():
             df = pd.read_csv(f'{dir}/{file}', sep=';')
