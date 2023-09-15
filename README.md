@@ -58,17 +58,55 @@ The FIPE project is an outcome of the final assignment for the course INF01124 -
 <!-- RUNNING FROM SCRATCH -->
 <a name="#running-from-scratch"></a>
 ### Running from scratch
+The following commands were run in 2023, i. e., the data, the database and the binaries files in the repository corresponds to the period from 2004 to 2023.  
+If you want to get uploaded data here is short tutorial: 
 
+
+`NOTE: you must run all executables from repo root`
+
+1) Using `fipe_api.js` to extract data from fipe.org.br
+    ```bash
+    $ node src/fipe_api.js data/ errors 300 299 298
+
+2) Using `create_database.py` to format extracted data
+    ```bash
+    $ python src/create_database.py
+
+3) Using `create_binaries.c` to create binary indexing files
+    ```bash
+    $ make create_binaries  
+    $ ./create_binaries
+    
+<!-- SEARCH APP -->
+<a name="#search-app"></a>
+### Search App
+
+Compiling `main.c` for database search app
+
+    $ make app
+    $ ./app
+
+<!-- DATA ANALYSIS -->
+<a name="#data-analysis-app"></a>
+### Data Analysis App
+This app is hosted on the following website  
+TO BE DEFINED
+
+Or, if you want to run locally,
+
+    $ cd src/data_analysis
+    $ shiny run --reload
 
 
 <!-- ROADMAP -->
 <a name="roadmap"></a>
 ## Roadmap
-
-- [ ] Refactor hide elements
-- [ ] Fix first load
+### Data Analisys App
+- [x] Refactor hide elements
+- [x] Fix first load
+- [ ] Refactor max/min tam_motor
 - [ ] Add title explanations
-- [ ] Add export title
+- [ ] Add export graphic
 - [ ] Implement interactive graphics
 - [ ] Implement range of ano_fab 
 - [ ] Refactor design
