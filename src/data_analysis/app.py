@@ -207,6 +207,19 @@ def server(input: Inputs, output: Outputs, session: Session):
     def _():
         ui.update_navs("nav_filtrar_marcas_on", selected=str(input.switch_marcas()))
 
+    @reactive.Effect
+    @reactive.event(input.tam_motor_min, input.tam_motor_max)
+    def _():
+        ui.update_numeric(
+            id="tam_motor_min",
+            max=input.tam_motor_max(),
+        ),
+        ui.update_numeric(
+            id="tam_motor_max",
+            min=input.tam_motor_min(),
+        ),
+    
+
     @output
     @render.plot
     def plot():
@@ -214,27 +227,33 @@ def server(input: Inputs, output: Outputs, session: Session):
             result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
         else:
             result = df
+
+        # ano_ref
+        result = result[result['ano_ref'] == int(input.ano_ref())]
+
+        # ano_fab
+        result = result[result['ano_fab'] == int(input.ano_fab())]
+
         # combustivel (filtro avancado)
         result = result[result['combustivel'].str.contains('|'.join(input.combustivel()))]
+        
         # cambio (filtro avancado)
         result = result[result['cambio'].str.contains('|'.join(input.cambio()))]
 
         # tam_motor (filtro avancado)
-        if input.choose_tam_motor() == '1':
+        if input.choose_tam_motor() == '1':            
             tam_motor_max = float(input.tam_motor_max())
             tam_motor_min = float(input.tam_motor_min())
             if (tam_motor_max >= tam_motor_min):
                 filtro = ((result['tam_motor'] >= tam_motor_min) & (result['tam_motor'] <= tam_motor_max))
                 result = result[filtro]
+        
+            
         # tipo_motor (filtro avancado)
-        if bool(input.choose_tipo_motor()):
+        if input.choose_tipo_motor() == '1':
             result = result[result['modelo'].str.contains('|'.join(input.tipo_motor()))]
 
-        # ano_ref
-        result = result[result['ano_ref'] == int(input.ano_ref())]
-        # ano_fab
-        result = result[result['ano_fab'] == int(input.ano_fab())]
-        
+
         
         # agrupa
         result = result.groupby(input.analise())['valor'].mean()
