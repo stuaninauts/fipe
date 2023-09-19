@@ -104,7 +104,7 @@ Or, if you want to run locally,
 ### Data Analisys App
 - [x] Refactor hide elements
 - [x] Fix first load
-- [ ] Refactor max/min tam_motor
+- [x] Refactor max/min tam_motor
 - [ ] Add title explanations
 - [ ] Add export graphic
 - [ ] Implement interactive graphics
