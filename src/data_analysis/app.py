@@ -4,14 +4,15 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from shiny import App, Inputs, Outputs, Session, render, reactive, ui
 
+
 path_to_db = Path(__file__).parent.parent.parent / "data" / "database.csv"
 df = pd.read_csv(path_to_db, sep=';')
 
+dict_combustivel = {'g': "Gasolina", 'a': "Álcool", 'd': "Diesel", 'e': "Elétrico"}
+dict_cambio = {'m': "Manual", 'a': "Automático"}
 
 def show_nothing():
     return ""
-
-
 
 def show_tam_motor():
         return ui.row(
@@ -78,15 +79,15 @@ def show_filtros_avancados():
                 ui.input_checkbox_group(
                     id="combustivel", 
                     label="Tipo de combustível", 
-                    choices={'g': "Gasolina", 'a': "Álcool", 'd': "Diesel", 'e': "Elétrico"},
-                    selected=('g', 'a', 'd', 'e'),
+                    choices=dict_combustivel,
+                    selected=tuple(dict_combustivel.keys()),
                 ),
                 # cambio: 	button m / a
                 ui.input_checkbox_group(
                     id="cambio", 
                     label="Câmbio", 
-                    choices={'m': "Manual", 'a': "Automático"},
-                    selected=('m', 'a'),
+                    choices=dict_cambio,
+                    selected=tuple(dict_cambio.keys()),
                 ),
                 # tam motor: min max
                 ui.input_radio_buttons(
@@ -127,6 +128,7 @@ def show_filtros_avancados():
 app_ui = ui.page_fluid(
     ui.h1({"style": "text-align: center;"},"Análise de dados tabela Fipe"),
     ui.h3("Ranking Geral de Valores Marcas/Modelos"),
+
     ui.layout_sidebar(
         ui.panel_sidebar(
             # anoref: 	slide 2004 --- 2023
@@ -183,6 +185,11 @@ app_ui = ui.page_fluid(
 
 def server(input: Inputs, output: Outputs, session: Session):
     @reactive.Effect
+    @reactive.event(input.ano_ref)
+    def _():
+        ui.update_slider("ano_fab", max=input.ano_ref())
+
+    @reactive.Effect
     @reactive.event(input.btn_filtros)
     def _():
         ui.update_navs("nav_filtros_avancados", selected=str(input.btn_filtros()%2))
@@ -219,6 +226,53 @@ def server(input: Inputs, output: Outputs, session: Session):
             min=input.tam_motor_min(),
         ),
     
+    def build_title(input):
+        analise = ''
+        ordenacao = ''
+        genero = ''
+        filtros = ''
+        if input.analise() == 'marca':
+            analise = 'Marcas'
+            genero = 'a'
+        else:
+            analise = 'Modelos'
+            genero = 'o'
+
+        if input.ordem() == '':
+            ordenacao = f'mais barat{genero}s'
+        else:
+            ordenacao = f'mais car{genero}s'
+
+        if input.btn_filtros()%2 == 1:
+            filtros = []
+            if len(input.combustivel()) < 4:
+                combustiveis = [dict_combustivel[comb].lower() for comb in input.combustivel()]
+                combustiveis = ', '.join(combustiveis)
+                filtros.append(f'com tipo de combustível: {combustiveis}')
+
+            if len(input.cambio()) < 2:
+                filtros.append(f'com câmbio {dict_cambio[input.cambio()[0]].lower()}')
+
+            if input.choose_tam_motor() == '1':
+                filtros.append(f'com tamanho do motor de {input.tam_motor_min()} à {input.tam_motor_max()}')
+
+            if input.choose_tipo_motor() == '1':
+                motores = [str(motor) for motor in input.tipo_motor()]
+                motores = ', '.join(motores)
+                filtros.append(f'com motor {motores}')
+
+            if input.switch_marcas() and input.marcas_selecionadas():
+                marcas = list(input.marcas_selecionadas())
+                marcas = ', '.join(marcas)
+                filtros.append(f'das marcas: {marcas}')
+
+            if filtros:
+                filtros = ', \n'.join(filtros)
+                filtros = '\n' + filtros
+            else:
+                filtros = ''
+        title = f'{analise} {ordenacao} fabricad{genero}s em {input.ano_fab()}{filtros}\n (ref. {input.ano_ref()})'
+        return title
 
     @output
     @render.plot
@@ -247,14 +301,11 @@ def server(input: Inputs, output: Outputs, session: Session):
             if (tam_motor_max >= tam_motor_min):
                 filtro = ((result['tam_motor'] >= tam_motor_min) & (result['tam_motor'] <= tam_motor_max))
                 result = result[filtro]
-        
-            
+         
         # tipo_motor (filtro avancado)
         if input.choose_tipo_motor() == '1':
             result = result[result['modelo'].str.contains('|'.join(input.tipo_motor()))]
 
-
-        
         # agrupa
         result = result.groupby(input.analise())['valor'].mean()
 
@@ -264,8 +315,10 @@ def server(input: Inputs, output: Outputs, session: Session):
         # qntd (filtro avancado)
         result = result.tail(int(input.qntd()))
 
+        title = build_title(input)
+        plt.title(title)
         plt.barh(result.index, result.values, color='royalblue')
-        plt.xlabel('Valor')
+        plt.xlabel('valor')
         plt.ylabel(input.analise())
         plt.gca().xaxis.grid(True)
 

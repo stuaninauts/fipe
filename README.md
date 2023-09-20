@@ -102,13 +102,10 @@ Or, if you want to run locally,
 <a name="roadmap"></a>
 ## Roadmap
 ### Data Analisys App
-- [x] Refactor hide elements
-- [x] Fix first load
-- [x] Refactor max/min tam_motor
-- [ ] Add title explanations
-- [ ] Add export graphic
-- [ ] Implement interactive graphics
+- [x] Add title explanations
+- [ ] Add export graphic and show/hide title
 - [ ] Implement range of ano_fab 
+- [ ] Implement interactive graphics
 - [ ] Refactor design
 - [ ] Add inflation section
 - [ ] Add individual search section
