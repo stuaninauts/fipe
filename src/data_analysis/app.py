@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import io
+import asyncio
 from pathlib import Path
 from shiny import App, Inputs, Outputs, Session, render, reactive, ui
 
@@ -127,8 +129,29 @@ def show_filtros_avancados():
 
 app_ui = ui.page_fluid(
     ui.h1({"style": "text-align: center;"},"Análise de dados tabela Fipe"),
-    ui.h3("Ranking Geral de Valores Marcas/Modelos"),
-
+    ui.tags.style(
+        """
+        #titulo {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            align: center;
+        }
+        """
+    ),
+    
+        ui.row(
+        ui.column(
+            12,
+            ui.div({"id": "titulo"},
+                ui.h3("Ranking Geral de Valores Marcas/Modelos"),
+                ui.input_action_button("btn_titulo", "Mostrar/Enconder Título do Plot"),
+                ui.download_button("download_plot", "Download Plot"),
+            )
+        ),
+    ),
     ui.layout_sidebar(
         ui.panel_sidebar(
             # anoref: 	slide 2004 --- 2023
@@ -174,7 +197,7 @@ app_ui = ui.page_fluid(
             ),
         ui.panel_main(
             ui.output_plot("plot"),
-            ui.input_action_button("btn_interacoes", "Mostrar/Esconder Interacoes"),
+            ui.input_action_button("btn_interacoes", "Mostrar/Esconder Interacoes (em desenvolvimento)"),
             # ui.output_ui("show_interacoes"),                    
         ),
     ),
@@ -254,7 +277,7 @@ def server(input: Inputs, output: Outputs, session: Session):
                 filtros.append(f'com câmbio {dict_cambio[input.cambio()[0]].lower()}')
 
             if input.choose_tam_motor() == '1':
-                filtros.append(f'com tamanho do motor de {input.tam_motor_min()} à {input.tam_motor_max()}')
+                filtros.append(f'com tamanho do motor de {input.tam_motor_min()} a {input.tam_motor_max()}')
 
             if input.choose_tipo_motor() == '1':
                 motores = [str(motor) for motor in input.tipo_motor()]
@@ -271,12 +294,11 @@ def server(input: Inputs, output: Outputs, session: Session):
                 filtros = '\n' + filtros
             else:
                 filtros = ''
+
         title = f'{analise} {ordenacao} fabricad{genero}s em {input.ano_fab()}{filtros}\n (ref. {input.ano_ref()})'
         return title
 
-    @output
-    @render.plot
-    def plot():
+    def build_plot():
         if input.switch_marcas():
             result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
         else:
@@ -315,12 +337,33 @@ def server(input: Inputs, output: Outputs, session: Session):
         # qntd (filtro avancado)
         result = result.tail(int(input.qntd()))
 
-        title = build_title(input)
-        plt.title(title)
+        if input.btn_titulo()%2 == 0:
+            title = build_title(input)
+        else:
+            title = ''
+        
+        plt.title(title)        
+            
         plt.barh(result.index, result.values, color='royalblue')
         plt.xlabel('valor')
         plt.ylabel(input.analise())
         plt.gca().xaxis.grid(True)
+    
+        return plt
+
+    @output
+    @render.plot
+    def plot():
+        plt = build_plot()
+
+    @session.download(filename="image.png")
+    async def download_plot():      
+        await asyncio.sleep(0.25)
+        plt = build_plot()
+
+        with io.BytesIO() as buf:
+            plt.savefig(buf, format="png")
+            yield buf.getvalue()
 
 
 app = App(app_ui, server)

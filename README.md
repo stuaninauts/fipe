@@ -89,8 +89,8 @@ Compiling `main.c` for database search app
 <!-- DATA ANALYSIS -->
 <a name="#data-analysis-app"></a>
 ### Data Analysis App
-This app is hosted on the following website  
-TO BE DEFINED
+This app is hosted on the following website:  
+https://stuaninauts.shinyapps.io/fipe/
 
 Or, if you want to run locally,
 
@@ -103,7 +103,7 @@ Or, if you want to run locally,
 ## Roadmap
 ### Data Analisys App
 - [x] Add title explanations
-- [ ] Add export graphic and show/hide title
+- [x] Add export graphic and show/hide title
 - [ ] Implement range of ano_fab 
 - [ ] Implement interactive graphics
 - [ ] Refactor design
