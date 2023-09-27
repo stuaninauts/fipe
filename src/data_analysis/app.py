@@ -6,7 +6,6 @@ import asyncio
 from pathlib import Path
 from shiny import App, Inputs, Outputs, Session, render, reactive, ui
 
-
 path_to_db = Path(__file__).parent.parent.parent / "data" / "database.csv"
 df = pd.read_csv(path_to_db, sep=';')
 
@@ -17,121 +16,223 @@ def show_nothing():
     return ""
 
 def show_tam_motor():
-        return ui.row(
-                    ui.column(
-                        6,
-                        ui.input_numeric(
-                            id="tam_motor_min", 
-                            label="Min (L):",
-                            min=min(df['tam_motor']),
-                            max=max(df['tam_motor']),
-                            value=min(df['tam_motor']),
-                            step=0.1,
-                        ),
-                    ),
-                    ui.column(
-                        6,
-                        ui.input_numeric(
-                            id="tam_motor_max", 
-                            label="Max (L):",
-                            min=min(df['tam_motor']),
-                            max=max(df['tam_motor']),
-                            value=max(df['tam_motor']),
-                            step=0.1,
-                        ),
+        return [
+            ui.row(
+                ui.column(
+                    6,
+                    ui.input_numeric(
+                        id="tam_motor_min", 
+                        label="Min (L):",
+                        min=min(df['tam_motor']),
+                        max=max(df['tam_motor']),
+                        value=min(df['tam_motor']),
+                        step=0.1,
                     ),
                 ),
+                ui.column(
+                    6,
+                    ui.input_numeric(
+                        id="tam_motor_max", 
+                        label="Max (L):",
+                        min=min(df['tam_motor']),
+                        max=max(df['tam_motor']),
+                        value=max(df['tam_motor']),
+                        step=0.1,
+                    ),
+                ),
+            ),
+        ]
 
 def show_tipo_motor():
-    return ui.input_checkbox_group(
-                    id="tipo_motor",
-                    label="Cilindros:",
-                    choices=["V12", "V10", "V8", "V6"],
-                    selected=["V12", "V10", "V8", "V6"],
-            ),
+    return [
+        ui.input_checkbox_group(
+            id="tipo_motor",
+            label="Cilindros:",
+            choices=["V12", "V10", "V8", "V6"],
+            selected=["V12", "V10", "V8", "V6"],
+        ),
+    ]
 
 def show_filtrar_marcas_on():
-    return ui.input_checkbox_group(
-                        id="marcas_selecionadas", 
-                        label="Selecionar Marcas", 
-                        choices=df['marca'].tolist(),
-                        selected=None,
-            ),
+    return [
+        ui.input_checkbox_group(
+            id="marcas_selecionadas", 
+            label="Selecionar Marcas", 
+            choices=df['marca'].tolist(),
+            selected=None,
+        ),
+    ]
 
 def show_filtrar_marcas():
-    return ui.panel_well (        
-                ui.input_switch("switch_marcas", "Filtrar Marcas"),
-                # nav filtrar marcas on 
-                ui.navset_hidden(
-                    ui.nav(None, show_nothing(), value='False'),
-                    ui.nav(None, show_filtrar_marcas_on(), value='True'),
-                    id="nav_filtrar_marcas_on",
-                ),          
-            ),
-
-
+    return [
+        ui.panel_well (        
+            ui.input_switch("switch_marcas", "Filtrar Marcas"),
+            # nav filtrar marcas on 
+            ui.navset_hidden(
+                ui.nav(None, show_nothing(), value='False'),
+                ui.nav(None, show_filtrar_marcas_on(), value='True'),
+                id="nav_filtrar_marcas_on",
+            ),          
+        ),
+    ]
 
 def show_filtros_avancados():
-    return  ui.panel_well (
-                # quantidade:   slide
+    return  [
+        ui.panel_well (
+            # quantidade:   slide
+            ui.input_slider(
+                "qntd", "Quantidade:", min=5, max=15, value=10, step=1,
+            ),
+            # combustivel: 	button g / a / d / e 
+            ui.input_checkbox_group(
+                id="combustivel", 
+                label="Tipo de combustível", 
+                choices=dict_combustivel,
+                selected=tuple(dict_combustivel.keys()),
+            ),
+            # cambio: 	button m / a
+            ui.input_checkbox_group(
+                id="cambio", 
+                label="Câmbio", 
+                choices=dict_cambio,
+                selected=tuple(dict_cambio.keys()),
+            ),
+            # tam motor: min max
+            ui.input_radio_buttons(
+                id="choose_tam_motor", 
+                label="Tamanho do motor:", 
+                choices={'0': "Todos", '1': "Definir intervalo"}, 
+                selected='0',
+            ),
+            # nav tam motor
+            ui.navset_hidden(
+                ui.nav(None, show_nothing(), value='0'),
+                ui.nav(None, show_tam_motor(), value='1'),
+                id="nav_tam_motor",
+            ),
+            # tipo motor: button v12 v10 v8 v6 outros
+            ui.input_radio_buttons(
+                id="choose_tipo_motor", 
+                label="Tipo do motor:", 
+                choices={'0': "Todos", '1': "Escolher específico(s)"},
+                selected='0',
+            ),
+            # nav tipo motor
+            ui.navset_hidden(
+                ui.nav(None, show_nothing(), value='0'),
+                ui.nav(None, show_tipo_motor(), value='1'),
+                id="nav_tipo_motor",
+            ),      
+
+            # nav filtrar marcas
+            ui.navset_hidden(
+                ui.nav(None, show_nothing(), value='marca'),
+                ui.nav(None, show_filtrar_marcas(), value='modelo'),
+                id="nav_filtrar_marcas",
+            ),      
+        )           
+    ]
+
+def nav_ranking():
+    return [
+        ui.row(
+            ui.column(
+                12,
+                ui.div({"class": "titulo"},
+                    ui.h3("Ranking Geral de Valores Marcas/Modelos"),
+                    ui.input_action_button("btn_titulo", "Mostrar/Enconder Título do Plot"),
+                    ui.download_button("download_ranking_plot", "Download Plot"),
+                )
+            ),
+        ),
+        ui.layout_sidebar(
+            ui.panel_sidebar(
+                # anoref: 	slide 2004 --- 2023
+                ui.input_select(
+                    id="ano_ref",
+                    label="Ano de referência:",
+                    choices=sorted(df['ano_ref'].unique().tolist()),
+                    selected=2023,
+                ),
+                # anofab: 	slide 19xx --- 2023
                 ui.input_slider(
-                    "qntd", "Quantidade:", min=5, max=15, value=10, step=1,
+                    id="ano_fab",
+                    label="Ano de fabricação:",
+                    min=min(df['ano_fab']),
+                    max=2023,
+                    value=2023,
+                    sep='',
+                    animate=True,
                 ),
-                # combustivel: 	button g / a / d / e 
-                ui.input_checkbox_group(
-                    id="combustivel", 
-                    label="Tipo de combustível", 
-                    choices=dict_combustivel,
-                    selected=tuple(dict_combustivel.keys()),
-                ),
-                # cambio: 	button m / a
-                ui.input_checkbox_group(
-                    id="cambio", 
-                    label="Câmbio", 
-                    choices=dict_cambio,
-                    selected=tuple(dict_cambio.keys()),
-                ),
-                # tam motor: min max
+                # tipo: button marca ou modelo
                 ui.input_radio_buttons(
-                    id="choose_tam_motor", 
-                    label="Tamanho do motor:", 
-                    choices={'0': "Todos", '1': "Definir intervalo"}, 
-                    selected='0',
+                    id="analise", 
+                    label="Análise:", 
+                    choices={"marca": "Marcas", "modelo": "Modelos"},
+                    selected="marca",
+                ),            
+                # ordem: button ascendente / descendente
+                ui.input_radio_buttons(
+                    id="ordem", 
+                    label="Ordenação dos valores:", 
+                    choices={'': "Mais Baratas(os)", '1': "Mais caras(os)"}, # '' to bool(str) => False
+                    selected='',
                 ),
-                # nav tam motor
+                # nav filtros avançados
+                ui.input_action_button("btn_filtros", "Mostrar/Esconder Filtros Avançados"),
                 ui.navset_hidden(
                     ui.nav(None, show_nothing(), value='0'),
-                    ui.nav(None, show_tam_motor(), value='1'),
-                    id="nav_tam_motor",
+                    ui.nav(None, show_filtros_avancados(), value='1'),
+                    id="nav_filtros_avancados",
                 ),
-                # tipo motor: button v12 v10 v8 v6 outros
-                ui.input_radio_buttons(
-                    id="choose_tipo_motor", 
-                    label="Tipo do motor:", 
-                    choices={'0': "Todos", '1': "Escolher específico(s)"},
-                    selected='0',
+            ),
+            ui.panel_main(
+                ui.output_plot("plot_ranking"),
+                ui.input_action_button("btn_interacoes", "Mostrar/Esconder Interacoes (em desenvolvimento)"),
+                # ui.output_ui("show_interacoes"),                    
+            ),
+        ),
+    ]
+
+def nav_historico():
+    return [
+        ui.row(
+            ui.column(
+                12,
+                ui.div({"class": "titulo"},
+                    ui.h3("Histórico da Tabela Fipe de um Modelo Individual"),
+                    ui.download_button("download_historico_plot", "Download Plot"),
                 ),
-                # nav tipo motor
-                ui.navset_hidden(
-                    ui.nav(None, show_nothing(), value='0'),
-                    ui.nav(None, show_tipo_motor(), value='1'),
-                    id="nav_tipo_motor",
-                ),      
-
-                # nav filtrar marcas
-                ui.navset_hidden(
-                    ui.nav(None, show_nothing(), value='marca'),
-                    ui.nav(None, show_filtrar_marcas(), value='modelo'),
-                    id="nav_filtrar_marcas",
-                ),      
-            )           
-
+            ),
+        ),
+        ui.layout_sidebar(
+            ui.panel_sidebar(
+                ui.input_select(
+                    id="modelo_ano_fab",
+                    label="Ano de fabricação:",
+                    choices=list(range(2023, min(df['ano_fab'])-1, -1)),
+                    selected=2023,
+                    multiple=False,
+                ),
+                ui.input_selectize(
+                    "modelo_index",
+                    "Digite/Escolha o Modelo:",
+                    [],
+                    multiple=False,
+                ),
+                ui.input_action_button("btn_buscar", "Buscar", class_="btn-success"),
+            ),
+            ui.panel_main(
+                ui.output_plot("plot_historico"),
+            ),
+        ),
+    ]
 
 app_ui = ui.page_fluid(
     ui.h1({"style": "text-align: center;"},"Análise de dados tabela Fipe"),
     ui.tags.style(
         """
-        #titulo {
+        .titulo {
             border: 1px solid black;
             border-radius: 5px;
             padding: 8px;
@@ -141,70 +242,11 @@ app_ui = ui.page_fluid(
         }
         """
     ),
-    
-        ui.row(
-        ui.column(
-            12,
-            ui.div({"id": "titulo"},
-                ui.h3("Ranking Geral de Valores Marcas/Modelos"),
-                ui.input_action_button("btn_titulo", "Mostrar/Enconder Título do Plot"),
-                ui.download_button("download_plot", "Download Plot"),
-            )
-        ),
-    ),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            # anoref: 	slide 2004 --- 2023
-            ui.input_select(
-                id="ano_ref",
-                label="Ano de referência:",
-                choices=sorted(df['ano_ref'].unique().tolist()),
-                selected=2023,
-            ),
-            # anofab: 	slide 19xx --- 2023
-            ui.input_slider(
-                id="ano_fab",
-                label="Ano de fabricação:",
-                min=min(df['ano_fab']),
-                max=2023,
-                value=2023,
-                sep='',
-                animate=True,
-            ),
-            # tipo: button marca ou modelo
-            ui.input_radio_buttons(
-                id="analise", 
-                label="Análise:", 
-                choices={"marca": "Marcas", "modelo": "Modelos"},
-                selected="marca",
-            ),            
-            # ordem: button ascendente / descendente
-            ui.input_radio_buttons(
-                id="ordem", 
-                label="Ordenação dos valores:", 
-                choices={'': "Mais Baratas(os)", '1': "Mais caras(os)"}, # '' to bool(str) => False
-                selected='',
-            ),
-            # nav filtros avançados
-            ui.input_action_button("btn_filtros", "Mostrar/Esconder Filtros Avançados"),
-            ui.navset_hidden(
-                ui.nav(None, show_nothing(), value='0'),
-                ui.nav(None, show_filtros_avancados(), value='1'),
-                id="nav_filtros_avancados",
-            ),
-
-
-            ),
-        ui.panel_main(
-            ui.output_plot("plot"),
-            ui.input_action_button("btn_interacoes", "Mostrar/Esconder Interacoes (em desenvolvimento)"),
-            # ui.output_ui("show_interacoes"),                    
-        ),
+    ui.navset_tab_card(
+        ui.nav("Ranking de Valores", nav_ranking()),
+        ui.nav("Histórico Modelo Individual", nav_historico()),
     ),
 )
-
-
-
 
 def server(input: Inputs, output: Outputs, session: Session):
     @reactive.Effect
@@ -249,7 +291,7 @@ def server(input: Inputs, output: Outputs, session: Session):
             min=input.tam_motor_min(),
         ),
     
-    def build_title(input):
+    def build_ranking_title(input):
         analise = ''
         ordenacao = ''
         genero = ''
@@ -298,7 +340,7 @@ def server(input: Inputs, output: Outputs, session: Session):
         title = f'{analise} {ordenacao} fabricad{genero}s em {input.ano_fab()}{filtros}\n (ref. {input.ano_ref()})'
         return title
 
-    def build_plot():
+    def build_ranking_plot():
         if input.switch_marcas():
             result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
         else:
@@ -338,7 +380,7 @@ def server(input: Inputs, output: Outputs, session: Session):
         result = result.tail(int(input.qntd()))
 
         if input.btn_titulo()%2 == 0:
-            title = build_title(input)
+            title = build_ranking_title(input)
         else:
             title = ''
         
@@ -348,22 +390,53 @@ def server(input: Inputs, output: Outputs, session: Session):
         plt.xlabel('valor')
         plt.ylabel(input.analise())
         plt.gca().xaxis.grid(True)
-    
+        
         return plt
 
     @output
     @render.plot
-    def plot():
-        plt = build_plot()
+    def plot_ranking():
+        plt = build_ranking_plot()
 
-    @session.download(filename="image.png")
-    async def download_plot():      
-        await asyncio.sleep(0.25)
-        plt = build_plot()
+    @session.download(filename="ranking.png")
+    async def download_ranking_plot():      
+        await asyncio.sleep(0.25)   
+        plt = build_ranking_plot()
 
         with io.BytesIO() as buf:
             plt.savefig(buf, format="png")
             yield buf.getvalue()
+    # -------------------------------------------------------------------------------------------
+    @reactive.Effect
+    @reactive.event(input.modelo_ano_fab)
+    def _():
+        modelo_ano_fab = int(input.modelo_ano_fab())
+        modelos = df[df["ano_ref"] == 2023]
+        modelos = modelos[modelos["ano_fab"] == modelo_ano_fab]
+        ui.update_selectize("modelo_index", choices=modelos["modelo"])
+
+    def build_historico_plot():
+        modelo_nome = df.iloc[int(input.modelo_index())]["modelo"]
+        result = df[df["modelo"] == modelo_nome]
+        result = result[result["ano_fab"] == int(input.modelo_ano_fab())]
+        print(result.describe())
+        
+        plt.title(modelo_nome)
+        plt.barh(result["ano_ref"], result["valor"], color='royalblue')
+        plt.xlabel('valor')
+        plt.ylabel('ano ref.')
+        plt.yticks(range(int(min(result["ano_ref"])), int(max(result["ano_ref"]))+1))
+        plt.gca().xaxis.grid(True)
+
+
+        return plt
+
+
+    @output
+    @render.plot
+    @reactive.event(input.btn_buscar, ignore_none=True)
+    def plot_historico():
+        plt = build_historico_plot()
 
 
 app = App(app_ui, server)
