@@ -3,14 +3,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 import asyncio
+import re
 from pathlib import Path
 from shiny import App, Inputs, Outputs, Session, render, reactive, ui
+from urllib.request import Request, urlopen
+from bs4 import BeautifulSoup
 
 path_to_db = Path(__file__).parent.parent.parent / "data" / "database.csv"
 df = pd.read_csv(path_to_db, sep=';')
 
 dict_combustivel = {'g': "Gasolina", 'a': "Álcool", 'd': "Diesel", 'e': "Elétrico"}
 dict_cambio = {'m': "Manual", 'a': "Automático"}
+
+ano_modelo_placa = 0
 
 def show_nothing():
     return ""
@@ -207,25 +212,61 @@ def nav_historico():
         ),
         ui.layout_sidebar(
             ui.panel_sidebar(
-                ui.input_select(
-                    id="modelo_ano_fab",
-                    label="Ano de fabricação:",
-                    choices=list(range(2023, min(df['ano_fab'])-1, -1)),
-                    selected=2023,
-                    multiple=False,
+                ui.navset_tab_card(
+                    ui.nav("Por Veículo", nav_historico_veiculo()),
+                    ui.nav("Por Placa", nav_historico_placa()),
                 ),
-                ui.input_selectize(
-                    "modelo_index",
-                    "Digite/Escolha o Modelo:",
-                    [],
-                    multiple=False,
-                ),
-                ui.input_action_button("btn_buscar", "Buscar", class_="btn-success"),
             ),
             ui.panel_main(
-                ui.output_plot("plot_historico"),
+                ui.navset_hidden(
+                    ui.nav(None, ui.output_plot("plot_historico_veiculo"), value='veiculo'),
+                    ui.nav(None, ui.output_plot("plot_historico_placa"), value='placa'),
+                    id="nav_plot_veiculo_ou_placa",
+                ),
+                
             ),
         ),
+    ]
+
+def nav_historico_veiculo():
+    return [
+        ui.input_select(
+            id="modelo_ano_fab",
+            label="Ano de fabricação:",
+            choices=list(range(2023, min(df['ano_fab'])-1, -1)),
+            selected=2023,
+            multiple=False,
+        ),
+        ui.input_selectize(
+            "modelo_index",
+            "Digite/Escolha o Modelo:",
+            [],
+            multiple=False,
+        ),
+        ui.input_action_button("btn_veiculo_exibir", "Exibir Gráfico", class_="btn-success"),
+    ]
+
+def show_placa_modelos():
+    return [
+        ui.input_selectize(
+            "modelo_placa_selecionado",
+            "Selecione o modelo:",
+            [],
+            multiple=False,
+        ),
+        ui.input_action_button("btn_placa_exibir", "Exibir Gráfico", class_="btn-success"),   
+    ]
+
+def nav_historico_placa():
+    return [
+        ui.input_text("modelo_placa", "Digite a Placa:"),
+        ui.input_action_button("btn_buscar_placa", "Buscar Placa", class_="btn-success"),   
+        ui.navset_hidden(
+            ui.nav(None, show_nothing(), value='0'),
+            ui.nav(None, show_placa_modelos(), value='1'),
+            id="nav_modelos_placa",
+        ),
+        ui.output_text_verbatim("placa_mensagem", ""),
     ]
 
 app_ui = ui.page_fluid(
@@ -363,7 +404,7 @@ def server(input: Inputs, output: Outputs, session: Session):
             tam_motor_max = float(input.tam_motor_max())
             tam_motor_min = float(input.tam_motor_min())
             if (tam_motor_max >= tam_motor_min):
-                filtro = ((result['tam_motor'] >= tam_motor_min) & (result['tam_motor'] <= tam_motor_max))
+                filtro = ((result['tam_motor'] >= tam_motor_min) and (result['tam_motor'] <= tam_motor_max))
                 result = result[filtro]
          
         # tipo_motor (filtro avancado)
@@ -408,6 +449,16 @@ def server(input: Inputs, output: Outputs, session: Session):
             yield buf.getvalue()
     # -------------------------------------------------------------------------------------------
     @reactive.Effect
+    @reactive.event(input.btn_veiculo_exibir)
+    def _():
+        ui.update_navs("nav_plot_veiculo_ou_placa", selected='veiculo')
+    
+    @reactive.Effect
+    @reactive.event(input.btn_placa_exibir)
+    def _():
+        ui.update_navs("nav_plot_veiculo_ou_placa", selected='placa')
+
+    @reactive.Effect
     @reactive.event(input.modelo_ano_fab)
     def _():
         modelo_ano_fab = int(input.modelo_ano_fab())
@@ -415,28 +466,101 @@ def server(input: Inputs, output: Outputs, session: Session):
         modelos = modelos[modelos["ano_fab"] == modelo_ano_fab]
         ui.update_selectize("modelo_index", choices=modelos["modelo"])
 
-    def build_historico_plot():
-        modelo_nome = df.iloc[int(input.modelo_index())]["modelo"]
-        result = df[df["modelo"] == modelo_nome]
-        result = result[result["ano_fab"] == int(input.modelo_ano_fab())]
-        print(result.describe())
+    @reactive.Effect
+    @reactive.event(input.btn_buscar_placa)
+    def _():
+        global ano_modelo_placa
+        padrao = r"[a-zA-Z]{3}\d([a-zA-Z]|\d)\d{2}"
+        if re.fullmatch(padrao, input.modelo_placa()):
+            url = f'https://placafipe.com/placa/{input.modelo_placa()}'
+            req = Request(
+                url=url, 
+                headers={'User-Agent': 'Mozilla/5.0'}
+            )
+            response = urlopen(req)
+            status_code = response.getcode()
+
+            if status_code == 200:
+                soup = BeautifulSoup(response, 'html.parser')
+                aviso_placa_nao_encontrada = soup.select_one('.template-middle > div:nth-child(1) > p:nth-child(2)')
+                if aviso_placa_nao_encontrada == None:
+                    modelos_por_placa = []
+                    tabela = soup.select_one('.fipe-desktop')
+                    for linha in tabela.find_all('tr')[1:]:
+                        modelos_por_placa.append(linha.find_all('td')[1].text)
+                    ano_modelo_placa = int(soup.select_one('.fipeTablePriceDetail').find_all('tr')[5].find_all('td')[1].text)
+                    ui.update_navs("nav_modelos_placa", selected='1')
+                    ui.update_selectize("modelo_placa_selecionado", choices=modelos_por_placa)
+                else:
+                    m = ui.modal(
+                        aviso_placa_nao_encontrada.text,
+                        title="Placa Incorreta",
+                        easy_close=True,
+                        footer=None,
+                    )
+                    ui.modal_show(m)
+                    ui.update_navs("nav_modelos_placa", selected='0')
+            else:
+                m = ui.modal(
+                    "Recarregue e tente novamente! Se o erro persistir contate o desenvolvedor",
+                    title="Erro ao abrir o site",
+                    easy_close=True,
+                    footer=None,
+                )
+                ui.modal_show(m)
+        else:
+            m = ui.modal(
+                "Digite a placa no formato ABC1234 ou ABC1D23",
+                title="Padrão incorreto da placa",
+                easy_close=True,
+                footer=None,
+            )
+            ui.modal_show(m)
+            ui.update_navs("nav_modelos_placa", selected='0')
+       
+
+    def build_historico_plot(por_modalidade):
+        global ano_modelo_placa
+        if por_modalidade == 'veiculo':
+            modelo_nome = df.iloc[int(input.modelo_index())]["modelo"]
+            ano_fab = int(input.modelo_ano_fab())
+        else: # por_modalidade == 'placa'
+            modelo_nome = input.modelo_placa_selecionado()
+            ano_fab = ano_modelo_placa
         
+        result = df[df["modelo"] == modelo_nome]
+        result = result[result["ano_fab"] == ano_fab]
         plt.title(modelo_nome)
         plt.barh(result["ano_ref"], result["valor"], color='royalblue')
         plt.xlabel('valor')
         plt.ylabel('ano ref.')
+
+    
         plt.yticks(range(int(min(result["ano_ref"])), int(max(result["ano_ref"]))+1))
         plt.gca().xaxis.grid(True)
 
 
         return plt
 
+    @output
+    @render.plot
+    @reactive.event(input.btn_placa_exibir, ignore_none=True)
+    def plot_historico_placa():
+        plt = build_historico_plot('placa')
 
     @output
     @render.plot
-    @reactive.event(input.btn_buscar, ignore_none=True)
-    def plot_historico():
+    @reactive.event(input.btn_veiculo_exibir, ignore_none=True)
+    def plot_historico_veiculo():
+        plt = build_historico_plot('veiculo')
+    
+    @session.download(filename="historico.png")
+    async def download_historico_plot():      
+        await asyncio.sleep(0.25)   
         plt = build_historico_plot()
 
+        with io.BytesIO() as buf:
+            plt.savefig(buf, format="png")
+            yield buf.getvalue()
 
 app = App(app_ui, server)
