@@ -104,8 +104,8 @@ Or, if you want to run locally,
 ### Data Analisys App
 - [x] Add title explanations
 - [x] Add export graphic and show/hide title
-- [X] Add individual search section
-- [ ] Implement search with plate
+- [x] Add individual search section
+- [x] Implement search with plate
 - [ ] Implement range of ano_fab 
 - [ ] Implement interactive graphics
 - [ ] Refactor design
