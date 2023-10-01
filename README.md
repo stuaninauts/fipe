@@ -53,7 +53,7 @@ The FIPE project is an outcome of the final assignment for the course INF01124 -
 2. Install the required packages using the package manager [pip](https://pip.pypa.io/en/stable/).
 
    ```bash
-   $ pip install pandas mathplotlib pathlib shiny
+   $ pip install -r requirements.txt
    
 <!-- RUNNING FROM SCRATCH -->
 <a name="#running-from-scratch"></a>
