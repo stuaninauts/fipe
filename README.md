@@ -34,7 +34,7 @@ The FIPE project is an outcome of the final assignment for the course INF01124 -
 		</ul>
 	</li>
     <li><b>Search Application: </b> This terminal based application provides users the ability to query the datasets using the indexing structures.</li>
-    <li><b>Data Analysis Application: </b> This application serves as a tool for exploring and visualizing automotive data. Users can generate graphical representations using a variety of filters, such as brand, model, manufacturing year, type of fuel, type of gear, etc.  
+    <li><b>Data Analysis Application: </b> This application serves as a tool for exploring and visualizing automotive data. Users can generate graphical representations using a variety of filters, such as brand, model, manufacturing year, type of fuel, type of gear, etc.  Also you can generate a value history graph based on a single model or car plate (brazillian). 
     Note: this app still have planned features (look <a href="#roadmap">roadmap</a>).</li>
 </ol>
 
@@ -90,7 +90,7 @@ Compiling `main.c` for database search app
 <a name="#data-analysis-app"></a>
 ### Data Analysis App
 This app is hosted on the following website:  
-https://stuaninauts.shinyapps.io/fipe/
+https://fipe.stuaninauts.com
 
 Or, if you want to run locally,
 
