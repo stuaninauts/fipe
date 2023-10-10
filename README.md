@@ -90,7 +90,7 @@ Compiling `main.c` for database search app
 <a name="#data-analysis-app"></a>
 ### Data Analysis App
 This app is hosted on the following website:  
-https://stuaninauts.shinyapps.io/fipe/
+https://fipe.stuaninauts.com
 
 Or, if you want to run locally,
 
@@ -106,6 +106,7 @@ Or, if you want to run locally,
 - [x] Add export graphic and show/hide title
 - [x] Add individual search section
 - [x] Implement search with plate
+- [ ] Fix search with plate for the website
 - [ ] Implement range of ano_fab 
 - [ ] Implement interactive graphics
 - [ ] Refactor design

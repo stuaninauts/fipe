@@ -214,7 +214,7 @@ def nav_historico():
             ui.panel_sidebar(
                 ui.navset_tab_card(
                     ui.nav("Por Veículo", nav_historico_veiculo()),
-                    ui.nav("Por Placa", nav_historico_placa()),
+                    #ui.nav("Por Placa", nav_historico_placa()),
                 ),
             ),
             ui.panel_main(
