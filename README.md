@@ -107,6 +107,7 @@ Or, if you want to run locally,
 - [x] Add individual search section
 - [x] Implement search with plate
 - [ ] Fix search with plate for the website
+- [ ] Add internal documentation
 - [ ] Implement range of ano_fab 
 - [ ] Implement interactive graphics
 - [ ] Refactor design
