@@ -6,6 +6,7 @@ import asyncio
 import re
 from pathlib import Path
 from shiny import App, Inputs, Outputs, Session, render, reactive, ui
+import shiny.experimental as x
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
@@ -184,12 +185,12 @@ def nav_ranking():
                     selected='',
                 ),
                 # nav filtros avançados
-                ui.input_action_button("btn_filtros", "Mostrar/Esconder Filtros Avançados"),
-                ui.navset_hidden(
-                    ui.nav(None, show_nothing(), value='0'),
-                    ui.nav(None, show_filtros_avancados(), value='1'),
-                    id="nav_filtros_avancados",
-                ),
+                x.ui.accordion(
+                    x.ui.accordion_panel(
+                        "Filtros avançados",
+                        show_filtros_avancados(),                    
+                    ),  
+                ),   
             ),
             ui.panel_main(
                 ui.output_plot("plot_ranking"),
@@ -214,7 +215,9 @@ def nav_historico():
             ui.panel_sidebar(
                 ui.navset_tab_card(
                     ui.nav("Por Veículo", nav_historico_veiculo()),
-                    #ui.nav("Por Placa", nav_historico_placa()),
+                    # section commented because have to fix port settings on the website fipe.stuaninauts.com
+                    # if you uncomment will work locally!
+                    # ui.nav("Por Placa", nav_historico_placa()),
                 ),
             ),
             ui.panel_main(
@@ -296,11 +299,6 @@ def server(input: Inputs, output: Outputs, session: Session):
         ui.update_slider("ano_fab", max=input.ano_ref())
 
     @reactive.Effect
-    @reactive.event(input.btn_filtros)
-    def _():
-        ui.update_navs("nav_filtros_avancados", selected=str(input.btn_filtros()%2))
-
-    @reactive.Effect
     @reactive.event(input.choose_tam_motor)
     def _():
         ui.update_navs("nav_tam_motor", selected=input.choose_tam_motor())
@@ -349,34 +347,36 @@ def server(input: Inputs, output: Outputs, session: Session):
         else:
             ordenacao = f'mais car{genero}s'
 
-        if input.btn_filtros()%2 == 1:
-            filtros = []
-            if len(input.combustivel()) < 4:
-                combustiveis = [dict_combustivel[comb].lower() for comb in input.combustivel()]
-                combustiveis = ', '.join(combustiveis)
-                filtros.append(f'com tipo de combustível: {combustiveis}')
 
-            if len(input.cambio()) < 2:
-                filtros.append(f'com câmbio {dict_cambio[input.cambio()[0]].lower()}')
+        filtros = []
+        if len(input.combustivel()) < 4:
+            combustiveis = [dict_combustivel[comb].lower() for comb in input.combustivel()]
+            combustiveis = ', '.join(combustiveis)
+            filtros.append(f'com tipo de combustível: {combustiveis}')
 
-            if input.choose_tam_motor() == '1':
-                filtros.append(f'com tamanho do motor de {input.tam_motor_min()} a {input.tam_motor_max()}')
+        if len(input.cambio()) < 2:
+            filtros.append(f'com câmbio {dict_cambio[input.cambio()[0]].lower()}')
 
-            if input.choose_tipo_motor() == '1':
-                motores = [str(motor) for motor in input.tipo_motor()]
-                motores = ', '.join(motores)
-                filtros.append(f'com motor {motores}')
+        if input.choose_tam_motor() == '1':
+            filtros.append(f'com tamanho do motor de {input.tam_motor_min()} a {input.tam_motor_max()}')
 
-            if input.switch_marcas() and input.marcas_selecionadas():
-                marcas = list(input.marcas_selecionadas())
-                marcas = ', '.join(marcas)
-                filtros.append(f'das marcas: {marcas}')
+        if input.choose_tipo_motor() == '1':
+            motores = [str(motor) for motor in input.tipo_motor()]
+            motores = ', '.join(motores)
+            if not input.tipo_motor():
+                motores = 'qualquer'
+            filtros.append(f'com motor {motores}')
 
-            if filtros:
-                filtros = ', \n'.join(filtros)
-                filtros = '\n' + filtros
-            else:
-                filtros = ''
+        if input.switch_marcas() and input.marcas_selecionadas():
+            marcas = list(input.marcas_selecionadas())
+            marcas = ', '.join(marcas)
+            filtros.append(f'das marcas: {marcas}')
+
+        if filtros:
+            filtros = ', \n'.join(filtros)
+            filtros = '\n' + filtros
+        else:
+            filtros = ''
 
         title = f'{analise} {ordenacao} fabricad{genero}s em {input.ano_fab()}{filtros}\n (ref. {input.ano_ref()})'
         return title
@@ -404,8 +404,9 @@ def server(input: Inputs, output: Outputs, session: Session):
             tam_motor_max = float(input.tam_motor_max())
             tam_motor_min = float(input.tam_motor_min())
             if (tam_motor_max >= tam_motor_min):
-                filtro = ((result['tam_motor'] >= tam_motor_min) and (result['tam_motor'] <= tam_motor_max))
-                result = result[filtro]
+                result = result[(result['tam_motor'] <= tam_motor_max)]
+                result = result[(result['tam_motor'] >= tam_motor_min)]
+                print(result['tam_motor'])
          
         # tipo_motor (filtro avancado)
         if input.choose_tipo_motor() == '1':
