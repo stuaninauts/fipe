@@ -89,14 +89,18 @@ Compiling `main.c` for database search app
 <!-- DATA ANALYSIS -->
 <a name="#data-analysis-app"></a>
 ### Data Analysis App
-This app is hosted on the following website:  
-https://fipe.stuaninauts.com
+This app is hosted temporarily on this [website](https://connect.posit.cloud/stuaninauts/content/018f9c3c-1ce8-966d-c199-4013dc10b686)
+
 
 Or, if you want to run locally,
 
     $ cd src/data_analysis
     $ shiny run --reload
 
+#### Preview
+![General Ranking](examples/ranking-geral.png)
+![Ranking Based on Vehicle](examples/por-veiculo.png)
+![Ranking Based on Plate](examples/por-placa.png)
 
 <!-- ROADMAP -->
 <a name="roadmap"></a>
