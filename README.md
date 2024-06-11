@@ -89,7 +89,8 @@ Compiling `main.c` for database search app
 <!-- DATA ANALYSIS -->
 <a name="#data-analysis-app"></a>
 ### Data Analysis App
-This app is hosted temporarily on this [website](https://connect.posit.cloud/stuaninauts/content/018f9c3c-1ce8-966d-c199-4013dc10b686)
+This app is hosted on the following website:  
+https://fipe.stuaninauts.com
 
 
 Or, if you want to run locally,
@@ -98,8 +99,13 @@ Or, if you want to run locally,
     $ shiny run --reload
 
 #### Preview
+General price ranking of vehicles/brands using filters:
 ![General Ranking](examples/ranking-geral.png)
+
+Price history using the name of the model:
 ![Ranking Based on Vehicle](examples/por-veiculo.png)
+
+Price history using the plate of the model:
 ![Ranking Based on Plate](examples/por-placa.png)
 
 <!-- ROADMAP -->
@@ -110,10 +116,10 @@ Or, if you want to run locally,
 - [x] Add export graphic and show/hide title
 - [x] Add individual search section
 - [x] Implement search with plate
+- [x] Refactor design
 - [ ] Fix search with plate for the website
 - [ ] Add internal documentation
 - [ ] Implement range of ano_fab 
 - [ ] Implement interactive graphics
-- [ ] Refactor design
 - [ ] Add inflation section
 
