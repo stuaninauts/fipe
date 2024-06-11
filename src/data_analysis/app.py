@@ -217,7 +217,7 @@ def nav_historico():
                     ui.nav("Por Veículo", nav_historico_veiculo()),
                     # section commented because have to fix port settings on the website fipe.stuaninauts.com
                     # if you uncomment will work locally!
-                    # ui.nav("Por Placa", nav_historico_placa()),
+                    ui.nav("Por Placa", nav_historico_placa()),
                 ),
             ),
             ui.panel_main(
@@ -273,25 +273,19 @@ def nav_historico_placa():
     ]
 
 app_ui = ui.page_fluid(
-    ui.h1({"style": "text-align: center;"},"Análise de dados tabela Fipe"),
-    ui.tags.style(
-        """
-        .titulo {
-            border: 1px solid black;
-            border-radius: 5px;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            align: center;
-        }
-        """
+    ui.tags.html(
+        {
+            "data-bs-theme": "dark"
+        },
+        ui.include_css("custom.css"),
+        ui.h1({"style": "text-align: center;"}, "Análise de dados tabela Fipe"),
+        ui.navset_tab_card(
+            ui.nav("Ranking de Valores", nav_ranking()),
+            ui.nav("Histórico Modelo Individual", nav_historico()),
+        )
     ),
-    ui.navset_tab_card(
-        ui.nav("Ranking de Valores", nav_ranking()),
-        ui.nav("Histórico Modelo Individual", nav_historico()),
-    ),
-)
 
+)
 def server(input: Inputs, output: Outputs, session: Session):
     @reactive.Effect
     @reactive.event(input.ano_ref)
@@ -382,6 +376,21 @@ def server(input: Inputs, output: Outputs, session: Session):
         return title
 
     def build_ranking_plot():
+        plt.style.use('dark_background')
+        plt.rcParams.update({
+            'axes.facecolor': '#1e1e1e',
+            'axes.edgecolor': '#f4f4f4',
+            'axes.labelcolor': '#f4f4f4',
+            'xtick.color': '#f4f4f4',
+            'ytick.color': '#f4f4f4',
+            'grid.color': '#494949',
+            'text.color': '#f4f4f4',
+            'figure.facecolor': '#1e1e1e',
+            'figure.edgecolor': '#1e1e1e',
+            'savefig.facecolor': '#1e1e1e',
+            'savefig.edgecolor': '#1e1e1e'
+        })
+
         if input.switch_marcas():
             result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
         else:
@@ -407,7 +416,7 @@ def server(input: Inputs, output: Outputs, session: Session):
                 result = result[(result['tam_motor'] <= tam_motor_max)]
                 result = result[(result['tam_motor'] >= tam_motor_min)]
                 print(result['tam_motor'])
-         
+        
         # tipo_motor (filtro avancado)
         if input.choose_tipo_motor() == '1':
             result = result[result['modelo'].str.contains('|'.join(input.tipo_motor()))]
@@ -421,17 +430,16 @@ def server(input: Inputs, output: Outputs, session: Session):
         # qntd (filtro avancado)
         result = result.tail(int(input.qntd()))
 
-        if input.btn_titulo()%2 == 0:
+        if input.btn_titulo() % 2 == 0:
             title = build_ranking_title(input)
         else:
             title = ''
         
         plt.title(title)        
-            
-        plt.barh(result.index, result.values, color='royalblue')
+        plt.barh(result.index, result.values, color='#e64729') 
         plt.xlabel('valor')
         plt.ylabel(input.analise())
-        plt.gca().xaxis.grid(True)
+        plt.gca().xaxis.grid(True, color='#494949') 
         
         return plt
 
@@ -521,6 +529,21 @@ def server(input: Inputs, output: Outputs, session: Session):
        
 
     def build_historico_plot(por_modalidade):
+        plt.style.use('dark_background')
+        plt.rcParams.update({
+            'axes.facecolor': '#1e1e1e',
+            'axes.edgecolor': '#f4f4f4',
+            'axes.labelcolor': '#f4f4f4',
+            'xtick.color': '#f4f4f4',
+            'ytick.color': '#f4f4f4',
+            'grid.color': '#494949',
+            'text.color': '#f4f4f4',
+            'figure.facecolor': '#1e1e1e',
+            'figure.edgecolor': '#1e1e1e',
+            'savefig.facecolor': '#1e1e1e',
+            'savefig.edgecolor': '#1e1e1e'
+        })
+
         global ano_modelo_placa
         if por_modalidade == 'veiculo':
             modelo_nome = df.iloc[int(input.modelo_index())]["modelo"]
@@ -532,13 +555,13 @@ def server(input: Inputs, output: Outputs, session: Session):
         result = df[df["modelo"] == modelo_nome]
         result = result[result["ano_fab"] == ano_fab]
         plt.title(modelo_nome)
-        plt.barh(result["ano_ref"], result["valor"], color='royalblue')
+        plt.barh(result["ano_ref"], result["valor"], color='#e64729')
         plt.xlabel('valor')
         plt.ylabel('ano ref.')
 
     
         plt.yticks(range(int(min(result["ano_ref"])), int(max(result["ano_ref"]))+1))
-        plt.gca().xaxis.grid(True)
+        plt.gca().xaxis.grid(True, color='#494949')
 
 
         return plt
