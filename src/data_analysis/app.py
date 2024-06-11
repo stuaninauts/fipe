@@ -284,8 +284,8 @@ app_ui = ui.page_fluid(
             ui.nav("Histórico Modelo Individual", nav_historico()),
         )
     ),
-
 )
+
 def server(input: Inputs, output: Outputs, session: Session):
     @reactive.Effect
     @reactive.event(input.ano_ref)
