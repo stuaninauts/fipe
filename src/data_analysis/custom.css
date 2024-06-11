@@ -119,6 +119,13 @@ h1 {
         z-index: 2;
     }
 
+    .irs--shiny .irs-min, .irs--shiny .irs-max {
+        top: 0;
+        padding: 1px 3px;
+        text-shadow: none;
+        background-color: RGBA(var(--bs-emphasis-color-rgb), 0.1);
+    }
+
     .irs-single {
         background: var(--color-one);
     }
@@ -137,10 +144,50 @@ h1 {
         outline: 0;
         box-shadow: 0 0 0 .25rem rgba(var(--color-one-rgb),0.25);
     }
-    .selectize-dropdown .selected {
+
+    .selectize-dropdown .selected, .selectize-input.full {
         background-color: rgba(var(--color-one-rgb));
         color: #fff;
-      }
+    }
+
+    .selectize-input.full {
+        background-color: var(--bs-body-bg);
+        color: #fff;      
+    }
+
+    .selectize-input.input-active.dropdown-active, .shiny-bound-input.selectize-control.single {
+        color: var(--bs-body-color);
+        background-color: var(--bs-body-bg);
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: .9375rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--bs-body-color);
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        background-color: var(--bs-body-bg);
+        background-clip: padding-box;
+        border: var(--bs-border-width) solid #8D959E;
+        border-radius: var(--bs-border-radius);
+        transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    }
+    
+    .form-check-input, .shiny-input-container .checkbox input, .shiny-input-container .checkbox-inline input, .shiny-input-container .radio input, .shiny-input-container .radio-inline input {
+        width: 1.2em;
+        height: 1.2em;
+        margin-top: .15em;
+        vertical-align: top;
+        background-color: var(--bs-body-bg);
+        border: var(--bs-border-width) solid #8D959E;
+    }
     
     .form-check-input:checked, .shiny-input-container .checkbox input:checked, .shiny-input-container .checkbox-inline input:checked, .shiny-input-container .radio input:checked, .shiny-input-container .radio-inline input:checked {
         background-color: var(--color-one);
@@ -155,9 +202,23 @@ h1 {
 
     .form-select {
         --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+        color: var(--bs-body-color);
+        background-color: var(--bs-body-bg);
+        background-image: var(--bs-form-select-bg-img),var(--bs-form-select-bg-icon, none);
     }
 
     /* accordion icon (filtros avancados) */
+    .accordion {
+        --bs-accordion-color: #fff;
+        --bs-accordion-bg: var(--bs-body-bg);
+    }
+
+    .accordion-button {
+        font-size: 1rem;
+        color: #fff;
+        text-align: left;
+    }
+
     .accordion-button:focus, .accordion .accordion-button:not(.collapsed):focus {
         box-shadow: 0 0 0 .25rem rgba(var(--color-one-rgb),0.25);
     }
@@ -171,4 +232,34 @@ h1 {
     .form-switch .form-check-input:focus {
         --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23642316'/%3e%3c/svg%3e");
     }
+
+    .card, .well {
+        --bs-card-color: #fff ;
+        --bs-card-bg: var(--bs-body-bg);
+        color: #fff;
+    }
+
+    .nav-tabs {
+        --bs-nav-tabs-link-active-bg: #fff;
+    }
+
+    .nav-tabs .nav-link.active, .nav-tabs > li > a.active, .nav-tabs .nav-pills > li > a.active, .nav-tabs ul.nav.navbar-nav > li > a.active, .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-item.in .nav-link, .nav-tabs .nav-item.show .nav-tabs > li > a, .nav-tabs .nav-item.in .nav-tabs > li > a, .nav-tabs .nav-item.show .nav-pills > li > a, .nav-tabs .nav-item.in .nav-pills > li > a, .nav-tabs > li.show .nav-link, .nav-tabs > li.in .nav-link, .nav-tabs > li.show .nav-tabs > li > a, .nav-tabs > li.in .nav-tabs > li > a, .nav-tabs > li.show .nav-pills > li > a, .nav-tabs > li.in .nav-pills > li > a, .nav-tabs .nav-pills > li.show .nav-link, .nav-tabs .nav-pills > li.in .nav-link, .nav-tabs .nav-pills > li.show .nav-tabs > li > a, .nav-tabs .nav-pills > li.in .nav-tabs > li > a, .nav-tabs .nav-pills > li.show .nav-pills > li > a, .nav-tabs .nav-pills > li.in .nav-pills > li > a, .nav-tabs .nav-item.show ul.nav.navbar-nav > li > a, .nav-tabs .nav-item.in ul.nav.navbar-nav > li > a, .nav-tabs > li.show ul.nav.navbar-nav > li > a, .nav-tabs > li.in ul.nav.navbar-nav > li > a, .nav-tabs .nav-pills > li.show ul.nav.navbar-nav > li > a, .nav-tabs .nav-pills > li.in ul.nav.navbar-nav > li > a, .nav-tabs ul.nav.navbar-nav > li.show:not(.dropdown) .nav-link, .nav-tabs ul.nav.navbar-nav > li.in:not(.dropdown) .nav-link, .nav-tabs ul.nav.navbar-nav > li.show:not(.dropdown) .nav-tabs > li > a, .nav-tabs ul.nav.navbar-nav > li.in:not(.dropdown) .nav-tabs > li > a, .nav-tabs ul.nav.navbar-nav > li.show:not(.dropdown) .nav-pills > li > a, .nav-tabs ul.nav.navbar-nav > li.in:not(.dropdown) .nav-pills > li > a, .nav-tabs ul.nav.navbar-nav > li.show:not(.dropdown) ul.nav.navbar-nav > li > a, .nav-tabs ul.nav.navbar-nav > li.in:not(.dropdown) ul.nav.navbar-nav > li > a {
+        color: #fff;
+    }
+
+    .shiny-download-link {
+        margin: 1rem;
+    }
+
+    .bslib-sidebar-layout {
+        --bslib-sidebar-bg: var(--bs-body-bg);
+        --bslib-sidebar-fg: #fff;
+    }
+
+    .bslib-sidebar-layout > .sidebar {
+        color: #fff;
+    }
+
+    /* TODO: fix Filtrar marcas */
+    /* toi muy cansao hoje ja */
 }
