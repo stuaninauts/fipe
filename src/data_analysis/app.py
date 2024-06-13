@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import io
 import asyncio
 import re
+import plotly.express as px
 from pathlib import Path
 from shiny import App, Inputs, Outputs, Session, render, reactive, ui
-import shiny.experimental as x
+from shinywidgets import output_widget, render_widget  
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
@@ -75,8 +76,8 @@ def show_filtrar_marcas():
             ui.input_switch("switch_marcas", "Filtrar Marcas"),
             # nav filtrar marcas on 
             ui.navset_hidden(
-                ui.nav(None, show_nothing(), value='False'),
-                ui.nav(None, show_filtrar_marcas_on(), value='True'),
+                ui.nav_panel(None, show_nothing(), value='False'),
+                ui.nav_panel(None, show_filtrar_marcas_on(), value='True'),
                 id="nav_filtrar_marcas_on",
             ),          
         ),
@@ -112,8 +113,8 @@ def show_filtros_avancados():
             ),
             # nav tam motor
             ui.navset_hidden(
-                ui.nav(None, show_nothing(), value='0'),
-                ui.nav(None, show_tam_motor(), value='1'),
+                ui.nav_panel(None, show_nothing(), value='0'),
+                ui.nav_panel(None, show_tam_motor(), value='1'),
                 id="nav_tam_motor",
             ),
             # tipo motor: button v12 v10 v8 v6 outros
@@ -125,15 +126,15 @@ def show_filtros_avancados():
             ),
             # nav tipo motor
             ui.navset_hidden(
-                ui.nav(None, show_nothing(), value='0'),
-                ui.nav(None, show_tipo_motor(), value='1'),
+                ui.nav_panel(None, show_nothing(), value='0'),
+                ui.nav_panel(None, show_tipo_motor(), value='1'),
                 id="nav_tipo_motor",
             ),      
 
             # nav filtrar marcas
             ui.navset_hidden(
-                ui.nav(None, show_nothing(), value='marca'),
-                ui.nav(None, show_filtrar_marcas(), value='modelo'),
+                ui.nav_panel(None, show_nothing(), value='marca'),
+                ui.nav_panel(None, show_filtrar_marcas(), value='modelo'),
                 id="nav_filtrar_marcas",
             ),      
         )           
@@ -146,7 +147,7 @@ def nav_ranking():
                 12,
                 ui.div({"class": "titulo"},
                     ui.h3("Ranking Geral de Valores Marcas/Modelos"),
-                    ui.input_action_button("btn_titulo", "Mostrar/Enconder Título do Plot"),
+                    ui.input_action_button("btn_titulo", "Mostrar/Esconder Título do Plot"),
                     ui.download_button("download_ranking_plot", "Download Plot"),
                 )
             ),
@@ -185,17 +186,17 @@ def nav_ranking():
                     selected='',
                 ),
                 # nav filtros avançados
-                x.ui.accordion(
-                    x.ui.accordion_panel(
+                ui.accordion(
+                    ui.accordion_panel(
                         "Filtros avançados",
                         show_filtros_avancados(),                    
                     ),  
                 ),   
             ),
             ui.panel_main(
-                ui.output_plot("plot_ranking"),
-                ui.input_action_button("btn_interacoes", "Mostrar/Esconder Interacoes (em desenvolvimento)"),
-                # ui.output_ui("show_interacoes"),                    
+                ui.output_plot("plot_ranking", height='400px'),
+                ui.input_action_button("btn_interacoes", "Mostrar/Esconder Plot com Interações"),
+                output_widget("plot_ranking_interativo"),                    
             ),
         ),
     ]
@@ -213,17 +214,17 @@ def nav_historico():
         ),
         ui.layout_sidebar(
             ui.panel_sidebar(
-                ui.navset_tab_card(
-                    ui.nav("Por Veículo", nav_historico_veiculo()),
+                ui.navset_card_tab(
+                    ui.nav_panel("Por Veículo", nav_historico_veiculo()),
                     # section commented because have to fix port settings on the website fipe.stuaninauts.com
                     # if you uncomment will work locally!
-                    ui.nav("Por Placa", nav_historico_placa()),
+                    ui.nav_panel("Por Placa", nav_historico_placa()),
                 ),
             ),
             ui.panel_main(
                 ui.navset_hidden(
-                    ui.nav(None, ui.output_plot("plot_historico_veiculo"), value='veiculo'),
-                    ui.nav(None, ui.output_plot("plot_historico_placa"), value='placa'),
+                    ui.nav_panel(None, ui.output_plot("plot_historico_veiculo"), value='veiculo'),
+                    ui.nav_panel(None, ui.output_plot("plot_historico_placa"), value='placa'),
                     id="nav_plot_veiculo_ou_placa",
                 ),
                 
@@ -265,8 +266,8 @@ def nav_historico_placa():
         ui.input_text("modelo_placa", "Digite a Placa:"),
         ui.input_action_button("btn_buscar_placa", "Buscar Placa", class_="btn-success"),   
         ui.navset_hidden(
-            ui.nav(None, show_nothing(), value='0'),
-            ui.nav(None, show_placa_modelos(), value='1'),
+            ui.nav_panel(None, show_nothing(), value='0'),
+            ui.nav_panel(None, show_placa_modelos(), value='1'),
             id="nav_modelos_placa",
         ),
         ui.output_text_verbatim("placa_mensagem", ""),
@@ -279,14 +280,51 @@ app_ui = ui.page_fluid(
         },
         ui.include_css("custom.css"),
         ui.h1({"style": "text-align: center;"}, "Análise de dados tabela Fipe"),
-        ui.navset_tab_card(
-            ui.nav("Ranking de Valores", nav_ranking()),
-            ui.nav("Histórico Modelo Individual", nav_historico()),
+        ui.navset_card_tab(
+            ui.nav_panel("Ranking de Valores", nav_ranking()),
+            ui.nav_panel("Histórico Modelo Individual", nav_historico()),
         )
     ),
 )
 
 def server(input: Inputs, output: Outputs, session: Session):
+    @reactive.Calc
+    def ranking_data():
+        if input.switch_marcas():
+            result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
+        else:
+            result = df
+
+        # ano_ref
+        result = result[result['ano_ref'] == int(input.ano_ref())]
+        # ano_fab
+        result = result[result['ano_fab'] == int(input.ano_fab())]
+        # combustivel (filtro avancado)
+        result = result[result['combustivel'].str.contains('|'.join(input.combustivel()))]
+        # cambio (filtro avancado)
+        result = result[result['cambio'].str.contains('|'.join(input.cambio()))]
+
+        # tam_motor (filtro avancado)
+        if input.choose_tam_motor() == '1':            
+            tam_motor_max = float(input.tam_motor_max())
+            tam_motor_min = float(input.tam_motor_min())
+            if (tam_motor_max >= tam_motor_min):
+                result = result[(result['tam_motor'] <= tam_motor_max)]
+                result = result[(result['tam_motor'] >= tam_motor_min)]
+        
+        # tipo_motor (filtro avancado)
+        if input.choose_tipo_motor() == '1':
+            result = result[result['modelo'].str.contains('|'.join(input.tipo_motor()))]
+
+        # agrupa
+        result = result.groupby(input.analise())['valor'].mean()
+        # ordem
+        result = result.sort_values(ascending=bool(input.ordem()))
+        # qntd (filtro avancado)
+        result = result.tail(int(input.qntd()))
+    
+        return result
+
     @reactive.Effect
     @reactive.event(input.ano_ref)
     def _():
@@ -375,7 +413,10 @@ def server(input: Inputs, output: Outputs, session: Session):
         title = f'{analise} {ordenacao} fabricad{genero}s em {input.ano_fab()}{filtros}\n (ref. {input.ano_ref()})'
         return title
 
-    def build_ranking_plot():
+
+    def build_ranking_plot_matplotlib():
+        result = ranking_data()
+
         plt.style.use('dark_background')
         plt.rcParams.update({
             'axes.facecolor': '#1e1e1e',
@@ -391,50 +432,11 @@ def server(input: Inputs, output: Outputs, session: Session):
             'savefig.edgecolor': '#1e1e1e'
         })
 
-        if input.switch_marcas():
-            result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
-        else:
-            result = df
-
-        # ano_ref
-        result = result[result['ano_ref'] == int(input.ano_ref())]
-
-        # ano_fab
-        result = result[result['ano_fab'] == int(input.ano_fab())]
-
-        # combustivel (filtro avancado)
-        result = result[result['combustivel'].str.contains('|'.join(input.combustivel()))]
-        
-        # cambio (filtro avancado)
-        result = result[result['cambio'].str.contains('|'.join(input.cambio()))]
-
-        # tam_motor (filtro avancado)
-        if input.choose_tam_motor() == '1':            
-            tam_motor_max = float(input.tam_motor_max())
-            tam_motor_min = float(input.tam_motor_min())
-            if (tam_motor_max >= tam_motor_min):
-                result = result[(result['tam_motor'] <= tam_motor_max)]
-                result = result[(result['tam_motor'] >= tam_motor_min)]
-                print(result['tam_motor'])
-        
-        # tipo_motor (filtro avancado)
-        if input.choose_tipo_motor() == '1':
-            result = result[result['modelo'].str.contains('|'.join(input.tipo_motor()))]
-
-        # agrupa
-        result = result.groupby(input.analise())['valor'].mean()
-
-        # ordem
-        result = result.sort_values(ascending=bool(input.ordem()))
-
-        # qntd (filtro avancado)
-        result = result.tail(int(input.qntd()))
-
         if input.btn_titulo() % 2 == 0:
             title = build_ranking_title(input)
         else:
             title = ''
-        
+            
         plt.title(title)        
         plt.barh(result.index, result.values, color='#e64729') 
         plt.xlabel('valor')
@@ -442,21 +444,38 @@ def server(input: Inputs, output: Outputs, session: Session):
         plt.gca().xaxis.grid(True, color='#494949') 
         
         return plt
-
+    
+    @render_widget
+    def plot_ranking_interativo():
+        if int(input.btn_interacoes()) % 2 == 1:
+            result = ranking_data()
+            fig = px.bar(result, y=result.index, x=result.values, orientation='h',
+                        title="Plot Interativo",
+                        color_discrete_sequence=['#e64729'])
+            fig.update_layout(
+                plot_bgcolor='#1e1e1e',
+                paper_bgcolor='#1e1e1e',
+                font_color='#f4f4f4'
+            )
+            return fig
+    
     @output
     @render.plot
     def plot_ranking():
-        plt = build_ranking_plot()
+        plt = build_ranking_plot_matplotlib()
+        return plt.gcf()
 
-    @session.download(filename="ranking.png")
+    @render.download(filename="ranking.png")
     async def download_ranking_plot():      
         await asyncio.sleep(0.25)   
-        plt = build_ranking_plot()
+        plt = build_ranking_plot_matplotlib()
 
         with io.BytesIO() as buf:
             plt.savefig(buf, format="png")
             yield buf.getvalue()
+
     # -------------------------------------------------------------------------------------------
+
     @reactive.Effect
     @reactive.event(input.btn_veiculo_exibir)
     def _():
@@ -578,7 +597,7 @@ def server(input: Inputs, output: Outputs, session: Session):
     def plot_historico_veiculo():
         plt = build_historico_plot('veiculo')
     
-    @session.download(filename="historico.png")
+    @render.download(filename="historico.png")
     async def download_historico_plot():      
         await asyncio.sleep(0.25)   
         plt = build_historico_plot()

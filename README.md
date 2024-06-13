@@ -117,9 +117,8 @@ Price history using the plate of the model:
 - [x] Add individual search section
 - [x] Implement search with plate
 - [x] Refactor design
-- [ ] Fix search with plate for the website
+- [x] Implement interactive graphics
 - [ ] Add internal documentation
-- [ ] Implement range of ano_fab 
-- [ ] Implement interactive graphics
+- [ ] Fix search with plate for the website
 - [ ] Add inflation section
 
