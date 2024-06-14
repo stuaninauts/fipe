@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import io
 import asyncio
@@ -11,46 +10,70 @@ from shinywidgets import output_widget, render_widget
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
+# the code is organized in this order using shiny convenctions
+# ui functions
+#   - generic functions for showing things
+#   - functions for showing each navigation tab
+#   - app_ui configurations 
+# server functions
+#   - 'Ranking de Valores' functions
+#   - 'Histórico Modelo individual' functions
+
 path_to_db = Path(__file__).parent.parent.parent / "data" / "database.csv"
 df = pd.read_csv(path_to_db, sep=';')
 
+# dicts used for integrate the front-end with the application
 dict_combustivel = {'g': "Gasolina", 'a': "Álcool", 'd': "Diesel", 'e': "Elétrico"}
 dict_cambio = {'m': "Manual", 'a': "Automático"}
 
+# global variable used for getting the ano/modelo in the 'por placa' tab 
 ano_modelo_placa = 0
 
+# ------------------------ FUNCTIONS FOR SHOWING ------------------------
+
 def show_nothing():
+    """
+    Used for hiding sections in the entire visual application
+    """
     return ""
 
 def show_tam_motor():
-        return [
-            ui.row(
-                ui.column(
-                    6,
-                    ui.input_numeric(
-                        id="tam_motor_min", 
-                        label="Min (L):",
-                        min=min(df['tam_motor']),
-                        max=max(df['tam_motor']),
-                        value=min(df['tam_motor']),
-                        step=0.1,
-                    ),
-                ),
-                ui.column(
-                    6,
-                    ui.input_numeric(
-                        id="tam_motor_max", 
-                        label="Max (L):",
-                        min=min(df['tam_motor']),
-                        max=max(df['tam_motor']),
-                        value=max(df['tam_motor']),
-                        step=0.1,
-                    ),
+    """
+    Used in the'Ranking de Valores' tab
+    Shows the hidden section 'Definir Intervalo' inside 'Tamanho do motor'
+    """
+    return [
+        ui.row(
+            ui.column(
+                6,
+                ui.input_numeric(
+                    id="tam_motor_min", 
+                    label="Min (L):",
+                    min=min(df['tam_motor']),
+                    max=max(df['tam_motor']),
+                    value=min(df['tam_motor']),
+                    step=0.1,
                 ),
             ),
-        ]
+            ui.column(
+                6,
+                ui.input_numeric(
+                    id="tam_motor_max", 
+                    label="Max (L):",
+                    min=min(df['tam_motor']),
+                    max=max(df['tam_motor']),
+                    value=max(df['tam_motor']),
+                    step=0.1,
+                ),
+            ),
+        ),
+    ]
 
 def show_tipo_motor():
+    """
+    Used in the'Ranking de Valores' tab
+    Shows the hidden section 'Escolher específico(s)' inside 'Tipo do motor'
+    """
     return [
         ui.input_checkbox_group(
             id="tipo_motor",
@@ -61,6 +84,10 @@ def show_tipo_motor():
     ]
 
 def show_filtrar_marcas_on():
+    """
+    Used in the'Ranking de Valores' tab
+    Shows the hidden section 'Filtrar Marcas' inside 'Filtros avançados'
+    """
     return [
         ui.input_checkbox_group(
             id="marcas_selecionadas", 
@@ -71,6 +98,10 @@ def show_filtrar_marcas_on():
     ]
 
 def show_filtrar_marcas():
+    """
+    Used in the'Ranking de Valores' tab
+    When 'Modelos' checkbox is selected, the section 'Filtrar Marcas' is enabled (but not shown yet) inside 'Filtros avançados'
+    """
     return [
         ui.panel_well (        
             ui.input_switch("switch_marcas", "Filtrar Marcas"),
@@ -84,6 +115,10 @@ def show_filtrar_marcas():
     ]
 
 def show_filtros_avancados():
+    """
+    Used in the'Ranking de Valores' tab
+    Display others filters when 'Filtros avançados' accordion is triggered
+    """
     return  [
         ui.panel_well (
             # quantidade:   slide
@@ -130,7 +165,6 @@ def show_filtros_avancados():
                 ui.nav_panel(None, show_tipo_motor(), value='1'),
                 id="nav_tipo_motor",
             ),      
-
             # nav filtrar marcas
             ui.navset_hidden(
                 ui.nav_panel(None, show_nothing(), value='marca'),
@@ -140,7 +174,27 @@ def show_filtros_avancados():
         )           
     ]
 
+def show_placa_modelos():
+    """
+    Used in the'Por Placa' tab inside the 'Histórico Modelo Individual' tab
+    After the search of the plate, shows the dropdown to select the model of the vehicle 
+    """
+    return [
+        ui.input_selectize(
+            "modelo_placa_selecionado",
+            "Selecione o modelo:",
+            [],
+            multiple=False,
+        ),
+        ui.input_action_button("btn_placa_exibir", "Exibir Gráfico", class_="btn-success"),   
+    ]
+
+# ------------------------ FUNCTIONS FOR NAVIGATION TABS  ------------------------
+
 def nav_ranking():
+    """
+    Exhibits the 'Ranking de Valores' tab
+    """
     return [
         ui.row(
             ui.column(
@@ -202,6 +256,9 @@ def nav_ranking():
     ]
 
 def nav_historico():
+    """
+    Exhibits the 'Histórico Modelo Individual' tab
+    """
     return [
         ui.row(
             ui.column(
@@ -216,9 +273,9 @@ def nav_historico():
             ui.panel_sidebar(
                 ui.navset_card_tab(
                     ui.nav_panel("Por Veículo", nav_historico_veiculo()),
-                    # section commented because have to fix port settings on the website fipe.stuaninauts.com
-                    # if you uncomment will work locally!
-                    ui.nav_panel("Por Placa", nav_historico_placa()),
+                    # TODO: important! this section is not working on the website fipe.stuaninauts.com because of proxy settings
+                    # locally its working fine
+                    ui.nav_panel("Por Placa", nav_historico_placa()), 
                 ),
             ),
             ui.panel_main(
@@ -233,6 +290,9 @@ def nav_historico():
     ]
 
 def nav_historico_veiculo():
+    """
+    Exhibits the 'Por Veículo' nav panel inside 'Histórico Modelo Individual' tab
+    """
     return [
         ui.input_select(
             id="modelo_ano_fab",
@@ -250,18 +310,11 @@ def nav_historico_veiculo():
         ui.input_action_button("btn_veiculo_exibir", "Exibir Gráfico", class_="btn-success"),
     ]
 
-def show_placa_modelos():
-    return [
-        ui.input_selectize(
-            "modelo_placa_selecionado",
-            "Selecione o modelo:",
-            [],
-            multiple=False,
-        ),
-        ui.input_action_button("btn_placa_exibir", "Exibir Gráfico", class_="btn-success"),   
-    ]
 
 def nav_historico_placa():
+    """
+    Exhibits the 'Por Placa' nav panel inside 'Histórico Modelo Individual' tab
+    """
     return [
         ui.input_text("modelo_placa", "Digite a Placa:"),
         ui.input_action_button("btn_buscar_placa", "Buscar Placa", class_="btn-success"),   
@@ -273,6 +326,7 @@ def nav_historico_placa():
         ui.output_text_verbatim("placa_mensagem", ""),
     ]
 
+# ui settings for shiny
 app_ui = ui.page_fluid(
     ui.tags.html(
         {
@@ -287,9 +341,15 @@ app_ui = ui.page_fluid(
     ),
 )
 
+# server settings for shiny
 def server(input: Inputs, output: Outputs, session: Session):
+
+    # ------------------------ FUNCTIONS FOR 'RANKING DE VALORES' TAB  ------------------------
     @reactive.Calc
     def ranking_data():
+        """
+        Gets the dataframe data for the 'Ranking de Valores' plots
+        """
         if input.switch_marcas():
             result = df[df['marca'].str.contains('|'.join(input.marcas_selecionadas()))]
         else:
@@ -324,45 +384,11 @@ def server(input: Inputs, output: Outputs, session: Session):
         result = result.tail(int(input.qntd()))
     
         return result
-
-    @reactive.Effect
-    @reactive.event(input.ano_ref)
-    def _():
-        ui.update_slider("ano_fab", max=input.ano_ref())
-
-    @reactive.Effect
-    @reactive.event(input.choose_tam_motor)
-    def _():
-        ui.update_navs("nav_tam_motor", selected=input.choose_tam_motor())
-    
-    @reactive.Effect
-    @reactive.event(input.choose_tipo_motor)
-    def _():
-        ui.update_navs("nav_tipo_motor", selected=input.choose_tipo_motor())
-
-    @reactive.Effect
-    @reactive.event(input.analise)
-    def _():
-        ui.update_navs("nav_filtrar_marcas", selected=input.analise())
-    
-    @reactive.Effect
-    @reactive.event(input.switch_marcas)
-    def _():
-        ui.update_navs("nav_filtrar_marcas_on", selected=str(input.switch_marcas()))
-
-    @reactive.Effect
-    @reactive.event(input.tam_motor_min, input.tam_motor_max)
-    def _():
-        ui.update_numeric(
-            id="tam_motor_min",
-            max=input.tam_motor_max(),
-        ),
-        ui.update_numeric(
-            id="tam_motor_max",
-            min=input.tam_motor_min(),
-        ),
     
     def build_ranking_title(input):
+        """
+        Builds the title of the plot in the 'Ranking de Valores'
+        """
         analise = ''
         ordenacao = ''
         genero = ''
@@ -415,6 +441,9 @@ def server(input: Inputs, output: Outputs, session: Session):
 
 
     def build_ranking_plot_matplotlib():
+        """
+        Build the plot the data for the 'Ranking de Valores' tab using matplotlib
+        """
         result = ranking_data()
 
         plt.style.use('dark_background')
@@ -447,6 +476,9 @@ def server(input: Inputs, output: Outputs, session: Session):
     
     @render_widget
     def plot_ranking_interativo():
+        """
+        Generate interactive plot of the data for the 'Ranking de Valores' tab using plotly
+        """
         if int(input.btn_interacoes()) % 2 == 1:
             result = ranking_data()
             fig = px.bar(result, y=result.index, x=result.values, orientation='h',
@@ -462,11 +494,17 @@ def server(input: Inputs, output: Outputs, session: Session):
     @output
     @render.plot
     def plot_ranking():
+        """
+        Plots the data for the 'Ranking de Valores' tab using matplotlib
+        """
         plt = build_ranking_plot_matplotlib()
         return plt.gcf()
 
     @render.download(filename="ranking.png")
-    async def download_ranking_plot():      
+    async def download_ranking_plot():
+        """
+        When 'Download Plot' button is pressed in the'Ranking de Valores' tab this function downloads the plot
+        """      
         await asyncio.sleep(0.25)   
         plt = build_ranking_plot_matplotlib()
 
@@ -474,7 +512,118 @@ def server(input: Inputs, output: Outputs, session: Session):
             plt.savefig(buf, format="png")
             yield buf.getvalue()
 
-    # -------------------------------------------------------------------------------------------
+    # ------------------------ REACTIVE FUNCTIONS FOR INTERFACE VALUES  ------------------------
+
+    @reactive.Effect
+    @reactive.event(input.ano_ref)
+    def _():
+        ui.update_slider("ano_fab", max=input.ano_ref())
+
+    @reactive.Effect
+    @reactive.event(input.choose_tam_motor)
+    def _():
+        ui.update_navs("nav_tam_motor", selected=input.choose_tam_motor())
+    
+    @reactive.Effect
+    @reactive.event(input.choose_tipo_motor)
+    def _():
+        ui.update_navs("nav_tipo_motor", selected=input.choose_tipo_motor())
+
+    @reactive.Effect
+    @reactive.event(input.analise)
+    def _():
+        ui.update_navs("nav_filtrar_marcas", selected=input.analise())
+    
+    @reactive.Effect
+    @reactive.event(input.switch_marcas)
+    def _():
+        ui.update_navs("nav_filtrar_marcas_on", selected=str(input.switch_marcas()))
+
+    @reactive.Effect
+    @reactive.event(input.tam_motor_min, input.tam_motor_max)
+    def _():
+        ui.update_numeric(
+            id="tam_motor_min",
+            max=input.tam_motor_max(),
+        ),
+        ui.update_numeric(
+            id="tam_motor_max",
+            min=input.tam_motor_min(),
+        ),
+
+    # ------------------------ FUNCTIONS FOR 'HISTÓRICO MODELO INDIVIDUAL' TAB  ------------------------
+    
+    def build_historico_plot(por_modalidade):
+        """
+        Build the plot the data for the 'Histórico Modelo Individual' tab using matplotlib
+        """
+        plt.style.use('dark_background')
+        plt.rcParams.update({
+            'axes.facecolor': '#1e1e1e',
+            'axes.edgecolor': '#f4f4f4',
+            'axes.labelcolor': '#f4f4f4',
+            'xtick.color': '#f4f4f4',
+            'ytick.color': '#f4f4f4',
+            'grid.color': '#494949',
+            'text.color': '#f4f4f4',
+            'figure.facecolor': '#1e1e1e',
+            'figure.edgecolor': '#1e1e1e',
+            'savefig.facecolor': '#1e1e1e',
+            'savefig.edgecolor': '#1e1e1e'
+        })
+
+        global ano_modelo_placa
+        if por_modalidade == 'veiculo':
+            modelo_nome = df.iloc[int(input.modelo_index())]["modelo"]
+            ano_fab = int(input.modelo_ano_fab())
+        else: # por_modalidade == 'placa'
+            modelo_nome = input.modelo_placa_selecionado()
+            ano_fab = ano_modelo_placa
+        
+        result = df[df["modelo"] == modelo_nome]
+        result = result[result["ano_fab"] == ano_fab]
+        plt.title(modelo_nome)
+        plt.barh(result["ano_ref"], result["valor"], color='#e64729')
+        plt.xlabel('valor')
+        plt.ylabel('ano ref.')
+
+    
+        plt.yticks(range(int(min(result["ano_ref"])), int(max(result["ano_ref"]))+1))
+        plt.gca().xaxis.grid(True, color='#494949')
+
+        return plt
+
+    @output
+    @render.plot
+    @reactive.event(input.btn_veiculo_exibir, ignore_none=True)
+    def plot_historico_veiculo():
+        """
+        Plots the data for the 'Por Veículo' tab using matplotlib
+        """
+        plt = build_historico_plot('veiculo')
+
+    @output
+    @render.plot
+    @reactive.event(input.btn_placa_exibir, ignore_none=True)
+    def plot_historico_placa():
+        """
+        Plots the data for the 'Por Placa' tab using matplotlib
+        """
+        plt = build_historico_plot('placa')
+
+    @render.download(filename="historico.png")
+    async def download_historico_plot():
+        """
+        When 'Download Plot' button is pressed in the'Histórico Modelo Individual' tab this function downloads the plot
+        """         
+        await asyncio.sleep(0.25)   
+        plt = build_historico_plot()
+
+        with io.BytesIO() as buf:
+            plt.savefig(buf, format="png")
+            yield buf.getvalue()
+    
+    # ------------------------ REACTIVE FUNCTIONS FOR INTERFACE VALUES  ------------------------
 
     @reactive.Effect
     @reactive.event(input.btn_veiculo_exibir)
@@ -497,6 +646,9 @@ def server(input: Inputs, output: Outputs, session: Session):
     @reactive.Effect
     @reactive.event(input.btn_buscar_placa)
     def _():
+        """
+        Web scrapping used for searching the plate inside 'Por Placa' tab
+        """
         global ano_modelo_placa
         padrao = r"[a-zA-Z]{3}\d([a-zA-Z]|\d)\d{2}"
         if re.fullmatch(padrao, input.modelo_placa()):
@@ -545,65 +697,6 @@ def server(input: Inputs, output: Outputs, session: Session):
             )
             ui.modal_show(m)
             ui.update_navs("nav_modelos_placa", selected='0')
-       
 
-    def build_historico_plot(por_modalidade):
-        plt.style.use('dark_background')
-        plt.rcParams.update({
-            'axes.facecolor': '#1e1e1e',
-            'axes.edgecolor': '#f4f4f4',
-            'axes.labelcolor': '#f4f4f4',
-            'xtick.color': '#f4f4f4',
-            'ytick.color': '#f4f4f4',
-            'grid.color': '#494949',
-            'text.color': '#f4f4f4',
-            'figure.facecolor': '#1e1e1e',
-            'figure.edgecolor': '#1e1e1e',
-            'savefig.facecolor': '#1e1e1e',
-            'savefig.edgecolor': '#1e1e1e'
-        })
-
-        global ano_modelo_placa
-        if por_modalidade == 'veiculo':
-            modelo_nome = df.iloc[int(input.modelo_index())]["modelo"]
-            ano_fab = int(input.modelo_ano_fab())
-        else: # por_modalidade == 'placa'
-            modelo_nome = input.modelo_placa_selecionado()
-            ano_fab = ano_modelo_placa
-        
-        result = df[df["modelo"] == modelo_nome]
-        result = result[result["ano_fab"] == ano_fab]
-        plt.title(modelo_nome)
-        plt.barh(result["ano_ref"], result["valor"], color='#e64729')
-        plt.xlabel('valor')
-        plt.ylabel('ano ref.')
-
-    
-        plt.yticks(range(int(min(result["ano_ref"])), int(max(result["ano_ref"]))+1))
-        plt.gca().xaxis.grid(True, color='#494949')
-
-
-        return plt
-
-    @output
-    @render.plot
-    @reactive.event(input.btn_placa_exibir, ignore_none=True)
-    def plot_historico_placa():
-        plt = build_historico_plot('placa')
-
-    @output
-    @render.plot
-    @reactive.event(input.btn_veiculo_exibir, ignore_none=True)
-    def plot_historico_veiculo():
-        plt = build_historico_plot('veiculo')
-    
-    @render.download(filename="historico.png")
-    async def download_historico_plot():      
-        await asyncio.sleep(0.25)   
-        plt = build_historico_plot()
-
-        with io.BytesIO() as buf:
-            plt.savefig(buf, format="png")
-            yield buf.getvalue()
 
 app = App(app_ui, server)
