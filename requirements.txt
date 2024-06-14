@@ -1,5 +1,7 @@
-beautifulsoup4==4.12.2
-matplotlib==3.7.2
-numpy==1.25.2
-pandas==2.0.3
-shiny==0.5.1
+beautifulsoup4>=4.12.2
+matplotlib>=3.7.2
+numpy>=1.25.2
+pandas>=2.0.3
+shiny>=0.10.2
+plotly>=5.22.0
+shinywidgets>=0.3.2

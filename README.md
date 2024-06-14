@@ -118,7 +118,7 @@ Price history using the plate of the model:
 - [x] Implement search with plate
 - [x] Refactor design
 - [x] Implement interactive graphics
-- [ ] Add internal documentation
+- [x] Add internal documentation
 - [ ] Fix search with plate for the website
 - [ ] Add inflation section
 

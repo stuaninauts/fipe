@@ -260,6 +260,23 @@ h1 {
         color: #fff;
     }
 
+    .btn-default {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: var(--color-one) !important;
+        --bs-btn-border-color: var(--color-one) !important;
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: var(--color-two);
+        --bs-btn-hover-border-color: var(--color-two);
+        --bs-btn-active-bg: var(--color-three);
+        --bs-btn-active-border-color: var(--color-three);
+    }
+
+    .btn:hover {
+      color: var(--bs-btn-hover-color);
+      background-color: var(--bs-btn-hover-bg);
+      border-color: var(--bs-btn-hover-border-color);
+    }
+
     /* TODO: fix Filtrar marcas */
     /* toi muy cansao hoje ja */
 }
