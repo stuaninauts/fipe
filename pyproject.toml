@@ -1,0 +1,29 @@
+[project]
+name = "fipe"
+version = "2.0.0.dev0"
+description = "FIPE car price analysis: pipeline that builds the aggregates behind fipe.stuaninauts.com"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "lefthook>=2.2.2",
+    "pytest",
+    "ruff",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py313"
+extend-exclude = ["legacy", "src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
