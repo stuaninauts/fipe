@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+import Pager from '../components/Pager.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { holdsValue, int, one, relative, share, versionGap } from '../lib/data';
+import { BRAND_LABELS } from '../lib/explore';
+import { divergingBars } from '../lib/charts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+const brands = holdsValue.filter((r) => r.group_type === 'brand').sort((a, b) => b.median_relative - a.median_relative);
+const brand = (name: string) => one(holdsValue, { group_type: 'brand', group: name });
+const fuel = (g: string) => one(holdsValue, { group_type: 'fuel_group', group: g });
+const band = (g: string) => one(holdsValue, { group_type: 'price_band', group: g });
+const v5 = one(versionGap, { age: 5 });
+const v3 = one(versionGap, { age: 3 });
+const label = (b: string) => BRAND_LABELS[b] ?? b;
+const below = brands.filter((r) => r.median_relative < 0.95).map((r) => label(r.group));
+const minN = Math.min(...brands.map((r) => r.n));
+const bandLabels: Record<string, string> = {
+  q1: L('Mais baratos', 'Cheapest'),
+  q2: L('2º quinto', '2nd fifth'),
+  q3: L('3º quinto', '3rd fifth'),
+  q4: L('4º quinto', '4th fifth'),
+  q5: L('Mais caros', 'Most expensive'),
+};
+const fmt = (v: number) => relative(v + 1, lang);
+
+const brandChart = divergingBars(
+  brands.map((r) => ({ label: label(r.group), value: r.median_relative - 1 })),
+  {
+    extent: 0.25,
+    format: fmt,
+    aria: L(
+      `Barras por marca com quanto o carro segura de valor 5 anos depois da compra, comparado com carros comprados no mesmo ano e na mesma faixa de preço. Acima da média: ${label(brands[0].group)}, ${label(brands[1].group)} e ${label(brands[2].group)}. Abaixo: ${below.join(', ')}.`,
+      `Bars by brand with how well a car holds value 5 years after purchase, compared with cars bought the same year in the same price band. Above average: ${label(brands[0].group)}, ${label(brands[1].group)} and ${label(brands[2].group)}. Below: ${below.join(', ')}.`,
+    ),
+  },
+);
+const bandChart = divergingBars(
+  ['q1', 'q2', 'q3', 'q4', 'q5'].map((g) => ({ label: bandLabels[g], value: band(g).median_relative - 1 })),
+  {
+    extent: 0.2,
+    format: fmt,
+    aria: L(
+      `Barras por faixa de preço do zero km: o quinto mais barato segura ${relative(band('q1').median_relative, lang)} e o mais caro ${relative(band('q5').median_relative, lang)}, comparados com carros comprados no mesmo ano.`,
+      `Bars by brand-new price band: the cheapest fifth holds ${relative(band('q1').median_relative, lang)} and the most expensive ${relative(band('q5').median_relative, lang)}, compared with cars bought the same year.`,
+    ),
+  },
+);
+---
+
+<Base lang={lang} page="holdsValue" title={t(lang, 'page.holdsValue')}>
+  <article class="wrap page">
+    <p class="eyebrow">{t(lang, 'page.holdsValue')}</p>
+    <h1>{L('Segura mais valor: a versão de entrada, o carro mais barato, algumas marcas e o diesel', 'Holding value best: entry versions, cheaper cars, some brands and diesel')}</h1>
+    <p class="lede">
+      {L(
+        'Cinco anos depois da compra, comparando sempre com carros comprados zero km no mesmo ano e na mesma faixa de preço. Sem esse cuidado, a comparação engana: só o ano da compra já muda muito o que sobra.',
+        'Five years after purchase, always compared with cars bought new the same year and in the same price band. Without that, comparisons mislead: the year of purchase alone changes a lot what is left.',
+      )}
+      {' '}<a href={path(lang, 'purchaseYear')}>{t(lang, 'page.purchaseYear')}</a>.
+    </p>
+
+    <div class="prose">
+      <h2>{L('Versão de entrada contra topo de linha', 'Entry version against top of the range')}</h2>
+      <p>
+        {L(
+          `Dentro do mesmo modelo, comprado no mesmo ano, a versão mais cara guarda ${share(-v5.median_gap, lang)} menos do preço pago que a de entrada, 5 anos depois. A versão de entrada segura mais em ${share(v5.share_top_keeps_less, lang)} dos ${int(v5.groups, lang)} casos comparados. Com 3 anos, a diferença é de ${share(-v3.median_gap, lang)}, em ${share(v3.share_top_keeps_less, lang)} dos casos.`,
+          `Within the same model, bought the same year, the most expensive version keeps ${share(-v5.median_gap, lang)} less of the price paid than the entry one, 5 years later. The entry version holds more in ${share(v5.share_top_keeps_less, lang)} of the ${int(v5.groups, lang)} cases compared. At 3 years the gap is ${share(-v3.median_gap, lang)}, in ${share(v3.share_top_keeps_less, lang)} of cases.`,
+        )}
+      </p>
+
+      <h2>{L('Carro mais barato', 'Cheaper cars')}</h2>
+    </div>
+    <figure class="figure">
+      <Fragment set:html={bandChart} />
+      <figcaption>
+        {L(
+          'Por faixa de preço do zero km (quintos dentro de cada ano), quanto o carro segura de valor 5 anos depois, comparado com a mediana dos carros comprados no mesmo ano.',
+          'By brand-new price band (fifths within each year), how much value the car holds 5 years later, compared with the median of cars bought the same year.',
+        )}
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2>{L('Marcas', 'Brands')}</h2>
+    </div>
+    <figure class="figure">
+      <Fragment set:html={brandChart} />
+      <figcaption>
+        {L(
+          `Quanto a marca segura de valor 5 anos depois da compra, acima ou abaixo de carros comprados no mesmo ano e na mesma faixa de preço (mediana). Marcas com pelo menos ${int(minN, lang)} carros comparados.`,
+          `How much value the brand holds 5 years after purchase, above or below cars bought the same year in the same price band (median). Brands with at least ${int(minN, lang)} cars compared.`,
+        )}
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>
+        {L(
+          `${label('Toyota')} e ${label('Honda')} ficam ${relative(brand('Toyota').median_relative, lang)} e ${relative(brand('Honda').median_relative, lang)}; Porsche, ${relative(brand('Porsche').median_relative, lang)}. Mercedes-Benz fica perto da média (${relative(brand('Mercedes-Benz').median_relative, lang)}), enquanto BMW, Audi e Volvo ficam abaixo. Marca mistura modelos muito diferentes e não é país de origem.`,
+          `${label('Toyota')} and ${label('Honda')} sit ${relative(brand('Toyota').median_relative, lang)} and ${relative(brand('Honda').median_relative, lang)}; Porsche, ${relative(brand('Porsche').median_relative, lang)}. Mercedes-Benz is near the average (${relative(brand('Mercedes-Benz').median_relative, lang)}), while BMW, Audi and Volvo sit below. A brand mixes very different models and is not a country of origin.`,
+        )}
+      </p>
+
+      <h2>{L('Diesel', 'Diesel')}</h2>
+      <p>
+        {L(
+          `O diesel fica ${relative(fuel('diesel').median_relative, lang)} em relação a carros do mesmo ano e faixa, contra ${relative(fuel('gasoline').median_relative, lang)} da gasolina e flex (${int(fuel('diesel').n, lang)} carros a diesel). Só entram compras a partir de 2011: até 2010, muitos carros a diesel aparecem nos dados como gasolina.`,
+          `Diesel sits ${relative(fuel('diesel').median_relative, lang)} against cars of the same year and band, versus ${relative(fuel('gasoline').median_relative, lang)} for petrol and flex (${int(fuel('diesel').n, lang)} diesel cars). Only purchases from 2011 on: up to 2010, many diesel cars appear in the data as petrol.`,
+        )}
+        {' '}<a href={path(lang, 'method')}>{t(lang, 'page.method')}</a>.
+      </p>
+      <p class="note">
+        {L(
+          'Versões do mesmo modelo: a família sai do nome do modelo na FIPE (primeira palavra, com exceções testadas no código); entram famílias com pelo menos 3 versões e a mais cara custando 15% a mais que a de entrada. Medianas, sempre com o n.',
+          'Versions of the same model: the family comes from the FIPE model name (first word, with exceptions tested in the code); families with at least 3 versions and the top one costing 15% more than the entry one. Medians, always with n.',
+        )}
+      </p>
+    </div>
+
+    <details class="data">
+      <summary>{t(lang, 'table.show')}</summary>
+      <div class="table-wrap">
+        <table class="num">
+          <thead>
+            <tr>
+              <th>{L('Grupo', 'Group')}</th>
+              <th>{t(lang, 'table.n')}</th>
+              <th>{L('Relativo', 'Relative')}</th>
+              <th>{L('1º quartil', '1st quartile')}</th>
+              <th>{L('3º quartil', '3rd quartile')}</th>
+              <th>{L('Sobra (real)', 'Left (real)')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {holdsValue.map((r) => (
+              <tr>
+                <td>{r.group_type === 'brand' ? label(r.group) : r.group_type === 'price_band' ? bandLabels[r.group] : r.group}</td>
+                <td>{int(r.n, lang)}</td>
+                <td>{relative(r.median_relative, lang)}</td>
+                <td>{relative(r.p25_relative, lang)}</td>
+                <td>{relative(r.p75_relative, lang)}</td>
+                <td>{share(r.median_real, lang)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <Pager lang={lang} page="holdsValue" />
+  </article>
+</Base>

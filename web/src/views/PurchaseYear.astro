@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import Pager from '../components/Pager.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { cohort, cohortPooled, coverage, int, last, manifest, month, one, retention, share, shareRange } from '../lib/data';
+import { lines, yearBars } from '../lib/charts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+const AGE = 5;
+const five = cohort.filter((r) => r.age === AGE);
+const group = (from: number, to: number) => five.filter((r) => r.purchase_year >= from && r.purchase_year <= to);
+const range = (rows: typeof five, key: 'median_real' | 'median_nominal', digits = 0) =>
+  shareRange(Math.min(...rows.map((r) => r[key])), Math.max(...rows.map((r) => r[key])), lang, digits);
+const early = group(2005, 2012);
+const middle = group(2013, 2016);
+const recent = group(2017, 2020);
+const pooled5 = one(cohortPooled, { age: AGE });
+const base = month(manifest.price_base, lang, t(lang, 'months.short'));
+const lastPurchase = five[five.length - 1].purchase_year;
+
+const chart = yearBars(
+  five.map((r) => ({ year: r.purchase_year, value: r.median_real })),
+  {
+    focus: recent.map((r) => r.purchase_year),
+    labelled: [2005, 2008, 2012, 2016, 2018],
+    labelFocus: false,
+    format: (v) => share(v, lang),
+    domain: [0, 0.85],
+    aria: L(
+      `Barras por ano da compra com a parcela do preço pago que sobra 5 anos depois, descontada a inflação: ${range(early, 'median_real')} para compras de 2005 a 2012 e ${range(recent, 'median_real')} de 2017 a 2020.`,
+      `Bars by year of purchase with the share of the price paid left 5 years later, after inflation: ${range(early, 'median_real')} for 2005 to 2012 purchases and ${range(recent, 'median_real')} for 2017 to 2020.`,
+    ),
+  },
+);
+
+// Secondary: the same January, a used car next to today's brand-new price (docs/adr/0006).
+const MAX_AGE = 10;
+const sameJan = retention.filter((r) => r.age <= MAX_AGE);
+const lastYear = last(coverage).ref_year;
+const sameJanChart = lines(
+  [
+    ...sameJan.filter((r) => r.scope === 'all').map((r) => ({ series: 'all', label: L('todos os janeiros', 'all Januaries'), x: r.age, y: r.median_ratio })),
+    ...sameJan.filter((r) => r.scope === 'recent').map((r) => ({ series: 'recent', label: `${lastYear - 4}–${lastYear}`, x: r.age, y: r.median_ratio })),
+  ],
+  {
+    domain: [0, 1],
+    xLabel: L('idade (anos) →', 'age (years) →'),
+    yFormat: (v) => share(v, lang),
+    classes: { all: 'line', recent: 'line-ref' },
+    aria: L(
+      'Duas linhas descendo com a idade: o preço do usado como parcela do zero km do mesmo código no mesmo janeiro, em todos os janeiros e nos cinco mais recentes.',
+      'Two lines falling with age: the used price as a share of the brand-new price of the same code in the same January, across all Januaries and the five most recent.',
+    ),
+  },
+);
+---
+
+<Base lang={lang} page="purchaseYear" title={t(lang, 'page.purchaseYear')}>
+  <article class="wrap page">
+    <p class="eyebrow">{t(lang, 'page.purchaseYear')}</p>
+    <h1>{L('Cinco anos depois, o que sobra depende do ano da compra', 'Five years later, what is left depends on the year of purchase')}</h1>
+    <p class="lede">
+      {L(
+        `Descontada a inflação, quem comprou zero km entre 2005 e 2012 tinha, 5 anos depois, ${range(early, 'median_real')} do que pagou. Entre 2013 e 2016, ${range(middle, 'median_real')}. Entre 2017 e 2020, ${range(recent, 'median_real')}.`,
+        `After inflation, a car bought new between 2005 and 2012 was worth, 5 years later, ${range(early, 'median_real')} of what was paid. Between 2013 and 2016, ${range(middle, 'median_real')}. Between 2017 and 2020, ${range(recent, 'median_real')}.`,
+      )}
+    </p>
+
+    <figure class="figure">
+      <Fragment set:html={chart} />
+      <figcaption>
+        {L(
+          `Parcela do preço pago que sobra 5 anos depois da compra, descontada a inflação (mediana), por ano da compra. Compras até ${lastPurchase}: as seguintes ainda não fizeram 5 anos. ${t(lang, 'unit.real')} ${base}.`,
+          `Share of the price paid left 5 years after purchase, after inflation (median), by year of purchase. Purchases up to ${lastPurchase}: later ones are not 5 years old yet. ${t(lang, 'unit.real')} ${base}.`,
+        )}
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>
+        {L(
+          `No valor de face, quem comprou entre 2017 e 2020 viu o carro valer ${range(recent, 'median_nominal', 1)} do que pagou 5 anos depois. Parece que quase não perdeu; descontada a inflação, ficou com ${range(recent, 'median_real')}. É o melhor exemplo de por que o site olha os valores reais.`,
+          `At face value, a car bought between 2017 and 2020 was worth ${range(recent, 'median_nominal', 1)} of what was paid 5 years later. It looks like it barely lost anything; after inflation, it kept ${range(recent, 'median_real')}. It is the clearest example of why the site looks at real values.`,
+        )}
+      </p>
+      <p>
+        {L(
+          `Por isso o site não usa um número único "aos 5 anos". Juntando todos os anos da compra, dá ${share(pooled5.median_real, lang)}, mas esse número muda conforme os anos que entram na conta e esconde a diferença entre eles.`,
+          `That is why the site does not use a single "at 5 years" number. Pooling every year of purchase gives ${share(pooled5.median_real, lang)}, but that number changes with the years included and hides the difference between them.`,
+        )}
+      </p>
+      <h2>{L('Comparado com um zero km de hoje', 'Compared with a brand-new car today')}</h2>
+      <p>
+        {L(
+          'Outra pergunta é quanto um usado custa perto do mesmo carro zero km à venda hoje. Aqui as duas cotações são do mesmo janeiro, então a inflação se cancela; o que se compara é o carro antigo com o novo de hoje, não com o que foi pago por ele.',
+          'Another question is how much a used car costs next to the same car on sale brand new today. Both prices come from the same January, so inflation cancels out; the old car is compared with today\'s new one, not with what was paid for it.',
+        )}
+      </p>
+    </div>
+    <figure class="figure">
+      <Fragment set:html={sameJanChart} />
+        <figcaption>
+          {L(
+            `Preço mediano do usado como parcela do zero km do mesmo código FIPE no mesmo janeiro, até ${MAX_AGE} anos. Acima disso sobram poucos modelos ainda vendidos como zero km.`,
+            `Median used price as a share of the brand-new price of the same FIPE code in the same January, up to ${MAX_AGE} years. Past that, few models are still sold new.`,
+          )}
+        </figcaption>
+    </figure>
+    <div class="prose">
+      <p class="note">
+        {L(
+          `Coorte: mesmo código FIPE e combustível, ano-modelo igual ao ano da compra; ${int(Math.min(...five.map((r) => r.n)), lang)} a ${int(Math.max(...five.map((r) => r.n)), lang)} carros por ano da compra. `,
+          `Cohort: same FIPE code and fuel, model year equal to the year of purchase; ${int(Math.min(...five.map((r) => r.n)), lang)} to ${int(Math.max(...five.map((r) => r.n)), lang)} cars per year of purchase. `,
+        )}
+        <a href={path(lang, 'method')}>{t(lang, 'page.method')}</a>.
+      </p>
+    </div>
+
+    <details class="data">
+      <summary>{t(lang, 'table.show')}</summary>
+      <div class="table-wrap">
+        <table class="num">
+          <thead>
+            <tr>
+              <th>{L('Comprado em', 'Bought in')}</th>
+              <th>{t(lang, 'table.n')}</th>
+              <th>{L('Real', 'Real')}</th>
+              <th>{L('1º quartil', '1st quartile')}</th>
+              <th>{L('3º quartil', '3rd quartile')}</th>
+              <th>{L('Valor de face', 'Face value')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {five.map((r) => (
+              <tr>
+                <td>{r.purchase_year}</td>
+                <td>{int(r.n, lang)}</td>
+                <td>{share(r.median_real, lang, 1)}</td>
+                <td>{share(r.p25_real, lang, 1)}</td>
+                <td>{share(r.p75_real, lang, 1)}</td>
+                <td>{share(r.median_nominal, lang, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <Pager lang={lang} page="purchaseYear" />
+  </article>
+</Base>

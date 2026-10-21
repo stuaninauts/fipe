@@ -15,7 +15,7 @@ interface Config {
   initial: State;
   maxGroups: number;
   minN: number;
-  text: Record<'groupsHint' | 'tooMany' | 'empty' | 'age' | 'year' | 'loading' | 'error', string>;
+  text: Record<'groupsHint' | 'tooMany' | 'empty' | 'age' | 'year' | 'loading' | 'error' | 'bandNew' | 'bandUsed', string>;
 }
 
 const root = document.getElementById('explore');
@@ -64,7 +64,11 @@ async function init(root: HTMLElement) {
   function syncForm() {
     form.querySelectorAll<HTMLInputElement>('input[name="view"]').forEach((i) => (i.checked = i.value === state.view));
     form.querySelectorAll<HTMLInputElement>('input[name="scope"]').forEach((i) => (i.checked = i.value === state.scope));
-    form.querySelector<HTMLSelectElement>('select[name="by"]')!.value = state.by;
+    const select = form.querySelector<HTMLSelectElement>('select[name="by"]')!;
+    select.value = state.by;
+    // The two views use different price bands; the option says which one.
+    select.querySelector<HTMLOptionElement>('option[value="price_band"]')!.textContent =
+      state.view === 'retention' ? config.text.bandNew : config.text.bandUsed;
     form.querySelector<HTMLElement>('fieldset.scope')!.hidden = state.view !== 'retention';
     listEl.replaceChildren(
       ...groupsFor(state.by).map((g) => {

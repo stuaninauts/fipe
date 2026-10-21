@@ -35,9 +35,11 @@ export function yearBars(data: YearValue[], o: {
   format: (v: number) => string;
   aria: string;
   domain: [number, number];
+  /** Label every focus bar (default). Off when the focus bars sit side by side and would collide on a phone. */
+  labelFocus?: boolean;
 }): string {
   const isFocus = (d: YearValue) => o.focus.includes(d.year);
-  const labelled = data.filter((d) => o.focus.includes(d.year) || o.labelled.includes(d.year));
+  const labelled = data.filter((d) => ((o.labelFocus ?? true) && isFocus(d)) || o.labelled.includes(d.year));
   return render({
     height: 300,
     marginTop: 28,
@@ -45,7 +47,7 @@ export function yearBars(data: YearValue[], o: {
     marginLeft: 8,
     marginRight: 8,
     ariaLabel: o.aria,
-    x: { type: 'band', domain: data.map((d) => d.year), label: null, tickSize: 0, padding: 0.2, tickFormat: (y: number) => (y % 5 === 0 || o.focus.includes(y) ? String(y) : '') },
+    x: { type: 'band', domain: data.map((d) => d.year), label: null, tickSize: 0, padding: 0.2, tickFormat: (y: number) => (y % 5 === 0 ? String(y) : '') },
     y: { domain: o.domain, axis: null },
     marks: [
       Plot.barY(data.filter((d) => !isFocus(d)), { x: 'year', y: 'value', fill: 'currentColor', className: 'bar' }),
@@ -111,10 +113,16 @@ export function lines(data: SeriesPoint[], o: {
   yFormat: (v: number) => string;
   classes: Record<string, string>;
 }): string {
-  const ends = [...new Set(data.map((d) => d.series))].map((s) => {
-    const pts = data.filter((d) => d.series === s);
-    return pts[pts.length - 1];
-  });
+  const gap = (o.domain[1] - o.domain[0]) * 0.06;
+  const ends = [...new Set(data.map((d) => d.series))]
+    .map((s) => {
+      const pts = data.filter((d) => d.series === s);
+      return { ...pts[pts.length - 1], labelY: pts[pts.length - 1].y };
+    })
+    .sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) {
+    if (ends[i].labelY - ends[i - 1].labelY < gap) ends[i].labelY = ends[i - 1].labelY + gap; // keep labels apart
+  }
   return render({
     height: 300,
     marginTop: 24,
@@ -129,7 +137,7 @@ export function lines(data: SeriesPoint[], o: {
         Plot.line(data.filter((d) => d.series === series), { x: 'x', y: 'y', stroke: 'currentColor', strokeWidth: 2, className: cls }),
       ),
       ...ends.map((d) =>
-        Plot.text([d], { x: 'x', y: 'y', dx: 8, textAnchor: 'start', text: 'label', fill: 'currentColor', className: o.classes[d.series] }),
+        Plot.text([d], { x: 'x', y: 'labelY', dx: 8, textAnchor: 'start', text: 'label', fill: 'currentColor', className: o.classes[d.series] }),
       ),
     ],
   });
@@ -151,6 +159,32 @@ export function countBars(data: YearValue[], o: { aria: string; format: (v: numb
       Plot.barY(data, { x: 'year', y: 'value', fill: 'currentColor', className: 'bar' }),
       Plot.text(labelled, { x: 'year', y: 'value', dy: -10, text: (d: YearValue) => o.format(d.value), fill: 'currentColor', className: 'bar-label' }),
       Plot.ruleY([0], { stroke: 'currentColor', className: 'baseline' }),
+    ],
+  });
+}
+
+export interface LabelValue {
+  label: string;
+  value: number;
+}
+
+/** Horizontal bars around zero (above or below comparable cars), sorted by the caller, values labelled. */
+export function divergingBars(data: LabelValue[], o: { aria: string; format: (v: number) => string; extent: number }): string {
+  return render({
+    height: 26 * data.length + 30,
+    marginLeft: 150,
+    marginRight: 56,
+    marginTop: 10,
+    marginBottom: 10,
+    ariaLabel: o.aria,
+    x: { domain: [-o.extent, o.extent], axis: null },
+    y: { domain: data.map((d) => d.label), label: null, tickSize: 0, padding: 0.25 },
+    marks: [
+      Plot.barX(data.filter((d) => d.value >= 0), { y: 'label', x: 'value', fill: 'currentColor', className: 'bar-focus tone-blue' }),
+      Plot.barX(data.filter((d) => d.value < 0), { y: 'label', x: 'value', fill: 'currentColor', className: 'bar-focus tone-accent' }),
+      Plot.ruleX([0], { stroke: 'currentColor', className: 'baseline' }),
+      Plot.text(data.filter((d) => d.value >= 0), { y: 'label', x: 'value', dx: 6, textAnchor: 'start', text: (d: LabelValue) => o.format(d.value), fill: 'currentColor', className: 'bar-label' }),
+      Plot.text(data.filter((d) => d.value < 0), { y: 'label', x: 'value', dx: -6, textAnchor: 'end', text: (d: LabelValue) => o.format(d.value), fill: 'currentColor', className: 'bar-label' }),
     ],
   });
 }

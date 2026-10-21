@@ -38,7 +38,7 @@ const fmtShare = (v: number) => share(v, lang);
 const pts = points(initial, exploreRetention, exploreYearly, labels);
 const chart = render(chartOptions(Plot, initial, pts, fmtShare, labels));
 const byOptions: { id: By; label: string }[] = [
-  { id: 'price_band', label: L('Faixa de preço do zero km', 'Brand-new price band') },
+  { id: 'price_band', label: L('Faixa de preço do zero km', 'Brand-new price band') }, // renamed per view by the script
   { id: 'brand', label: L('Marca', 'Brand') },
   { id: 'fuel_group', label: L('Combustível', 'Fuel') },
 ];
@@ -51,6 +51,8 @@ const config = {
   minN: MIN_N,
   text: {
     groupsHint: L(`Escolha até ${MAX_GROUPS}.`, `Pick up to ${MAX_GROUPS}.`),
+    bandNew: L('Faixa de preço do zero km', 'Brand-new price band'),
+    bandUsed: L('Faixa de preço do usado', 'Used price band'),
     tooMany: L(`No máximo ${MAX_GROUPS} grupos ao mesmo tempo.`, `At most ${MAX_GROUPS} groups at a time.`),
     empty: L('Escolha pelo menos um grupo.', 'Pick at least one group.'),
     age: L('Idade', 'Age'),
@@ -101,8 +103,8 @@ const config = {
         <div data-chart><Fragment set:html={chart} /></div>
         <figcaption data-caption>
           {L(
-            `Parcela mediana do preço de zero km mantida por idade, no mesmo janeiro. Pontos com menos de ${MIN_N} preços ficam fora das linhas.`,
-            `Median share of the brand-new price kept by age, same January. Points resting on fewer than ${MIN_N} prices are left out of the lines.`,
+            `Preço mediano do usado como parcela do zero km do mesmo código no mesmo janeiro (comparado com um zero km de hoje), por idade até 10 anos. Pontos com menos de ${MIN_N} preços ficam fora das linhas.`,
+            `Median used price as a share of the brand-new price of the same code in the same January (compared with a brand-new car today), by age up to 10 years. Points resting on fewer than ${MIN_N} prices are left out of the lines.`,
           )}
         </figcaption>
       </figure>
@@ -135,8 +137,8 @@ const config = {
 
     <p class="note">
       {L(
-        `Faixa de preço: quintos do preço de zero km dentro de cada janeiro (na variação ano a ano, quintos do preço do usado no primeiro janeiro). Marcas com pelo menos 300 comparações. Medianas, sempre com o n. `,
-        `Price band: fifths of the brand-new price within each January (for the year-to-year change, fifths of the used price in the first January). Brands with at least 300 comparisons. Medians, always with n. `,
+        `Duas faixas de preço diferentes, com o nome de cada uma no seletor: no valor mantido, quintos do preço de zero km dentro de cada janeiro; na variação ano a ano, quintos do preço do usado no primeiro janeiro. Marcas com pelo menos 1.000 comparações. Para comparar marcas pelo ano da compra, veja O que segura valor. Medianas, sempre com o n. `,
+        `Two different price bands, each named in the selector: for value kept, fifths of the brand-new price within each January; for the year-to-year change, fifths of the used price in the first January. Brands with at least 1,000 comparisons. To compare brands by year of purchase, see What holds value. Medians, always with n. `,
       )}
       <a href={path(lang, 'method')}>{t(lang, 'nav.method')}</a>.
     </p>

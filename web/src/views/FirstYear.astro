@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import Pager from '../components/Pager.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { cohort, cohortPooled, int, last, newVsUsed, one, retention, share } from '../lib/data';
+import { bandLine } from '../lib/charts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+const pooled = one(cohortPooled, { age: 1 });
+const firstYear = cohort.filter((r) => r.age === 1);
+const SHOCK_PURCHASE = 2021; // bought in Jan 2021, valued in Jan 2022: the shock year
+const normal = firstYear.filter((r) => r.purchase_year !== SHOCK_PURCHASE).map((r) => r.median_real);
+const shock = one(firstYear, { purchase_year: SHOCK_PURCHASE });
+const cap = Math.max(...newVsUsed.map((r) => r.max_ratio));
+const sameJan = one(retention, { scope: 'all', age: 1 });
+const latest = last(firstYear);
+
+const chart = bandLine(
+  firstYear.map((r) => ({ x: r.purchase_year, y: r.median_real, lo: r.p25_real, hi: r.p75_real })),
+  {
+    domain: [0.6, 1.12],
+    yFormat: (v) => share(v, lang),
+    labelled: [2009, SHOCK_PURCHASE, latest.purchase_year],
+    rule: 1,
+    xTicks: [2005, 2010, 2015, 2020, 2024],
+    aria: L(
+      `Linha por ano da compra com a parcela do preço pago, descontada a inflação, que o carro vale um ano depois de comprado zero km: de ${share(Math.min(...normal), lang)} a ${share(Math.max(...normal), lang)}, e ${share(shock.median_real, lang)} para quem comprou em ${SHOCK_PURCHASE}.`,
+      `Line by year of purchase with the share of the price paid, after inflation, a car is worth one year after being bought new: ${share(Math.min(...normal), lang)} to ${share(Math.max(...normal), lang)}, and ${share(shock.median_real, lang)} for ${SHOCK_PURCHASE} purchases.`,
+    ),
+  },
+);
+---
+
+<Base lang={lang} page="firstYear" title={t(lang, 'page.firstYear')}>
+  <article class="wrap page">
+    <p class="eyebrow">{L('Zero km perde 20% ao sair da loja?', 'Does a new car lose 20% as it leaves the lot?')}</p>
+    <h1>{L(`Um ano depois, o carro vale ${share(pooled.median_nominal, lang)} do preço pago na tabela FIPE`, `One year on, a car is worth ${share(pooled.median_nominal, lang)} of the price paid in the FIPE table`)}</h1>
+    <p class="lede">
+      {L(
+        `Seguindo o mesmo carro, comprado zero km em janeiro e reavaliado no janeiro seguinte: ${share(pooled.median_nominal, lang)} do preço pago no valor de face, ${share(pooled.median_real, lang)} descontada a inflação. Fora o ano do choque, o primeiro ano deixou de ${share(Math.min(...normal), lang)} a ${share(Math.max(...normal), lang)} do preço, em valor real.`,
+        `Following the same car, bought new in January and valued again the next January: ${share(pooled.median_nominal, lang)} of the price paid at face value, ${share(pooled.median_real, lang)} after inflation. Outside the shock year, the first year left ${share(Math.min(...normal), lang)} to ${share(Math.max(...normal), lang)} of the price in real terms.`,
+      )}
+    </p>
+
+    <figure class="figure">
+      <Fragment set:html={chart} />
+      <figcaption>
+        {L(
+          'Parcela do preço pago que sobra um ano depois, descontada a inflação, por ano da compra (mediana; a faixa vai do 1º ao 3º quartil). A linha tracejada marca 100%: o carro valendo o que custou.',
+          'Share of the price paid left one year later, after inflation, by year of purchase (median; the band spans the 1st to 3rd quartile). The dashed line marks 100%: the car worth what it cost.',
+        )}
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>
+        {L(
+          `A exceção é quem comprou em janeiro de 2021: um ano depois, o carro valia ${share(shock.median_real, lang)} do preço pago, já descontada a inflação, e ${share(shock.median_nominal, lang)} no valor de face. É o choque de 2022.`,
+          `The exception is a January 2021 purchase: one year later the car was worth ${share(shock.median_real, lang)} of the price paid, after inflation, and ${share(shock.median_nominal, lang)} at face value. That is the 2022 shock.`,
+        )}
+        {' '}<a href={path(lang, 'shock')}>{t(lang, 'page.shock')}</a>.
+      </p>
+      <h2>{L('E os 20% do ditado?', 'What about the 20% of the saying?')}</h2>
+      <p>
+        {L(
+          'O ditado fala do que o dono recebe ao vender o carro para uma loja logo depois da compra. A FIPE não mede isso: ela publica preços médios de revenda, à vista. Os dados mostram quanto o carro vale na tabela, não o desconto de uma venda específica.',
+          'The saying is about what an owner gets when selling the car to a dealer right after buying it. FIPE does not measure that: it publishes average resale prices, paid in cash. The data shows what the car is worth in the table, not the discount of a particular sale.',
+        )}
+      </p>
+      <p>
+        {L(
+          `Do lado de quem compra: no mesmo janeiro, um carro de 1 ano custa em mediana ${share(sameJan.median_ratio, lang)} do mesmo carro zero km. E um carro do ano-modelo corrente nunca passou de ${share(cap, lang)} do zero km em nenhum janeiro, nem em 2022: parece uma regra da tabela para o ano corrente, não um sinal do mercado.`,
+          `From the buyer's side: in the same January, a 1-year-old car costs a median ${share(sameJan.median_ratio, lang)} of the same car brand new. And a car of the current model year never went above ${share(cap, lang)} of the brand-new price in any January, not even in 2022: it looks like a table rule for the current year, not a market signal.`,
+        )}
+      </p>
+      <p class="note">
+        {L(
+          `${int(pooled.n, lang)} carros comprados zero km entre ${firstYear[0].purchase_year} e ${latest.purchase_year} (${int(Math.min(...firstYear.map((r) => r.n)), lang)} a ${int(Math.max(...firstYear.map((r) => r.n)), lang)} por ano). Mesmo código FIPE e combustível, ano-modelo igual ao ano da compra. `,
+          `${int(pooled.n, lang)} cars bought new between ${firstYear[0].purchase_year} and ${latest.purchase_year} (${int(Math.min(...firstYear.map((r) => r.n)), lang)} to ${int(Math.max(...firstYear.map((r) => r.n)), lang)} a year). Same FIPE code and fuel, model year equal to the year of purchase. `,
+        )}
+        <a href={path(lang, 'method')}>{t(lang, 'page.method')}</a>.
+      </p>
+    </div>
+
+    <details class="data">
+      <summary>{t(lang, 'table.show')}</summary>
+      <div class="table-wrap">
+        <table class="num">
+          <thead>
+            <tr>
+              <th>{L('Comprado em', 'Bought in')}</th>
+              <th>{t(lang, 'table.n')}</th>
+              <th>{L('Real', 'Real')}</th>
+              <th>{L('1º quartil', '1st quartile')}</th>
+              <th>{L('3º quartil', '3rd quartile')}</th>
+              <th>{L('Valor de face', 'Face value')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {firstYear.map((r) => (
+              <tr class={r.purchase_year === SHOCK_PURCHASE ? 'focus' : undefined}>
+                <td>{r.purchase_year}</td>
+                <td>{int(r.n, lang)}</td>
+                <td>{share(r.median_real, lang, 1)}</td>
+                <td>{share(r.p25_real, lang, 1)}</td>
+                <td>{share(r.p75_real, lang, 1)}</td>
+                <td>{share(r.median_nominal, lang, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <Pager lang={lang} page="firstYear" />
+  </article>
+</Base>

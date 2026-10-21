@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import Pager from '../components/Pager.astro';
 import { path, t, type Lang } from '../i18n/ui';
-import { coverage, first, last, manifest, month } from '../lib/data';
+import { change, cleanReport, coverage, first, fuelRelabels, int, last, manifest, month, newVsUsed, one, share, yearly } from '../lib/data';
+import { countBars } from '../lib/charts';
 
 interface Props {
   lang: Lang;
@@ -9,65 +11,123 @@ interface Props {
 
 const { lang } = Astro.props;
 const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
-const from = first(coverage).ref_year;
-const to = last(coverage).ref_year;
+const from = first(coverage);
+const to = last(coverage);
 const base = month(manifest.price_base, lang, t(lang, 'months.short'));
 const repo = 'https://github.com/stuaninauts/fipe';
 const adr = (file: string) => `${repo}/blob/main/docs/adr/${file}`;
+const r = cleanReport;
+const cap = Math.max(...newVsUsed.map((x) => x.max_ratio));
+const shock = one(yearly, { to_year: 2022 });
+const diesel = fuelRelabels.find((x) => x.to_year === 2011 && x.fuel_to === 'Diesel');
+const relabels2024 = fuelRelabels.filter((x) => x.to_year === 2024);
+
+const chart = countBars(
+  coverage.map((c) => ({ year: c.ref_year, value: c.prices })),
+  {
+    labelled: [from.ref_year, to.ref_year],
+    format: (v) => int(v, lang),
+    aria: L(
+      `Barras com o número de preços por janeiro, de ${int(from.prices, lang)} em ${from.ref_year} a ${int(to.prices, lang)} em ${to.ref_year}.`,
+      `Bars with the number of prices per January, from ${int(from.prices, lang)} in ${from.ref_year} to ${int(to.prices, lang)} in ${to.ref_year}.`,
+    ),
+  },
+);
 ---
 
-<Base lang={lang} page="method" title={t(lang, 'nav.method')}>
+<Base lang={lang} page="method" title={t(lang, 'page.method')}>
   <article class="wrap page">
     <p class="eyebrow">{t(lang, 'nav.method')}</p>
-    <h1>{L('Como os números foram feitos', 'How the numbers were made')}</h1>
+    <h1>{L('O que a tabela FIPE mede, e o que ela não mede', 'What the FIPE table measures, and what it does not')}</h1>
 
     <div class="prose">
-      <h2>{L('De onde vêm os preços', 'Where the prices come from')}</h2>
+      <blockquote>
+        <p>{L(
+          '"A Tabela Fipe expressa preços médios para pagamento à vista, praticados na revenda de veículos para o consumidor final, pessoa física, no mercado nacional, servindo apenas como um parâmetro para negociações."',
+          '"The FIPE table expresses average prices for cash payment, charged in vehicle resale to the final consumer, an individual, in the national market, serving only as a parameter for negotiations." (FIPE, translated)',
+        )}</p>
+        <cite><a href="https://veiculos.fipe.org.br/">veiculos.fipe.org.br</a></cite>
+      </blockquote>
       <p>
         {L(
-          `A Tabela FIPE publica todo mês um preço médio de mercado para cada carro vendido no Brasil. O site usa a tabela de janeiro de cada ano, de ${from} a ${to}, coletada do site da FIPE. A FIPE não oferece uma API pública documentada nem licença aberta para a tabela: os preços brutos ficam fora do repositório, e o site publica só agregados.`,
-          `Every month the FIPE table publishes an average market price for each car sold in Brazil. The site uses the January table of each year, ${from} to ${to}, collected from the FIPE website. FIPE offers neither a documented public API nor an open license for the table: raw prices stay out of the repository, and the site publishes aggregates only.`,
+          `O site usa a tabela de janeiro de cada ano, de ${from.ref_year} a ${to.ref_year} (dados até janeiro de ${to.ref_year}). A FIPE não oferece uma API pública documentada nem licença aberta: os preços brutos ficam fora do repositório, e o site publica só agregados, nunca o preço de um carro.`,
+          `The site uses the January table of each year, ${from.ref_year} to ${to.ref_year} (data up to January ${to.ref_year}). FIPE offers neither a documented public API nor an open license: raw prices stay out of the repository, and the site publishes aggregates only, never the price of a single car.`,
         )}
       </p>
 
-      <h2>{L('O que é "o mesmo carro"', 'What "the same car" means')}</h2>
+      <h2>{L('Seguir o mesmo carro', 'Following the same car')}</h2>
       <p>
         {L(
-          'Um carro é o código FIPE, o ano-modelo e o grupo de combustível. Nome e ano não bastam: o mesmo nome aparece a gasolina e a álcool, com preços diferentes. O ano-modelo 32000 que a FIPE usa para zero km vira uma marcação de "novo", e nunca entra numa conta como ano.',
-          'A car is its FIPE code, model year and fuel group. Name and year are not enough: the same name shows up for petrol and ethanol, with different prices. The model year 32000 that FIPE uses for brand-new cars becomes a "new" flag and never enters a calculation as a year.',
+          'Um carro é o código FIPE, o ano-modelo e o grupo de combustível. As análises principais seguem esse mesmo carro: comprado zero km em janeiro de um ano e reavaliado nos janeiros seguintes, ou comparado com ele mesmo de um janeiro para o outro. O preço de zero km aparece na FIPE com o ano 32000, que vira uma marcação de "novo" e nunca entra numa conta como ano.',
+          'A car is its FIPE code, model year and fuel group. The main analyses follow that same car: bought new in January of a year and valued again in the following Januaries, or compared with itself from one January to the next. FIPE lists brand-new prices under year 32000, which becomes a "new" flag and never enters a calculation as a year.',
         )}
       </p>
       <p>
         {L(
-          'Em 2024 a FIPE separou Flex, Híbrido, Elétrico e Gás Natural do antigo rótulo Gasolina. Para seguir um carro entre anos, esses rótulos formam um só grupo; álcool e diesel ficam à parte. ',
-          'In 2024 FIPE split Flex, Hybrid, Electric and Natural Gas out of the old Gasolina label. To follow a car across years these labels form one group; ethanol and diesel stay apart. ',
-        )}
-        <a href={path(lang, 'quality')}>{t(lang, 'nav.quality')}</a>.
-      </p>
-
-      <h2>{L('Por que só janeiros e por que mediana', 'Why only Januaries and why the median')}</h2>
-      <p>
-        {L(
-          'Uma tabela por ano basta para as perguntas do site e mantém a coleta pequena e respeitosa com o servidor da FIPE. A mediana não se deixa levar por carros raros e caros; toda mediana vem com o número de preços em que se apoia (n) e, nos gráficos, com a faixa entre o 1º e o 3º quartil.',
-          'One table a year is enough for the questions on the site and keeps the collection small and polite to the FIPE server. The median is not swayed by rare, expensive cars; every median comes with the number of prices behind it (n) and, in the charts, the band between the 1st and 3rd quartile.',
+          `Valores reais usam o IPCA do IBGE e estão em reais de ${base}. Comparações dentro do mesmo janeiro dispensam a correção: a inflação se cancela. Toda mediana vem com o número de preços em que se apoia (n).`,
+          `Real values use IBGE's IPCA and are in reais of ${base}. Comparisons within the same January need no adjustment: inflation cancels out. Every median comes with the number of prices behind it (n).`,
         )}
       </p>
 
-      <h2>{L('Inflação', 'Inflation')}</h2>
+      <h2>{L('Catálogo, não frota', 'Catalogue, not fleet')}</h2>
       <p>
         {L(
-          `Valores reais usam o IPCA do IBGE (número-índice mensal) e estão em reais de ${base}, o último mês publicado. A tabela de janeiro usa o IPCA de janeiro. Comparações dentro do mesmo janeiro, como a do zero km e a da idade, não precisam de correção: a inflação se cancela.`,
-          `Real values use IBGE's IPCA (monthly index) and are in reais of ${base}, the latest published month. The January table uses January's IPCA. Comparisons within the same January, such as the brand-new and the age ones, need no adjustment: inflation cancels out.`,
+          `Cada versão e ano-modelo da tabela conta uma vez, venda muito ou pouco. Marcas premium pesam bem mais no catálogo do que nas ruas. Por isso o choque de 2022 aparece também sem elas e só com carros de 1 a 15 anos: ${change(shock.median_real, lang)} no catálogo, ${change(shock.mass_median_real, lang)} no carro comum.`,
+          `Each version and model year in the table counts once, whether it sells a lot or a little. Premium brands weigh far more in the catalogue than on the streets. That is why the 2022 shock is also shown without them and only for cars 1 to 15 years old: ${change(shock.median_real, lang)} in the catalogue, ${change(shock.mass_median_real, lang)} for common cars.`,
         )}
       </p>
 
-      <h2>{L('Limitações', 'Limitations')}</h2>
+      <h2>{L('O que a tabela faz e o que não se sabe', 'What the table does and what is unknown')}</h2>
       <ul>
-        <li>{L('A FIPE publica preço médio pedido no mercado, não o preço fechado em cada venda.', 'FIPE publishes an average market asking price, not the price closed in each sale.')}</li>
-        <li>{L('De um janeiro para o outro o carro também fica um ano mais velho: a variação anual mistura idade e mercado.', 'From one January to the next the car is also one year older: the yearly change mixes ageing and market.')}</li>
-        <li>{L('A curva por idade só vê modelos que ainda têm preço de zero km; nas idades altas sobram os de vida longa.', 'The age curve only sees models that still have a brand-new price; at high ages only long-lived ones remain.')}</li>
-        <li>{L('A análise é descritiva: mostra o que aconteceu nos dados, sem afirmar causas.', 'The analysis is descriptive: it shows what happened in the data, without claiming causes.')}</li>
+        <li>{L(
+          `Um carro do ano-modelo corrente nunca passou de ${share(cap, lang)} do zero km em nenhum janeiro, nem em 2022. Parece uma regra da tabela; a FIPE não documenta isso publicamente.`,
+          `A car of the current model year never went above ${share(cap, lang)} of the brand-new price in any January, not even in 2022. It looks like a table rule; FIPE does not document it publicly.`,
+        )}</li>
+        <li>{L(
+          'Modelos saem de linha como zero km, mas os usados continuam na tabela. Comparações com o preço de zero km do mesmo janeiro só enxergam modelos ainda vendidos novos; nas idades altas sobram os de vida longa.',
+          'Models stop being sold new, but used ones stay in the table. Comparisons with the same-January brand-new price only see models still sold new; at high ages only long-lived ones remain.',
+        )}</li>
+        {diesel && <li>{L(
+          `Até janeiro de 2010, muitos carros a diesel aparecem como "Gasolina": em 2011, ${int(diesel.cars, lang)} carros mudam de rótulo no mesmo código e ano-modelo. Não dá para saber se veio da FIPE ou do coletor antigo; comparações por combustível usam compras a partir de 2011.`,
+          `Up to January 2010 many diesel cars appear as "Gasolina": in 2011, ${int(diesel.cars, lang)} cars change label under the same code and model year. It is not possible to tell whether this came from FIPE or the old collector; fuel comparisons use purchases from 2011 on.`,
+        )}</li>}
+        <li>{L(
+          `Em 2024 a FIPE separou Flex, Híbrido, Elétrico e Gás Natural do antigo rótulo Gasolina (${int(relabels2024.reduce((sum, x) => sum + x.cars, 0), lang)} carros). Para seguir um carro entre anos, esses rótulos formam um grupo só; álcool e diesel ficam à parte.`,
+          `In 2024 FIPE split Flex, Hybrid, Electric and Natural Gas out of the old Gasolina label (${int(relabels2024.reduce((sum, x) => sum + x.cars, 0), lang)} cars). To follow a car across years these labels form one group; ethanol and diesel stay apart.`,
+        )}</li>
+        <li>{L(
+          'A FIPE publica preço médio de mercado, não o preço fechado em cada venda nem o desconto de uma loja. A análise é descritiva: mostra o que aconteceu nos preços, sem afirmar causas.',
+          'FIPE publishes an average market price, not the price closed in each sale or a dealer discount. The analysis is descriptive: it shows what happened to prices, without claiming causes.',
+        )}</li>
       </ul>
+
+      <h2>{L('Os dados', 'The data')}</h2>
+    </div>
+
+    <figure class="figure">
+      <Fragment set:html={chart} />
+      <figcaption>{L('Preços por janeiro. A tabela cresce porque a FIPE acrescenta modelos e anos-modelo.', 'Prices per January. The table grows because FIPE adds models and model years.')}</figcaption>
+    </figure>
+
+    <div class="prose">
+      <ul>
+        <li>{L(
+          `${int(r.rows_out, lang)} preços de janeiro (versões e anos-modelo), depois da limpeza de ${int(r.rows_in, lang)} linhas brutas. Códigos, preços ou anos inválidos: ${int(r.invalid_codigo + r.invalid_price + r.invalid_year, lang)}.`,
+          `${int(r.rows_out, lang)} January prices (versions and model years), after cleaning ${int(r.rows_in, lang)} raw rows. Invalid codes, prices or years: ${int(r.invalid_codigo + r.invalid_price + r.invalid_year, lang)}.`,
+        )}</li>
+        <li>{L(
+          `Origem: ${int(r.rows_from_csv_v1, lang)} dos arquivos coletados em 2023-2025 e ${int(r.rows_from_api, lang)} da coleta atual. Os ${int(r.rows_from_api, lang)} preços que aparecem nas duas fontes são todos iguais.`,
+          `Source: ${int(r.rows_from_csv_v1, lang)} from files collected in 2023-2025 and ${int(r.rows_from_api, lang)} from the current collection. The ${int(r.rows_from_api, lang)} prices present in both sources are all equal.`,
+        )}</li>
+        <li>{L(
+          `Duplicatas removidas: ${int(r.duplicates_dropped, lang)}, com preço diferente entre as cópias: ${int(r.duplicate_conflicts, lang)}. Carros com dois preços no mesmo grupo de combustível e mês: ${int(r.fuel_group_collisions, lang)}.`,
+          `Duplicates removed: ${int(r.duplicates_dropped, lang)}, with different prices between copies: ${int(r.duplicate_conflicts, lang)}. Cars with two prices in the same fuel group and month: ${int(r.fuel_group_collisions, lang)}.`,
+        )}</li>
+      </ul>
+      <p>
+        {L('Todas as tabelas do site estão em /data/ (JSON e CSV), descritas em ', 'Every table on the site is in /data/ (JSON and CSV), described in ')}
+        <a href="/data/manifest.json">manifest.json</a>.
+      </p>
 
       <h2>{L('Código e decisões', 'Code and decisions')}</h2>
       <p>
@@ -75,7 +135,7 @@ const adr = (file: string) => `${repo}/blob/main/docs/adr/${file}`;
         <a href={adr('0001-dados-brutos-locais.md')}>{L('dados', 'data')}</a>,
         <a href={adr('0002-site-estatico.md')}>{L('site', 'site')}</a>,
         <a href={adr('0004-valores-reais-ipca.md')}>{L('inflação', 'inflation')}</a>,
-        <a href={adr('0005-analises-e-export.md')}>{L('análises', 'analyses')}</a>.
+        <a href={adr('0006-seguir-o-mesmo-carro.md')}>{L('seguir o mesmo carro', 'following the same car')}</a>.
       </p>
       <p>
         {L(
@@ -85,9 +145,40 @@ const adr = (file: string) => `${repo}/blob/main/docs/adr/${file}`;
         <a href={`${repo}/tree/v1.0-academic`}>v1.0-academic</a>.
       </p>
     </div>
+
+    <details class="data">
+      <summary>{t(lang, 'table.show')}</summary>
+      <div class="table-wrap">
+        <table class="num">
+          <thead>
+            <tr>
+              <th>{L('Janeiro', 'January')}</th>
+              <th>{L('Preços', 'Prices')}</th>
+              <th>{L('Zero km', 'Brand new')}</th>
+              <th>{L('Códigos FIPE', 'FIPE codes')}</th>
+              <th>{L('Marcas', 'Brands')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {coverage.map((c) => (
+              <tr>
+                <td>{c.ref_year}</td>
+                <td>{int(c.prices, lang)}</td>
+                <td>{int(c.new_car_prices, lang)}</td>
+                <td>{int(c.codigos_fipe, lang)}</td>
+                <td>{int(c.brands, lang)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <Pager lang={lang} page="method" />
   </article>
 </Base>
 
 <style>
   ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+  blockquote { margin: 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--accent); display: grid; gap: 6px; font-family: var(--serif); font-size: 18px; color: var(--muted); }
+  cite { font-family: var(--sans); font-style: normal; font-size: 14px; }
 </style>

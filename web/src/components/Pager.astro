@@ -1,0 +1,28 @@
+---
+/** Previous and next analysis, in the reading order of ANALYSES. */
+import { ANALYSES, path, t, type Lang, type Page, type UiKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  page: Page;
+}
+
+const { lang, page } = Astro.props;
+const i = ANALYSES.indexOf(page);
+const prev = i > 0 ? ANALYSES[i - 1] : undefined;
+const next = i >= 0 && i < ANALYSES.length - 1 ? ANALYSES[i + 1] : undefined;
+const title = (p: Page) => t(lang, `page.${p}` as UiKey);
+---
+
+<nav class="pager" aria-label={t(lang, 'pager.label')}>
+  {prev ? <a href={path(lang, prev)}><span>{t(lang, 'pager.prev')}</span>{title(prev)}</a> : <span />}
+  {next && <a class="next" href={path(lang, next)}><span>{t(lang, 'pager.next')}</span>{title(next)}</a>}
+</nav>
+
+<style>
+  .pager { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line-soft); padding-top: 20px; }
+  a { display: grid; gap: 2px; min-height: 44px; color: var(--ink); text-decoration: none; font-family: var(--serif); font-weight: 600; }
+  a span { font-family: var(--sans); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--soft); }
+  a:hover { color: var(--accent-ink); }
+  .next { text-align: right; }
+</style>

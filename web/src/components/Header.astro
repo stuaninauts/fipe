@@ -8,12 +8,11 @@ interface Props {
 }
 
 const { lang, page, alternate } = Astro.props;
-const analyses: Page[] = ['shock', 'brandNew', 'depreciation'];
+const analyses: Page[] = ['firstYear', 'lossByAge', 'purchaseYear', 'shock', 'holdsValue'];
 const links: { key: Page | 'analyses'; label: string; href: string; current: boolean }[] = [
   { key: 'analyses', label: t(lang, 'nav.analyses'), href: `${path(lang, 'home')}#analises`, current: !!page && analyses.includes(page) },
   { key: 'explore', label: t(lang, 'nav.explore'), href: path(lang, 'explore'), current: page === 'explore' },
   { key: 'method', label: t(lang, 'nav.method'), href: path(lang, 'method'), current: page === 'method' },
-  { key: 'quality', label: t(lang, 'nav.quality'), href: path(lang, 'quality'), current: page === 'quality' },
 ];
 const other = otherLang(lang);
 ---

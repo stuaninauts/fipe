@@ -1,6 +1,9 @@
 /** Interface text and routes per language (PT at the root, EN under /en/: docs/adr/0002). */
 export type Lang = 'pt' | 'en';
-export type Page = 'home' | 'shock' | 'brandNew' | 'depreciation' | 'explore' | 'method' | 'quality';
+export type Page = 'home' | 'firstYear' | 'lossByAge' | 'purchaseYear' | 'shock' | 'holdsValue' | 'explore' | 'method';
+
+/** The six analyses, in reading order (home cards and pager). */
+export const ANALYSES: Page[] = ['firstYear', 'lossByAge', 'purchaseYear', 'shock', 'holdsValue', 'method'];
 
 export const LANGS: Lang[] = ['pt', 'en'];
 
@@ -10,12 +13,13 @@ export function otherLang(lang: Lang): Lang {
 
 const PATHS: Record<Page, Record<Lang, string>> = {
   home: { pt: '/', en: '/en/' },
+  firstYear: { pt: '/primeiro-ano/', en: '/en/first-year/' },
+  lossByAge: { pt: '/perda-por-idade/', en: '/en/loss-by-age/' },
+  purchaseYear: { pt: '/ano-da-compra/', en: '/en/purchase-year/' },
   shock: { pt: '/choque-2021-2022/', en: '/en/2021-2022-shock/' },
-  brandNew: { pt: '/zero-km/', en: '/en/brand-new/' },
-  depreciation: { pt: '/depreciacao/', en: '/en/depreciation/' },
+  holdsValue: { pt: '/o-que-segura-valor/', en: '/en/what-holds-value/' },
   explore: { pt: '/explorar/', en: '/en/explore/' },
-  method: { pt: '/metodo/', en: '/en/method/' },
-  quality: { pt: '/qualidade/', en: '/en/data-quality/' },
+  method: { pt: '/o-que-a-fipe-mede/', en: '/en/what-fipe-measures/' },
 };
 
 export function path(lang: Lang, page: Page): string {
@@ -27,19 +31,30 @@ export const hreflang = (lang: Lang) => (lang === 'pt' ? 'pt-BR' : 'en');
 const pt = {
   'site.name': 'Fipe',
   'site.title': 'Quanto um carro perde de valor no Brasil',
-  'site.description': 'Duas décadas da tabela FIPE com a inflação descontada: o choque de 2022, o mito do zero km e quanto um carro vale com o tempo.',
+  'site.description': 'Duas décadas da tabela FIPE seguindo o mesmo carro: quanto ele perde no primeiro ano e com a idade, o choque de 2022 e o que segura valor.',
   'nav.label': 'Principal',
   'nav.skip': 'Pular para o conteúdo',
   'nav.analyses': 'Análises',
   'nav.explore': 'Explorar',
   'nav.method': 'Método',
-  'nav.quality': 'Dados',
   'nav.lang': 'EN',
   'nav.langLabel': 'Read in English',
   'footer.source': 'Fonte: Tabela FIPE (Fundação Instituto de Pesquisas Econômicas) e IPCA (IBGE). O site publica só agregados, nunca o preço de um carro.',
   'footer.code': 'Código',
   'footer.credit': 'Versão original de 2023 em dupla com @gpl27 (INF/UFRGS).',
   'unit.real': 'Valores reais em reais de',
+  'page.firstYear': 'O primeiro ano',
+  'page.lossByAge': 'Em que idade o carro perde mais',
+  'page.purchaseYear': 'Depende de quando você comprou',
+  'page.shock': 'O choque de 2022',
+  'page.holdsValue': 'O que segura valor',
+  'page.method': 'O que a tabela FIPE mede',
+  'page.explore': 'Explorar',
+  'page.home': 'Início',
+  'pager.label': 'Navegar entre as análises',
+  'pager.prev': 'Anterior',
+  'pager.next': 'Próxima',
+  'data.until': 'Dados até',
   'table.show': 'Ver os números em tabela',
   'table.n': 'n',
   'chart.year': 'ano',
@@ -54,19 +69,30 @@ export type UiKey = keyof typeof pt;
 const en: Record<UiKey, string> = {
   'site.name': 'Fipe',
   'site.title': 'How much a car loses value in Brazil',
-  'site.description': "Two decades of Brazil's FIPE car price table, adjusted for inflation: the 2022 shock, the brand-new myth and what a car is worth over time.",
+  'site.description': "Two decades of Brazil's FIPE car price table, following the same car: what it loses in the first year and with age, the 2022 shock and what holds value.",
   'nav.label': 'Main',
   'nav.skip': 'Skip to content',
   'nav.analyses': 'Analyses',
   'nav.explore': 'Explore',
   'nav.method': 'Method',
-  'nav.quality': 'Data',
   'nav.lang': 'PT',
   'nav.langLabel': 'Ler em português',
   'footer.source': 'Source: FIPE price table (Fundação Instituto de Pesquisas Econômicas) and IPCA (IBGE). The site publishes aggregates only, never the price of a single car.',
   'footer.code': 'Code',
   'footer.credit': 'Original 2023 version built with @gpl27 (INF/UFRGS).',
   'unit.real': 'Real values in reais of',
+  'page.firstYear': 'The first year',
+  'page.lossByAge': 'At what age a car loses most',
+  'page.purchaseYear': 'It depends on when you bought',
+  'page.shock': 'The 2022 shock',
+  'page.holdsValue': 'What holds value',
+  'page.method': 'What the FIPE table measures',
+  'page.explore': 'Explore',
+  'page.home': 'Home',
+  'pager.label': 'Move between analyses',
+  'pager.prev': 'Previous',
+  'pager.next': 'Next',
+  'data.until': 'Data up to',
   'table.show': 'See the numbers as a table',
   'table.n': 'n',
   'chart.year': 'year',

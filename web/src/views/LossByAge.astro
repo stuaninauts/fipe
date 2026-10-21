@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import Pager from '../components/Pager.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { change, coverage, first, int, last, loss, lossByAge, lossRange, manifest, month, one } from '../lib/data';
+import { bandLine } from '../lib/charts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+const MIN_N = 1000; // ages resting on fewer comparisons stay in the table only
+const shown = lossByAge.filter((r) => r.n >= MIN_N);
+const early = lossByAge.filter((r) => r.age >= 2 && r.age <= 5);
+const realRange = lossRange(Math.max(...early.map((r) => r.median_real)), Math.min(...early.map((r) => r.median_real)), lang);
+const nomRange = lossRange(Math.max(...early.map((r) => r.median_nominal)), Math.min(...early.map((r) => r.median_nominal)), lang);
+const a1 = one(lossByAge, { age: 1 });
+const a10 = one(lossByAge, { age: 10 });
+const a20 = one(lossByAge, { age: 20 });
+const oldest = last(shown);
+const base = month(manifest.price_base, lang, t(lang, 'months.short'));
+const span = `${first(coverage).ref_year + 1}–${last(coverage).ref_year}`;
+
+const chart = bandLine(
+  shown.map((r) => ({ x: r.age, y: r.median_real, lo: r.p25_real, hi: r.p75_real })),
+  {
+    domain: [-0.16, 0.0],
+    xLabel: L('idade do carro (anos) →', 'car age (years) →'),
+    yFormat: (v) => change(v, lang, 0),
+    labelled: [1, 3, 10, 20],
+    xTicks: [1, 5, 10, 15, 20, 25, 30],
+    aria: L(
+      `Linha por idade com a perda real mediana do preço do mesmo carro em um ano: ${realRange} entre 2 e 5 anos, ${loss(a10.median_real, lang)} aos 10 e ${loss(a20.median_real, lang)} aos 20.`,
+      `Line by age with the median real loss in the price of the same car over one year: ${realRange} between 2 and 5 years, ${loss(a10.median_real, lang)} at 10 and ${loss(a20.median_real, lang)} at 20.`,
+    ),
+  },
+);
+---
+
+<Base lang={lang} page="lossByAge" title={t(lang, 'page.lossByAge')}>
+  <article class="wrap page">
+    <p class="eyebrow">{t(lang, 'page.lossByAge')}</p>
+    <h1>{L(`Entre 2 e 5 anos, o carro perde ${realRange} ao ano; depois, menos`, `Between 2 and 5 years old, a car loses ${realRange} a year; after that, less`)}</h1>
+    <p class="lede">
+      {L(
+        `O mesmo carro, de um janeiro para o outro, descontada a inflação. A perda é maior entre 2 e 5 anos e vai diminuindo: ${loss(a10.median_real, lang)} ao ano com 10 anos, ${loss(a20.median_real, lang)} com 20.`,
+        `The same car, from one January to the next, after inflation. The loss is largest between 2 and 5 years and then slows: ${loss(a10.median_real, lang)} a year at 10 years, ${loss(a20.median_real, lang)} at 20.`,
+      )}
+    </p>
+
+    <figure class="figure">
+      <Fragment set:html={chart} />
+      <figcaption>
+        {L(
+          `Variação real mediana do preço do mesmo carro em um ano, pela idade no fim do ano (a faixa vai do 1º ao 3º quartil), sem o ano do choque (2022). ${t(lang, 'unit.real')} ${base}.`,
+          `Median real change in the price of the same car over one year, by its age at the end of the year (the band spans the 1st to 3rd quartile), without the shock year (2022). ${t(lang, 'unit.real')} ${base}.`,
+        )}
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>
+        {L(
+          `No valor de face, a perda entre 2 e 5 anos é de ${nomRange} ao ano: o resto é a inflação corroendo o dinheiro. Em carro velho, quase toda a perda real é inflação: com 20 anos, o preço de face cai ${loss(a20.median_nominal, lang, 1)} ao ano.`,
+          `At face value, the loss between 2 and 5 years is ${nomRange} a year: the rest is inflation eroding the money. In an old car almost all the real loss is inflation: at 20 years, the face price falls ${loss(a20.median_nominal, lang, 1)} a year.`,
+        )}
+      </p>
+      <p>
+        {L(
+          `O primeiro ano parece mais leve (${loss(a1.median_real, lang)}) porque aqui ele começa no carro do ano-modelo corrente já usado, não no zero km. A perda de sair da loja está em `,
+          `The first year looks lighter (${loss(a1.median_real, lang)}) because here it starts from a used car of the current model year, not from a new one. The loss of leaving the lot is in `,
+        )}
+        <a href={path(lang, 'firstYear')}>{t(lang, 'page.firstYear')}</a>.
+      </p>
+      <p class="note">
+        {L(
+          `Medianas de ${int(Math.min(...shown.map((r) => r.n)), lang)} a ${int(Math.max(...shown.map((r) => r.n)), lang)} comparações por idade, nos anos de chegada ${span}, sem 2022. Idades com menos de ${int(MIN_N, lang)} comparações ficam só na tabela (o gráfico vai até ${oldest.age} anos). `,
+          `Medians of ${int(Math.min(...shown.map((r) => r.n)), lang)} to ${int(Math.max(...shown.map((r) => r.n)), lang)} comparisons per age, arrival years ${span}, without 2022. Ages with fewer than ${int(MIN_N, lang)} comparisons stay in the table only (the chart goes up to ${oldest.age} years). `,
+        )}
+        <a href={path(lang, 'method')}>{t(lang, 'page.method')}</a>.
+      </p>
+    </div>
+
+    <details class="data">
+      <summary>{t(lang, 'table.show')}</summary>
+      <div class="table-wrap">
+        <table class="num">
+          <thead>
+            <tr>
+              <th>{L('Idade', 'Age')}</th>
+              <th>{t(lang, 'table.n')}</th>
+              <th>{L('Real', 'Real')}</th>
+              <th>{L('1º quartil', '1st quartile')}</th>
+              <th>{L('3º quartil', '3rd quartile')}</th>
+              <th>{L('Valor de face', 'Face value')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lossByAge.map((r) => (
+              <tr class={r.n < MIN_N ? 'small-n' : undefined}>
+                <td>{r.age}</td>
+                <td>{int(r.n, lang)}</td>
+                <td>{change(r.median_real, lang)}</td>
+                <td>{change(r.p25_real, lang)}</td>
+                <td>{change(r.p75_real, lang)}</td>
+                <td>{change(r.median_nominal, lang)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <Pager lang={lang} page="lossByAge" />
+  </article>
+</Base>
