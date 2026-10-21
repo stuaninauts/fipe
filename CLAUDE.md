@@ -50,6 +50,15 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
   `uv run python -m fipe.inflation --update`. `price_real_brl` está em reais do último mês da série
   ([ADR 0004](docs/adr/0004-valores-reais-ipca.md)); mês de referência sem IPCA é erro, nunca NaN silencioso.
 
+## Análises e export ([ADR 0005](docs/adr/0005-analises-e-export.md))
+- `fipe/aggregate.py` é o **único** lugar que define um número publicado: só janeiros, mediana com p25/p75 e
+  sempre o `n`. Para seguir um carro entre anos, use `CAR`.
+- `uv run python -m fipe.export` regrava `web/public/data/` (JSON, CSV e `manifest.json`) a partir de
+  `data/processed/prices.parquet`; `--check` confere se o versionado está em dia. Nunca editar esses arquivos à mão.
+- O export só tem agregados: nenhuma coluna com código FIPE, modelo ou preço de um carro (`tests/test_export.py`).
+- O CI não tem os dados brutos: `tests/test_export.py` fixa os números publicados. Mudou um número, mude o teste e
+  o texto do site no mesmo PR.
+
 ## Git (GitHub Flow)
 - Nunca commitar nem dar push na `main`. Branch `<tipo>/<descricao-kebab>` → PR → CI verde → "Rebase and merge".
 - Commit, push e PR só quando o autor pedir: ele define os marcos. Ao terminar uma etapa, deixe as mudanças no

@@ -16,6 +16,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from fipe.aggregate import coverage
 from fipe.clean import clean, read_api_cache, read_v1_csv
 from fipe.inflation import DEFAULT_PATH as IPCA_PATH
 from fipe.inflation import deflate, load_ipca
@@ -29,19 +30,6 @@ V1_GLOBS = ["janeiros-*/janeiro-*"]
 def v1_files(raw: Path = RAW) -> list[Path]:
     files = {p for pattern in V1_GLOBS for p in raw.glob(pattern) if p.is_file()}
     return sorted(files)
-
-
-def coverage(prices: pd.DataFrame) -> pd.DataFrame:
-    """One row per reference month: how many prices, cars, codes and brands it has."""
-    g = prices.groupby(["ref_year", "ref_month"])
-    return pd.DataFrame(
-        {
-            "prices": g.size(),
-            "new_car_prices": g["is_new"].sum(),
-            "codigos_fipe": g["codigo_fipe"].nunique(),
-            "brands": g["brand"].nunique(),
-        }
-    ).reset_index()
 
 
 def build(raw: Path = RAW, ipca_path: Path = IPCA_PATH) -> tuple[pd.DataFrame, dict]:

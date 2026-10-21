@@ -2,9 +2,10 @@ import json
 
 import pandas as pd
 
+from fipe.aggregate import coverage
 from fipe.api import Client, Response
 from fipe.cache import Cache
-from fipe.pipeline import build, coverage
+from fipe.pipeline import build
 
 HEADER = "ano_ref;mes_ref;marca;modelo;ano_fab;valor;combustivel;codigo_fipe\n"
 

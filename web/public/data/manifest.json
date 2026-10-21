@@ -1,0 +1,57 @@
+{
+ "attribution": "Fonte: Tabela FIPE (Fundação Instituto de Pesquisas Econômicas); IPCA: IBGE.",
+ "price_base": "2026-09",
+ "tables": {
+  "yearly_change": {
+   "description": "Same used car from one January to the next: median change (nominal, real) and IPCA.",
+   "rows": 21,
+   "columns": [
+    "from_year",
+    "to_year",
+    "n",
+    "median_nominal",
+    "median_real",
+    "p25_real",
+    "p75_real",
+    "ipca",
+    "new_n",
+    "new_median_nominal"
+   ]
+  },
+  "new_vs_used": {
+   "description": "Used car of the current model year over the same car brand new, per January.",
+   "rows": 22,
+   "columns": [
+    "ref_year",
+    "n",
+    "median_ratio",
+    "p25_ratio",
+    "p75_ratio"
+   ]
+  },
+  "retention_by_age": {
+   "description": "Share of the brand-new price kept at each age, same January (all years and recent).",
+   "rows": 32,
+   "columns": [
+    "scope",
+    "age",
+    "n",
+    "median_ratio",
+    "p25_ratio",
+    "p75_ratio"
+   ]
+  },
+  "coverage": {
+   "description": "Prices, brand-new prices, FIPE codes and brands per reference month.",
+   "rows": 22,
+   "columns": [
+    "ref_year",
+    "ref_month",
+    "prices",
+    "new_car_prices",
+    "codigos_fipe",
+    "brands"
+   ]
+  }
+ }
+}
