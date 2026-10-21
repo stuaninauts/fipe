@@ -1,0 +1,2 @@
+rows_in,rows_out,invalid_codigo,invalid_price,invalid_year,duplicates_dropped,duplicate_conflicts,fuel_group_collisions,rows_from_api,rows_from_csv_v1
+432488,431303,0,0,0,1185,0,0,1175,430128

@@ -226,3 +226,12 @@ def coverage(prices: pd.DataFrame) -> pd.DataFrame:
         }
     ).reset_index()
     return out.astype({"ref_year": int, "ref_month": int, "new_car_prices": int})
+
+
+def fuel_labels(prices: pd.DataFrame) -> pd.DataFrame:
+    """Prices per fuel label and January: shows the 2024 split of "Gasolina" (fipe/clean.py FUEL_GROUP)."""
+    jan = prices[prices["ref_month"] == JANUARY]
+    out = jan.groupby(["ref_year", "fuel"]).size().rename("prices").reset_index()
+    return (
+        out.astype({"ref_year": int, "prices": int}).sort_values(["ref_year", "fuel"]).reset_index(drop=True)
+    )

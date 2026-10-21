@@ -77,6 +77,31 @@
     "n",
     "median_real"
    ]
+  },
+  "fuel_labels": {
+   "description": "Prices per fuel label and January (FIPE split the Gasolina label in 2024).",
+   "rows": 74,
+   "columns": [
+    "ref_year",
+    "fuel",
+    "prices"
+   ]
+  },
+  "clean_report": {
+   "description": "What cleaning dropped: invalid rows, duplicates and fuel group collisions.",
+   "rows": 1,
+   "columns": [
+    "rows_in",
+    "rows_out",
+    "invalid_codigo",
+    "invalid_price",
+    "invalid_year",
+    "duplicates_dropped",
+    "duplicate_conflicts",
+    "fuel_group_collisions",
+    "rows_from_api",
+    "rows_from_csv_v1"
+   ]
   }
  }
 }

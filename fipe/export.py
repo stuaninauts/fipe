@@ -22,6 +22,7 @@ from fipe.inflation import DEFAULT_PATH as IPCA_PATH
 from fipe.inflation import load_ipca
 
 PRICES = Path("data/processed/prices.parquet")
+CLEAN_REPORT = Path("data/processed/clean_report.json")
 OUT = Path("web/public/data")
 ATTRIBUTION = "Fonte: Tabela FIPE (Fundação Instituto de Pesquisas Econômicas); IPCA: IBGE."
 DESCRIPTIONS = {
@@ -31,10 +32,19 @@ DESCRIPTIONS = {
     "coverage": "Prices, brand-new prices, FIPE codes and brands per reference month.",
     "explore_retention": "retention_by_age by brand, fuel group and brand-new price band (explore page).",
     "explore_yearly": "Real change of the same used car per January by brand, fuel group and price band.",
+    "fuel_labels": "Prices per fuel label and January (FIPE split the Gasolina label in 2024).",
+    "clean_report": "What cleaning dropped: invalid rows, duplicates and fuel group collisions.",
 }
 
 
-def build_tables(prices: pd.DataFrame, ipca: pd.DataFrame) -> dict[str, pd.DataFrame]:
+def clean_report_table(report: dict) -> pd.DataFrame:
+    """The pipeline's cleaning report as one row, with the source counts as their own columns."""
+    flat = {k: v for k, v in report.items() if k != "by_source"}
+    flat |= {f"rows_from_{source}": n for source, n in sorted(report["by_source"].items())}
+    return pd.DataFrame([flat])
+
+
+def build_tables(prices: pd.DataFrame, ipca: pd.DataFrame, report: dict) -> dict[str, pd.DataFrame]:
     return {
         "yearly_change": aggregate.yearly_change(prices, ipca),
         "new_vs_used": aggregate.new_vs_used(prices),
@@ -42,6 +52,8 @@ def build_tables(prices: pd.DataFrame, ipca: pd.DataFrame) -> dict[str, pd.DataF
         "coverage": aggregate.coverage(prices),
         "explore_retention": aggregate.explore_retention(prices),
         "explore_yearly": aggregate.explore_yearly(prices),
+        "fuel_labels": aggregate.fuel_labels(prices),
+        "clean_report": clean_report_table(report),
     }
 
 
@@ -76,7 +88,8 @@ def main(argv: list[str] | None = None) -> int:
     ipca = load_ipca(IPCA_PATH)
     last = ipca.sort_values(["year", "month"]).iloc[-1]
     price_base = f"{int(last['year'])}-{int(last['month']):02d}"
-    files = render(build_tables(pd.read_parquet(args.prices), ipca), price_base)
+    report = json.loads(args.prices.with_name(CLEAN_REPORT.name).read_text())
+    files = render(build_tables(pd.read_parquet(args.prices), ipca, report), price_base)
 
     if args.check:
         stale = [

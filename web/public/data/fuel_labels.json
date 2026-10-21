@@ -1,0 +1,372 @@
+[
+ {
+  "ref_year": 2004,
+  "fuel": "Diesel",
+  "prices": 1295
+ },
+ {
+  "ref_year": 2004,
+  "fuel": "Gasolina",
+  "prices": 8254
+ },
+ {
+  "ref_year": 2004,
+  "fuel": "Álcool",
+  "prices": 421
+ },
+ {
+  "ref_year": 2005,
+  "fuel": "Diesel",
+  "prices": 1338
+ },
+ {
+  "ref_year": 2005,
+  "fuel": "Gasolina",
+  "prices": 9022
+ },
+ {
+  "ref_year": 2005,
+  "fuel": "Álcool",
+  "prices": 446
+ },
+ {
+  "ref_year": 2006,
+  "fuel": "Diesel",
+  "prices": 1375
+ },
+ {
+  "ref_year": 2006,
+  "fuel": "Gasolina",
+  "prices": 9767
+ },
+ {
+  "ref_year": 2006,
+  "fuel": "Álcool",
+  "prices": 448
+ },
+ {
+  "ref_year": 2007,
+  "fuel": "Diesel",
+  "prices": 1386
+ },
+ {
+  "ref_year": 2007,
+  "fuel": "Gasolina",
+  "prices": 10574
+ },
+ {
+  "ref_year": 2007,
+  "fuel": "Álcool",
+  "prices": 444
+ },
+ {
+  "ref_year": 2008,
+  "fuel": "Diesel",
+  "prices": 1393
+ },
+ {
+  "ref_year": 2008,
+  "fuel": "Gasolina",
+  "prices": 11411
+ },
+ {
+  "ref_year": 2008,
+  "fuel": "Álcool",
+  "prices": 443
+ },
+ {
+  "ref_year": 2009,
+  "fuel": "Diesel",
+  "prices": 1397
+ },
+ {
+  "ref_year": 2009,
+  "fuel": "Gasolina",
+  "prices": 12156
+ },
+ {
+  "ref_year": 2009,
+  "fuel": "Álcool",
+  "prices": 438
+ },
+ {
+  "ref_year": 2010,
+  "fuel": "Diesel",
+  "prices": 1407
+ },
+ {
+  "ref_year": 2010,
+  "fuel": "Gasolina",
+  "prices": 13264
+ },
+ {
+  "ref_year": 2010,
+  "fuel": "Álcool",
+  "prices": 438
+ },
+ {
+  "ref_year": 2011,
+  "fuel": "Diesel",
+  "prices": 2645
+ },
+ {
+  "ref_year": 2011,
+  "fuel": "Gasolina",
+  "prices": 13021
+ },
+ {
+  "ref_year": 2011,
+  "fuel": "Álcool",
+  "prices": 437
+ },
+ {
+  "ref_year": 2012,
+  "fuel": "Diesel",
+  "prices": 2781
+ },
+ {
+  "ref_year": 2012,
+  "fuel": "Gasolina",
+  "prices": 13928
+ },
+ {
+  "ref_year": 2012,
+  "fuel": "Álcool",
+  "prices": 441
+ },
+ {
+  "ref_year": 2013,
+  "fuel": "Diesel",
+  "prices": 2986
+ },
+ {
+  "ref_year": 2013,
+  "fuel": "Gasolina",
+  "prices": 14843
+ },
+ {
+  "ref_year": 2013,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2014,
+  "fuel": "Diesel",
+  "prices": 3114
+ },
+ {
+  "ref_year": 2014,
+  "fuel": "Gasolina",
+  "prices": 15855
+ },
+ {
+  "ref_year": 2014,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2015,
+  "fuel": "Diesel",
+  "prices": 3231
+ },
+ {
+  "ref_year": 2015,
+  "fuel": "Gasolina",
+  "prices": 16659
+ },
+ {
+  "ref_year": 2015,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2016,
+  "fuel": "Diesel",
+  "prices": 3381
+ },
+ {
+  "ref_year": 2016,
+  "fuel": "Gasolina",
+  "prices": 17452
+ },
+ {
+  "ref_year": 2016,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2017,
+  "fuel": "Diesel",
+  "prices": 3534
+ },
+ {
+  "ref_year": 2017,
+  "fuel": "Gasolina",
+  "prices": 18519
+ },
+ {
+  "ref_year": 2017,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2018,
+  "fuel": "Diesel",
+  "prices": 3668
+ },
+ {
+  "ref_year": 2018,
+  "fuel": "Gasolina",
+  "prices": 19039
+ },
+ {
+  "ref_year": 2018,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2019,
+  "fuel": "Diesel",
+  "prices": 3830
+ },
+ {
+  "ref_year": 2019,
+  "fuel": "Gasolina",
+  "prices": 19839
+ },
+ {
+  "ref_year": 2019,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2020,
+  "fuel": "Diesel",
+  "prices": 3996
+ },
+ {
+  "ref_year": 2020,
+  "fuel": "Gasolina",
+  "prices": 20615
+ },
+ {
+  "ref_year": 2020,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2021,
+  "fuel": "Diesel",
+  "prices": 4190
+ },
+ {
+  "ref_year": 2021,
+  "fuel": "Gasolina",
+  "prices": 21203
+ },
+ {
+  "ref_year": 2021,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2022,
+  "fuel": "Diesel",
+  "prices": 4370
+ },
+ {
+  "ref_year": 2022,
+  "fuel": "Gasolina",
+  "prices": 21851
+ },
+ {
+  "ref_year": 2022,
+  "fuel": "Álcool",
+  "prices": 439
+ },
+ {
+  "ref_year": 2023,
+  "fuel": "Diesel",
+  "prices": 4536
+ },
+ {
+  "ref_year": 2023,
+  "fuel": "Gasolina",
+  "prices": 22264
+ },
+ {
+  "ref_year": 2023,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Diesel",
+  "prices": 4693
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Elétrico",
+  "prices": 322
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Flex",
+  "prices": 6401
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Gasolina",
+  "prices": 15596
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Gás Natural",
+  "prices": 14
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Híbrido",
+  "prices": 630
+ },
+ {
+  "ref_year": 2024,
+  "fuel": "Álcool",
+  "prices": 442
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Diesel",
+  "prices": 4889
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Elétrico",
+  "prices": 432
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Flex",
+  "prices": 6659
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Gasolina",
+  "prices": 15754
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Gás Natural",
+  "prices": 14
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Híbrido",
+  "prices": 811
+ },
+ {
+  "ref_year": 2025,
+  "fuel": "Álcool",
+  "prices": 442
+ }
+]

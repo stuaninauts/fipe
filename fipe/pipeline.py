@@ -4,12 +4,13 @@
 
 Reads the v1 scraper CSVs and the collector cache, cleans them (fipe/clean.py), adds prices in reais of the
 latest IPCA month (fipe/inflation.py) and writes data/processed/prices.parquet plus a coverage summary in
-data/processed/coverage.csv. Both stay local (docs/adr/0001).
+data/processed/coverage.csv and clean_report.json. All stay local (docs/adr/0001).
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from dataclasses import asdict
 from pathlib import Path
@@ -55,6 +56,7 @@ def main(argv: list[str] | None = None) -> int:
     prices.to_parquet(args.out / "prices.parquet", index=False)
     cov = coverage(prices)
     cov.to_csv(args.out / "coverage.csv", index=False)
+    (args.out / "clean_report.json").write_text(json.dumps(report, indent=1) + "\n")
 
     print(
         f"prices: {report['rows_out']:,} rows (from {report['rows_in']:,}), real values in reais of "

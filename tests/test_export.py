@@ -73,3 +73,15 @@ def test_explore_cubes_agree_with_the_headline_tables():
     headline = load("yearly_change").set_index("to_year")
     assert (yearly["n"] == headline["n"]).all()
     assert (yearly["median_real"] == headline["median_real"]).all()
+
+
+def test_quality_tables():
+    report = load("clean_report").iloc[0]
+    assert (report["rows_out"], report["fuel_group_collisions"], report["duplicate_conflicts"]) == (
+        431303,
+        0,
+        0,
+    )
+    labels = load("fuel_labels").set_index(["ref_year", "fuel"])["prices"]
+    assert "Flex" not in labels.loc[2023].index
+    assert labels.loc[(2024, "Flex")] == 6401

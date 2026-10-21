@@ -1,0 +1,14 @@
+[
+ {
+  "rows_in": 432488,
+  "rows_out": 431303,
+  "invalid_codigo": 0,
+  "invalid_price": 0,
+  "invalid_year": 0,
+  "duplicates_dropped": 1185,
+  "duplicate_conflicts": 0,
+  "fuel_group_collisions": 0,
+  "rows_from_api": 1175,
+  "rows_from_csv_v1": 430128
+ }
+]
