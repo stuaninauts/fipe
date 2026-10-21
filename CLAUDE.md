@@ -46,7 +46,7 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
   e de arquivo grande, e formato da mensagem. Se o gitleaks apontar algo, não contorne: remova e avise o humano.
 
 ## Comandos
-- Python pelo uv (versão em `.python-version`): `uv sync`, `uv run pytest`, `uv run ruff check`,
+- Python 3.13 pelo uv (`requires-python` no `pyproject.toml`; sem `.python-version`, que quebraria o pyenv): `uv sync`, `uv run pytest`, `uv run ruff check`,
   `uv run ruff format`.
 - Antes de qualquer PR: `uv run ruff check && uv run ruff format --check && uv run pytest` precisam passar.
 
