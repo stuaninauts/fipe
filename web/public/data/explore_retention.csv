@@ -10,27 +10,6 @@ all,all,all,7,2998,0.4835,0.4108,0.5503
 all,all,all,8,2169,0.4391,0.3615,0.5068
 all,all,all,9,1594,0.4,0.3197,0.4724
 all,all,all,10,1176,0.3606,0.2829,0.436
-all,all,all,11,894,0.325,0.2522,0.4076
-all,all,all,12,685,0.2977,0.225,0.3799
-all,all,all,13,534,0.2678,0.1981,0.3557
-all,all,all,14,420,0.2424,0.1737,0.3307
-all,all,all,15,327,0.2221,0.1648,0.3056
-brand,all,Agrale,0,44,0.8548,0.839,0.8717
-brand,all,Agrale,1,85,0.8081,0.775,0.8441
-brand,all,Agrale,2,73,0.7487,0.6866,0.7813
-brand,all,Agrale,3,59,0.6303,0.6006,0.7103
-brand,all,Agrale,4,51,0.5844,0.4812,0.6276
-brand,all,Agrale,5,43,0.4627,0.4301,0.5619
-brand,all,Agrale,6,35,0.4196,0.382,0.4523
-brand,all,Agrale,7,29,0.3886,0.3567,0.4108
-brand,all,Agrale,8,24,0.3445,0.297,0.3723
-brand,all,Agrale,9,18,0.2827,0.2671,0.3542
-brand,all,Agrale,10,13,0.2425,0.2314,0.2563
-brand,all,Agrale,11,11,0.2135,0.2056,0.2297
-brand,all,Agrale,12,9,0.1887,0.1781,0.1948
-brand,all,Agrale,13,7,0.1622,0.1452,0.1748
-brand,all,Agrale,14,5,0.1434,0.1355,0.1505
-brand,all,Agrale,15,3,0.1318,0.1305,0.1352
 brand,all,Audi,0,419,0.902,0.8878,0.9184
 brand,all,Audi,1,701,0.8676,0.8417,0.8912
 brand,all,Audi,2,597,0.7962,0.75,0.8339
@@ -42,11 +21,6 @@ brand,all,Audi,7,122,0.4385,0.3732,0.4888
 brand,all,Audi,8,90,0.3946,0.3239,0.4484
 brand,all,Audi,9,63,0.3316,0.2563,0.4074
 brand,all,Audi,10,44,0.2723,0.2002,0.3572
-brand,all,Audi,11,33,0.2427,0.2044,0.2991
-brand,all,Audi,12,23,0.2079,0.1831,0.2394
-brand,all,Audi,13,16,0.1948,0.1705,0.2218
-brand,all,Audi,14,12,0.1728,0.1571,0.2005
-brand,all,Audi,15,8,0.1647,0.1588,0.1725
 brand,all,BMW,0,566,0.9,0.8806,0.9183
 brand,all,BMW,1,732,0.8577,0.8324,0.8834
 brand,all,BMW,2,610,0.7838,0.7406,0.8236
@@ -58,36 +32,6 @@ brand,all,BMW,7,114,0.3886,0.3453,0.4594
 brand,all,BMW,8,87,0.3318,0.2927,0.3824
 brand,all,BMW,9,70,0.2967,0.2428,0.3227
 brand,all,BMW,10,55,0.2644,0.1781,0.2941
-brand,all,BMW,11,44,0.1994,0.1443,0.2644
-brand,all,BMW,12,35,0.1521,0.1259,0.1893
-brand,all,BMW,13,29,0.1346,0.1141,0.1529
-brand,all,BMW,14,26,0.1211,0.1085,0.1447
-brand,all,BMW,15,27,0.1135,0.0978,0.1457
-brand,all,BRM,0,22,0.9021,0.8836,0.9116
-brand,all,BRM,1,32,0.8201,0.7903,0.8359
-brand,all,BRM,2,29,0.7485,0.71,0.7822
-brand,all,BRM,3,30,0.6843,0.6498,0.7203
-brand,all,BRM,4,29,0.6429,0.619,0.6709
-brand,all,BRM,5,28,0.611,0.5534,0.6362
-brand,all,BRM,6,29,0.5669,0.528,0.6003
-brand,all,BRM,7,26,0.537,0.4926,0.5698
-brand,all,BRM,8,27,0.5067,0.4451,0.5317
-brand,all,BRM,9,26,0.4683,0.4181,0.5036
-brand,all,BRM,10,25,0.4462,0.3852,0.4556
-brand,all,BRM,11,24,0.4126,0.3679,0.4374
-brand,all,BRM,12,23,0.381,0.3479,0.4164
-brand,all,BRM,13,22,0.3664,0.3354,0.3985
-brand,all,BRM,14,21,0.3503,0.3238,0.3745
-brand,all,BRM,15,20,0.3305,0.3083,0.3389
-brand,all,Caoa Chery,0,108,0.9106,0.8802,0.9229
-brand,all,Caoa Chery,1,114,0.8781,0.8472,0.8946
-brand,all,Caoa Chery,2,82,0.816,0.7786,0.8502
-brand,all,Caoa Chery,3,52,0.745,0.7069,0.7915
-brand,all,Caoa Chery,4,31,0.6654,0.6273,0.7202
-brand,all,Caoa Chery,5,17,0.5907,0.5744,0.6041
-brand,all,Caoa Chery,6,9,0.5423,0.5339,0.5708
-brand,all,Caoa Chery,7,3,0.484,0.4744,0.4993
-brand,all,Caoa Chery,8,1,0.4691,0.4691,0.4691
 brand,all,Citroën,0,449,0.8975,0.8823,0.9144
 brand,all,Citroën,1,515,0.8515,0.8261,0.8756
 brand,all,Citroën,2,426,0.7762,0.7417,0.8136
@@ -99,29 +43,6 @@ brand,all,Citroën,7,58,0.465,0.4144,0.547
 brand,all,Citroën,8,35,0.4493,0.3717,0.4895
 brand,all,Citroën,9,20,0.4142,0.2914,0.4749
 brand,all,Citroën,10,10,0.3697,0.2243,0.4564
-brand,all,Citroën,11,4,0.214,0.1947,0.2898
-brand,all,Citroën,12,2,0.1966,0.1872,0.2061
-brand,all,Citroën,13,1,0.1998,0.1998,0.1998
-brand,all,EFFA,0,38,0.8942,0.866,0.9138
-brand,all,EFFA,1,59,0.8694,0.8144,0.8902
-brand,all,EFFA,2,64,0.8114,0.7695,0.8574
-brand,all,EFFA,3,54,0.7245,0.6757,0.7609
-brand,all,EFFA,4,41,0.649,0.6223,0.7026
-brand,all,EFFA,5,28,0.5941,0.5533,0.6377
-brand,all,EFFA,6,17,0.5124,0.4919,0.5546
-brand,all,EFFA,7,11,0.4532,0.3994,0.4727
-brand,all,EFFA,8,6,0.3751,0.3569,0.4152
-brand,all,EFFA,9,2,0.3373,0.3345,0.34
-brand,all,Ferrari,0,16,0.9562,0.8929,0.9599
-brand,all,Ferrari,1,104,0.8683,0.8411,0.9004
-brand,all,Ferrari,2,92,0.8189,0.7604,0.8619
-brand,all,Ferrari,3,66,0.7347,0.6885,0.7919
-brand,all,Ferrari,4,40,0.6526,0.6011,0.6966
-brand,all,Ferrari,5,23,0.5858,0.5513,0.6408
-brand,all,Ferrari,6,11,0.5417,0.5009,0.576
-brand,all,Ferrari,7,5,0.5022,0.4715,0.5176
-brand,all,Ferrari,8,2,0.4482,0.4349,0.4614
-brand,all,Ferrari,9,1,0.3748,0.3748,0.3748
 brand,all,Fiat,0,1415,0.9006,0.8809,0.9168
 brand,all,Fiat,1,1573,0.854,0.8248,0.8779
 brand,all,Fiat,2,1337,0.7927,0.7549,0.8307
@@ -133,27 +54,6 @@ brand,all,Fiat,7,221,0.5064,0.4518,0.5824
 brand,all,Fiat,8,147,0.468,0.4111,0.5459
 brand,all,Fiat,9,97,0.4481,0.3812,0.5108
 brand,all,Fiat,10,66,0.392,0.3456,0.4823
-brand,all,Fiat,11,44,0.3844,0.3187,0.4681
-brand,all,Fiat,12,30,0.4085,0.272,0.4395
-brand,all,Fiat,13,20,0.2568,0.2451,0.4012
-brand,all,Fiat,14,15,0.2383,0.2156,0.3119
-brand,all,Fiat,15,11,0.2136,0.2035,0.2301
-brand,all,Fibravan,0,30,0.8651,0.8282,0.904
-brand,all,Fibravan,1,51,0.7915,0.7663,0.8406
-brand,all,Fibravan,2,50,0.7133,0.6604,0.7486
-brand,all,Fibravan,3,49,0.6236,0.5779,0.6895
-brand,all,Fibravan,4,45,0.5579,0.5142,0.6125
-brand,all,Fibravan,5,42,0.5007,0.4504,0.5331
-brand,all,Fibravan,6,39,0.4527,0.4093,0.4808
-brand,all,Fibravan,7,36,0.3945,0.3596,0.438
-brand,all,Fibravan,8,34,0.3628,0.3329,0.4042
-brand,all,Fibravan,9,31,0.3338,0.3101,0.3739
-brand,all,Fibravan,10,28,0.3037,0.285,0.3417
-brand,all,Fibravan,11,26,0.276,0.2584,0.2984
-brand,all,Fibravan,12,24,0.2456,0.234,0.2831
-brand,all,Fibravan,13,22,0.2157,0.2079,0.2453
-brand,all,Fibravan,14,21,0.1997,0.1856,0.224
-brand,all,Fibravan,15,19,0.1909,0.1495,0.216
 brand,all,Ford,0,901,0.8979,0.8825,0.9119
 brand,all,Ford,1,1120,0.854,0.8267,0.8803
 brand,all,Ford,2,1030,0.7911,0.7556,0.8311
@@ -165,11 +65,6 @@ brand,all,Ford,7,257,0.5237,0.4304,0.5661
 brand,all,Ford,8,196,0.4756,0.3919,0.5298
 brand,all,Ford,9,145,0.4483,0.3577,0.5034
 brand,all,Ford,10,98,0.4066,0.3242,0.4661
-brand,all,Ford,11,66,0.3595,0.2927,0.4373
-brand,all,Ford,12,45,0.304,0.2465,0.402
-brand,all,Ford,13,32,0.2732,0.2189,0.381
-brand,all,Ford,14,22,0.2442,0.2068,0.3373
-brand,all,Ford,15,12,0.2227,0.1941,0.2258
 brand,all,GM - Chevrolet,0,1184,0.9013,0.8855,0.9172
 brand,all,GM - Chevrolet,1,1333,0.8619,0.8333,0.8857
 brand,all,GM - Chevrolet,2,1181,0.8035,0.7593,0.839
@@ -181,11 +76,6 @@ brand,all,GM - Chevrolet,7,204,0.5181,0.4619,0.583
 brand,all,GM - Chevrolet,8,146,0.4855,0.4293,0.5382
 brand,all,GM - Chevrolet,9,104,0.454,0.4073,0.4973
 brand,all,GM - Chevrolet,10,73,0.4201,0.3806,0.4623
-brand,all,GM - Chevrolet,11,51,0.3946,0.3598,0.4379
-brand,all,GM - Chevrolet,12,34,0.3775,0.3208,0.4402
-brand,all,GM - Chevrolet,13,23,0.3639,0.2566,0.4236
-brand,all,GM - Chevrolet,14,21,0.3564,0.2309,0.3856
-brand,all,GM - Chevrolet,15,19,0.3338,0.1898,0.3645
 brand,all,Honda,0,303,0.9128,0.901,0.9201
 brand,all,Honda,1,402,0.879,0.8615,0.8991
 brand,all,Honda,2,346,0.8221,0.7935,0.8495
@@ -197,11 +87,6 @@ brand,all,Honda,7,101,0.4904,0.4462,0.5366
 brand,all,Honda,8,77,0.4545,0.4117,0.4948
 brand,all,Honda,9,62,0.4279,0.3905,0.4503
 brand,all,Honda,10,47,0.4021,0.3587,0.4353
-brand,all,Honda,11,34,0.3809,0.239,0.4166
-brand,all,Honda,12,27,0.3305,0.1953,0.3895
-brand,all,Honda,13,23,0.2968,0.1783,0.3742
-brand,all,Honda,14,17,0.2805,0.1569,0.3235
-brand,all,Honda,15,11,0.2611,0.1481,0.3142
 brand,all,Hyundai,0,473,0.9086,0.8933,0.9201
 brand,all,Hyundai,1,463,0.8732,0.8475,0.8931
 brand,all,Hyundai,2,356,0.8219,0.7826,0.8548
@@ -213,41 +98,6 @@ brand,all,Hyundai,7,60,0.5382,0.4532,0.5898
 brand,all,Hyundai,8,38,0.486,0.4131,0.5425
 brand,all,Hyundai,9,25,0.4882,0.3898,0.5279
 brand,all,Hyundai,10,16,0.4805,0.3248,0.5073
-brand,all,Hyundai,11,12,0.462,0.3197,0.477
-brand,all,Hyundai,12,9,0.435,0.3835,0.4551
-brand,all,Hyundai,13,6,0.4218,0.4095,0.4364
-brand,all,Hyundai,14,5,0.4016,0.3594,0.4112
-brand,all,Hyundai,15,4,0.3645,0.3291,0.401
-brand,all,IVECO,0,118,0.8404,0.7822,0.8721
-brand,all,IVECO,1,108,0.7901,0.7245,0.8312
-brand,all,IVECO,2,56,0.7136,0.6248,0.7664
-brand,all,IVECO,3,19,0.5825,0.5318,0.6989
-brand,all,IVECO,4,5,0.5457,0.5457,0.564
-brand,all,JAC,0,84,0.8759,0.8532,0.8994
-brand,all,JAC,1,91,0.8236,0.7917,0.8632
-brand,all,JAC,2,77,0.7435,0.7133,0.7975
-brand,all,JAC,3,48,0.6847,0.6198,0.7624
-brand,all,JAC,4,29,0.6259,0.5539,0.7033
-brand,all,JAC,5,19,0.5498,0.5225,0.5879
-brand,all,JAC,6,10,0.5106,0.4802,0.5198
-brand,all,JAC,7,5,0.4588,0.4539,0.4929
-brand,all,JAC,8,1,0.4445,0.4445,0.4445
-brand,all,Jaguar,0,113,0.8943,0.8796,0.9083
-brand,all,Jaguar,1,215,0.8651,0.8324,0.8899
-brand,all,Jaguar,2,191,0.8106,0.7531,0.8438
-brand,all,Jaguar,3,135,0.7191,0.6618,0.7622
-brand,all,Jaguar,4,90,0.6359,0.5756,0.6791
-brand,all,Jaguar,5,58,0.5854,0.5143,0.622
-brand,all,Jaguar,6,43,0.5201,0.4862,0.562
-brand,all,Jaguar,7,32,0.4636,0.4257,0.5247
-brand,all,Jaguar,8,25,0.4215,0.3832,0.4625
-brand,all,Jaguar,9,20,0.3773,0.3505,0.4158
-brand,all,Jaguar,10,16,0.3466,0.307,0.3697
-brand,all,Jaguar,11,11,0.2816,0.2491,0.3131
-brand,all,Jaguar,12,8,0.2436,0.2305,0.2805
-brand,all,Jaguar,13,6,0.2308,0.1996,0.241
-brand,all,Jaguar,14,4,0.1917,0.1797,0.2086
-brand,all,Jaguar,15,2,0.1715,0.1593,0.1838
 brand,all,Jeep,0,171,0.9025,0.8844,0.9174
 brand,all,Jeep,1,242,0.8712,0.8342,0.8989
 brand,all,Jeep,2,195,0.7983,0.7504,0.8474
@@ -259,10 +109,6 @@ brand,all,Jeep,7,24,0.397,0.3596,0.4872
 brand,all,Jeep,8,16,0.3301,0.2957,0.3766
 brand,all,Jeep,9,13,0.3036,0.2675,0.3464
 brand,all,Jeep,10,9,0.2407,0.2317,0.3493
-brand,all,Jeep,11,6,0.2295,0.2164,0.3077
-brand,all,Jeep,12,4,0.1917,0.1733,0.2504
-brand,all,Jeep,13,2,0.1658,0.1632,0.1685
-brand,all,Jeep,14,1,0.1476,0.1476,0.1476
 brand,all,Kia Motors,0,228,0.899,0.8848,0.9148
 brand,all,Kia Motors,1,291,0.8593,0.8351,0.8831
 brand,all,Kia Motors,2,268,0.8016,0.7627,0.8384
@@ -274,11 +120,6 @@ brand,all,Kia Motors,7,91,0.4665,0.3791,0.5263
 brand,all,Kia Motors,8,75,0.4197,0.3385,0.4902
 brand,all,Kia Motors,9,61,0.3913,0.2903,0.4692
 brand,all,Kia Motors,10,45,0.371,0.2402,0.443
-brand,all,Kia Motors,11,34,0.3511,0.2329,0.4145
-brand,all,Kia Motors,12,24,0.3352,0.1901,0.3824
-brand,all,Kia Motors,13,16,0.3227,0.1823,0.3655
-brand,all,Kia Motors,14,11,0.3295,0.2069,0.3768
-brand,all,Kia Motors,15,6,0.3146,0.25,0.3632
 brand,all,Land Rover,0,263,0.9049,0.8905,0.9198
 brand,all,Land Rover,1,540,0.8769,0.8547,0.9035
 brand,all,Land Rover,2,450,0.8251,0.7898,0.8573
@@ -290,48 +131,6 @@ brand,all,Land Rover,7,73,0.4155,0.3483,0.4937
 brand,all,Land Rover,8,54,0.3819,0.3011,0.4613
 brand,all,Land Rover,9,38,0.3708,0.242,0.4551
 brand,all,Land Rover,10,26,0.3563,0.2128,0.4337
-brand,all,Land Rover,11,20,0.3571,0.2756,0.4093
-brand,all,Land Rover,12,16,0.3338,0.301,0.3746
-brand,all,Land Rover,13,11,0.3303,0.3037,0.3587
-brand,all,Land Rover,14,9,0.3058,0.2852,0.3211
-brand,all,Land Rover,15,8,0.2909,0.2708,0.314
-brand,all,Lexus,0,42,0.898,0.8815,0.9351
-brand,all,Lexus,1,115,0.8764,0.8518,0.9058
-brand,all,Lexus,2,98,0.8154,0.7684,0.85
-brand,all,Lexus,3,71,0.7064,0.6557,0.752
-brand,all,Lexus,4,46,0.6209,0.5487,0.6535
-brand,all,Lexus,5,35,0.5518,0.4616,0.5945
-brand,all,Lexus,6,25,0.5121,0.4293,0.5486
-brand,all,Lexus,7,16,0.4674,0.3486,0.5025
-brand,all,Lexus,8,9,0.4267,0.4022,0.4568
-brand,all,Lexus,9,6,0.3563,0.3277,0.3829
-brand,all,Lexus,10,6,0.3004,0.1689,0.3152
-brand,all,Lexus,11,5,0.2461,0.12,0.2767
-brand,all,Lexus,12,4,0.1706,0.1048,0.2429
-brand,all,Lexus,13,2,0.1576,0.1257,0.1896
-brand,all,MINI,0,152,0.9037,0.8884,0.9187
-brand,all,MINI,1,179,0.8613,0.8369,0.8827
-brand,all,MINI,2,140,0.7934,0.7524,0.8255
-brand,all,MINI,3,101,0.7147,0.6766,0.7533
-brand,all,MINI,4,72,0.6359,0.6038,0.6826
-brand,all,MINI,5,52,0.5685,0.5236,0.6032
-brand,all,MINI,6,37,0.5146,0.4578,0.579
-brand,all,MINI,7,25,0.4581,0.435,0.5424
-brand,all,MINI,8,15,0.4437,0.4081,0.5051
-brand,all,MINI,9,8,0.4148,0.3686,0.4574
-brand,all,MINI,10,3,0.3421,0.3361,0.3602
-brand,all,MINI,11,1,0.3679,0.3679,0.3679
-brand,all,Maserati,0,4,0.8823,0.8688,0.8918
-brand,all,Maserati,1,80,0.8698,0.8445,0.8976
-brand,all,Maserati,2,86,0.8155,0.7737,0.8404
-brand,all,Maserati,3,67,0.731,0.7007,0.769
-brand,all,Maserati,4,52,0.6632,0.6159,0.7029
-brand,all,Maserati,5,36,0.5905,0.5466,0.6565
-brand,all,Maserati,6,22,0.5178,0.4751,0.5507
-brand,all,Maserati,7,11,0.4214,0.3837,0.4881
-brand,all,Maserati,8,5,0.3766,0.3574,0.3798
-brand,all,Maserati,9,2,0.3498,0.3433,0.3563
-brand,all,Maserati,10,1,0.3126,0.3126,0.3126
 brand,all,Mercedes-Benz,0,978,0.8872,0.8653,0.904
 brand,all,Mercedes-Benz,1,1367,0.8452,0.8123,0.8736
 brand,all,Mercedes-Benz,2,1190,0.7779,0.7413,0.8217
@@ -343,11 +142,6 @@ brand,all,Mercedes-Benz,7,243,0.4871,0.386,0.5477
 brand,all,Mercedes-Benz,8,188,0.433,0.3322,0.5094
 brand,all,Mercedes-Benz,9,145,0.3686,0.2787,0.4637
 brand,all,Mercedes-Benz,10,112,0.2977,0.2231,0.4274
-brand,all,Mercedes-Benz,11,91,0.2647,0.1867,0.3984
-brand,all,Mercedes-Benz,12,74,0.2374,0.1675,0.3679
-brand,all,Mercedes-Benz,13,62,0.208,0.1592,0.3405
-brand,all,Mercedes-Benz,14,49,0.1978,0.1381,0.3191
-brand,all,Mercedes-Benz,15,36,0.1792,0.1249,0.2941
 brand,all,Mitsubishi,0,469,0.9047,0.8905,0.9183
 brand,all,Mitsubishi,1,545,0.8629,0.8385,0.8792
 brand,all,Mitsubishi,2,486,0.7949,0.7553,0.8235
@@ -359,11 +153,6 @@ brand,all,Mitsubishi,7,133,0.4757,0.415,0.5173
 brand,all,Mitsubishi,8,88,0.4266,0.3619,0.4642
 brand,all,Mitsubishi,9,64,0.3863,0.3293,0.4273
 brand,all,Mitsubishi,10,47,0.3486,0.2939,0.3868
-brand,all,Mitsubishi,11,33,0.3278,0.2627,0.358
-brand,all,Mitsubishi,12,22,0.3084,0.2689,0.3322
-brand,all,Mitsubishi,13,16,0.2741,0.2406,0.3283
-brand,all,Mitsubishi,14,10,0.2457,0.2165,0.3004
-brand,all,Mitsubishi,15,5,0.2085,0.1918,0.2171
 brand,all,Nissan,0,404,0.9,0.8784,0.9144
 brand,all,Nissan,1,461,0.8561,0.8296,0.8786
 brand,all,Nissan,2,386,0.788,0.7524,0.8232
@@ -375,11 +164,6 @@ brand,all,Nissan,7,23,0.5098,0.4182,0.5358
 brand,all,Nissan,8,9,0.3842,0.3712,0.5027
 brand,all,Nissan,9,5,0.3213,0.3125,0.3562
 brand,all,Nissan,10,4,0.2833,0.2519,0.3091
-brand,all,Nissan,11,3,0.2316,0.207,0.245
-brand,all,Nissan,12,4,0.2286,0.2018,0.2513
-brand,all,Nissan,13,4,0.198,0.1601,0.239
-brand,all,Nissan,14,4,0.1632,0.1461,0.1961
-brand,all,Nissan,15,4,0.1531,0.1386,0.1813
 brand,all,Peugeot,0,511,0.9047,0.8893,0.9171
 brand,all,Peugeot,1,619,0.8595,0.8347,0.8788
 brand,all,Peugeot,2,568,0.8008,0.7642,0.8347
@@ -391,11 +175,6 @@ brand,all,Peugeot,7,73,0.4829,0.3991,0.5394
 brand,all,Peugeot,8,51,0.4361,0.334,0.4856
 brand,all,Peugeot,9,37,0.3537,0.3007,0.4404
 brand,all,Peugeot,10,27,0.308,0.2524,0.3944
-brand,all,Peugeot,11,20,0.2734,0.2216,0.3216
-brand,all,Peugeot,12,14,0.2457,0.2168,0.265
-brand,all,Peugeot,13,10,0.224,0.2045,0.2327
-brand,all,Peugeot,14,7,0.2004,0.1851,0.2097
-brand,all,Peugeot,15,5,0.1845,0.1775,0.1859
 brand,all,Porsche,0,466,0.9059,0.8838,0.9378
 brand,all,Porsche,1,618,0.8721,0.8437,0.9053
 brand,all,Porsche,2,504,0.8259,0.7834,0.8642
@@ -407,11 +186,6 @@ brand,all,Porsche,7,175,0.5036,0.4238,0.5864
 brand,all,Porsche,8,137,0.4479,0.3674,0.5271
 brand,all,Porsche,9,104,0.3909,0.3362,0.5063
 brand,all,Porsche,10,87,0.3568,0.3142,0.4629
-brand,all,Porsche,11,68,0.3267,0.2847,0.4367
-brand,all,Porsche,12,55,0.3134,0.2666,0.4313
-brand,all,Porsche,13,46,0.2989,0.2577,0.4106
-brand,all,Porsche,14,35,0.2826,0.2254,0.3786
-brand,all,Porsche,15,26,0.2557,0.2205,0.3459
 brand,all,Renault,0,914,0.8957,0.8774,0.9126
 brand,all,Renault,1,990,0.8409,0.8109,0.869
 brand,all,Renault,2,849,0.7835,0.7449,0.8226
@@ -423,52 +197,6 @@ brand,all,Renault,7,138,0.5466,0.4619,0.5995
 brand,all,Renault,8,89,0.5143,0.4333,0.5705
 brand,all,Renault,9,58,0.5082,0.4038,0.5472
 brand,all,Renault,10,39,0.4775,0.4163,0.5259
-brand,all,Renault,11,29,0.4601,0.4023,0.5011
-brand,all,Renault,12,19,0.4066,0.3817,0.4636
-brand,all,Renault,13,13,0.4116,0.3671,0.4265
-brand,all,Renault,14,9,0.3774,0.3576,0.4114
-brand,all,Renault,15,5,0.359,0.3272,0.3612
-brand,all,SSANGYONG,0,27,0.8854,0.864,0.9011
-brand,all,SSANGYONG,1,53,0.8568,0.8237,0.8735
-brand,all,SSANGYONG,2,77,0.8191,0.7664,0.8537
-brand,all,SSANGYONG,3,77,0.7503,0.7065,0.8183
-brand,all,SSANGYONG,4,46,0.6879,0.6337,0.737
-brand,all,SSANGYONG,5,21,0.6235,0.5669,0.6966
-brand,all,SSANGYONG,6,11,0.5866,0.49,0.6542
-brand,all,SSANGYONG,7,3,0.4604,0.4574,0.5115
-brand,all,SSANGYONG,8,1,0.4313,0.4313,0.4313
-brand,all,Subaru,0,55,0.8944,0.877,0.9038
-brand,all,Subaru,1,134,0.8648,0.8367,0.8906
-brand,all,Subaru,2,150,0.8124,0.7697,0.8473
-brand,all,Subaru,3,123,0.7136,0.6552,0.7681
-brand,all,Subaru,4,99,0.6211,0.5679,0.6836
-brand,all,Subaru,5,76,0.5401,0.503,0.6051
-brand,all,Subaru,6,62,0.4779,0.3994,0.5266
-brand,all,Subaru,7,46,0.3947,0.3438,0.4591
-brand,all,Subaru,8,35,0.3445,0.2914,0.4161
-brand,all,Subaru,9,30,0.2919,0.2475,0.3736
-brand,all,Subaru,10,24,0.2673,0.223,0.3189
-brand,all,Subaru,11,19,0.2248,0.1976,0.2926
-brand,all,Subaru,12,13,0.2211,0.1914,0.2488
-brand,all,Subaru,13,11,0.2246,0.1793,0.238
-brand,all,Subaru,14,11,0.2147,0.1787,0.2281
-brand,all,Subaru,15,11,0.2037,0.1853,0.2141
-brand,all,Suzuki,0,136,0.9,0.8808,0.9174
-brand,all,Suzuki,1,157,0.8669,0.8455,0.8895
-brand,all,Suzuki,2,143,0.8145,0.7796,0.8388
-brand,all,Suzuki,3,106,0.7285,0.6776,0.7653
-brand,all,Suzuki,4,80,0.6525,0.5957,0.6927
-brand,all,Suzuki,5,59,0.5847,0.5389,0.6455
-brand,all,Suzuki,6,43,0.5432,0.4816,0.5988
-brand,all,Suzuki,7,30,0.5145,0.4524,0.5531
-brand,all,Suzuki,8,24,0.4911,0.4199,0.5239
-brand,all,Suzuki,9,21,0.4682,0.3601,0.5006
-brand,all,Suzuki,10,20,0.4229,0.3376,0.4687
-brand,all,Suzuki,11,21,0.346,0.3207,0.4573
-brand,all,Suzuki,12,20,0.3326,0.3048,0.4488
-brand,all,Suzuki,13,19,0.3057,0.2952,0.4412
-brand,all,Suzuki,14,18,0.2875,0.2785,0.4138
-brand,all,Suzuki,15,16,0.2772,0.2622,0.408
 brand,all,Toyota,0,596,0.9085,0.8916,0.9205
 brand,all,Toyota,1,642,0.8692,0.8493,0.8895
 brand,all,Toyota,2,539,0.8205,0.7846,0.8518
@@ -480,11 +208,6 @@ brand,all,Toyota,7,148,0.5166,0.4207,0.5917
 brand,all,Toyota,8,113,0.4655,0.3786,0.555
 brand,all,Toyota,9,87,0.397,0.3143,0.5057
 brand,all,Toyota,10,62,0.3301,0.2743,0.4281
-brand,all,Toyota,11,48,0.2892,0.2405,0.3649
-brand,all,Toyota,12,38,0.2712,0.2078,0.3093
-brand,all,Toyota,13,28,0.2534,0.1875,0.2717
-brand,all,Toyota,14,18,0.2035,0.1517,0.2343
-brand,all,Toyota,15,12,0.1942,0.1631,0.2052
 brand,all,VW - VolksWagen,0,1270,0.9039,0.8887,0.9162
 brand,all,VW - VolksWagen,1,1546,0.862,0.8331,0.8817
 brand,all,VW - VolksWagen,2,1358,0.8,0.7571,0.8378
@@ -496,11 +219,6 @@ brand,all,VW - VolksWagen,7,299,0.479,0.4261,0.5338
 brand,all,VW - VolksWagen,8,210,0.4411,0.3815,0.495
 brand,all,VW - VolksWagen,9,149,0.4196,0.3553,0.4526
 brand,all,VW - VolksWagen,10,106,0.396,0.3186,0.4304
-brand,all,VW - VolksWagen,11,73,0.3598,0.306,0.3984
-brand,all,VW - VolksWagen,12,49,0.335,0.2852,0.3815
-brand,all,VW - VolksWagen,13,31,0.31,0.254,0.3471
-brand,all,VW - VolksWagen,14,20,0.2708,0.2166,0.3278
-brand,all,VW - VolksWagen,15,15,0.2249,0.1964,0.2859
 brand,all,Volvo,0,258,0.9,0.8842,0.9146
 brand,all,Volvo,1,358,0.8563,0.8337,0.881
 brand,all,Volvo,2,296,0.7842,0.7378,0.8221
@@ -512,11 +230,6 @@ brand,all,Volvo,7,47,0.3677,0.339,0.4051
 brand,all,Volvo,8,30,0.3385,0.3029,0.3593
 brand,all,Volvo,9,16,0.3003,0.2742,0.3145
 brand,all,Volvo,10,13,0.2607,0.2558,0.2865
-brand,all,Volvo,11,11,0.2461,0.2193,0.2574
-brand,all,Volvo,12,9,0.221,0.1927,0.2433
-brand,all,Volvo,13,8,0.197,0.1832,0.2338
-brand,all,Volvo,14,7,0.1923,0.1667,0.2048
-brand,all,Volvo,15,5,0.1724,0.1617,0.1782
 fuel_group,all,alcohol,0,40,0.8922,0.8783,0.9129
 fuel_group,all,alcohol,1,72,0.8499,0.8101,0.8784
 fuel_group,all,alcohol,2,92,0.8094,0.7431,0.8637
@@ -528,9 +241,6 @@ fuel_group,all,alcohol,7,33,0.4863,0.416,0.5331
 fuel_group,all,alcohol,8,25,0.4179,0.348,0.4783
 fuel_group,all,alcohol,9,18,0.3462,0.306,0.4013
 fuel_group,all,alcohol,10,13,0.325,0.2778,0.3777
-fuel_group,all,alcohol,11,9,0.31,0.2834,0.3481
-fuel_group,all,alcohol,12,5,0.2964,0.2911,0.3151
-fuel_group,all,alcohol,13,2,0.2992,0.2924,0.3061
 fuel_group,all,diesel,0,1813,0.8921,0.8671,0.9134
 fuel_group,all,diesel,1,2352,0.8546,0.8167,0.8819
 fuel_group,all,diesel,2,2117,0.7954,0.7528,0.8351
@@ -542,11 +252,6 @@ fuel_group,all,diesel,7,614,0.5291,0.4771,0.5826
 fuel_group,all,diesel,8,454,0.4917,0.4399,0.5482
 fuel_group,all,diesel,9,318,0.4611,0.405,0.5134
 fuel_group,all,diesel,10,210,0.4297,0.3653,0.4722
-fuel_group,all,diesel,11,155,0.404,0.3389,0.4377
-fuel_group,all,diesel,12,112,0.3697,0.309,0.4052
-fuel_group,all,diesel,13,84,0.3437,0.2882,0.3706
-fuel_group,all,diesel,14,61,0.3211,0.2852,0.3531
-fuel_group,all,diesel,15,42,0.2963,0.2715,0.3386
 fuel_group,all,gasoline,0,11664,0.9011,0.8843,0.9165
 fuel_group,all,gasoline,1,14940,0.8607,0.8322,0.8844
 fuel_group,all,gasoline,2,12866,0.7986,0.7567,0.8376
@@ -558,11 +263,6 @@ fuel_group,all,gasoline,7,2351,0.4671,0.3967,0.539
 fuel_group,all,gasoline,8,1690,0.4214,0.3481,0.4905
 fuel_group,all,gasoline,9,1258,0.3813,0.3077,0.4545
 fuel_group,all,gasoline,10,953,0.3434,0.2738,0.4197
-fuel_group,all,gasoline,11,730,0.3093,0.2416,0.3891
-fuel_group,all,gasoline,12,568,0.2787,0.2158,0.3678
-fuel_group,all,gasoline,13,448,0.2516,0.1907,0.3369
-fuel_group,all,gasoline,14,359,0.2245,0.1677,0.3153
-fuel_group,all,gasoline,15,285,0.2086,0.1573,0.2877
 price_band,all,q1,0,2864,0.9027,0.8848,0.9173
 price_band,all,q1,1,3385,0.8614,0.8312,0.8832
 price_band,all,q1,2,3043,0.8102,0.7697,0.8471
@@ -574,11 +274,6 @@ price_band,all,q1,7,547,0.5346,0.4704,0.5944
 price_band,all,q1,8,391,0.4864,0.4139,0.5487
 price_band,all,q1,9,310,0.4539,0.3783,0.5089
 price_band,all,q1,10,246,0.4194,0.3435,0.4766
-price_band,all,q1,11,207,0.378,0.3047,0.4433
-price_band,all,q1,12,174,0.3529,0.2716,0.4084
-price_band,all,q1,13,146,0.3171,0.2401,0.3852
-price_band,all,q1,14,126,0.2828,0.2151,0.3536
-price_band,all,q1,15,106,0.2491,0.1978,0.3272
 price_band,all,q2,0,3129,0.9035,0.8859,0.9181
 price_band,all,q2,1,3465,0.858,0.8304,0.8819
 price_band,all,q2,2,2910,0.7928,0.7534,0.8305
@@ -590,11 +285,6 @@ price_band,all,q2,7,538,0.4935,0.4561,0.5497
 price_band,all,q2,8,386,0.4588,0.42,0.5089
 price_band,all,q2,9,275,0.4299,0.3893,0.4792
 price_band,all,q2,10,204,0.4042,0.3562,0.4534
-price_band,all,q2,11,139,0.3763,0.3224,0.4345
-price_band,all,q2,12,97,0.3465,0.2921,0.4154
-price_band,all,q2,13,67,0.3187,0.2612,0.4006
-price_band,all,q2,14,46,0.2847,0.2334,0.3796
-price_band,all,q2,15,30,0.2712,0.1993,0.389
 price_band,all,q3,0,2927,0.8988,0.8791,0.9142
 price_band,all,q3,1,3497,0.8562,0.8245,0.8805
 price_band,all,q3,2,3042,0.789,0.7472,0.8305
@@ -606,11 +296,6 @@ price_band,all,q3,7,682,0.5029,0.4453,0.5572
 price_band,all,q3,8,499,0.4621,0.3993,0.5179
 price_band,all,q3,9,348,0.429,0.3555,0.4773
 price_band,all,q3,10,221,0.3746,0.3132,0.4322
-price_band,all,q3,11,161,0.3503,0.2917,0.4087
-price_band,all,q3,12,113,0.3209,0.2714,0.3799
-price_band,all,q3,13,84,0.3164,0.2575,0.3484
-price_band,all,q3,14,59,0.2938,0.2227,0.3263
-price_band,all,q3,15,43,0.2787,0.2445,0.3029
 price_band,all,q4,0,2556,0.8982,0.879,0.9148
 price_band,all,q4,1,3496,0.8613,0.8327,0.8853
 price_band,all,q4,2,3066,0.796,0.755,0.8348
@@ -622,11 +307,6 @@ price_band,all,q4,7,589,0.4337,0.3585,0.5191
 price_band,all,q4,8,417,0.3825,0.3205,0.4762
 price_band,all,q4,9,297,0.3384,0.2763,0.4324
 price_band,all,q4,10,213,0.3041,0.2407,0.4044
-price_band,all,q4,11,159,0.2658,0.2118,0.3637
-price_band,all,q4,12,122,0.2352,0.1868,0.309
-price_band,all,q4,13,93,0.2163,0.1712,0.264
-price_band,all,q4,14,71,0.1923,0.1582,0.2374
-price_band,all,q4,15,53,0.1791,0.1573,0.2117
 price_band,all,q5,0,2041,0.8983,0.8799,0.9145
 price_band,all,q5,1,3521,0.8628,0.8333,0.8902
 price_band,all,q5,2,3014,0.8031,0.7545,0.8424
@@ -638,11 +318,6 @@ price_band,all,q5,7,642,0.4223,0.3453,0.5147
 price_band,all,q5,8,476,0.3688,0.2906,0.4544
 price_band,all,q5,9,364,0.3243,0.2462,0.4046
 price_band,all,q5,10,292,0.2848,0.2116,0.3594
-price_band,all,q5,11,228,0.2438,0.174,0.3204
-price_band,all,q5,12,179,0.2102,0.1501,0.3073
-price_band,all,q5,13,144,0.181,0.141,0.2912
-price_band,all,q5,14,118,0.1741,0.129,0.2869
-price_band,all,q5,15,95,0.176,0.1206,0.2642
 all,recent,all,0,2891,0.9202,0.8863,0.946
 all,recent,all,1,3620,0.8769,0.8386,0.9152
 all,recent,all,2,2795,0.8097,0.7573,0.8658
@@ -654,27 +329,6 @@ all,recent,all,7,511,0.512,0.4344,0.5866
 all,recent,all,8,404,0.4701,0.3811,0.5336
 all,recent,all,9,325,0.4295,0.3428,0.4842
 all,recent,all,10,247,0.3801,0.2891,0.4532
-all,recent,all,11,196,0.3592,0.2624,0.4238
-all,recent,all,12,145,0.3138,0.2299,0.3971
-all,recent,all,13,111,0.2805,0.1948,0.3714
-all,recent,all,14,86,0.2491,0.1714,0.3433
-all,recent,all,15,65,0.2232,0.1597,0.3182
-brand,recent,Agrale,0,16,0.8411,0.818,0.8717
-brand,recent,Agrale,1,22,0.7888,0.7625,0.8101
-brand,recent,Agrale,2,14,0.7372,0.694,0.7577
-brand,recent,Agrale,3,6,0.6174,0.5833,0.635
-brand,recent,Agrale,4,6,0.5099,0.4577,0.5172
-brand,recent,Agrale,5,6,0.4121,0.4002,0.4259
-brand,recent,Agrale,6,6,0.348,0.3304,0.3652
-brand,recent,Agrale,7,6,0.3044,0.3011,0.3208
-brand,recent,Agrale,8,6,0.2913,0.2908,0.292
-brand,recent,Agrale,9,6,0.2672,0.2547,0.2713
-brand,recent,Agrale,10,6,0.2387,0.2331,0.2489
-brand,recent,Agrale,11,6,0.2128,0.2112,0.2139
-brand,recent,Agrale,12,6,0.1869,0.1635,0.1933
-brand,recent,Agrale,13,6,0.1559,0.1429,0.175
-brand,recent,Agrale,14,5,0.1434,0.1355,0.1505
-brand,recent,Agrale,15,3,0.1318,0.1305,0.1352
 brand,recent,Audi,0,139,0.9273,0.8998,0.9492
 brand,recent,Audi,1,173,0.8908,0.8605,0.9184
 brand,recent,Audi,2,132,0.8141,0.7666,0.8594
@@ -686,10 +340,6 @@ brand,recent,Audi,7,17,0.4156,0.3827,0.4659
 brand,recent,Audi,8,14,0.381,0.3404,0.402
 brand,recent,Audi,9,11,0.3409,0.263,0.3594
 brand,recent,Audi,10,10,0.2788,0.2223,0.3487
-brand,recent,Audi,11,7,0.2128,0.196,0.31
-brand,recent,Audi,12,4,0.1838,0.1808,0.2182
-brand,recent,Audi,13,2,0.1713,0.1694,0.1732
-brand,recent,Audi,14,1,0.1544,0.1544,0.1544
 brand,recent,BMW,0,163,0.9379,0.8872,0.9592
 brand,recent,BMW,1,194,0.8831,0.8425,0.9208
 brand,recent,BMW,2,129,0.7989,0.7472,0.8503
@@ -701,28 +351,6 @@ brand,recent,BMW,7,25,0.3752,0.3564,0.4286
 brand,recent,BMW,8,21,0.3335,0.3223,0.3465
 brand,recent,BMW,9,17,0.3034,0.2909,0.3187
 brand,recent,BMW,10,12,0.2817,0.271,0.2906
-brand,recent,BMW,11,7,0.2613,0.2038,0.2654
-brand,recent,BMW,12,3,0.2528,0.1951,0.2568
-brand,recent,BRM,1,2,0.9394,0.9391,0.9397
-brand,recent,BRM,3,2,0.5564,0.5353,0.5776
-brand,recent,BRM,4,2,0.4869,0.474,0.4998
-brand,recent,BRM,5,2,0.4601,0.4523,0.4679
-brand,recent,BRM,6,2,0.4355,0.4317,0.4392
-brand,recent,BRM,8,2,0.4151,0.4134,0.4169
-brand,recent,BRM,9,2,0.4009,0.3988,0.403
-brand,recent,BRM,10,2,0.3785,0.3756,0.3814
-brand,recent,BRM,11,2,0.3605,0.3591,0.3618
-brand,recent,BRM,12,2,0.3259,0.3162,0.3355
-brand,recent,BRM,13,2,0.312,0.3005,0.3234
-brand,recent,BRM,14,2,0.2873,0.269,0.3055
-brand,recent,BRM,15,2,0.2714,0.2502,0.2927
-brand,recent,Caoa Chery,0,59,0.9208,0.896,0.9347
-brand,recent,Caoa Chery,1,49,0.8845,0.8654,0.9067
-brand,recent,Caoa Chery,2,30,0.8188,0.7948,0.8547
-brand,recent,Caoa Chery,3,13,0.7702,0.7467,0.8059
-brand,recent,Caoa Chery,4,3,0.7632,0.7559,0.7681
-brand,recent,Caoa Chery,5,2,0.7076,0.7037,0.7115
-brand,recent,Caoa Chery,6,2,0.6088,0.6047,0.6129
 brand,recent,Citroën,0,78,0.9208,0.8867,0.9448
 brand,recent,Citroën,1,82,0.8529,0.8115,0.882
 brand,recent,Citroën,2,59,0.7618,0.7298,0.8011
@@ -730,22 +358,6 @@ brand,recent,Citroën,3,39,0.6924,0.6572,0.7485
 brand,recent,Citroën,4,17,0.6212,0.6047,0.661
 brand,recent,Citroën,5,9,0.5915,0.5711,0.6055
 brand,recent,Citroën,6,4,0.5599,0.5384,0.5821
-brand,recent,EFFA,0,11,0.9101,0.9024,0.9311
-brand,recent,EFFA,1,15,0.882,0.8556,0.8972
-brand,recent,EFFA,2,16,0.8034,0.7771,0.8253
-brand,recent,EFFA,3,15,0.7265,0.6831,0.7521
-brand,recent,EFFA,4,14,0.6395,0.6229,0.6957
-brand,recent,EFFA,5,13,0.5719,0.5232,0.6197
-brand,recent,EFFA,6,8,0.4759,0.4325,0.5101
-brand,recent,EFFA,7,6,0.3994,0.3922,0.4483
-brand,recent,EFFA,8,4,0.3585,0.3488,0.3684
-brand,recent,EFFA,9,2,0.3373,0.3345,0.34
-brand,recent,Ferrari,0,11,0.9586,0.9562,0.9614
-brand,recent,Ferrari,1,31,0.91,0.8682,0.9337
-brand,recent,Ferrari,2,25,0.8743,0.8279,0.9127
-brand,recent,Ferrari,3,13,0.828,0.803,0.8701
-brand,recent,Ferrari,4,3,0.8211,0.7945,0.8412
-brand,recent,Ferrari,5,1,0.7405,0.7405,0.7405
 brand,recent,Fiat,0,205,0.9251,0.9036,0.948
 brand,recent,Fiat,1,215,0.8762,0.8501,0.906
 brand,recent,Fiat,2,179,0.8043,0.7778,0.8519
@@ -757,27 +369,6 @@ brand,recent,Fiat,7,21,0.5614,0.5327,0.5902
 brand,recent,Fiat,8,12,0.5169,0.395,0.5657
 brand,recent,Fiat,9,9,0.4634,0.3518,0.501
 brand,recent,Fiat,10,6,0.3885,0.3261,0.4729
-brand,recent,Fiat,11,4,0.363,0.2954,0.4367
-brand,recent,Fiat,12,2,0.2683,0.2637,0.2729
-brand,recent,Fiat,13,2,0.2501,0.2484,0.2518
-brand,recent,Fiat,14,2,0.2331,0.2305,0.2357
-brand,recent,Fiat,15,2,0.2238,0.2225,0.225
-brand,recent,Fibravan,0,5,0.8987,0.8659,0.9056
-brand,recent,Fibravan,1,12,0.8462,0.8212,0.8966
-brand,recent,Fibravan,2,11,0.7445,0.6572,0.796
-brand,recent,Fibravan,3,11,0.5841,0.5619,0.6653
-brand,recent,Fibravan,4,11,0.5138,0.4936,0.5926
-brand,recent,Fibravan,5,10,0.442,0.4317,0.4896
-brand,recent,Fibravan,6,10,0.4054,0.3825,0.4791
-brand,recent,Fibravan,7,10,0.3663,0.3498,0.454
-brand,recent,Fibravan,8,11,0.3364,0.311,0.4135
-brand,recent,Fibravan,9,11,0.3228,0.2985,0.3731
-brand,recent,Fibravan,10,11,0.2933,0.2827,0.3474
-brand,recent,Fibravan,11,11,0.2612,0.2546,0.2974
-brand,recent,Fibravan,12,11,0.2366,0.2275,0.2673
-brand,recent,Fibravan,13,10,0.2095,0.2023,0.215
-brand,recent,Fibravan,14,9,0.1781,0.1634,0.1863
-brand,recent,Fibravan,15,8,0.1454,0.1411,0.1673
 brand,recent,Ford,0,88,0.9037,0.8838,0.934
 brand,recent,Ford,1,128,0.8835,0.8453,0.9224
 brand,recent,Ford,2,101,0.812,0.768,0.8691
@@ -789,8 +380,6 @@ brand,recent,Ford,7,21,0.5172,0.5039,0.5652
 brand,recent,Ford,8,20,0.4798,0.4539,0.4966
 brand,recent,Ford,9,14,0.4509,0.4326,0.4588
 brand,recent,Ford,10,9,0.4153,0.407,0.4266
-brand,recent,Ford,11,5,0.3945,0.3853,0.405
-brand,recent,Ford,12,1,0.3756,0.3756,0.3756
 brand,recent,GM - Chevrolet,0,211,0.9197,0.8892,0.9394
 brand,recent,GM - Chevrolet,1,259,0.8686,0.8298,0.9038
 brand,recent,GM - Chevrolet,2,222,0.791,0.7445,0.846
@@ -802,11 +391,6 @@ brand,recent,GM - Chevrolet,7,62,0.5111,0.4624,0.5411
 brand,recent,GM - Chevrolet,8,58,0.4789,0.4363,0.5007
 brand,recent,GM - Chevrolet,9,45,0.4432,0.4181,0.4685
 brand,recent,GM - Chevrolet,10,36,0.4192,0.3803,0.4459
-brand,recent,GM - Chevrolet,11,26,0.3899,0.3591,0.4215
-brand,recent,GM - Chevrolet,12,14,0.3775,0.3579,0.3964
-brand,recent,GM - Chevrolet,13,5,0.3639,0.3611,0.3701
-brand,recent,GM - Chevrolet,14,2,0.3639,0.3569,0.371
-brand,recent,GM - Chevrolet,15,1,0.3688,0.3688,0.3688
 brand,recent,Honda,0,54,0.92,0.9052,0.9407
 brand,recent,Honda,1,81,0.9027,0.8679,0.9578
 brand,recent,Honda,2,64,0.8489,0.8176,0.9066
@@ -818,11 +402,6 @@ brand,recent,Honda,7,19,0.6018,0.5774,0.6409
 brand,recent,Honda,8,16,0.5375,0.5043,0.5715
 brand,recent,Honda,9,17,0.5029,0.4488,0.5293
 brand,recent,Honda,10,17,0.4605,0.4192,0.48
-brand,recent,Honda,11,16,0.4197,0.398,0.4466
-brand,recent,Honda,12,13,0.3903,0.376,0.4154
-brand,recent,Honda,13,10,0.3796,0.3647,0.3995
-brand,recent,Honda,14,7,0.3359,0.3187,0.3436
-brand,recent,Honda,15,5,0.3182,0.3102,0.337
 brand,recent,Hyundai,0,164,0.9267,0.9052,0.9537
 brand,recent,Hyundai,1,140,0.8754,0.8454,0.9191
 brand,recent,Hyundai,2,81,0.8304,0.7767,0.8906
@@ -834,32 +413,6 @@ brand,recent,Hyundai,7,11,0.5002,0.4745,0.5666
 brand,recent,Hyundai,8,9,0.4824,0.3473,0.5215
 brand,recent,Hyundai,9,7,0.4338,0.2801,0.4823
 brand,recent,Hyundai,10,6,0.3638,0.2493,0.4761
-brand,recent,Hyundai,11,5,0.4016,0.2715,0.4749
-brand,recent,Hyundai,12,4,0.4193,0.3269,0.4568
-brand,recent,Hyundai,13,3,0.4249,0.3912,0.4371
-brand,recent,Hyundai,14,3,0.4112,0.3787,0.4174
-brand,recent,Hyundai,15,3,0.3974,0.3596,0.4046
-brand,recent,IVECO,0,112,0.8467,0.7794,0.8733
-brand,recent,IVECO,1,105,0.7926,0.7219,0.8313
-brand,recent,IVECO,2,55,0.7134,0.6238,0.7668
-brand,recent,IVECO,3,19,0.5825,0.5318,0.6989
-brand,recent,IVECO,4,5,0.5457,0.5457,0.564
-brand,recent,JAC,0,40,0.8769,0.8582,0.9139
-brand,recent,JAC,1,40,0.833,0.7948,0.8807
-brand,recent,JAC,2,34,0.7649,0.723,0.8544
-brand,recent,JAC,3,18,0.7308,0.6636,0.7928
-brand,recent,JAC,4,9,0.7067,0.6669,0.7406
-brand,recent,JAC,5,5,0.6195,0.5721,0.6705
-brand,recent,JAC,6,2,0.5425,0.5371,0.5478
-brand,recent,JAC,7,1,0.5088,0.5088,0.5088
-brand,recent,Jaguar,0,17,0.9305,0.9039,0.9361
-brand,recent,Jaguar,1,51,0.8877,0.8647,0.9169
-brand,recent,Jaguar,2,53,0.8225,0.7815,0.8796
-brand,recent,Jaguar,3,38,0.7335,0.6752,0.7741
-brand,recent,Jaguar,4,24,0.6629,0.574,0.7127
-brand,recent,Jaguar,5,14,0.6295,0.5191,0.6546
-brand,recent,Jaguar,6,5,0.4911,0.487,0.6119
-brand,recent,Jaguar,7,1,0.4643,0.4643,0.4643
 brand,recent,Jeep,0,81,0.8962,0.8735,0.9354
 brand,recent,Jeep,1,101,0.8703,0.8194,0.924
 brand,recent,Jeep,2,80,0.7676,0.7218,0.8726
@@ -871,10 +424,6 @@ brand,recent,Jeep,7,6,0.4616,0.3718,0.5403
 brand,recent,Jeep,8,3,0.3008,0.2906,0.3059
 brand,recent,Jeep,9,3,0.2659,0.253,0.2744
 brand,recent,Jeep,10,2,0.2357,0.2332,0.2382
-brand,recent,Jeep,11,1,0.2147,0.2147,0.2147
-brand,recent,Jeep,12,2,0.1716,0.1698,0.1733
-brand,recent,Jeep,13,2,0.1658,0.1632,0.1685
-brand,recent,Jeep,14,1,0.1476,0.1476,0.1476
 brand,recent,Kia Motors,0,26,0.9318,0.9016,0.9548
 brand,recent,Kia Motors,1,36,0.8836,0.8572,0.913
 brand,recent,Kia Motors,2,29,0.8267,0.7629,0.8813
@@ -886,11 +435,6 @@ brand,recent,Kia Motors,7,13,0.4349,0.3551,0.48
 brand,recent,Kia Motors,8,15,0.4018,0.3035,0.4992
 brand,recent,Kia Motors,9,17,0.3156,0.2457,0.4084
 brand,recent,Kia Motors,10,18,0.2744,0.2086,0.3859
-brand,recent,Kia Motors,11,15,0.266,0.1503,0.3769
-brand,recent,Kia Motors,12,11,0.1908,0.1314,0.3872
-brand,recent,Kia Motors,13,9,0.1874,0.1334,0.3988
-brand,recent,Kia Motors,14,6,0.2756,0.1602,0.3972
-brand,recent,Kia Motors,15,3,0.3685,0.2588,0.3792
 brand,recent,Land Rover,0,66,0.933,0.9202,0.9518
 brand,recent,Land Rover,1,139,0.8954,0.8646,0.9331
 brand,recent,Land Rover,2,103,0.845,0.8001,0.9069
@@ -902,37 +446,6 @@ brand,recent,Land Rover,7,22,0.4016,0.3726,0.4429
 brand,recent,Land Rover,8,16,0.3395,0.3053,0.3835
 brand,recent,Land Rover,9,8,0.2389,0.2184,0.2916
 brand,recent,Land Rover,10,4,0.1964,0.183,0.2102
-brand,recent,Land Rover,11,4,0.1719,0.167,0.1787
-brand,recent,Land Rover,12,2,0.1532,0.1493,0.157
-brand,recent,Lexus,0,15,0.9426,0.9351,0.9563
-brand,recent,Lexus,1,40,0.9088,0.8685,0.934
-brand,recent,Lexus,2,36,0.849,0.7957,0.8825
-brand,recent,Lexus,3,23,0.731,0.7019,0.7749
-brand,recent,Lexus,4,11,0.6531,0.6363,0.6786
-brand,recent,Lexus,5,7,0.5723,0.5601,0.6103
-brand,recent,Lexus,6,4,0.5267,0.507,0.5432
-brand,recent,Lexus,7,1,0.5014,0.5014,0.5014
-brand,recent,Lexus,8,1,0.4022,0.4022,0.4022
-brand,recent,MINI,0,47,0.9264,0.8893,0.9439
-brand,recent,MINI,1,52,0.867,0.8052,0.9088
-brand,recent,MINI,2,42,0.7744,0.7266,0.8428
-brand,recent,MINI,3,36,0.7007,0.6144,0.7471
-brand,recent,MINI,4,32,0.6213,0.5863,0.6829
-brand,recent,MINI,5,27,0.539,0.5169,0.5896
-brand,recent,MINI,6,23,0.4881,0.4484,0.5506
-brand,recent,MINI,7,18,0.4444,0.4277,0.4791
-brand,recent,MINI,8,11,0.4245,0.3922,0.4533
-brand,recent,MINI,9,6,0.3848,0.3615,0.4234
-brand,recent,MINI,10,3,0.3421,0.3361,0.3602
-brand,recent,MINI,11,1,0.3679,0.3679,0.3679
-brand,recent,Maserati,1,5,0.9235,0.9143,0.9407
-brand,recent,Maserati,2,12,0.8731,0.8416,0.9096
-brand,recent,Maserati,3,11,0.7897,0.7361,0.816
-brand,recent,Maserati,4,11,0.7114,0.66,0.7839
-brand,recent,Maserati,5,8,0.6577,0.5874,0.731
-brand,recent,Maserati,6,6,0.5574,0.5108,0.6465
-brand,recent,Maserati,7,5,0.4763,0.3857,0.5209
-brand,recent,Maserati,8,2,0.3526,0.3407,0.3646
 brand,recent,Mercedes-Benz,0,188,0.8785,0.8508,0.9304
 brand,recent,Mercedes-Benz,1,299,0.8664,0.8022,0.9176
 brand,recent,Mercedes-Benz,2,225,0.8126,0.7254,0.8804
@@ -944,11 +457,6 @@ brand,recent,Mercedes-Benz,7,19,0.537,0.4786,0.597
 brand,recent,Mercedes-Benz,8,15,0.5268,0.4783,0.5682
 brand,recent,Mercedes-Benz,9,17,0.4773,0.4405,0.55
 brand,recent,Mercedes-Benz,10,4,0.4526,0.3847,0.4621
-brand,recent,Mercedes-Benz,11,4,0.4185,0.3556,0.4238
-brand,recent,Mercedes-Benz,12,4,0.3953,0.3346,0.3999
-brand,recent,Mercedes-Benz,13,4,0.373,0.3113,0.3761
-brand,recent,Mercedes-Benz,14,3,0.352,0.3486,0.3532
-brand,recent,Mercedes-Benz,15,3,0.3414,0.3371,0.3414
 brand,recent,Mitsubishi,0,92,0.9194,0.8892,0.9454
 brand,recent,Mitsubishi,1,90,0.8676,0.8324,0.893
 brand,recent,Mitsubishi,2,68,0.76,0.7289,0.8036
@@ -960,11 +468,6 @@ brand,recent,Mitsubishi,7,10,0.4937,0.4729,0.5369
 brand,recent,Mitsubishi,8,5,0.447,0.4041,0.4667
 brand,recent,Mitsubishi,9,4,0.3775,0.3437,0.3952
 brand,recent,Mitsubishi,10,4,0.3305,0.2968,0.3522
-brand,recent,Mitsubishi,11,4,0.2991,0.2714,0.317
-brand,recent,Mitsubishi,12,4,0.2873,0.26,0.3018
-brand,recent,Mitsubishi,13,4,0.2538,0.2299,0.2697
-brand,recent,Mitsubishi,14,3,0.216,0.2067,0.235
-brand,recent,Mitsubishi,15,3,0.2085,0.1995,0.2128
 brand,recent,Nissan,0,74,0.8967,0.8768,0.935
 brand,recent,Nissan,1,95,0.8663,0.8278,0.8966
 brand,recent,Nissan,2,81,0.7841,0.7495,0.8414
@@ -985,11 +488,6 @@ brand,recent,Peugeot,7,20,0.4745,0.4132,0.506
 brand,recent,Peugeot,8,18,0.4281,0.2632,0.4721
 brand,recent,Peugeot,9,15,0.3498,0.2301,0.4337
 brand,recent,Peugeot,10,12,0.2323,0.2043,0.353
-brand,recent,Peugeot,11,9,0.1929,0.1913,0.2763
-brand,recent,Peugeot,12,6,0.1976,0.1778,0.2515
-brand,recent,Peugeot,13,4,0.1843,0.1637,0.2087
-brand,recent,Peugeot,14,3,0.1711,0.1607,0.1851
-brand,recent,Peugeot,15,2,0.1725,0.1623,0.1827
 brand,recent,Porsche,0,181,0.9484,0.9226,0.9633
 brand,recent,Porsche,1,195,0.9164,0.8844,0.9316
 brand,recent,Porsche,2,145,0.8844,0.8282,0.9063
@@ -1001,11 +499,6 @@ brand,recent,Porsche,7,48,0.5836,0.5311,0.6508
 brand,recent,Porsche,8,31,0.5225,0.4833,0.6113
 brand,recent,Porsche,9,18,0.5108,0.427,0.6061
 brand,recent,Porsche,10,18,0.4629,0.3906,0.4847
-brand,recent,Porsche,11,15,0.4534,0.4067,0.4609
-brand,recent,Porsche,12,13,0.4388,0.4024,0.4525
-brand,recent,Porsche,13,12,0.4264,0.4066,0.44
-brand,recent,Porsche,14,10,0.4116,0.3402,0.4394
-brand,recent,Porsche,15,7,0.3853,0.3236,0.4177
 brand,recent,Renault,0,174,0.9096,0.8766,0.9408
 brand,recent,Renault,1,178,0.8468,0.8037,0.8873
 brand,recent,Renault,2,137,0.7884,0.7483,0.822
@@ -1017,40 +510,6 @@ brand,recent,Renault,7,38,0.582,0.5298,0.6232
 brand,recent,Renault,8,29,0.5559,0.5085,0.6008
 brand,recent,Renault,9,22,0.5304,0.4676,0.5525
 brand,recent,Renault,10,13,0.4936,0.4789,0.5294
-brand,recent,Renault,11,7,0.4667,0.4463,0.5028
-brand,recent,Renault,12,1,0.3208,0.3208,0.3208
-brand,recent,SSANGYONG,3,8,0.8744,0.8709,0.8753
-brand,recent,SSANGYONG,4,2,0.7889,0.7841,0.7938
-brand,recent,Subaru,1,13,0.8945,0.8559,0.9011
-brand,recent,Subaru,2,15,0.8565,0.8123,0.8686
-brand,recent,Subaru,3,13,0.755,0.7401,0.8133
-brand,recent,Subaru,4,9,0.6933,0.6141,0.7365
-brand,recent,Subaru,5,8,0.5587,0.5195,0.603
-brand,recent,Subaru,6,9,0.5076,0.4919,0.5619
-brand,recent,Subaru,7,8,0.4647,0.4312,0.4759
-brand,recent,Subaru,8,6,0.3743,0.3622,0.4496
-brand,recent,Subaru,9,7,0.3597,0.3332,0.4439
-brand,recent,Subaru,10,7,0.2967,0.2506,0.3585
-brand,recent,Subaru,11,5,0.2248,0.2142,0.3095
-brand,recent,Subaru,12,2,0.1775,0.1705,0.1845
-brand,recent,Subaru,13,2,0.1602,0.1521,0.1683
-brand,recent,Subaru,14,2,0.1514,0.1439,0.1588
-brand,recent,Subaru,15,2,0.1342,0.1329,0.1355
-brand,recent,Suzuki,0,31,0.9401,0.8855,0.9557
-brand,recent,Suzuki,1,41,0.8896,0.8464,0.915
-brand,recent,Suzuki,2,38,0.8209,0.7678,0.8748
-brand,recent,Suzuki,3,31,0.7516,0.6745,0.8018
-brand,recent,Suzuki,4,25,0.7125,0.6294,0.7426
-brand,recent,Suzuki,5,16,0.6714,0.6381,0.7053
-brand,recent,Suzuki,6,9,0.6258,0.6137,0.6606
-brand,recent,Suzuki,7,6,0.5652,0.5245,0.5967
-brand,recent,Suzuki,8,6,0.5477,0.4964,0.5702
-brand,recent,Suzuki,9,6,0.5164,0.4388,0.5301
-brand,recent,Suzuki,10,5,0.4653,0.4645,0.5099
-brand,recent,Suzuki,11,4,0.4723,0.4303,0.494
-brand,recent,Suzuki,12,3,0.437,0.3923,0.4547
-brand,recent,Suzuki,13,2,0.3953,0.3678,0.4229
-brand,recent,Suzuki,14,1,0.3612,0.3612,0.3612
 brand,recent,Toyota,0,154,0.9319,0.9058,0.9537
 brand,recent,Toyota,1,176,0.8893,0.8586,0.9189
 brand,recent,Toyota,2,139,0.8361,0.7943,0.8764
@@ -1062,11 +521,6 @@ brand,recent,Toyota,7,45,0.5858,0.5175,0.6288
 brand,recent,Toyota,8,37,0.5237,0.469,0.5784
 brand,recent,Toyota,9,29,0.4743,0.397,0.5395
 brand,recent,Toyota,10,16,0.3976,0.3486,0.4355
-brand,recent,Toyota,11,14,0.3626,0.3248,0.3961
-brand,recent,Toyota,12,13,0.359,0.3122,0.3971
-brand,recent,Toyota,13,8,0.3238,0.2652,0.3441
-brand,recent,Toyota,14,5,0.2843,0.1374,0.3185
-brand,recent,Toyota,15,2,0.2026,0.1674,0.2378
 brand,recent,VW - VolksWagen,0,148,0.9226,0.8989,0.9461
 brand,recent,VW - VolksWagen,1,171,0.8759,0.84,0.9045
 brand,recent,VW - VolksWagen,2,144,0.8077,0.7555,0.8423
@@ -1078,7 +532,6 @@ brand,recent,VW - VolksWagen,7,13,0.4982,0.4358,0.6078
 brand,recent,VW - VolksWagen,8,7,0.4424,0.3994,0.5598
 brand,recent,VW - VolksWagen,9,6,0.4058,0.3667,0.4972
 brand,recent,VW - VolksWagen,10,3,0.372,0.3549,0.4382
-brand,recent,VW - VolksWagen,11,1,0.3149,0.3149,0.3149
 brand,recent,Volvo,0,54,0.9163,0.8887,0.9383
 brand,recent,Volvo,1,80,0.8753,0.8446,0.9244
 brand,recent,Volvo,2,49,0.8232,0.7737,0.8706
@@ -1097,11 +550,6 @@ fuel_group,recent,diesel,7,161,0.5389,0.4956,0.6069
 fuel_group,recent,diesel,8,136,0.4988,0.453,0.5691
 fuel_group,recent,diesel,9,110,0.4607,0.41,0.5273
 fuel_group,recent,diesel,10,66,0.4276,0.3651,0.4875
-fuel_group,recent,diesel,11,49,0.4023,0.3112,0.4502
-fuel_group,recent,diesel,12,32,0.3533,0.1933,0.4054
-fuel_group,recent,diesel,13,24,0.3346,0.1773,0.3846
-fuel_group,recent,diesel,14,18,0.2995,0.1527,0.3783
-fuel_group,recent,diesel,15,14,0.3273,0.195,0.3618
 fuel_group,recent,gasoline,0,2209,0.9261,0.8959,0.95
 fuel_group,recent,gasoline,1,2845,0.8824,0.85,0.9191
 fuel_group,recent,gasoline,2,2188,0.8169,0.7645,0.8725
@@ -1113,11 +561,6 @@ fuel_group,recent,gasoline,7,350,0.4885,0.4119,0.566
 fuel_group,recent,gasoline,8,268,0.4357,0.3551,0.5161
 fuel_group,recent,gasoline,9,215,0.3923,0.3174,0.4736
 fuel_group,recent,gasoline,10,181,0.3627,0.285,0.4346
-fuel_group,recent,gasoline,11,147,0.332,0.2613,0.4102
-fuel_group,recent,gasoline,12,113,0.3122,0.234,0.3887
-fuel_group,recent,gasoline,13,87,0.2741,0.2023,0.3642
-fuel_group,recent,gasoline,14,68,0.2472,0.1764,0.3236
-fuel_group,recent,gasoline,15,51,0.2227,0.1565,0.2908
 price_band,recent,q1,0,629,0.921,0.8964,0.9425
 price_band,recent,q1,1,734,0.8731,0.8373,0.9062
 price_band,recent,q1,2,585,0.807,0.7617,0.8622
@@ -1129,11 +572,6 @@ price_band,recent,q1,7,109,0.5162,0.423,0.5902
 price_band,recent,q1,8,88,0.4656,0.3883,0.5462
 price_band,recent,q1,9,74,0.4071,0.3641,0.5008
 price_band,recent,q1,10,62,0.3774,0.3351,0.4448
-price_band,recent,q1,11,55,0.3502,0.2928,0.417
-price_band,recent,q1,12,47,0.2997,0.2466,0.3534
-price_band,recent,q1,13,43,0.2629,0.2139,0.313
-price_band,recent,q1,14,38,0.2368,0.1814,0.2687
-price_band,recent,q1,15,32,0.2092,0.1581,0.2301
 price_band,recent,q2,0,657,0.92,0.8892,0.9454
 price_band,recent,q2,1,720,0.8737,0.8384,0.9084
 price_band,recent,q2,2,541,0.8041,0.7602,0.8523
@@ -1145,11 +583,6 @@ price_band,recent,q2,7,77,0.5494,0.4943,0.5962
 price_band,recent,q2,8,63,0.4916,0.4555,0.5569
 price_band,recent,q2,9,54,0.4612,0.4282,0.5214
 price_band,recent,q2,10,42,0.4332,0.3994,0.4875
-price_band,recent,q2,11,36,0.3999,0.3689,0.455
-price_band,recent,q2,12,27,0.3799,0.3533,0.4338
-price_band,recent,q2,13,20,0.3637,0.3167,0.4064
-price_band,recent,q2,14,15,0.3359,0.2824,0.3935
-price_band,recent,q2,15,12,0.3142,0.2524,0.3738
 price_band,recent,q3,0,612,0.9039,0.8702,0.936
 price_band,recent,q3,1,713,0.8555,0.8071,0.8939
 price_band,recent,q3,2,564,0.7824,0.7241,0.8387
@@ -1161,11 +594,6 @@ price_band,recent,q3,7,137,0.5188,0.4804,0.5899
 price_band,recent,q3,8,113,0.4875,0.4293,0.5485
 price_band,recent,q3,9,98,0.444,0.3807,0.4837
 price_band,recent,q3,10,63,0.4085,0.3001,0.4488
-price_band,recent,q3,11,42,0.3884,0.2713,0.4215
-price_band,recent,q3,12,24,0.3384,0.1913,0.3951
-price_band,recent,q3,13,12,0.2543,0.1668,0.3538
-price_band,recent,q3,14,8,0.1656,0.1566,0.3468
-price_band,recent,q3,15,6,0.2409,0.1398,0.3392
 price_band,recent,q4,0,545,0.9167,0.8754,0.9476
 price_band,recent,q4,1,737,0.8781,0.8418,0.9184
 price_band,recent,q4,2,571,0.8106,0.7532,0.8627
@@ -1177,11 +605,6 @@ price_band,recent,q4,7,96,0.428,0.3577,0.5272
 price_band,recent,q4,8,78,0.3686,0.3081,0.4706
 price_band,recent,q4,9,61,0.3034,0.2657,0.4123
 price_band,recent,q4,10,46,0.2619,0.2343,0.3708
-price_band,recent,q4,11,33,0.2248,0.1911,0.3248
-price_band,recent,q4,12,26,0.1918,0.1761,0.307
-price_band,recent,q4,13,21,0.175,0.1418,0.2661
-price_band,recent,q4,14,14,0.1525,0.1389,0.2114
-price_band,recent,q4,15,8,0.1646,0.1321,0.2107
 price_band,recent,q5,0,448,0.9375,0.9076,0.9583
 price_band,recent,q5,1,716,0.9051,0.8672,0.9323
 price_band,recent,q5,2,534,0.852,0.7965,0.9007
@@ -1193,8 +616,3 @@ price_band,recent,q5,7,92,0.5181,0.4167,0.6042
 price_band,recent,q5,8,62,0.4235,0.3571,0.5216
 price_band,recent,q5,9,38,0.3653,0.2651,0.5002
 price_band,recent,q5,10,34,0.3584,0.2023,0.4639
-price_band,recent,q5,11,30,0.3254,0.1774,0.4522
-price_band,recent,q5,12,21,0.3987,0.168,0.441
-price_band,recent,q5,13,15,0.4205,0.2901,0.4314
-price_band,recent,q5,14,11,0.4102,0.3087,0.4311
-price_band,recent,q5,15,7,0.3853,0.3236,0.4177

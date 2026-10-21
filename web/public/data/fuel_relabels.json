@@ -1,0 +1,44 @@
+[
+ {
+  "from_year": 2010,
+  "to_year": 2011,
+  "fuel_from": "Gasolina",
+  "fuel_to": "Diesel",
+  "cars": 1069
+ },
+ {
+  "from_year": 2023,
+  "to_year": 2024,
+  "fuel_from": "Diesel",
+  "fuel_to": "Híbrido",
+  "cars": 43
+ },
+ {
+  "from_year": 2023,
+  "to_year": 2024,
+  "fuel_from": "Gasolina",
+  "fuel_to": "Elétrico",
+  "cars": 227
+ },
+ {
+  "from_year": 2023,
+  "to_year": 2024,
+  "fuel_from": "Gasolina",
+  "fuel_to": "Flex",
+  "cars": 6098
+ },
+ {
+  "from_year": 2023,
+  "to_year": 2024,
+  "fuel_from": "Gasolina",
+  "fuel_to": "Gás Natural",
+  "cars": 14
+ },
+ {
+  "from_year": 2023,
+  "to_year": 2024,
+  "fuel_from": "Gasolina",
+  "fuel_to": "Híbrido",
+  "cars": 415
+ }
+]

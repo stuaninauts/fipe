@@ -2,6 +2,12 @@
 
 All tables use January references only and come with `n`, so a reader can always see how many prices a number
 rests on. Inputs are the clean price table from fipe/clean.py (with `price_real_brl` from fipe/inflation.py).
+
+Two ways of following value (docs/adr/0006):
+- the same car over time: cohort (bought brand new in January Y, valued in later Januaries) and the
+  year-to-year change of the same used car. These are the headline methods;
+- the same January: a used car next to today's brand-new price of the same code (retention_by_age,
+  new_vs_used). Kept as secondary ("compared with a brand-new car today").
 """
 
 from __future__ import annotations
@@ -11,11 +17,46 @@ import math
 import pandas as pd
 
 from fipe.clean import CAR
+from fipe.family import family
 
 JANUARY = 1
 RECENT_YEARS = 5  # "recent" scope in retention_by_age: the last five January references
 PRICE_BANDS = ["q1", "q2", "q3", "q4", "q5"]  # quintiles within each January, cheapest first
-EXPLORE_MIN_BRAND_N = 300  # a brand enters the explore cubes with at least this many retention pairs
+EXPLORE_MIN_BRAND_N = 1000  # a brand enters the explore cubes with at least this many retention pairs
+EXPLORE_MAX_AGE = 10  # past this age the same-January curve rests on a few long-lived models (survivorship)
+SHOCK_YEAR = 2022  # the one January with a real gain; left out of the "normal" loss by age
+# Premium and luxury brands: 27% of the catalogue, a small share of sales. The mass-market sensitivity
+# leaves them out (docs/adr/0006).
+PREMIUM_BRANDS = frozenset(
+    {
+        "Acura",
+        "Alfa Romeo",
+        "ASTON MARTIN",
+        "Audi",
+        "BMW",
+        "Cadillac",
+        "Ferrari",
+        "Jaguar",
+        "LAMBORGHINI",
+        "Land Rover",
+        "Lexus",
+        "Lotus",
+        "Maserati",
+        "Mclaren",
+        "Mercedes-Benz",
+        "MINI",
+        "Porsche",
+        "Rolls-Royce",
+        "smart",
+        "Volvo",
+    }
+)
+MASS_AGES = (1, 15)  # mass-market sensitivity: cars aged 1 to 15 in the second January
+HOLDS_VALUE_AGE = 5  # what holds value: compared five years after purchase
+HOLDS_VALUE_MIN_N = 100  # a brand needs this many cars bought new and valued five years later
+DIESEL_LABEL_FROM = 2011  # before 2011 many diesel cars were labelled "Gasolina" (see fuel_relabels)
+VERSION_MIN_CODES = 3  # a family needs at least this many versions bought new in the same year
+VERSION_MIN_SPREAD = 1.15  # and the top version must cost at least 15% more than the entry one
 
 
 def _january_used(prices: pd.DataFrame) -> pd.DataFrame:
@@ -52,6 +93,7 @@ def _yearly_pairs(prices: pd.DataFrame) -> pd.DataFrame:
                 {
                     "from_year": int(prev),
                     "to_year": int(cur),
+                    "age": int(cur) - pairs["model_year"].astype(int),
                     "brand": pairs["brand_b"],
                     "fuel_group": pairs["fuel_group"],
                     "real_a": pairs["price_real_brl_a"],
@@ -91,13 +133,231 @@ def _summary(df: pd.DataFrame, by: list[str], value: str, quartiles: bool = True
     return df.groupby(by, observed=True).agg(**agg).reset_index()
 
 
+def _cohort_pairs(prices: pd.DataFrame) -> pd.DataFrame:
+    """Cars bought brand new in January Y, valued in each later January.
+
+    The brand-new price (`is_new`) of a code and fuel group in January Y is matched with the used price of the
+    same code, fuel group and model year Y in January Y + age. `real` and `nominal` are the share of the
+    purchase price left; `price_band` is the quintile of the purchase price within its January.
+    """
+    jan = prices[prices["ref_month"] == JANUARY]
+    keys = ["codigo_fipe", "fuel_group"]
+    new = jan[jan["is_new"]][["ref_year", *keys, "brand", "model", "price_brl", "price_real_brl"]].rename(
+        columns={"ref_year": "purchase_year", "price_brl": "new_nominal", "price_real_brl": "new_real"}
+    )
+    new["price_band"] = _quintiles(new["new_real"], new["purchase_year"])
+    used = jan[~jan["is_new"]][["ref_year", *keys, "model_year", "price_brl", "price_real_brl"]].copy()
+    used["purchase_year"] = used["model_year"].astype(int)
+    pairs = used.merge(new, on=["purchase_year", *keys])
+    pairs["age"] = pairs["ref_year"] - pairs["purchase_year"]
+    pairs = pairs[pairs["age"] >= 1].copy()
+    pairs["real"] = pairs["price_real_brl"] / pairs["new_real"]
+    pairs["nominal"] = pairs["price_brl"] / pairs["new_nominal"]
+    return pairs
+
+
+def cohort(prices: pd.DataFrame) -> pd.DataFrame:
+    """Share of the purchase price left, by year of purchase and age (the same car since it was bought new).
+
+    Real values divide inflation-adjusted prices, so 0.75 means the car is worth 75% of what was paid, in
+    money of the same value. This is the headline method for "how much does my car lose" (docs/adr/0006).
+    """
+    pairs = _cohort_pairs(prices)
+    g = pairs.groupby(["purchase_year", "age"])
+    out = pd.DataFrame(
+        {
+            "n": g.size(),
+            "median_real": g["real"].median(),
+            "p25_real": g["real"].quantile(0.25),
+            "p75_real": g["real"].quantile(0.75),
+            "median_nominal": g["nominal"].median(),
+        }
+    ).reset_index()
+    return out.astype({"purchase_year": int, "age": int, "n": int}).round(4)
+
+
+def cohort_pooled(prices: pd.DataFrame, max_age: int = 10) -> pd.DataFrame:
+    """The cohort pooled over every year of purchase, by age.
+
+    The result depends on which years are pooled, so the site uses it only for the first year and always next
+    to the range across years of purchase.
+    """
+    pairs = _cohort_pairs(prices)
+    pairs = pairs[pairs["age"] <= max_age]
+    g = pairs.groupby("age")
+    out = pd.DataFrame(
+        {
+            "n": g.size(),
+            "purchase_years": g["purchase_year"].nunique(),
+            "median_real": g["real"].median(),
+            "median_nominal": g["nominal"].median(),
+        }
+    ).reset_index()
+    return out.astype({"age": int, "n": int, "purchase_years": int}).round(4)
+
+
+def loss_by_age(prices: pd.DataFrame, max_age: int = 30) -> pd.DataFrame:
+    """Median change of the same used car from one January to the next, by its age in the second January.
+
+    Leaves out the SHOCK_YEAR arrival, so it describes a normal year. Age 1 means the car went from the
+    current model year to one year old.
+    """
+    pairs = _yearly_pairs(prices)
+    pairs = pairs[(pairs["to_year"] != SHOCK_YEAR) & (pairs["age"] >= 1) & (pairs["age"] <= max_age)]
+    g = pairs.groupby("age")
+    out = pd.DataFrame(
+        {
+            "n": g.size(),
+            "years": g["to_year"].nunique(),
+            "median_real": g["real"].median(),
+            "p25_real": g["real"].quantile(0.25),
+            "p75_real": g["real"].quantile(0.75),
+            "median_nominal": g["nominal"].median(),
+        }
+    ).reset_index()
+    return out.astype({"age": int, "n": int, "years": int}).round(4)
+
+
+def four_year_change(prices: pd.DataFrame, span: int = 4) -> pd.DataFrame:
+    """The same used car over `span` years, for every start January: what was left of the 2022 shock."""
+    used = _january_used(prices)
+    years = sorted(used["ref_year"].unique())
+    rows = []
+    for start in years:
+        end = start + span
+        if end not in years:
+            continue
+        a = used[used["ref_year"] == start].set_index(CAR)
+        b = used[used["ref_year"] == end].set_index(CAR)
+        pairs = a.join(b, how="inner", lsuffix="_a", rsuffix="_b")
+        rows.append(
+            {
+                "from_year": int(start),
+                "to_year": int(end),
+                "n": len(pairs),
+                "median_real": (pairs["price_real_brl_b"] / pairs["price_real_brl_a"] - 1).median(),
+                "median_nominal": (pairs["price_brl_b"] / pairs["price_brl_a"] - 1).median(),
+            }
+        )
+    return pd.DataFrame(rows).round(4)
+
+
+def _relative(df: pd.DataFrame, by: list[str], value: str = "real") -> pd.Series:
+    """Each value over the median of its group: 1.09 means 9% above comparable cars."""
+    return df[value] / df.groupby(by)[value].transform("median")
+
+
+def holds_value(prices: pd.DataFrame, age: int = HOLDS_VALUE_AGE) -> pd.DataFrame:
+    """What holds value five years after purchase, against cars bought new the same year in the same band.
+
+    The year of purchase alone moves retention from about 40% to 75%, so raw comparisons mislead. Groups:
+    brand (with at least HOLDS_VALUE_MIN_N cars), fuel group (purchases from DIESEL_LABEL_FROM on, when the
+    diesel label became reliable) and price band (relative to the purchase year only, since the band is the
+    control itself). `median_relative` of 1.09 means 9% above comparable cars.
+    """
+    pairs = _cohort_pairs(prices)
+    pairs = pairs[pairs["age"] == age].copy()
+    pairs["rel"] = _relative(pairs, ["purchase_year", "price_band"])
+    pairs["rel_year"] = _relative(pairs, ["purchase_year"])
+    counts = pairs["brand"].value_counts()
+    brands = pairs[pairs["brand"].isin(counts[counts >= HOLDS_VALUE_MIN_N].index)]
+    fuels = pairs[pairs["purchase_year"] >= DIESEL_LABEL_FROM]
+    frames = []
+    for group_type, df, col, value in [
+        ("brand", brands, "brand", "rel"),
+        ("fuel_group", fuels, "fuel_group", "rel"),
+        ("price_band", pairs, "price_band", "rel_year"),
+    ]:
+        g = df.groupby(col)
+        out = pd.DataFrame(
+            {
+                "n": g.size(),
+                "purchase_years": g["purchase_year"].nunique(),
+                "median_relative": g[value].median(),
+                "p25_relative": g[value].quantile(0.25),
+                "p75_relative": g[value].quantile(0.75),
+                "median_real": g["real"].median(),
+            }
+        ).reset_index(names="group")
+        out.insert(0, "group_type", group_type)
+        frames.append(out)
+    out = pd.concat(frames, ignore_index=True)
+    return out.astype({"n": int, "purchase_years": int}).round(4)
+
+
+def version_gap(prices: pd.DataFrame, ages: tuple[int, ...] = (3, 5)) -> pd.DataFrame:
+    """Top of the range against the entry version of the same model family, bought new the same year.
+
+    Within a family (fipe/family.py), purchase year and fuel group with at least VERSION_MIN_CODES versions
+    and a price spread of at least VERSION_MIN_SPREAD, compares the share of the purchase price left by the
+    most and the least expensive version: `median_gap` of -0.09 means the top version keeps 9% less.
+    """
+    pairs = _cohort_pairs(prices)
+    pairs["family"] = [family(b, m) for b, m in zip(pairs["brand"], pairs["model"], strict=True)]
+    rows = []
+    for age in ages:
+        at = pairs[(pairs["age"] == age) & pairs["family"].notna()]
+        gaps = []
+        for _, grp in at.groupby(["family", "purchase_year", "fuel_group"]):
+            if len(grp) < VERSION_MIN_CODES:
+                continue
+            grp = grp.sort_values("new_real")
+            entry, top = grp.iloc[0], grp.iloc[-1]
+            if top["new_real"] / entry["new_real"] < VERSION_MIN_SPREAD:
+                continue
+            gaps.append(top["real"] / entry["real"] - 1)
+        gap = pd.Series(gaps, dtype=float)
+        rows.append(
+            {
+                "age": age,
+                "groups": len(gap),
+                "median_gap": gap.median(),
+                "p25_gap": gap.quantile(0.25),
+                "p75_gap": gap.quantile(0.75),
+                "share_top_keeps_less": (gap < 0).mean(),
+            }
+        )
+    return pd.DataFrame(rows).round(4)
+
+
+def fuel_relabels(prices: pd.DataFrame, min_n: int = 10) -> pd.DataFrame:
+    """Cars whose fuel label changed from one January to the next.
+
+    Same code, model year and new/used flag, with one price in each year. Documents the 2011 diesel and the
+    2024 flex relabels.
+    """
+    jan = prices[prices["ref_month"] == JANUARY]
+    key = ["codigo_fipe", "is_new", "model_year"]
+    single = jan[~jan.duplicated(["ref_year", *key], keep=False)]
+    rows = []
+    years = sorted(single["ref_year"].unique())
+    for prev, cur in zip(years, years[1:], strict=False):
+        a = single[single["ref_year"] == prev]
+        b = single[single["ref_year"] == cur]
+        m = a.merge(b, on=key, suffixes=("_a", "_b"))
+        changed = m[m["fuel_a"] != m["fuel_b"]]
+        for (fa, fb), n in changed.groupby(["fuel_a", "fuel_b"]).size().items():
+            if n >= min_n:
+                rows.append(
+                    {
+                        "from_year": int(prev),
+                        "to_year": int(cur),
+                        "fuel_from": fa,
+                        "fuel_to": fb,
+                        "cars": int(n),
+                    }
+                )
+    return pd.DataFrame(rows, columns=["from_year", "to_year", "fuel_from", "fuel_to", "cars"])
+
+
 def yearly_change(prices: pd.DataFrame, ipca: pd.DataFrame) -> pd.DataFrame:
     """How the price of the same used car moved from one January to the next.
 
     Pairs every used car (fipe/clean.py CAR key) present in two consecutive Januaries; the car is one year
     older in the second one, so the change mixes ageing with the market. Medians of the price ratio minus 1,
     nominal and real, next to the January-to-January IPCA and, for context, the nominal change of brand-new
-    prices (same code and fuel group, `new_n` pairs).
+    prices (same code and fuel group, `new_n` pairs). `mass_*` is the sensitivity without PREMIUM_BRANDS and
+    with cars aged MASS_AGES only, closer to what most people own.
     """
     jan_new = prices[(prices["ref_month"] == JANUARY) & prices["is_new"]]
     new_key = ["codigo_fipe", "fuel_group"]
@@ -105,6 +365,7 @@ def yearly_change(prices: pd.DataFrame, ipca: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for (prev, cur), pairs in _yearly_pairs(prices).groupby(["from_year", "to_year"]):
         q = _quantiles(pairs["real"])
+        mass = pairs[~pairs["brand"].isin(PREMIUM_BRANDS) & pairs["age"].between(*MASS_AGES)]
         na = jan_new[jan_new["ref_year"] == prev].set_index(new_key)
         nb = jan_new[jan_new["ref_year"] == cur].set_index(new_key)
         new_pairs = na.join(nb, how="inner", lsuffix="_a", rsuffix="_b")
@@ -120,6 +381,8 @@ def yearly_change(prices: pd.DataFrame, ipca: pd.DataFrame) -> pd.DataFrame:
                 "ipca": jan[cur] / jan[prev] - 1,
                 "new_n": len(new_pairs),
                 "new_median_nominal": (new_pairs["price_brl_b"] / new_pairs["price_brl_a"] - 1).median(),
+                "mass_n": len(mass),
+                "mass_median_real": mass["real"].median(),
             }
         )
     return pd.DataFrame(rows).round(4)
@@ -168,7 +431,7 @@ def retention_by_age(prices: pd.DataFrame, max_age: int = 15) -> pd.DataFrame:
     return out.round(4)
 
 
-def explore_brands(prices: pd.DataFrame, max_age: int = 15) -> list[str]:
+def explore_brands(prices: pd.DataFrame, max_age: int = EXPLORE_MAX_AGE) -> list[str]:
     """Brands with enough retention pairs to be offered in the explore page, most data first."""
     counts = _retention_pairs(prices, max_age)["brand"].value_counts()
     return counts[counts >= EXPLORE_MIN_BRAND_N].index.tolist()
@@ -192,8 +455,8 @@ def _by_group(
     return pd.concat(frames, ignore_index=True)
 
 
-def explore_retention(prices: pd.DataFrame, max_age: int = 15) -> pd.DataFrame:
-    """retention_by_age broken down by brand, fuel group and brand-new price band, in both scopes."""
+def explore_retention(prices: pd.DataFrame, max_age: int = EXPLORE_MAX_AGE) -> pd.DataFrame:
+    """retention_by_age by brand, fuel group and brand-new price band, both scopes, up to EXPLORE_MAX_AGE."""
     pairs = _retention_pairs(prices, max_age)
     brands = explore_brands(prices, max_age)
     frames = []

@@ -1,0 +1,128 @@
+[
+ {
+  "from_year": 2004,
+  "to_year": 2008,
+  "n": 9200,
+  "median_real": -0.1498,
+  "median_nominal": 0.0395
+ },
+ {
+  "from_year": 2005,
+  "to_year": 2009,
+  "n": 9956,
+  "median_real": -0.2074,
+  "median_nominal": -0.0452
+ },
+ {
+  "from_year": 2006,
+  "to_year": 2010,
+  "n": 10710,
+  "median_real": -0.3197,
+  "median_nominal": -0.1891
+ },
+ {
+  "from_year": 2007,
+  "to_year": 2011,
+  "n": 10979,
+  "median_real": -0.3588,
+  "median_nominal": -0.2133
+ },
+ {
+  "from_year": 2008,
+  "to_year": 2012,
+  "n": 11661,
+  "median_real": -0.3723,
+  "median_nominal": -0.2176
+ },
+ {
+  "from_year": 2009,
+  "to_year": 2013,
+  "n": 12358,
+  "median_real": -0.4387,
+  "median_nominal": -0.2983
+ },
+ {
+  "from_year": 2010,
+  "to_year": 2014,
+  "n": 13146,
+  "median_real": -0.3649,
+  "median_nominal": -0.1986
+ },
+ {
+  "from_year": 2011,
+  "to_year": 2015,
+  "n": 15074,
+  "median_real": -0.3633,
+  "median_nominal": -0.1879
+ },
+ {
+  "from_year": 2012,
+  "to_year": 2016,
+  "n": 16001,
+  "median_real": -0.3974,
+  "median_nominal": -0.1989
+ },
+ {
+  "from_year": 2013,
+  "to_year": 2017,
+  "n": 16956,
+  "median_real": -0.327,
+  "median_nominal": -0.1121
+ },
+ {
+  "from_year": 2014,
+  "to_year": 2018,
+  "n": 18030,
+  "median_real": -0.322,
+  "median_nominal": -0.1286
+ },
+ {
+  "from_year": 2015,
+  "to_year": 2019,
+  "n": 19064,
+  "median_real": -0.3088,
+  "median_nominal": -0.1395
+ },
+ {
+  "from_year": 2016,
+  "to_year": 2020,
+  "n": 20066,
+  "median_real": -0.2635,
+  "median_nominal": -0.1371
+ },
+ {
+  "from_year": 2017,
+  "to_year": 2021,
+  "n": 21033,
+  "median_real": -0.2414,
+  "median_nominal": -0.1179
+ },
+ {
+  "from_year": 2018,
+  "to_year": 2022,
+  "n": 22027,
+  "median_real": -0.1396,
+  "median_nominal": 0.0737
+ },
+ {
+  "from_year": 2019,
+  "to_year": 2023,
+  "n": 22999,
+  "median_real": -0.0811,
+  "median_nominal": 0.1688
+ },
+ {
+  "from_year": 2020,
+  "to_year": 2024,
+  "n": 24003,
+  "median_real": -0.0742,
+  "median_nominal": 0.1812
+ },
+ {
+  "from_year": 2021,
+  "to_year": 2025,
+  "n": 24800,
+  "median_real": -0.0689,
+  "median_nominal": 0.1879
+ }
+]

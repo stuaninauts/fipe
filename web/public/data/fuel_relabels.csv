@@ -1,0 +1,7 @@
+from_year,to_year,fuel_from,fuel_to,cars
+2010,2011,Gasolina,Diesel,1069
+2023,2024,Diesel,Híbrido,43
+2023,2024,Gasolina,Elétrico,227
+2023,2024,Gasolina,Flex,6098
+2023,2024,Gasolina,Gás Natural,14
+2023,2024,Gasolina,Híbrido,415

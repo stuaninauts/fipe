@@ -1,0 +1,312 @@
+[
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "n": 413,
+  "purchase_years": 17,
+  "median_relative": 0.9282,
+  "p25_relative": 0.8462,
+  "p75_relative": 1.0307,
+  "median_real": 0.4656
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "n": 483,
+  "purchase_years": 17,
+  "median_relative": 0.9048,
+  "p25_relative": 0.8422,
+  "p75_relative": 0.9969,
+  "median_real": 0.4479
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "n": 414,
+  "purchase_years": 17,
+  "median_relative": 0.896,
+  "p25_relative": 0.8407,
+  "p75_relative": 0.9555,
+  "median_real": 0.4833
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "n": 1268,
+  "purchase_years": 17,
+  "median_relative": 1.0254,
+  "p25_relative": 0.9602,
+  "p75_relative": 1.0866,
+  "median_real": 0.5586
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "n": 824,
+  "purchase_years": 17,
+  "median_relative": 0.991,
+  "p25_relative": 0.9269,
+  "p75_relative": 1.0813,
+  "median_real": 0.5432
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "n": 1022,
+  "purchase_years": 17,
+  "median_relative": 1.0237,
+  "p25_relative": 0.966,
+  "p75_relative": 1.0921,
+  "median_real": 0.5462
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "n": 312,
+  "purchase_years": 17,
+  "median_relative": 1.067,
+  "p25_relative": 1.0216,
+  "p75_relative": 1.1121,
+  "median_real": 0.5557
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "n": 322,
+  "purchase_years": 17,
+  "median_relative": 1.0347,
+  "p25_relative": 0.9159,
+  "p75_relative": 1.1025,
+  "median_real": 0.6383
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "n": 154,
+  "purchase_years": 17,
+  "median_relative": 0.9686,
+  "p25_relative": 0.9005,
+  "p75_relative": 1.0523,
+  "median_real": 0.5032
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "n": 132,
+  "purchase_years": 17,
+  "median_relative": 0.977,
+  "p25_relative": 0.9142,
+  "p75_relative": 1.0778,
+  "median_real": 0.6361
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "n": 215,
+  "purchase_years": 17,
+  "median_relative": 0.9814,
+  "p25_relative": 0.918,
+  "p75_relative": 1.0591,
+  "median_real": 0.4803
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "n": 301,
+  "purchase_years": 17,
+  "median_relative": 1.0072,
+  "p25_relative": 0.9286,
+  "p75_relative": 1.0943,
+  "median_real": 0.5407
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "n": 115,
+  "purchase_years": 11,
+  "median_relative": 0.9885,
+  "p25_relative": 0.9145,
+  "p75_relative": 1.0662,
+  "median_real": 0.546
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "n": 857,
+  "purchase_years": 17,
+  "median_relative": 1.0338,
+  "p25_relative": 0.9418,
+  "p75_relative": 1.1663,
+  "median_real": 0.5535
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "n": 378,
+  "purchase_years": 17,
+  "median_relative": 0.9961,
+  "p25_relative": 0.9189,
+  "p75_relative": 1.0769,
+  "median_real": 0.498
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "n": 325,
+  "purchase_years": 17,
+  "median_relative": 0.974,
+  "p25_relative": 0.9199,
+  "p75_relative": 1.0234,
+  "median_real": 0.5275
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "n": 482,
+  "purchase_years": 17,
+  "median_relative": 0.9155,
+  "p25_relative": 0.8634,
+  "p75_relative": 0.9734,
+  "median_real": 0.4839
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "n": 384,
+  "purchase_years": 17,
+  "median_relative": 1.1637,
+  "p25_relative": 1.0404,
+  "p75_relative": 1.3028,
+  "median_real": 0.5759
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "n": 768,
+  "purchase_years": 17,
+  "median_relative": 0.9414,
+  "p25_relative": 0.8893,
+  "p75_relative": 1.0169,
+  "median_real": 0.5452
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "n": 115,
+  "purchase_years": 17,
+  "median_relative": 1.0194,
+  "p25_relative": 0.95,
+  "p75_relative": 1.1063,
+  "median_real": 0.4795
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "n": 112,
+  "purchase_years": 12,
+  "median_relative": 0.9575,
+  "p25_relative": 0.8787,
+  "p75_relative": 1.0886,
+  "median_real": 0.6206
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "n": 420,
+  "purchase_years": 17,
+  "median_relative": 1.0862,
+  "p25_relative": 1.0285,
+  "p75_relative": 1.1961,
+  "median_real": 0.654
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "n": 1228,
+  "purchase_years": 17,
+  "median_relative": 1.021,
+  "p25_relative": 0.9652,
+  "p75_relative": 1.0797,
+  "median_real": 0.5541
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "n": 247,
+  "purchase_years": 17,
+  "median_relative": 0.851,
+  "p25_relative": 0.7937,
+  "p75_relative": 0.9266,
+  "median_real": 0.4203
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "n": 1266,
+  "purchase_years": 10,
+  "median_relative": 1.1204,
+  "p25_relative": 1.0261,
+  "p75_relative": 1.2173,
+  "median_real": 0.6203
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "n": 7040,
+  "purchase_years": 10,
+  "median_relative": 0.9842,
+  "p25_relative": 0.9037,
+  "p75_relative": 1.066,
+  "median_real": 0.5896
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "n": 2412,
+  "purchase_years": 17,
+  "median_relative": 1.1138,
+  "p25_relative": 1.0324,
+  "p75_relative": 1.1813,
+  "median_real": 0.5935
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "n": 2650,
+  "purchase_years": 17,
+  "median_relative": 1.0091,
+  "p25_relative": 0.9432,
+  "p75_relative": 1.0878,
+  "median_real": 0.5451
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "n": 2450,
+  "purchase_years": 17,
+  "median_relative": 0.9768,
+  "p25_relative": 0.8851,
+  "p75_relative": 1.0966,
+  "median_real": 0.538
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "n": 2242,
+  "purchase_years": 17,
+  "median_relative": 0.9306,
+  "p25_relative": 0.8341,
+  "p75_relative": 1.0598,
+  "median_real": 0.5362
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "n": 2411,
+  "purchase_years": 17,
+  "median_relative": 0.9158,
+  "p25_relative": 0.8063,
+  "p75_relative": 1.0517,
+  "median_real": 0.488
+ }
+]

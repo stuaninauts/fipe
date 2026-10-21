@@ -26,6 +26,13 @@ CLEAN_REPORT = Path("data/processed/clean_report.json")
 OUT = Path("web/public/data")
 ATTRIBUTION = "Fonte: Tabela FIPE (Fundação Instituto de Pesquisas Econômicas); IPCA: IBGE."
 DESCRIPTIONS = {
+    "cohort": "Cars bought new in January Y: share of the purchase price left by age (real and nominal).",
+    "cohort_pooled": "The cohort pooled over every purchase year, by age (depends on the years pooled).",
+    "loss_by_age": "Same used car from one January to the next, by age, without the 2022 shock year.",
+    "four_year_change": "Same used car over four years, for every start January (what was left of 2022).",
+    "holds_value": "Five years after purchase, relative to cars bought new the same year and price band.",
+    "version_gap": "Top against entry version of the same model family bought new the same year.",
+    "fuel_relabels": "Cars whose FIPE fuel label changed between two Januaries (2011 diesel, 2024 flex).",
     "yearly_change": "Same used car from one January to the next: median change (nominal, real) and IPCA.",
     "new_vs_used": "Used car of the current model year over the same car brand new, per January.",
     "retention_by_age": "Share of the brand-new price kept at each age, same January (all years and recent).",
@@ -46,6 +53,13 @@ def clean_report_table(report: dict) -> pd.DataFrame:
 
 def build_tables(prices: pd.DataFrame, ipca: pd.DataFrame, report: dict) -> dict[str, pd.DataFrame]:
     return {
+        "cohort": aggregate.cohort(prices),
+        "cohort_pooled": aggregate.cohort_pooled(prices),
+        "loss_by_age": aggregate.loss_by_age(prices),
+        "four_year_change": aggregate.four_year_change(prices),
+        "holds_value": aggregate.holds_value(prices),
+        "version_gap": aggregate.version_gap(prices),
+        "fuel_relabels": aggregate.fuel_relabels(prices),
         "yearly_change": aggregate.yearly_change(prices, ipca),
         "new_vs_used": aggregate.new_vs_used(prices),
         "retention_by_age": aggregate.retention_by_age(prices),

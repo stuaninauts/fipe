@@ -67,7 +67,7 @@ def test_committed_export_matches_the_local_data():
 
 def test_explore_cubes_agree_with_the_headline_tables():
     cube = load("explore_retention").query("group_type == 'all'").drop(columns=["group_type", "group"])
-    base = load("retention_by_age")
+    base = load("retention_by_age").query("age <= 10")
     assert cube.reset_index(drop=True).equals(base.reset_index(drop=True))
     yearly = load("explore_yearly").query("group_type == 'all'").set_index("to_year")
     headline = load("yearly_change").set_index("to_year")
@@ -85,3 +85,35 @@ def test_quality_tables():
     labels = load("fuel_labels").set_index(["ref_year", "fuel"])["prices"]
     assert "Flex" not in labels.loc[2023].index
     assert labels.loc[(2024, "Flex")] == 6401
+
+
+def test_the_same_car_since_it_was_bought():
+    pooled = load("cohort_pooled").set_index("age")
+    assert (pooled.loc[1, "median_nominal"], pooled.loc[1, "median_real"]) == (0.8803, 0.8351)
+    five = load("cohort").query("age == 5").set_index("purchase_year")["median_real"]
+    assert five.loc[2005:2012].between(0.39, 0.48).all()
+    assert five.loc[2017:2020].between(0.72, 0.76).all()
+
+
+def test_loss_by_age_and_what_was_left_of_the_shock():
+    loss = load("loss_by_age").set_index("age")["median_real"]
+    assert loss.loc[2:5].between(-0.11, -0.099).all()
+    assert loss.loc[10] == -0.0807
+    window = load("four_year_change").set_index("from_year")
+    assert window.loc[2021, "median_real"] == -0.0689
+    assert window.loc[2009, "median_real"] == -0.4387
+    assert load("yearly_change").set_index("to_year").loc[2022, "mass_median_real"] == 0.1244
+
+
+def test_what_holds_value():
+    h = load("holds_value").set_index(["group_type", "group"])["median_relative"]
+    assert (h.loc[("brand", "Toyota")], h.loc[("brand", "Volvo")]) == (1.0862, 0.851)
+    assert (h.loc[("fuel_group", "diesel")], h.loc[("price_band", "q1")]) == (1.1204, 1.1138)
+    gap = load("version_gap").set_index("age")
+    assert (gap.loc[5, "median_gap"], gap.loc[5, "share_top_keeps_less"]) == (-0.0873, 0.7943)
+
+
+def test_fuel_relabels_document_2011_and_2024():
+    r = load("fuel_relabels").set_index(["to_year", "fuel_from", "fuel_to"])["cars"]
+    assert r.loc[(2011, "Gasolina", "Diesel")] == 1069
+    assert r.loc[(2024, "Gasolina", "Flex")] == 6098

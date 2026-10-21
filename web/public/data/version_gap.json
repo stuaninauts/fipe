@@ -1,0 +1,18 @@
+[
+ {
+  "age": 3,
+  "groups": 1685,
+  "median_gap": -0.0573,
+  "p25_gap": -0.1082,
+  "p75_gap": 0.0043,
+  "share_top_keeps_less": 0.7383
+ },
+ {
+  "age": 5,
+  "groups": 1497,
+  "median_gap": -0.0873,
+  "p25_gap": -0.1428,
+  "p75_gap": -0.0177,
+  "share_top_keeps_less": 0.7943
+ }
+]

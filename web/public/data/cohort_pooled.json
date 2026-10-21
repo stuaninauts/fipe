@@ -1,0 +1,72 @@
+[
+ {
+  "age": 1,
+  "n": 14951,
+  "purchase_years": 21,
+  "median_real": 0.8351,
+  "median_nominal": 0.8803
+ },
+ {
+  "age": 2,
+  "n": 14320,
+  "purchase_years": 20,
+  "median_real": 0.7511,
+  "median_nominal": 0.8361
+ },
+ {
+  "age": 3,
+  "n": 13663,
+  "purchase_years": 19,
+  "median_real": 0.6719,
+  "median_nominal": 0.7896
+ },
+ {
+  "age": 4,
+  "n": 12944,
+  "purchase_years": 18,
+  "median_real": 0.6041,
+  "median_nominal": 0.7508
+ },
+ {
+  "age": 5,
+  "n": 12165,
+  "purchase_years": 17,
+  "median_real": 0.5394,
+  "median_nominal": 0.7137
+ },
+ {
+  "age": 6,
+  "n": 11322,
+  "purchase_years": 16,
+  "median_real": 0.4809,
+  "median_nominal": 0.6744
+ },
+ {
+  "age": 7,
+  "n": 10477,
+  "purchase_years": 15,
+  "median_real": 0.4327,
+  "median_nominal": 0.6403
+ },
+ {
+  "age": 8,
+  "n": 9688,
+  "purchase_years": 14,
+  "median_real": 0.3909,
+  "median_nominal": 0.6109
+ },
+ {
+  "age": 9,
+  "n": 8853,
+  "purchase_years": 13,
+  "median_real": 0.3499,
+  "median_nominal": 0.5784
+ },
+ {
+  "age": 10,
+  "n": 8014,
+  "purchase_years": 12,
+  "median_real": 0.3162,
+  "median_nominal": 0.5567
+ }
+]

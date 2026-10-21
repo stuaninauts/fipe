@@ -2,6 +2,91 @@
  "attribution": "Fonte: Tabela FIPE (Fundação Instituto de Pesquisas Econômicas); IPCA: IBGE.",
  "price_base": "2026-09",
  "tables": {
+  "cohort": {
+   "description": "Cars bought new in January Y: share of the purchase price left by age (real and nominal).",
+   "rows": 231,
+   "columns": [
+    "purchase_year",
+    "age",
+    "n",
+    "median_real",
+    "p25_real",
+    "p75_real",
+    "median_nominal"
+   ]
+  },
+  "cohort_pooled": {
+   "description": "The cohort pooled over every purchase year, by age (depends on the years pooled).",
+   "rows": 10,
+   "columns": [
+    "age",
+    "n",
+    "purchase_years",
+    "median_real",
+    "median_nominal"
+   ]
+  },
+  "loss_by_age": {
+   "description": "Same used car from one January to the next, by age, without the 2022 shock year.",
+   "rows": 30,
+   "columns": [
+    "age",
+    "n",
+    "years",
+    "median_real",
+    "p25_real",
+    "p75_real",
+    "median_nominal"
+   ]
+  },
+  "four_year_change": {
+   "description": "Same used car over four years, for every start January (what was left of 2022).",
+   "rows": 18,
+   "columns": [
+    "from_year",
+    "to_year",
+    "n",
+    "median_real",
+    "median_nominal"
+   ]
+  },
+  "holds_value": {
+   "description": "Five years after purchase, relative to cars bought new the same year and price band.",
+   "rows": 31,
+   "columns": [
+    "group_type",
+    "group",
+    "n",
+    "purchase_years",
+    "median_relative",
+    "p25_relative",
+    "p75_relative",
+    "median_real"
+   ]
+  },
+  "version_gap": {
+   "description": "Top against entry version of the same model family bought new the same year.",
+   "rows": 2,
+   "columns": [
+    "age",
+    "groups",
+    "median_gap",
+    "p25_gap",
+    "p75_gap",
+    "share_top_keeps_less"
+   ]
+  },
+  "fuel_relabels": {
+   "description": "Cars whose FIPE fuel label changed between two Januaries (2011 diesel, 2024 flex).",
+   "rows": 6,
+   "columns": [
+    "from_year",
+    "to_year",
+    "fuel_from",
+    "fuel_to",
+    "cars"
+   ]
+  },
   "yearly_change": {
    "description": "Same used car from one January to the next: median change (nominal, real) and IPCA.",
    "rows": 21,
@@ -15,7 +100,9 @@
     "p75_real",
     "ipca",
     "new_n",
-    "new_median_nominal"
+    "new_median_nominal",
+    "mass_n",
+    "mass_median_real"
    ]
   },
   "new_vs_used": {
@@ -55,7 +142,7 @@
   },
   "explore_retention": {
    "description": "retention_by_age by brand, fuel group and brand-new price band (explore page).",
-   "rows": 1199,
+   "rows": 617,
    "columns": [
     "group_type",
     "scope",
@@ -69,7 +156,7 @@
   },
   "explore_yearly": {
    "description": "Real change of the same used car per January by brand, fuel group and price band.",
-   "rows": 876,
+   "rows": 609,
    "columns": [
     "group_type",
     "group",

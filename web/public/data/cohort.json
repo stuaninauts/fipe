@@ -1,0 +1,2081 @@
+[
+ {
+  "purchase_year": 2004,
+  "age": 1,
+  "n": 487,
+  "median_real": 0.884,
+  "p25_real": 0.8485,
+  "p75_real": 0.9197,
+  "median_nominal": 0.9494
+ },
+ {
+  "purchase_year": 2004,
+  "age": 2,
+  "n": 496,
+  "median_real": 0.8181,
+  "p25_real": 0.7605,
+  "p75_real": 0.8623,
+  "median_nominal": 0.9288
+ },
+ {
+  "purchase_year": 2004,
+  "age": 3,
+  "n": 503,
+  "median_real": 0.7525,
+  "p25_real": 0.6764,
+  "p75_real": 0.7967,
+  "median_nominal": 0.8799
+ },
+ {
+  "purchase_year": 2004,
+  "age": 4,
+  "n": 508,
+  "median_real": 0.6796,
+  "p25_real": 0.5792,
+  "p75_real": 0.7335,
+  "median_nominal": 0.8309
+ },
+ {
+  "purchase_year": 2004,
+  "age": 5,
+  "n": 510,
+  "median_real": 0.5931,
+  "p25_real": 0.463,
+  "p75_real": 0.6656,
+  "median_nominal": 0.7674
+ },
+ {
+  "purchase_year": 2004,
+  "age": 6,
+  "n": 511,
+  "median_real": 0.479,
+  "p25_real": 0.3622,
+  "p75_real": 0.5549,
+  "median_nominal": 0.6482
+ },
+ {
+  "purchase_year": 2004,
+  "age": 7,
+  "n": 443,
+  "median_real": 0.4173,
+  "p25_real": 0.2946,
+  "p75_real": 0.5061,
+  "median_nominal": 0.5986
+ },
+ {
+  "purchase_year": 2004,
+  "age": 8,
+  "n": 443,
+  "median_real": 0.3797,
+  "p25_real": 0.2635,
+  "p75_real": 0.4689,
+  "median_nominal": 0.5785
+ },
+ {
+  "purchase_year": 2004,
+  "age": 9,
+  "n": 443,
+  "median_real": 0.3068,
+  "p25_real": 0.2188,
+  "p75_real": 0.3815,
+  "median_nominal": 0.4963
+ },
+ {
+  "purchase_year": 2004,
+  "age": 10,
+  "n": 443,
+  "median_real": 0.2897,
+  "p25_real": 0.2012,
+  "p75_real": 0.3585,
+  "median_nominal": 0.4948
+ },
+ {
+  "purchase_year": 2004,
+  "age": 11,
+  "n": 443,
+  "median_real": 0.2571,
+  "p25_real": 0.1811,
+  "p75_real": 0.3244,
+  "median_nominal": 0.4704
+ },
+ {
+  "purchase_year": 2004,
+  "age": 12,
+  "n": 443,
+  "median_real": 0.2235,
+  "p25_real": 0.1566,
+  "p75_real": 0.2816,
+  "median_nominal": 0.4526
+ },
+ {
+  "purchase_year": 2004,
+  "age": 13,
+  "n": 443,
+  "median_real": 0.1991,
+  "p25_real": 0.1397,
+  "p75_real": 0.2552,
+  "median_nominal": 0.4248
+ },
+ {
+  "purchase_year": 2004,
+  "age": 14,
+  "n": 443,
+  "median_real": 0.1898,
+  "p25_real": 0.1349,
+  "p75_real": 0.2447,
+  "median_nominal": 0.4166
+ },
+ {
+  "purchase_year": 2004,
+  "age": 15,
+  "n": 443,
+  "median_real": 0.1751,
+  "p25_real": 0.1207,
+  "p75_real": 0.2295,
+  "median_nominal": 0.3989
+ },
+ {
+  "purchase_year": 2004,
+  "age": 16,
+  "n": 443,
+  "median_real": 0.1591,
+  "p25_real": 0.1118,
+  "p75_real": 0.2115,
+  "median_nominal": 0.3775
+ },
+ {
+  "purchase_year": 2004,
+  "age": 17,
+  "n": 443,
+  "median_real": 0.1511,
+  "p25_real": 0.105,
+  "p75_real": 0.1985,
+  "median_nominal": 0.3751
+ },
+ {
+  "purchase_year": 2004,
+  "age": 18,
+  "n": 442,
+  "median_real": 0.1609,
+  "p25_real": 0.1092,
+  "p75_real": 0.22,
+  "median_nominal": 0.4406
+ },
+ {
+  "purchase_year": 2004,
+  "age": 19,
+  "n": 443,
+  "median_real": 0.16,
+  "p25_real": 0.1074,
+  "p75_real": 0.218,
+  "median_nominal": 0.4635
+ },
+ {
+  "purchase_year": 2004,
+  "age": 20,
+  "n": 443,
+  "median_real": 0.1478,
+  "p25_real": 0.0998,
+  "p75_real": 0.2079,
+  "median_nominal": 0.4474
+ },
+ {
+  "purchase_year": 2004,
+  "age": 21,
+  "n": 443,
+  "median_real": 0.144,
+  "p25_real": 0.0954,
+  "p75_real": 0.2052,
+  "median_nominal": 0.456
+ },
+ {
+  "purchase_year": 2005,
+  "age": 1,
+  "n": 536,
+  "median_real": 0.8488,
+  "p25_real": 0.8037,
+  "p75_real": 0.8825,
+  "median_nominal": 0.8972
+ },
+ {
+  "purchase_year": 2005,
+  "age": 2,
+  "n": 544,
+  "median_real": 0.77,
+  "p25_real": 0.7144,
+  "p75_real": 0.8064,
+  "median_nominal": 0.8382
+ },
+ {
+  "purchase_year": 2005,
+  "age": 3,
+  "n": 550,
+  "median_real": 0.6908,
+  "p25_real": 0.6016,
+  "p75_real": 0.7373,
+  "median_nominal": 0.7862
+ },
+ {
+  "purchase_year": 2005,
+  "age": 4,
+  "n": 551,
+  "median_real": 0.6001,
+  "p25_real": 0.4924,
+  "p75_real": 0.6639,
+  "median_nominal": 0.7229
+ },
+ {
+  "purchase_year": 2005,
+  "age": 5,
+  "n": 551,
+  "median_real": 0.4737,
+  "p25_real": 0.3769,
+  "p75_real": 0.5542,
+  "median_nominal": 0.5968
+ },
+ {
+  "purchase_year": 2005,
+  "age": 6,
+  "n": 483,
+  "median_real": 0.418,
+  "p25_real": 0.3066,
+  "p75_real": 0.4971,
+  "median_nominal": 0.5582
+ },
+ {
+  "purchase_year": 2005,
+  "age": 7,
+  "n": 485,
+  "median_real": 0.3781,
+  "p25_real": 0.2793,
+  "p75_real": 0.4533,
+  "median_nominal": 0.5363
+ },
+ {
+  "purchase_year": 2005,
+  "age": 8,
+  "n": 486,
+  "median_real": 0.3093,
+  "p25_real": 0.2297,
+  "p75_real": 0.374,
+  "median_nominal": 0.4658
+ },
+ {
+  "purchase_year": 2005,
+  "age": 9,
+  "n": 486,
+  "median_real": 0.286,
+  "p25_real": 0.211,
+  "p75_real": 0.3459,
+  "median_nominal": 0.4548
+ },
+ {
+  "purchase_year": 2005,
+  "age": 10,
+  "n": 486,
+  "median_real": 0.2531,
+  "p25_real": 0.1898,
+  "p75_real": 0.3115,
+  "median_nominal": 0.4312
+ },
+ {
+  "purchase_year": 2005,
+  "age": 11,
+  "n": 486,
+  "median_real": 0.2198,
+  "p25_real": 0.1634,
+  "p75_real": 0.2702,
+  "median_nominal": 0.4144
+ },
+ {
+  "purchase_year": 2005,
+  "age": 12,
+  "n": 486,
+  "median_real": 0.1944,
+  "p25_real": 0.148,
+  "p75_real": 0.2443,
+  "median_nominal": 0.3863
+ },
+ {
+  "purchase_year": 2005,
+  "age": 13,
+  "n": 485,
+  "median_real": 0.1848,
+  "p25_real": 0.1379,
+  "p75_real": 0.2348,
+  "median_nominal": 0.3777
+ },
+ {
+  "purchase_year": 2005,
+  "age": 14,
+  "n": 486,
+  "median_real": 0.1747,
+  "p25_real": 0.1268,
+  "p75_real": 0.2215,
+  "median_nominal": 0.3704
+ },
+ {
+  "purchase_year": 2005,
+  "age": 15,
+  "n": 485,
+  "median_real": 0.1627,
+  "p25_real": 0.1159,
+  "p75_real": 0.2062,
+  "median_nominal": 0.3595
+ },
+ {
+  "purchase_year": 2005,
+  "age": 16,
+  "n": 486,
+  "median_real": 0.1501,
+  "p25_real": 0.1071,
+  "p75_real": 0.1948,
+  "median_nominal": 0.3469
+ },
+ {
+  "purchase_year": 2005,
+  "age": 17,
+  "n": 486,
+  "median_real": 0.16,
+  "p25_real": 0.1093,
+  "p75_real": 0.2164,
+  "median_nominal": 0.4079
+ },
+ {
+  "purchase_year": 2005,
+  "age": 18,
+  "n": 486,
+  "median_real": 0.1589,
+  "p25_real": 0.1058,
+  "p75_real": 0.2144,
+  "median_nominal": 0.4286
+ },
+ {
+  "purchase_year": 2005,
+  "age": 19,
+  "n": 486,
+  "median_real": 0.1487,
+  "p25_real": 0.1004,
+  "p75_real": 0.1994,
+  "median_nominal": 0.4192
+ },
+ {
+  "purchase_year": 2005,
+  "age": 20,
+  "n": 486,
+  "median_real": 0.1448,
+  "p25_real": 0.0956,
+  "p75_real": 0.1961,
+  "median_nominal": 0.4267
+ },
+ {
+  "purchase_year": 2006,
+  "age": 1,
+  "n": 582,
+  "median_real": 0.8231,
+  "p25_real": 0.7925,
+  "p75_real": 0.847,
+  "median_nominal": 0.8477
+ },
+ {
+  "purchase_year": 2006,
+  "age": 2,
+  "n": 588,
+  "median_real": 0.7383,
+  "p25_real": 0.6921,
+  "p75_real": 0.7721,
+  "median_nominal": 0.7951
+ },
+ {
+  "purchase_year": 2006,
+  "age": 3,
+  "n": 588,
+  "median_real": 0.6386,
+  "p25_real": 0.5634,
+  "p75_real": 0.6921,
+  "median_nominal": 0.7278
+ },
+ {
+  "purchase_year": 2006,
+  "age": 4,
+  "n": 589,
+  "median_real": 0.5044,
+  "p25_real": 0.4312,
+  "p75_real": 0.5724,
+  "median_nominal": 0.6013
+ },
+ {
+  "purchase_year": 2006,
+  "age": 5,
+  "n": 500,
+  "median_real": 0.44,
+  "p25_real": 0.3557,
+  "p75_real": 0.5072,
+  "median_nominal": 0.5559
+ },
+ {
+  "purchase_year": 2006,
+  "age": 6,
+  "n": 500,
+  "median_real": 0.3946,
+  "p25_real": 0.3161,
+  "p75_real": 0.463,
+  "median_nominal": 0.5296
+ },
+ {
+  "purchase_year": 2006,
+  "age": 7,
+  "n": 500,
+  "median_real": 0.3195,
+  "p25_real": 0.2598,
+  "p75_real": 0.3783,
+  "median_nominal": 0.4552
+ },
+ {
+  "purchase_year": 2006,
+  "age": 8,
+  "n": 500,
+  "median_real": 0.2956,
+  "p25_real": 0.2419,
+  "p75_real": 0.355,
+  "median_nominal": 0.4446
+ },
+ {
+  "purchase_year": 2006,
+  "age": 9,
+  "n": 500,
+  "median_real": 0.2622,
+  "p25_real": 0.2115,
+  "p75_real": 0.3177,
+  "median_nominal": 0.4226
+ },
+ {
+  "purchase_year": 2006,
+  "age": 10,
+  "n": 499,
+  "median_real": 0.2283,
+  "p25_real": 0.1804,
+  "p75_real": 0.2773,
+  "median_nominal": 0.4073
+ },
+ {
+  "purchase_year": 2006,
+  "age": 11,
+  "n": 500,
+  "median_real": 0.2033,
+  "p25_real": 0.1606,
+  "p75_real": 0.2468,
+  "median_nominal": 0.3822
+ },
+ {
+  "purchase_year": 2006,
+  "age": 12,
+  "n": 500,
+  "median_real": 0.1947,
+  "p25_real": 0.1501,
+  "p75_real": 0.2368,
+  "median_nominal": 0.3764
+ },
+ {
+  "purchase_year": 2006,
+  "age": 13,
+  "n": 500,
+  "median_real": 0.1837,
+  "p25_real": 0.1358,
+  "p75_real": 0.2249,
+  "median_nominal": 0.3687
+ },
+ {
+  "purchase_year": 2006,
+  "age": 14,
+  "n": 500,
+  "median_real": 0.1669,
+  "p25_real": 0.1237,
+  "p75_real": 0.2091,
+  "median_nominal": 0.3489
+ },
+ {
+  "purchase_year": 2006,
+  "age": 15,
+  "n": 500,
+  "median_real": 0.1548,
+  "p25_real": 0.117,
+  "p75_real": 0.1997,
+  "median_nominal": 0.3383
+ },
+ {
+  "purchase_year": 2006,
+  "age": 16,
+  "n": 500,
+  "median_real": 0.1686,
+  "p25_real": 0.1232,
+  "p75_real": 0.221,
+  "median_nominal": 0.4067
+ },
+ {
+  "purchase_year": 2006,
+  "age": 17,
+  "n": 500,
+  "median_real": 0.1663,
+  "p25_real": 0.1177,
+  "p75_real": 0.2183,
+  "median_nominal": 0.4244
+ },
+ {
+  "purchase_year": 2006,
+  "age": 18,
+  "n": 500,
+  "median_real": 0.1537,
+  "p25_real": 0.1097,
+  "p75_real": 0.2048,
+  "median_nominal": 0.4099
+ },
+ {
+  "purchase_year": 2006,
+  "age": 19,
+  "n": 500,
+  "median_real": 0.1498,
+  "p25_real": 0.103,
+  "p75_real": 0.2013,
+  "median_nominal": 0.4176
+ },
+ {
+  "purchase_year": 2007,
+  "age": 1,
+  "n": 603,
+  "median_real": 0.8203,
+  "p25_real": 0.7975,
+  "p75_real": 0.8389,
+  "median_nominal": 0.8577
+ },
+ {
+  "purchase_year": 2007,
+  "age": 2,
+  "n": 610,
+  "median_real": 0.7071,
+  "p25_real": 0.6643,
+  "p75_real": 0.7466,
+  "median_nominal": 0.7826
+ },
+ {
+  "purchase_year": 2007,
+  "age": 3,
+  "n": 610,
+  "median_real": 0.5752,
+  "p25_real": 0.5094,
+  "p75_real": 0.6296,
+  "median_nominal": 0.6658
+ },
+ {
+  "purchase_year": 2007,
+  "age": 4,
+  "n": 516,
+  "median_real": 0.4876,
+  "p25_real": 0.4265,
+  "p75_real": 0.5525,
+  "median_nominal": 0.5983
+ },
+ {
+  "purchase_year": 2007,
+  "age": 5,
+  "n": 516,
+  "median_real": 0.4362,
+  "p25_real": 0.3764,
+  "p75_real": 0.5029,
+  "median_nominal": 0.5685
+ },
+ {
+  "purchase_year": 2007,
+  "age": 6,
+  "n": 516,
+  "median_real": 0.357,
+  "p25_real": 0.3011,
+  "p75_real": 0.4127,
+  "median_nominal": 0.4939
+ },
+ {
+  "purchase_year": 2007,
+  "age": 7,
+  "n": 517,
+  "median_real": 0.3303,
+  "p25_real": 0.2771,
+  "p75_real": 0.3832,
+  "median_nominal": 0.4824
+ },
+ {
+  "purchase_year": 2007,
+  "age": 8,
+  "n": 516,
+  "median_real": 0.2908,
+  "p25_real": 0.2451,
+  "p75_real": 0.3418,
+  "median_nominal": 0.4551
+ },
+ {
+  "purchase_year": 2007,
+  "age": 9,
+  "n": 517,
+  "median_real": 0.2525,
+  "p25_real": 0.2062,
+  "p75_real": 0.2961,
+  "median_nominal": 0.4374
+ },
+ {
+  "purchase_year": 2007,
+  "age": 10,
+  "n": 517,
+  "median_real": 0.2221,
+  "p25_real": 0.1792,
+  "p75_real": 0.2669,
+  "median_nominal": 0.4053
+ },
+ {
+  "purchase_year": 2007,
+  "age": 11,
+  "n": 518,
+  "median_real": 0.2115,
+  "p25_real": 0.1655,
+  "p75_real": 0.2554,
+  "median_nominal": 0.3971
+ },
+ {
+  "purchase_year": 2007,
+  "age": 12,
+  "n": 518,
+  "median_real": 0.1995,
+  "p25_real": 0.1521,
+  "p75_real": 0.2435,
+  "median_nominal": 0.3886
+ },
+ {
+  "purchase_year": 2007,
+  "age": 13,
+  "n": 518,
+  "median_real": 0.183,
+  "p25_real": 0.1373,
+  "p75_real": 0.2263,
+  "median_nominal": 0.3715
+ },
+ {
+  "purchase_year": 2007,
+  "age": 14,
+  "n": 518,
+  "median_real": 0.1722,
+  "p25_real": 0.1276,
+  "p75_real": 0.2169,
+  "median_nominal": 0.3655
+ },
+ {
+  "purchase_year": 2007,
+  "age": 15,
+  "n": 518,
+  "median_real": 0.19,
+  "p25_real": 0.1365,
+  "p75_real": 0.2405,
+  "median_nominal": 0.4451
+ },
+ {
+  "purchase_year": 2007,
+  "age": 16,
+  "n": 518,
+  "median_real": 0.1846,
+  "p25_real": 0.1294,
+  "p75_real": 0.2409,
+  "median_nominal": 0.4574
+ },
+ {
+  "purchase_year": 2007,
+  "age": 17,
+  "n": 518,
+  "median_real": 0.1729,
+  "p25_real": 0.1196,
+  "p75_real": 0.2282,
+  "median_nominal": 0.4478
+ },
+ {
+  "purchase_year": 2007,
+  "age": 18,
+  "n": 518,
+  "median_real": 0.1684,
+  "p25_real": 0.1142,
+  "p75_real": 0.2231,
+  "median_nominal": 0.456
+ },
+ {
+  "purchase_year": 2008,
+  "age": 1,
+  "n": 633,
+  "median_real": 0.7944,
+  "p25_real": 0.7637,
+  "p75_real": 0.8194,
+  "median_nominal": 0.8408
+ },
+ {
+  "purchase_year": 2008,
+  "age": 2,
+  "n": 636,
+  "median_real": 0.6568,
+  "p25_real": 0.611,
+  "p75_real": 0.6948,
+  "median_nominal": 0.7271
+ },
+ {
+  "purchase_year": 2008,
+  "age": 3,
+  "n": 540,
+  "median_real": 0.5534,
+  "p25_real": 0.5013,
+  "p75_real": 0.617,
+  "median_nominal": 0.6493
+ },
+ {
+  "purchase_year": 2008,
+  "age": 4,
+  "n": 543,
+  "median_real": 0.4876,
+  "p25_real": 0.4398,
+  "p75_real": 0.5496,
+  "median_nominal": 0.6076
+ },
+ {
+  "purchase_year": 2008,
+  "age": 5,
+  "n": 543,
+  "median_real": 0.3971,
+  "p25_real": 0.3485,
+  "p75_real": 0.453,
+  "median_nominal": 0.5254
+ },
+ {
+  "purchase_year": 2008,
+  "age": 6,
+  "n": 542,
+  "median_real": 0.3674,
+  "p25_real": 0.3219,
+  "p75_real": 0.4192,
+  "median_nominal": 0.5132
+ },
+ {
+  "purchase_year": 2008,
+  "age": 7,
+  "n": 545,
+  "median_real": 0.3255,
+  "p25_real": 0.2793,
+  "p75_real": 0.3717,
+  "median_nominal": 0.4872
+ },
+ {
+  "purchase_year": 2008,
+  "age": 8,
+  "n": 547,
+  "median_real": 0.2779,
+  "p25_real": 0.2349,
+  "p75_real": 0.3206,
+  "median_nominal": 0.4605
+ },
+ {
+  "purchase_year": 2008,
+  "age": 9,
+  "n": 547,
+  "median_real": 0.2452,
+  "p25_real": 0.2046,
+  "p75_real": 0.2894,
+  "median_nominal": 0.428
+ },
+ {
+  "purchase_year": 2008,
+  "age": 10,
+  "n": 547,
+  "median_real": 0.2329,
+  "p25_real": 0.1879,
+  "p75_real": 0.2769,
+  "median_nominal": 0.4181
+ },
+ {
+  "purchase_year": 2008,
+  "age": 11,
+  "n": 547,
+  "median_real": 0.2182,
+  "p25_real": 0.1731,
+  "p75_real": 0.2663,
+  "median_nominal": 0.4065
+ },
+ {
+  "purchase_year": 2008,
+  "age": 12,
+  "n": 547,
+  "median_real": 0.2003,
+  "p25_real": 0.1559,
+  "p75_real": 0.2476,
+  "median_nominal": 0.3889
+ },
+ {
+  "purchase_year": 2008,
+  "age": 13,
+  "n": 547,
+  "median_real": 0.189,
+  "p25_real": 0.1453,
+  "p75_real": 0.237,
+  "median_nominal": 0.3836
+ },
+ {
+  "purchase_year": 2008,
+  "age": 14,
+  "n": 547,
+  "median_real": 0.21,
+  "p25_real": 0.156,
+  "p75_real": 0.2642,
+  "median_nominal": 0.4706
+ },
+ {
+  "purchase_year": 2008,
+  "age": 15,
+  "n": 546,
+  "median_real": 0.2008,
+  "p25_real": 0.1491,
+  "p75_real": 0.2673,
+  "median_nominal": 0.4759
+ },
+ {
+  "purchase_year": 2008,
+  "age": 16,
+  "n": 547,
+  "median_real": 0.1867,
+  "p25_real": 0.1374,
+  "p75_real": 0.2504,
+  "median_nominal": 0.4625
+ },
+ {
+  "purchase_year": 2008,
+  "age": 17,
+  "n": 547,
+  "median_real": 0.1827,
+  "p25_real": 0.1294,
+  "p75_real": 0.2445,
+  "median_nominal": 0.4732
+ },
+ {
+  "purchase_year": 2009,
+  "age": 1,
+  "n": 699,
+  "median_real": 0.765,
+  "p25_real": 0.7388,
+  "p75_real": 0.7965,
+  "median_nominal": 0.8001
+ },
+ {
+  "purchase_year": 2009,
+  "age": 2,
+  "n": 586,
+  "median_real": 0.6615,
+  "p25_real": 0.6217,
+  "p75_real": 0.6979,
+  "median_nominal": 0.7334
+ },
+ {
+  "purchase_year": 2009,
+  "age": 3,
+  "n": 590,
+  "median_real": 0.579,
+  "p25_real": 0.5347,
+  "p75_real": 0.6189,
+  "median_nominal": 0.6818
+ },
+ {
+  "purchase_year": 2009,
+  "age": 4,
+  "n": 591,
+  "median_real": 0.4681,
+  "p25_real": 0.426,
+  "p75_real": 0.5086,
+  "median_nominal": 0.5852
+ },
+ {
+  "purchase_year": 2009,
+  "age": 5,
+  "n": 590,
+  "median_real": 0.4286,
+  "p25_real": 0.3894,
+  "p75_real": 0.4699,
+  "median_nominal": 0.5657
+ },
+ {
+  "purchase_year": 2009,
+  "age": 6,
+  "n": 592,
+  "median_real": 0.3761,
+  "p25_real": 0.3382,
+  "p75_real": 0.4199,
+  "median_nominal": 0.5317
+ },
+ {
+  "purchase_year": 2009,
+  "age": 7,
+  "n": 593,
+  "median_real": 0.3188,
+  "p25_real": 0.2817,
+  "p75_real": 0.3631,
+  "median_nominal": 0.499
+ },
+ {
+  "purchase_year": 2009,
+  "age": 8,
+  "n": 593,
+  "median_real": 0.2824,
+  "p25_real": 0.2457,
+  "p75_real": 0.3264,
+  "median_nominal": 0.4657
+ },
+ {
+  "purchase_year": 2009,
+  "age": 9,
+  "n": 593,
+  "median_real": 0.2673,
+  "p25_real": 0.2276,
+  "p75_real": 0.3119,
+  "median_nominal": 0.4535
+ },
+ {
+  "purchase_year": 2009,
+  "age": 10,
+  "n": 593,
+  "median_real": 0.2513,
+  "p25_real": 0.2075,
+  "p75_real": 0.2951,
+  "median_nominal": 0.4424
+ },
+ {
+  "purchase_year": 2009,
+  "age": 11,
+  "n": 594,
+  "median_real": 0.2311,
+  "p25_real": 0.1878,
+  "p75_real": 0.2757,
+  "median_nominal": 0.4238
+ },
+ {
+  "purchase_year": 2009,
+  "age": 12,
+  "n": 594,
+  "median_real": 0.2177,
+  "p25_real": 0.1733,
+  "p75_real": 0.2638,
+  "median_nominal": 0.4175
+ },
+ {
+  "purchase_year": 2009,
+  "age": 13,
+  "n": 593,
+  "median_real": 0.2379,
+  "p25_real": 0.1851,
+  "p75_real": 0.3001,
+  "median_nominal": 0.5036
+ },
+ {
+  "purchase_year": 2009,
+  "age": 14,
+  "n": 595,
+  "median_real": 0.2329,
+  "p25_real": 0.1747,
+  "p75_real": 0.3021,
+  "median_nominal": 0.5214
+ },
+ {
+  "purchase_year": 2009,
+  "age": 15,
+  "n": 595,
+  "median_real": 0.2139,
+  "p25_real": 0.1602,
+  "p75_real": 0.2786,
+  "median_nominal": 0.5005
+ },
+ {
+  "purchase_year": 2009,
+  "age": 16,
+  "n": 595,
+  "median_real": 0.2119,
+  "p25_real": 0.1551,
+  "p75_real": 0.2729,
+  "median_nominal": 0.5185
+ },
+ {
+  "purchase_year": 2010,
+  "age": 1,
+  "n": 642,
+  "median_real": 0.7981,
+  "p25_real": 0.7636,
+  "p75_real": 0.8298,
+  "median_nominal": 0.8459
+ },
+ {
+  "purchase_year": 2010,
+  "age": 2,
+  "n": 646,
+  "median_real": 0.7053,
+  "p25_real": 0.6646,
+  "p75_real": 0.7416,
+  "median_nominal": 0.7941
+ },
+ {
+  "purchase_year": 2010,
+  "age": 3,
+  "n": 648,
+  "median_real": 0.5735,
+  "p25_real": 0.5349,
+  "p75_real": 0.61,
+  "median_nominal": 0.6854
+ },
+ {
+  "purchase_year": 2010,
+  "age": 4,
+  "n": 649,
+  "median_real": 0.5254,
+  "p25_real": 0.4851,
+  "p75_real": 0.5603,
+  "median_nominal": 0.663
+ },
+ {
+  "purchase_year": 2010,
+  "age": 5,
+  "n": 649,
+  "median_real": 0.4555,
+  "p25_real": 0.4166,
+  "p75_real": 0.4974,
+  "median_nominal": 0.6159
+ },
+ {
+  "purchase_year": 2010,
+  "age": 6,
+  "n": 649,
+  "median_real": 0.3857,
+  "p25_real": 0.3483,
+  "p75_real": 0.4269,
+  "median_nominal": 0.5773
+ },
+ {
+  "purchase_year": 2010,
+  "age": 7,
+  "n": 650,
+  "median_real": 0.34,
+  "p25_real": 0.3031,
+  "p75_real": 0.3839,
+  "median_nominal": 0.5362
+ },
+ {
+  "purchase_year": 2010,
+  "age": 8,
+  "n": 652,
+  "median_real": 0.3219,
+  "p25_real": 0.2826,
+  "p75_real": 0.3642,
+  "median_nominal": 0.522
+ },
+ {
+  "purchase_year": 2010,
+  "age": 9,
+  "n": 652,
+  "median_real": 0.3017,
+  "p25_real": 0.2592,
+  "p75_real": 0.3456,
+  "median_nominal": 0.5078
+ },
+ {
+  "purchase_year": 2010,
+  "age": 10,
+  "n": 652,
+  "median_real": 0.2773,
+  "p25_real": 0.2341,
+  "p75_real": 0.3215,
+  "median_nominal": 0.4862
+ },
+ {
+  "purchase_year": 2010,
+  "age": 11,
+  "n": 652,
+  "median_real": 0.2585,
+  "p25_real": 0.2185,
+  "p75_real": 0.3103,
+  "median_nominal": 0.474
+ },
+ {
+  "purchase_year": 2010,
+  "age": 12,
+  "n": 652,
+  "median_real": 0.2843,
+  "p25_real": 0.2334,
+  "p75_real": 0.3552,
+  "median_nominal": 0.5753
+ },
+ {
+  "purchase_year": 2010,
+  "age": 13,
+  "n": 652,
+  "median_real": 0.2732,
+  "p25_real": 0.2175,
+  "p75_real": 0.3503,
+  "median_nominal": 0.5849
+ },
+ {
+  "purchase_year": 2010,
+  "age": 14,
+  "n": 652,
+  "median_real": 0.2553,
+  "p25_real": 0.199,
+  "p75_real": 0.3215,
+  "median_nominal": 0.5712
+ },
+ {
+  "purchase_year": 2010,
+  "age": 15,
+  "n": 653,
+  "median_real": 0.2495,
+  "p25_real": 0.188,
+  "p75_real": 0.312,
+  "median_nominal": 0.5837
+ },
+ {
+  "purchase_year": 2011,
+  "age": 1,
+  "n": 813,
+  "median_real": 0.8154,
+  "p25_real": 0.7913,
+  "p75_real": 0.8391,
+  "median_nominal": 0.8661
+ },
+ {
+  "purchase_year": 2011,
+  "age": 2,
+  "n": 818,
+  "median_real": 0.6721,
+  "p25_real": 0.6371,
+  "p75_real": 0.7173,
+  "median_nominal": 0.7579
+ },
+ {
+  "purchase_year": 2011,
+  "age": 3,
+  "n": 820,
+  "median_real": 0.6223,
+  "p25_real": 0.5852,
+  "p75_real": 0.6589,
+  "median_nominal": 0.7409
+ },
+ {
+  "purchase_year": 2011,
+  "age": 4,
+  "n": 821,
+  "median_real": 0.5397,
+  "p25_real": 0.4973,
+  "p75_real": 0.582,
+  "median_nominal": 0.6884
+ },
+ {
+  "purchase_year": 2011,
+  "age": 5,
+  "n": 822,
+  "median_real": 0.4517,
+  "p25_real": 0.4092,
+  "p75_real": 0.4991,
+  "median_nominal": 0.6378
+ },
+ {
+  "purchase_year": 2011,
+  "age": 6,
+  "n": 823,
+  "median_real": 0.3959,
+  "p25_real": 0.3555,
+  "p75_real": 0.4472,
+  "median_nominal": 0.589
+ },
+ {
+  "purchase_year": 2011,
+  "age": 7,
+  "n": 823,
+  "median_real": 0.3733,
+  "p25_real": 0.3316,
+  "p75_real": 0.4272,
+  "median_nominal": 0.5712
+ },
+ {
+  "purchase_year": 2011,
+  "age": 8,
+  "n": 824,
+  "median_real": 0.352,
+  "p25_real": 0.308,
+  "p75_real": 0.4039,
+  "median_nominal": 0.5589
+ },
+ {
+  "purchase_year": 2011,
+  "age": 9,
+  "n": 825,
+  "median_real": 0.3212,
+  "p25_real": 0.2769,
+  "p75_real": 0.3743,
+  "median_nominal": 0.5315
+ },
+ {
+  "purchase_year": 2011,
+  "age": 10,
+  "n": 825,
+  "median_real": 0.3034,
+  "p25_real": 0.2581,
+  "p75_real": 0.3588,
+  "median_nominal": 0.5249
+ },
+ {
+  "purchase_year": 2011,
+  "age": 11,
+  "n": 825,
+  "median_real": 0.3408,
+  "p25_real": 0.284,
+  "p75_real": 0.4099,
+  "median_nominal": 0.6507
+ },
+ {
+  "purchase_year": 2011,
+  "age": 12,
+  "n": 825,
+  "median_real": 0.3328,
+  "p25_real": 0.2672,
+  "p75_real": 0.4036,
+  "median_nominal": 0.6722
+ },
+ {
+  "purchase_year": 2011,
+  "age": 13,
+  "n": 825,
+  "median_real": 0.3065,
+  "p25_real": 0.2424,
+  "p75_real": 0.3784,
+  "median_nominal": 0.6469
+ },
+ {
+  "purchase_year": 2011,
+  "age": 14,
+  "n": 826,
+  "median_real": 0.2946,
+  "p25_real": 0.2299,
+  "p75_real": 0.3644,
+  "median_nominal": 0.6501
+ },
+ {
+  "purchase_year": 2012,
+  "age": 1,
+  "n": 816,
+  "median_real": 0.7738,
+  "p25_real": 0.7301,
+  "p75_real": 0.815,
+  "median_nominal": 0.8215
+ },
+ {
+  "purchase_year": 2012,
+  "age": 2,
+  "n": 829,
+  "median_real": 0.7164,
+  "p25_real": 0.6838,
+  "p75_real": 0.7556,
+  "median_nominal": 0.8029
+ },
+ {
+  "purchase_year": 2012,
+  "age": 3,
+  "n": 830,
+  "median_real": 0.6282,
+  "p25_real": 0.5892,
+  "p75_real": 0.6698,
+  "median_nominal": 0.7543
+ },
+ {
+  "purchase_year": 2012,
+  "age": 4,
+  "n": 833,
+  "median_real": 0.5242,
+  "p25_real": 0.4796,
+  "p75_real": 0.5688,
+  "median_nominal": 0.6968
+ },
+ {
+  "purchase_year": 2012,
+  "age": 5,
+  "n": 832,
+  "median_real": 0.4555,
+  "p25_real": 0.4109,
+  "p75_real": 0.5079,
+  "median_nominal": 0.6379
+ },
+ {
+  "purchase_year": 2012,
+  "age": 6,
+  "n": 834,
+  "median_real": 0.4305,
+  "p25_real": 0.3817,
+  "p75_real": 0.4872,
+  "median_nominal": 0.6202
+ },
+ {
+  "purchase_year": 2012,
+  "age": 7,
+  "n": 835,
+  "median_real": 0.4036,
+  "p25_real": 0.3562,
+  "p75_real": 0.4608,
+  "median_nominal": 0.6033
+ },
+ {
+  "purchase_year": 2012,
+  "age": 8,
+  "n": 836,
+  "median_real": 0.366,
+  "p25_real": 0.3169,
+  "p75_real": 0.4252,
+  "median_nominal": 0.5701
+ },
+ {
+  "purchase_year": 2012,
+  "age": 9,
+  "n": 836,
+  "median_real": 0.3522,
+  "p25_real": 0.2967,
+  "p75_real": 0.4107,
+  "median_nominal": 0.5736
+ },
+ {
+  "purchase_year": 2012,
+  "age": 10,
+  "n": 836,
+  "median_real": 0.3981,
+  "p25_real": 0.3228,
+  "p75_real": 0.4743,
+  "median_nominal": 0.7156
+ },
+ {
+  "purchase_year": 2012,
+  "age": 11,
+  "n": 836,
+  "median_real": 0.3841,
+  "p25_real": 0.3086,
+  "p75_real": 0.4668,
+  "median_nominal": 0.7304
+ },
+ {
+  "purchase_year": 2012,
+  "age": 12,
+  "n": 838,
+  "median_real": 0.3557,
+  "p25_real": 0.283,
+  "p75_real": 0.4299,
+  "median_nominal": 0.7068
+ },
+ {
+  "purchase_year": 2012,
+  "age": 13,
+  "n": 838,
+  "median_real": 0.3408,
+  "p25_real": 0.2605,
+  "p75_real": 0.4115,
+  "median_nominal": 0.7082
+ },
+ {
+  "purchase_year": 2013,
+  "age": 1,
+  "n": 806,
+  "median_real": 0.8347,
+  "p25_real": 0.8125,
+  "p75_real": 0.8575,
+  "median_nominal": 0.8813
+ },
+ {
+  "purchase_year": 2013,
+  "age": 2,
+  "n": 811,
+  "median_real": 0.7484,
+  "p25_real": 0.7124,
+  "p75_real": 0.7848,
+  "median_nominal": 0.8466
+ },
+ {
+  "purchase_year": 2013,
+  "age": 3,
+  "n": 814,
+  "median_real": 0.6261,
+  "p25_real": 0.5801,
+  "p75_real": 0.6707,
+  "median_nominal": 0.7841
+ },
+ {
+  "purchase_year": 2013,
+  "age": 4,
+  "n": 816,
+  "median_real": 0.5493,
+  "p25_real": 0.498,
+  "p75_real": 0.6052,
+  "median_nominal": 0.7247
+ },
+ {
+  "purchase_year": 2013,
+  "age": 5,
+  "n": 819,
+  "median_real": 0.5212,
+  "p25_real": 0.4641,
+  "p75_real": 0.5806,
+  "median_nominal": 0.7073
+ },
+ {
+  "purchase_year": 2013,
+  "age": 6,
+  "n": 818,
+  "median_real": 0.4844,
+  "p25_real": 0.4265,
+  "p75_real": 0.5497,
+  "median_nominal": 0.6822
+ },
+ {
+  "purchase_year": 2013,
+  "age": 7,
+  "n": 820,
+  "median_real": 0.4445,
+  "p25_real": 0.3769,
+  "p75_real": 0.5042,
+  "median_nominal": 0.6522
+ },
+ {
+  "purchase_year": 2013,
+  "age": 8,
+  "n": 822,
+  "median_real": 0.4213,
+  "p25_real": 0.3506,
+  "p75_real": 0.4836,
+  "median_nominal": 0.6464
+ },
+ {
+  "purchase_year": 2013,
+  "age": 9,
+  "n": 822,
+  "median_real": 0.4735,
+  "p25_real": 0.3859,
+  "p75_real": 0.5661,
+  "median_nominal": 0.8018
+ },
+ {
+  "purchase_year": 2013,
+  "age": 10,
+  "n": 822,
+  "median_real": 0.4616,
+  "p25_real": 0.3701,
+  "p75_real": 0.5492,
+  "median_nominal": 0.8269
+ },
+ {
+  "purchase_year": 2013,
+  "age": 11,
+  "n": 823,
+  "median_real": 0.4232,
+  "p25_real": 0.3382,
+  "p75_real": 0.5063,
+  "median_nominal": 0.7923
+ },
+ {
+  "purchase_year": 2013,
+  "age": 12,
+  "n": 823,
+  "median_real": 0.402,
+  "p25_real": 0.3156,
+  "p75_real": 0.4859,
+  "median_nominal": 0.7869
+ },
+ {
+  "purchase_year": 2014,
+  "age": 1,
+  "n": 864,
+  "median_real": 0.8366,
+  "p25_real": 0.8182,
+  "p75_real": 0.8548,
+  "median_nominal": 0.8963
+ },
+ {
+  "purchase_year": 2014,
+  "age": 2,
+  "n": 873,
+  "median_real": 0.7151,
+  "p25_real": 0.6856,
+  "p75_real": 0.7422,
+  "median_nominal": 0.8482
+ },
+ {
+  "purchase_year": 2014,
+  "age": 3,
+  "n": 878,
+  "median_real": 0.6316,
+  "p25_real": 0.5874,
+  "p75_real": 0.6688,
+  "median_nominal": 0.7892
+ },
+ {
+  "purchase_year": 2014,
+  "age": 4,
+  "n": 881,
+  "median_real": 0.5939,
+  "p25_real": 0.5443,
+  "p75_real": 0.6382,
+  "median_nominal": 0.7633
+ },
+ {
+  "purchase_year": 2014,
+  "age": 5,
+  "n": 883,
+  "median_real": 0.5486,
+  "p25_real": 0.4978,
+  "p75_real": 0.6025,
+  "median_nominal": 0.7317
+ },
+ {
+  "purchase_year": 2014,
+  "age": 6,
+  "n": 885,
+  "median_real": 0.4949,
+  "p25_real": 0.44,
+  "p75_real": 0.5518,
+  "median_nominal": 0.6878
+ },
+ {
+  "purchase_year": 2014,
+  "age": 7,
+  "n": 886,
+  "median_real": 0.4695,
+  "p25_real": 0.4068,
+  "p75_real": 0.5305,
+  "median_nominal": 0.6822
+ },
+ {
+  "purchase_year": 2014,
+  "age": 8,
+  "n": 886,
+  "median_real": 0.5224,
+  "p25_real": 0.4404,
+  "p75_real": 0.6125,
+  "median_nominal": 0.8379
+ },
+ {
+  "purchase_year": 2014,
+  "age": 9,
+  "n": 885,
+  "median_real": 0.5085,
+  "p25_real": 0.4172,
+  "p75_real": 0.6,
+  "median_nominal": 0.8626
+ },
+ {
+  "purchase_year": 2014,
+  "age": 10,
+  "n": 887,
+  "median_real": 0.4626,
+  "p25_real": 0.3802,
+  "p75_real": 0.5552,
+  "median_nominal": 0.8202
+ },
+ {
+  "purchase_year": 2014,
+  "age": 11,
+  "n": 889,
+  "median_real": 0.4357,
+  "p25_real": 0.3544,
+  "p75_real": 0.5275,
+  "median_nominal": 0.8078
+ },
+ {
+  "purchase_year": 2015,
+  "age": 1,
+  "n": 877,
+  "median_real": 0.8063,
+  "p25_real": 0.7853,
+  "p75_real": 0.8314,
+  "median_nominal": 0.8926
+ },
+ {
+  "purchase_year": 2015,
+  "age": 2,
+  "n": 897,
+  "median_real": 0.7254,
+  "p25_real": 0.6925,
+  "p75_real": 0.7595,
+  "median_nominal": 0.8461
+ },
+ {
+  "purchase_year": 2015,
+  "age": 3,
+  "n": 900,
+  "median_real": 0.6782,
+  "p25_real": 0.6382,
+  "p75_real": 0.7229,
+  "median_nominal": 0.8136
+ },
+ {
+  "purchase_year": 2015,
+  "age": 4,
+  "n": 903,
+  "median_real": 0.6273,
+  "p25_real": 0.5797,
+  "p75_real": 0.6736,
+  "median_nominal": 0.7809
+ },
+ {
+  "purchase_year": 2015,
+  "age": 5,
+  "n": 903,
+  "median_real": 0.5638,
+  "p25_real": 0.5105,
+  "p75_real": 0.6157,
+  "median_nominal": 0.7313
+ },
+ {
+  "purchase_year": 2015,
+  "age": 6,
+  "n": 905,
+  "median_real": 0.5308,
+  "p25_real": 0.4687,
+  "p75_real": 0.5925,
+  "median_nominal": 0.7199
+ },
+ {
+  "purchase_year": 2015,
+  "age": 7,
+  "n": 907,
+  "median_real": 0.5932,
+  "p25_real": 0.501,
+  "p75_real": 0.694,
+  "median_nominal": 0.8881
+ },
+ {
+  "purchase_year": 2015,
+  "age": 8,
+  "n": 906,
+  "median_real": 0.574,
+  "p25_real": 0.4767,
+  "p75_real": 0.6781,
+  "median_nominal": 0.909
+ },
+ {
+  "purchase_year": 2015,
+  "age": 9,
+  "n": 907,
+  "median_real": 0.5205,
+  "p25_real": 0.4293,
+  "p75_real": 0.6187,
+  "median_nominal": 0.8613
+ },
+ {
+  "purchase_year": 2015,
+  "age": 10,
+  "n": 907,
+  "median_real": 0.4846,
+  "p25_real": 0.4005,
+  "p75_real": 0.5833,
+  "median_nominal": 0.8384
+ },
+ {
+  "purchase_year": 2016,
+  "age": 1,
+  "n": 815,
+  "median_real": 0.8306,
+  "p25_real": 0.8071,
+  "p75_real": 0.8562,
+  "median_nominal": 0.8751
+ },
+ {
+  "purchase_year": 2016,
+  "age": 2,
+  "n": 827,
+  "median_real": 0.7905,
+  "p25_real": 0.7586,
+  "p75_real": 0.8237,
+  "median_nominal": 0.8566
+ },
+ {
+  "purchase_year": 2016,
+  "age": 3,
+  "n": 831,
+  "median_real": 0.7218,
+  "p25_real": 0.6817,
+  "p75_real": 0.7613,
+  "median_nominal": 0.8117
+ },
+ {
+  "purchase_year": 2016,
+  "age": 4,
+  "n": 833,
+  "median_real": 0.64,
+  "p25_real": 0.5989,
+  "p75_real": 0.685,
+  "median_nominal": 0.7499
+ },
+ {
+  "purchase_year": 2016,
+  "age": 5,
+  "n": 834,
+  "median_real": 0.6021,
+  "p25_real": 0.5469,
+  "p75_real": 0.6546,
+  "median_nominal": 0.7376
+ },
+ {
+  "purchase_year": 2016,
+  "age": 6,
+  "n": 835,
+  "median_real": 0.6641,
+  "p25_real": 0.5869,
+  "p75_real": 0.7657,
+  "median_nominal": 0.898
+ },
+ {
+  "purchase_year": 2016,
+  "age": 7,
+  "n": 836,
+  "median_real": 0.6362,
+  "p25_real": 0.5543,
+  "p75_real": 0.7481,
+  "median_nominal": 0.91
+ },
+ {
+  "purchase_year": 2016,
+  "age": 8,
+  "n": 839,
+  "median_real": 0.5747,
+  "p25_real": 0.4916,
+  "p75_real": 0.6716,
+  "median_nominal": 0.8591
+ },
+ {
+  "purchase_year": 2016,
+  "age": 9,
+  "n": 840,
+  "median_real": 0.5331,
+  "p25_real": 0.4555,
+  "p75_real": 0.6345,
+  "median_nominal": 0.8332
+ },
+ {
+  "purchase_year": 2017,
+  "age": 1,
+  "n": 815,
+  "median_real": 0.8638,
+  "p25_real": 0.8429,
+  "p75_real": 0.8851,
+  "median_nominal": 0.8885
+ },
+ {
+  "purchase_year": 2017,
+  "age": 2,
+  "n": 828,
+  "median_real": 0.796,
+  "p25_real": 0.7677,
+  "p75_real": 0.8247,
+  "median_nominal": 0.8496
+ },
+ {
+  "purchase_year": 2017,
+  "age": 3,
+  "n": 836,
+  "median_real": 0.7076,
+  "p25_real": 0.6705,
+  "p75_real": 0.7418,
+  "median_nominal": 0.787
+ },
+ {
+  "purchase_year": 2017,
+  "age": 4,
+  "n": 839,
+  "median_real": 0.6605,
+  "p25_real": 0.6188,
+  "p75_real": 0.7063,
+  "median_nominal": 0.768
+ },
+ {
+  "purchase_year": 2017,
+  "age": 5,
+  "n": 839,
+  "median_real": 0.7323,
+  "p25_real": 0.6544,
+  "p75_real": 0.8189,
+  "median_nominal": 0.9399
+ },
+ {
+  "purchase_year": 2017,
+  "age": 6,
+  "n": 838,
+  "median_real": 0.6967,
+  "p25_real": 0.619,
+  "p75_real": 0.786,
+  "median_nominal": 0.9459
+ },
+ {
+  "purchase_year": 2017,
+  "age": 7,
+  "n": 838,
+  "median_real": 0.6211,
+  "p25_real": 0.5506,
+  "p75_real": 0.7077,
+  "median_nominal": 0.8813
+ },
+ {
+  "purchase_year": 2017,
+  "age": 8,
+  "n": 838,
+  "median_real": 0.5805,
+  "p25_real": 0.4953,
+  "p75_real": 0.6688,
+  "median_nominal": 0.8611
+ },
+ {
+  "purchase_year": 2018,
+  "age": 1,
+  "n": 778,
+  "median_real": 0.8435,
+  "p25_real": 0.8234,
+  "p75_real": 0.8622,
+  "median_nominal": 0.8753
+ },
+ {
+  "purchase_year": 2018,
+  "age": 2,
+  "n": 791,
+  "median_real": 0.7625,
+  "p25_real": 0.7281,
+  "p75_real": 0.7961,
+  "median_nominal": 0.8245
+ },
+ {
+  "purchase_year": 2018,
+  "age": 3,
+  "n": 796,
+  "median_real": 0.7158,
+  "p25_real": 0.6764,
+  "p75_real": 0.7632,
+  "median_nominal": 0.8092
+ },
+ {
+  "purchase_year": 2018,
+  "age": 4,
+  "n": 798,
+  "median_real": 0.8016,
+  "p25_real": 0.7278,
+  "p75_real": 0.891,
+  "median_nominal": 1.0003
+ },
+ {
+  "purchase_year": 2018,
+  "age": 5,
+  "n": 798,
+  "median_real": 0.754,
+  "p25_real": 0.6775,
+  "p75_real": 0.8484,
+  "median_nominal": 0.9953
+ },
+ {
+  "purchase_year": 2018,
+  "age": 6,
+  "n": 797,
+  "median_real": 0.6636,
+  "p25_real": 0.5898,
+  "p75_real": 0.7576,
+  "median_nominal": 0.9154
+ },
+ {
+  "purchase_year": 2018,
+  "age": 7,
+  "n": 799,
+  "median_real": 0.6066,
+  "p25_real": 0.5255,
+  "p75_real": 0.7002,
+  "median_nominal": 0.8749
+ },
+ {
+  "purchase_year": 2019,
+  "age": 1,
+  "n": 782,
+  "median_real": 0.8516,
+  "p25_real": 0.8253,
+  "p75_real": 0.8738,
+  "median_nominal": 0.8873
+ },
+ {
+  "purchase_year": 2019,
+  "age": 2,
+  "n": 791,
+  "median_real": 0.8091,
+  "p25_real": 0.7727,
+  "p75_real": 0.8474,
+  "median_nominal": 0.8815
+ },
+ {
+  "purchase_year": 2019,
+  "age": 3,
+  "n": 791,
+  "median_real": 0.8962,
+  "p25_real": 0.8296,
+  "p75_real": 0.9706,
+  "median_nominal": 1.0776
+ },
+ {
+  "purchase_year": 2019,
+  "age": 4,
+  "n": 792,
+  "median_real": 0.8428,
+  "p25_real": 0.7688,
+  "p75_real": 0.9174,
+  "median_nominal": 1.072
+ },
+ {
+  "purchase_year": 2019,
+  "age": 5,
+  "n": 793,
+  "median_real": 0.7356,
+  "p25_real": 0.6679,
+  "p75_real": 0.8172,
+  "median_nominal": 0.9778
+ },
+ {
+  "purchase_year": 2019,
+  "age": 6,
+  "n": 794,
+  "median_real": 0.677,
+  "p25_real": 0.5931,
+  "p75_real": 0.7624,
+  "median_nominal": 0.9409
+ },
+ {
+  "purchase_year": 2020,
+  "age": 1,
+  "n": 779,
+  "median_real": 0.8958,
+  "p25_real": 0.8536,
+  "p75_real": 0.9348,
+  "median_nominal": 0.9367
+ },
+ {
+  "purchase_year": 2020,
+  "age": 2,
+  "n": 781,
+  "median_real": 0.9916,
+  "p25_real": 0.9209,
+  "p75_real": 1.0573,
+  "median_nominal": 1.1445
+ },
+ {
+  "purchase_year": 2020,
+  "age": 3,
+  "n": 780,
+  "median_real": 0.9238,
+  "p25_real": 0.851,
+  "p75_real": 0.9952,
+  "median_nominal": 1.1277
+ },
+ {
+  "purchase_year": 2020,
+  "age": 4,
+  "n": 781,
+  "median_real": 0.8024,
+  "p25_real": 0.7358,
+  "p75_real": 0.8788,
+  "median_nominal": 1.0237
+ },
+ {
+  "purchase_year": 2020,
+  "age": 5,
+  "n": 783,
+  "median_real": 0.7278,
+  "p25_real": 0.647,
+  "p75_real": 0.8033,
+  "median_nominal": 0.9709
+ },
+ {
+  "purchase_year": 2021,
+  "age": 1,
+  "n": 697,
+  "median_real": 1.0066,
+  "p25_real": 0.9459,
+  "p75_real": 1.0595,
+  "median_nominal": 1.111
+ },
+ {
+  "purchase_year": 2021,
+  "age": 2,
+  "n": 700,
+  "median_real": 0.9452,
+  "p25_real": 0.8865,
+  "p75_real": 1.0091,
+  "median_nominal": 1.1035
+ },
+ {
+  "purchase_year": 2021,
+  "age": 3,
+  "n": 700,
+  "median_real": 0.8261,
+  "p25_real": 0.7603,
+  "p75_real": 0.8945,
+  "median_nominal": 1.0079
+ },
+ {
+  "purchase_year": 2021,
+  "age": 4,
+  "n": 700,
+  "median_real": 0.7407,
+  "p25_real": 0.6637,
+  "p75_real": 0.8192,
+  "median_nominal": 0.945
+ },
+ {
+  "purchase_year": 2022,
+  "age": 1,
+  "n": 663,
+  "median_real": 0.8973,
+  "p25_real": 0.8618,
+  "p75_real": 0.9309,
+  "median_nominal": 0.9492
+ },
+ {
+  "purchase_year": 2022,
+  "age": 2,
+  "n": 658,
+  "median_real": 0.7855,
+  "p25_real": 0.7334,
+  "p75_real": 0.841,
+  "median_nominal": 0.8683
+ },
+ {
+  "purchase_year": 2022,
+  "age": 3,
+  "n": 658,
+  "median_real": 0.691,
+  "p25_real": 0.6379,
+  "p75_real": 0.7578,
+  "median_nominal": 0.7987
+ },
+ {
+  "purchase_year": 2023,
+  "age": 1,
+  "n": 610,
+  "median_real": 0.8371,
+  "p25_real": 0.7888,
+  "p75_real": 0.8762,
+  "median_nominal": 0.8748
+ },
+ {
+  "purchase_year": 2023,
+  "age": 2,
+  "n": 610,
+  "median_real": 0.7384,
+  "p25_real": 0.6828,
+  "p75_real": 0.7852,
+  "median_nominal": 0.8069
+ },
+ {
+  "purchase_year": 2024,
+  "age": 1,
+  "n": 654,
+  "median_real": 0.8367,
+  "p25_real": 0.8025,
+  "p75_real": 0.8639,
+  "median_nominal": 0.8748
+ }
+]

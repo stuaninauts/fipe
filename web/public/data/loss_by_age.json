@@ -1,0 +1,272 @@
+[
+ {
+  "age": 1,
+  "n": 12258,
+  "years": 20,
+  "median_real": -0.0767,
+  "p25_real": -0.115,
+  "p75_real": -0.0407,
+  "median_nominal": -0.0262
+ },
+ {
+  "age": 2,
+  "n": 16036,
+  "years": 20,
+  "median_real": -0.0991,
+  "p25_real": -0.1409,
+  "p75_real": -0.0606,
+  "median_nominal": -0.0494
+ },
+ {
+  "age": 3,
+  "n": 16345,
+  "years": 20,
+  "median_real": -0.1076,
+  "p25_real": -0.152,
+  "p75_real": -0.0691,
+  "median_nominal": -0.0595
+ },
+ {
+  "age": 4,
+  "n": 16555,
+  "years": 20,
+  "median_real": -0.1057,
+  "p25_real": -0.1503,
+  "p75_real": -0.0679,
+  "median_nominal": -0.0573
+ },
+ {
+  "age": 5,
+  "n": 16718,
+  "years": 20,
+  "median_real": -0.0993,
+  "p25_real": -0.1429,
+  "p75_real": -0.0619,
+  "median_nominal": -0.0498
+ },
+ {
+  "age": 6,
+  "n": 16664,
+  "years": 20,
+  "median_real": -0.0928,
+  "p25_real": -0.1362,
+  "p75_real": -0.054,
+  "median_nominal": -0.0442
+ },
+ {
+  "age": 7,
+  "n": 16520,
+  "years": 20,
+  "median_real": -0.0879,
+  "p25_real": -0.1313,
+  "p75_real": -0.0518,
+  "median_nominal": -0.0405
+ },
+ {
+  "age": 8,
+  "n": 16320,
+  "years": 20,
+  "median_real": -0.0836,
+  "p25_real": -0.125,
+  "p75_real": -0.0471,
+  "median_nominal": -0.0367
+ },
+ {
+  "age": 9,
+  "n": 16102,
+  "years": 20,
+  "median_real": -0.0821,
+  "p25_real": -0.1216,
+  "p75_real": -0.0464,
+  "median_nominal": -0.0354
+ },
+ {
+  "age": 10,
+  "n": 15906,
+  "years": 20,
+  "median_real": -0.0807,
+  "p25_real": -0.1204,
+  "p75_real": -0.0443,
+  "median_nominal": -0.0334
+ },
+ {
+  "age": 11,
+  "n": 15582,
+  "years": 20,
+  "median_real": -0.0768,
+  "p25_real": -0.1159,
+  "p75_real": -0.0375,
+  "median_nominal": -0.0291
+ },
+ {
+  "age": 12,
+  "n": 15107,
+  "years": 20,
+  "median_real": -0.0737,
+  "p25_real": -0.1124,
+  "p75_real": -0.0346,
+  "median_nominal": -0.0268
+ },
+ {
+  "age": 13,
+  "n": 14568,
+  "years": 20,
+  "median_real": -0.072,
+  "p25_real": -0.1115,
+  "p75_real": -0.0336,
+  "median_nominal": -0.0248
+ },
+ {
+  "age": 14,
+  "n": 13873,
+  "years": 20,
+  "median_real": -0.0723,
+  "p25_real": -0.1117,
+  "p75_real": -0.0339,
+  "median_nominal": -0.0244
+ },
+ {
+  "age": 15,
+  "n": 13103,
+  "years": 20,
+  "median_real": -0.0736,
+  "p25_real": -0.1109,
+  "p75_real": -0.0348,
+  "median_nominal": -0.0248
+ },
+ {
+  "age": 16,
+  "n": 12380,
+  "years": 20,
+  "median_real": -0.0726,
+  "p25_real": -0.107,
+  "p75_real": -0.0352,
+  "median_nominal": -0.0243
+ },
+ {
+  "age": 17,
+  "n": 11694,
+  "years": 20,
+  "median_real": -0.0719,
+  "p25_real": -0.1055,
+  "p75_real": -0.0351,
+  "median_nominal": -0.0239
+ },
+ {
+  "age": 18,
+  "n": 11140,
+  "years": 20,
+  "median_real": -0.0716,
+  "p25_real": -0.105,
+  "p75_real": -0.0358,
+  "median_nominal": -0.0246
+ },
+ {
+  "age": 19,
+  "n": 10485,
+  "years": 20,
+  "median_real": -0.0693,
+  "p25_real": -0.1016,
+  "p75_real": -0.0335,
+  "median_nominal": -0.0225
+ },
+ {
+  "age": 20,
+  "n": 9860,
+  "years": 20,
+  "median_real": -0.067,
+  "p25_real": -0.0992,
+  "p75_real": -0.033,
+  "median_nominal": -0.0207
+ },
+ {
+  "age": 21,
+  "n": 9016,
+  "years": 19,
+  "median_real": -0.0664,
+  "p25_real": -0.0979,
+  "p75_real": -0.0328,
+  "median_nominal": -0.0195
+ },
+ {
+  "age": 22,
+  "n": 8405,
+  "years": 18,
+  "median_real": -0.0656,
+  "p25_real": -0.0938,
+  "p75_real": -0.0304,
+  "median_nominal": -0.0198
+ },
+ {
+  "age": 23,
+  "n": 7740,
+  "years": 17,
+  "median_real": -0.0647,
+  "p25_real": -0.0895,
+  "p75_real": -0.0288,
+  "median_nominal": -0.0199
+ },
+ {
+  "age": 24,
+  "n": 7123,
+  "years": 16,
+  "median_real": -0.0648,
+  "p25_real": -0.0894,
+  "p75_real": -0.0288,
+  "median_nominal": -0.0204
+ },
+ {
+  "age": 25,
+  "n": 6415,
+  "years": 15,
+  "median_real": -0.0624,
+  "p25_real": -0.0865,
+  "p75_real": -0.0245,
+  "median_nominal": -0.0185
+ },
+ {
+  "age": 26,
+  "n": 5604,
+  "years": 14,
+  "median_real": -0.0625,
+  "p25_real": -0.0838,
+  "p75_real": -0.0245,
+  "median_nominal": -0.0187
+ },
+ {
+  "age": 27,
+  "n": 4618,
+  "years": 13,
+  "median_real": -0.0603,
+  "p25_real": -0.0837,
+  "p75_real": -0.0169,
+  "median_nominal": -0.0169
+ },
+ {
+  "age": 28,
+  "n": 3991,
+  "years": 12,
+  "median_real": -0.0559,
+  "p25_real": -0.078,
+  "p75_real": -0.0091,
+  "median_nominal": -0.0127
+ },
+ {
+  "age": 29,
+  "n": 3414,
+  "years": 11,
+  "median_real": -0.0552,
+  "p25_real": -0.0767,
+  "p75_real": -0.0066,
+  "median_nominal": -0.0121
+ },
+ {
+  "age": 30,
+  "n": 2870,
+  "years": 10,
+  "median_real": -0.0562,
+  "p25_real": -0.0782,
+  "p75_real": -0.0061,
+  "median_nominal": -0.0132
+ }
+]
