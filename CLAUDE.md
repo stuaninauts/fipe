@@ -31,6 +31,10 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
 - Endpoint não documentado (`veiculos.fipe.org.br/api/veiculos/...`): não chamar de "API oficial".
 - Só rodar coleta com pedido explícito do autor. Sempre com limite de taxa, retomável e com cache do bruto em
   `data/raw/`; nunca coleta em paralelo agressiva nem dentro de teste ou CI.
+- Coletor: `fipe/collect.py` (cliente em `fipe/api.py`, cache SQLite em `fipe/cache.py`, em
+  `data/raw/fipe_api.sqlite`). `uv run python -m fipe.collect --list` lista os meses de referência;
+  `uv run python -m fipe.collect janeiro/2024` coleta um mês inteiro (1 chamada por segundo por padrão). Rodar de
+  novo só pede o que falta, inclusive o que falhou. Testes usam transporte falso, nunca a rede.
 
 ## Git (GitHub Flow)
 - Nunca commitar nem dar push na `main`. Branch `<tipo>/<descricao-kebab>` → PR → CI verde → "Rebase and merge".
