@@ -10,9 +10,11 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 
-# Legado em C: binários gerados por make
-/app
-/create_binaries
+# Legado em C: executáveis do make e os dados/índices que ele lê e gera (não versionados, docs/adr/0001)
+legacy/fipe-app
+legacy/create_binaries
+legacy/data/
+legacy/bin/
 *.o
 
 # Segredos e configuração local
