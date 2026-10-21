@@ -113,7 +113,8 @@
     "n",
     "median_ratio",
     "p25_ratio",
-    "p75_ratio"
+    "p75_ratio",
+    "max_ratio"
    ]
   },
   "retention_by_age": {

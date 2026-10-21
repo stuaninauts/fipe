@@ -392,7 +392,8 @@ def new_vs_used(prices: pd.DataFrame) -> pd.DataFrame:
     """What a used car of the current model year is worth next to the same car brand new, per January.
 
     Matches, within a reference month, the brand-new price (`is_new`) and the used price with model year equal
-    to the reference year, for the same code and fuel group. A median of 0.90 means a 10% gap.
+    to the reference year, for the same code and fuel group. A median of 0.90 means a 10% gap. `max_ratio` is
+    the highest single pair: it never reaches 1, which looks like a FIPE rule for the current model year.
     """
     jan = prices[prices["ref_month"] == JANUARY]
     keys = ["ref_year", "codigo_fipe", "fuel_group"]
@@ -403,7 +404,13 @@ def new_vs_used(prices: pd.DataFrame) -> pd.DataFrame:
     ratio = pairs["used"] / pairs["new"]
     out = (
         ratio.groupby(pairs["ref_year"])
-        .agg(n="size", median="median", p25=lambda s: s.quantile(0.25), p75=lambda s: s.quantile(0.75))
+        .agg(
+            n="size",
+            median="median",
+            p25=lambda s: s.quantile(0.25),
+            p75=lambda s: s.quantile(0.75),
+            max_ratio="max",
+        )
         .reset_index()
         .rename(columns={"median": "median_ratio", "p25": "p25_ratio", "p75": "p75_ratio"})
     )

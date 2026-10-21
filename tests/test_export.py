@@ -117,3 +117,7 @@ def test_fuel_relabels_document_2011_and_2024():
     r = load("fuel_relabels").set_index(["to_year", "fuel_from", "fuel_to"])["cars"]
     assert r.loc[(2011, "Gasolina", "Diesel")] == 1069
     assert r.loc[(2024, "Gasolina", "Flex")] == 6098
+
+
+def test_current_year_car_never_reaches_the_brand_new_price():
+    assert load("new_vs_used")["max_ratio"].max() < 0.98
