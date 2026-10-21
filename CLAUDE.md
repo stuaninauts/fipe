@@ -59,6 +59,19 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
 - O CI não tem os dados brutos: `tests/test_export.py` fixa os números publicados. Mudou um número, mude o teste e
   o texto do site no mesmo PR.
 
+## Site (`web/`, [ADR 0002](docs/adr/0002-site-estatico.md))
+- Astro estático, PT na raiz e EN em `/en/`; rotas e textos de interface em `web/src/i18n/ui.ts`, uma view por
+  página em `web/src/views/` (textos da página nos dois idiomas, lado a lado).
+- Número no texto sempre vem do export (`web/src/lib/data.ts`): nunca digitar um número, nunca calcular taxa em
+  JavaScript (só selecionar linha, mínimo, máximo e formatar). Linha que não existe quebra o build.
+- Gráficos: SVG do Observable Plot no build (`web/src/lib/charts.ts`), em duas larguras (desktop e celular). O
+  `<style>` que o Plot gera é removido; as regras ficam em `global.css`. Cores das séries validadas com o checador
+  de paleta; séries sempre com rótulo direto e tabela.
+- Explorar: única página com JS (`web/src/scripts/explore.ts`), que lê `/data/explore_*.json` e usa a mesma lógica
+  do build (`web/src/lib/explore.ts`). Estado na URL; pontos com n < 30 ficam fora das linhas.
+- Node da `web/.node-version`: `npm run check && npm run build` em `web/`; a CSP só existe no build, valide com
+  `npm run preview`. Deploy por Workers Builds (root `web/`) no merge na `main`; nunca `wrangler deploy` manual.
+
 ## Git (GitHub Flow)
 - Nunca commitar nem dar push na `main`. Branch `<tipo>/<descricao-kebab>` → PR → CI verde → "Rebase and merge".
 - Commit, push e PR só quando o autor pedir: ele define os marcos. Ao terminar uma etapa, deixe as mudanças no
