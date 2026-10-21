@@ -4,7 +4,7 @@ import pytest
 
 from fipe.api import ApiError, Client, Response
 from fipe.cache import Cache
-from fipe.collect import collect_reference, resolve_refs
+from fipe.collect import collect_reference, load_known, resolve_refs
 
 # A tiny fake of the endpoint: 2 brands, 3 models, 4 model years (one of them brand new, year 32000).
 FAKE = {
@@ -143,3 +143,38 @@ def test_resolve_refs_maps_labels_and_rejects_unknown_months():
     assert resolve_refs(tables, ["Janeiro/2025"]) == [(318, "janeiro/2025")]
     with pytest.raises(SystemExit):
         resolve_refs(tables, ["janeiro/2031"])
+
+
+def write_csv(path, rows):
+    header = "ano_ref;mes_ref;marca;modelo;ano_fab;valor;combustivel;codigo_fipe\n"
+    path.write_text(header + "".join(";".join(r) + "\n" for r in rows), encoding="utf-8")
+
+
+def test_known_csv_rows_skip_their_price_calls(tmp_path):
+    csv_path = tmp_path / "janeiro2024 "  # old files end in a space
+    write_csv(
+        csv_path,
+        [
+            ("2024", "janeiro", "Citroën", "C3 1.6", "32000", "R$ 1,00", "Gasolina", "001007-9"),
+            ("2024", "janeiro", "Citroën", "C3 1.6", "2012", "R$ 1,00", "Álcool", "001007-9"),
+            ("2024", "janeiro", "Citroën", "C3 1.6", "2013", "R$ 1,00", "Álcool", "001007-9"),  # not offered
+            (
+                "2023",
+                "janeiro",
+                "Acura",
+                "Integra GS 1.8",
+                "1992",
+                "R$ 1,00",
+                "Gasolina",
+                "038003-2",
+            ),  # other month
+        ],
+    )
+    known = load_known([csv_path], "janeiro/2024")
+    assert len(known) == 3
+
+    api = FakeApi()
+    stats = collect_reference(make_cache(api), ref=305, known=known)
+    assert (stats.prices, stats.known, stats.unmatched) == (2, 2, 1)
+    asked = {(c[1]["codigoModelo"], c[1]["anoModelo"]) for c in price_calls(api)}
+    assert asked == {("1", "1992"), ("8", "2015")}
