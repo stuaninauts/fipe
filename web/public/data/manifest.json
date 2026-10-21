@@ -52,6 +52,31 @@
     "codigos_fipe",
     "brands"
    ]
+  },
+  "explore_retention": {
+   "description": "retention_by_age by brand, fuel group and brand-new price band (explore page).",
+   "rows": 1199,
+   "columns": [
+    "group_type",
+    "scope",
+    "group",
+    "age",
+    "n",
+    "median_ratio",
+    "p25_ratio",
+    "p75_ratio"
+   ]
+  },
+  "explore_yearly": {
+   "description": "Real change of the same used car per January by brand, fuel group and price band.",
+   "rows": 876,
+   "columns": [
+    "group_type",
+    "group",
+    "to_year",
+    "n",
+    "median_real"
+   ]
   }
  }
 }

@@ -29,6 +29,8 @@ DESCRIPTIONS = {
     "new_vs_used": "Used car of the current model year over the same car brand new, per January.",
     "retention_by_age": "Share of the brand-new price kept at each age, same January (all years and recent).",
     "coverage": "Prices, brand-new prices, FIPE codes and brands per reference month.",
+    "explore_retention": "retention_by_age by brand, fuel group and brand-new price band (explore page).",
+    "explore_yearly": "Real change of the same used car per January by brand, fuel group and price band.",
 }
 
 
@@ -38,6 +40,8 @@ def build_tables(prices: pd.DataFrame, ipca: pd.DataFrame) -> dict[str, pd.DataF
         "new_vs_used": aggregate.new_vs_used(prices),
         "retention_by_age": aggregate.retention_by_age(prices),
         "coverage": aggregate.coverage(prices),
+        "explore_retention": aggregate.explore_retention(prices),
+        "explore_yearly": aggregate.explore_yearly(prices),
     }
 
 

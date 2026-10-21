@@ -82,3 +82,30 @@ def test_coverage_counts_per_reference_month():
     )
     row = aggregate.coverage(prices).iloc[0]
     assert (row["prices"], row["new_car_prices"], row["codigos_fipe"], row["brands"]) == (3, 1, 2, 1)
+
+
+def test_explore_cubes_break_the_same_numbers_down_by_group(monkeypatch):
+    monkeypatch.setattr(aggregate, "EXPLORE_MIN_BRAND_N", 1)
+    prices = table(
+        price(2024, "001500-1", 0, 100_000, is_new=True),
+        price(2024, "001500-1", 2021, 60_000),
+        price(2024, "001600-1", 0, 300_000, fuel="Diesel", is_new=True),
+        price(2024, "001600-1", 2021, 210_000, fuel="Diesel"),
+    )
+    cube = (
+        aggregate.explore_retention(prices)
+        .query("scope == 'all' and age == 3")
+        .set_index(["group_type", "group"])
+    )
+    assert cube.loc[("all", "all"), "n"] == 2
+    assert cube.loc[("fuel_group", "diesel"), "median_ratio"] == 0.7
+    assert cube.loc[("fuel_group", "gasoline"), "median_ratio"] == 0.6
+    # the cheaper brand-new car lands in a lower price band than the expensive one
+    bands = cube.xs("price_band")["median_ratio"]
+    assert bands.index.min() < bands.index.max()
+    assert bands.loc[bands.index.min()] == 0.6
+
+
+def test_price_bands_work_with_fewer_cars_than_bands():
+    bands = aggregate._quintiles(pd.Series([10.0, 20.0]), pd.Series([2024, 2024]))
+    assert bands.tolist() == ["q3", "q5"]

@@ -1,0 +1,6134 @@
+[
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2005,
+  "n": 9202,
+  "median_real": -0.0423
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2006,
+  "n": 9955,
+  "median_real": -0.0297
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2007,
+  "n": 10710,
+  "median_real": -0.0473
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2008,
+  "n": 11495,
+  "median_real": -0.0673
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2009,
+  "n": 12307,
+  "median_real": -0.0985
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2010,
+  "n": 13137,
+  "median_real": -0.1678
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2011,
+  "n": 13146,
+  "median_real": -0.099
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2012,
+  "n": 15071,
+  "median_real": -0.0814
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2013,
+  "n": 15996,
+  "median_real": -0.1753
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2014,
+  "n": 16958,
+  "median_real": -0.0622
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2015,
+  "n": 18033,
+  "median_real": -0.1008
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2016,
+  "n": 19064,
+  "median_real": -0.1295
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2017,
+  "n": 20066,
+  "median_real": -0.0857
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2018,
+  "n": 21033,
+  "median_real": -0.0471
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2019,
+  "n": 22032,
+  "median_real": -0.0777
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2020,
+  "n": 23002,
+  "median_real": -0.0747
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2021,
+  "n": 24004,
+  "median_real": -0.062
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2022,
+  "n": 24800,
+  "median_real": 0.0903
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2023,
+  "n": 25667,
+  "median_real": -0.0307
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2024,
+  "n": 26421,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "all",
+  "group": "all",
+  "to_year": 2025,
+  "n": 27274,
+  "median_real": -0.0664
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2007,
+  "n": 1,
+  "median_real": -0.0304
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2008,
+  "n": 4,
+  "median_real": -0.0354
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2009,
+  "n": 4,
+  "median_real": -0.0966
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2010,
+  "n": 18,
+  "median_real": -0.083
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2012,
+  "n": 33,
+  "median_real": -0.0929
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2013,
+  "n": 33,
+  "median_real": -0.1823
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2014,
+  "n": 39,
+  "median_real": -0.0481
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2015,
+  "n": 45,
+  "median_real": -0.0981
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2016,
+  "n": 52,
+  "median_real": -0.1236
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2017,
+  "n": 58,
+  "median_real": -0.0762
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2018,
+  "n": 60,
+  "median_real": -0.0622
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2019,
+  "n": 64,
+  "median_real": -0.1086
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2020,
+  "n": 66,
+  "median_real": -0.0905
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2021,
+  "n": 68,
+  "median_real": -0.0843
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2022,
+  "n": 68,
+  "median_real": -0.0192
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2023,
+  "n": 76,
+  "median_real": -0.0206
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2024,
+  "n": 76,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "brand",
+  "group": "Agrale",
+  "to_year": 2025,
+  "n": 88,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2005,
+  "n": 363,
+  "median_real": -0.0633
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2006,
+  "n": 396,
+  "median_real": -0.0759
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2007,
+  "n": 415,
+  "median_real": -0.0943
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2008,
+  "n": 434,
+  "median_real": -0.1252
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2009,
+  "n": 447,
+  "median_real": -0.1782
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2010,
+  "n": 470,
+  "median_real": -0.2483
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2011,
+  "n": 499,
+  "median_real": -0.1343
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2012,
+  "n": 541,
+  "median_real": -0.0924
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2013,
+  "n": 567,
+  "median_real": -0.1622
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2014,
+  "n": 599,
+  "median_real": -0.0731
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2015,
+  "n": 668,
+  "median_real": -0.104
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2016,
+  "n": 700,
+  "median_real": -0.1358
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2017,
+  "n": 746,
+  "median_real": -0.0991
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2018,
+  "n": 769,
+  "median_real": -0.0609
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2019,
+  "n": 833,
+  "median_real": -0.0955
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2020,
+  "n": 846,
+  "median_real": -0.0833
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2021,
+  "n": 889,
+  "median_real": -0.0688
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2022,
+  "n": 922,
+  "median_real": 0.053
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2023,
+  "n": 979,
+  "median_real": -0.0351
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2024,
+  "n": 1024,
+  "median_real": -0.0893
+ },
+ {
+  "group_type": "brand",
+  "group": "Audi",
+  "to_year": 2025,
+  "n": 1060,
+  "median_real": -0.0721
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2005,
+  "n": 388,
+  "median_real": -0.0522
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2006,
+  "n": 418,
+  "median_real": -0.0627
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2007,
+  "n": 444,
+  "median_real": -0.0753
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2008,
+  "n": 484,
+  "median_real": -0.097
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2009,
+  "n": 518,
+  "median_real": -0.1637
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2010,
+  "n": 558,
+  "median_real": -0.2148
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2011,
+  "n": 605,
+  "median_real": -0.1283
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2012,
+  "n": 642,
+  "median_real": -0.0881
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2013,
+  "n": 685,
+  "median_real": -0.1667
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2014,
+  "n": 717,
+  "median_real": -0.0748
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2015,
+  "n": 761,
+  "median_real": -0.1027
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2016,
+  "n": 805,
+  "median_real": -0.1404
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2017,
+  "n": 849,
+  "median_real": -0.0954
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2018,
+  "n": 892,
+  "median_real": -0.0671
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2019,
+  "n": 918,
+  "median_real": -0.0996
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2020,
+  "n": 955,
+  "median_real": -0.0794
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2021,
+  "n": 1016,
+  "median_real": -0.0658
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2022,
+  "n": 1067,
+  "median_real": 0.0613
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2023,
+  "n": 1115,
+  "median_real": -0.0351
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2024,
+  "n": 1149,
+  "median_real": -0.0893
+ },
+ {
+  "group_type": "brand",
+  "group": "BMW",
+  "to_year": 2025,
+  "n": 1192,
+  "median_real": -0.0717
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2005,
+  "n": 20,
+  "median_real": -0.0186
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2006,
+  "n": 21,
+  "median_real": 0.0392
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2007,
+  "n": 24,
+  "median_real": 0.0252
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2008,
+  "n": 26,
+  "median_real": -0.039
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2009,
+  "n": 28,
+  "median_real": -0.0796
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2010,
+  "n": 30,
+  "median_real": -0.1477
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2011,
+  "n": 32,
+  "median_real": -0.0801
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2012,
+  "n": 34,
+  "median_real": -0.0746
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2013,
+  "n": 36,
+  "median_real": -0.1499
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2014,
+  "n": 38,
+  "median_real": -0.052
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2015,
+  "n": 38,
+  "median_real": -0.068
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2016,
+  "n": 40,
+  "median_real": -0.1034
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2017,
+  "n": 40,
+  "median_real": -0.0472
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2018,
+  "n": 42,
+  "median_real": -0.0378
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2019,
+  "n": 46,
+  "median_real": -0.0793
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2020,
+  "n": 48,
+  "median_real": -0.0695
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2021,
+  "n": 48,
+  "median_real": -0.0733
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2022,
+  "n": 48,
+  "median_real": 0.0338
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2023,
+  "n": 50,
+  "median_real": 0.1372
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2024,
+  "n": 52,
+  "median_real": 0.0412
+ },
+ {
+  "group_type": "brand",
+  "group": "BRM",
+  "to_year": 2025,
+  "n": 52,
+  "median_real": 0.1
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2011,
+  "n": 1,
+  "median_real": -0.1194
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2012,
+  "n": 7,
+  "median_real": -0.0717
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2013,
+  "n": 15,
+  "median_real": -0.1931
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2014,
+  "n": 17,
+  "median_real": -0.121
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2015,
+  "n": 25,
+  "median_real": -0.1571
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2016,
+  "n": 36,
+  "median_real": -0.1548
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2017,
+  "n": 40,
+  "median_real": -0.1349
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2018,
+  "n": 51,
+  "median_real": -0.063
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2019,
+  "n": 57,
+  "median_real": -0.0852
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2020,
+  "n": 68,
+  "median_real": -0.0918
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2021,
+  "n": 83,
+  "median_real": -0.0673
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2022,
+  "n": 96,
+  "median_real": 0.0663
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2023,
+  "n": 111,
+  "median_real": -0.0353
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2024,
+  "n": 19,
+  "median_real": -0.1847
+ },
+ {
+  "group_type": "brand",
+  "group": "Caoa Chery",
+  "to_year": 2025,
+  "n": 31,
+  "median_real": -0.1149
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2005,
+  "n": 229,
+  "median_real": -0.0783
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2006,
+  "n": 245,
+  "median_real": -0.0642
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2007,
+  "n": 265,
+  "median_real": -0.078
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2008,
+  "n": 283,
+  "median_real": -0.0986
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2009,
+  "n": 306,
+  "median_real": -0.1298
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2010,
+  "n": 332,
+  "median_real": -0.2129
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2011,
+  "n": 369,
+  "median_real": -0.1186
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2012,
+  "n": 399,
+  "median_real": -0.0946
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2013,
+  "n": 430,
+  "median_real": -0.1917
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2014,
+  "n": 464,
+  "median_real": -0.0623
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2015,
+  "n": 502,
+  "median_real": -0.1077
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2016,
+  "n": 549,
+  "median_real": -0.1405
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2017,
+  "n": 575,
+  "median_real": -0.1079
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2018,
+  "n": 607,
+  "median_real": -0.0552
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2019,
+  "n": 638,
+  "median_real": -0.0828
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2020,
+  "n": 673,
+  "median_real": -0.098
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2021,
+  "n": 707,
+  "median_real": -0.0747
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2022,
+  "n": 730,
+  "median_real": 0.0478
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2023,
+  "n": 743,
+  "median_real": -0.0542
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2024,
+  "n": 768,
+  "median_real": -0.0893
+ },
+ {
+  "group_type": "brand",
+  "group": "Citroën",
+  "to_year": 2025,
+  "n": 788,
+  "median_real": -0.0799
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2010,
+  "n": 5,
+  "median_real": -0.1756
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2011,
+  "n": 10,
+  "median_real": -0.1379
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2012,
+  "n": 23,
+  "median_real": -0.071
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2013,
+  "n": 33,
+  "median_real": -0.1789
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2014,
+  "n": 37,
+  "median_real": -0.0633
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2015,
+  "n": 38,
+  "median_real": -0.104
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2016,
+  "n": 40,
+  "median_real": -0.1298
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2017,
+  "n": 44,
+  "median_real": -0.0897
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2018,
+  "n": 46,
+  "median_real": -0.0717
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2019,
+  "n": 52,
+  "median_real": -0.0964
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2020,
+  "n": 53,
+  "median_real": -0.0836
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2021,
+  "n": 58,
+  "median_real": -0.086
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2022,
+  "n": 61,
+  "median_real": -0.0092
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2023,
+  "n": 65,
+  "median_real": -0.0355
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2024,
+  "n": 68,
+  "median_real": -0.0712
+ },
+ {
+  "group_type": "brand",
+  "group": "EFFA",
+  "to_year": 2025,
+  "n": 71,
+  "median_real": -0.0719
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2005,
+  "n": 68,
+  "median_real": -0.0512
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2006,
+  "n": 73,
+  "median_real": -0.0609
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2007,
+  "n": 76,
+  "median_real": -0.0777
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2008,
+  "n": 80,
+  "median_real": -0.0912
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2009,
+  "n": 83,
+  "median_real": -0.1142
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2010,
+  "n": 88,
+  "median_real": -0.0905
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2011,
+  "n": 95,
+  "median_real": -0.1172
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2012,
+  "n": 97,
+  "median_real": -0.0678
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2013,
+  "n": 100,
+  "median_real": -0.1409
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2014,
+  "n": 103,
+  "median_real": -0.07
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2015,
+  "n": 109,
+  "median_real": -0.1033
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2016,
+  "n": 115,
+  "median_real": -0.1279
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2017,
+  "n": 122,
+  "median_real": -0.081
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2018,
+  "n": 128,
+  "median_real": -0.0659
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2019,
+  "n": 136,
+  "median_real": -0.1043
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2020,
+  "n": 143,
+  "median_real": -0.0668
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2021,
+  "n": 148,
+  "median_real": -0.063
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2022,
+  "n": 156,
+  "median_real": 0.0123
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2023,
+  "n": 166,
+  "median_real": 0.0622
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2024,
+  "n": 174,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "brand",
+  "group": "Ferrari",
+  "to_year": 2025,
+  "n": 177,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2005,
+  "n": 753,
+  "median_real": -0.009
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2006,
+  "n": 809,
+  "median_real": 0.0114
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2007,
+  "n": 875,
+  "median_real": -0.0208
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2008,
+  "n": 937,
+  "median_real": -0.047
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2009,
+  "n": 995,
+  "median_real": -0.0718
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2010,
+  "n": 1064,
+  "median_real": -0.1645
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2011,
+  "n": 1141,
+  "median_real": -0.0862
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2012,
+  "n": 1263,
+  "median_real": -0.0925
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2013,
+  "n": 1388,
+  "median_real": -0.1965
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2014,
+  "n": 1506,
+  "median_real": -0.0523
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2015,
+  "n": 1623,
+  "median_real": -0.0976
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2016,
+  "n": 1733,
+  "median_real": -0.1301
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2017,
+  "n": 1864,
+  "median_real": -0.0863
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2018,
+  "n": 1955,
+  "median_real": -0.0384
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2019,
+  "n": 2009,
+  "median_real": -0.0625
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2020,
+  "n": 2071,
+  "median_real": -0.0798
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2021,
+  "n": 2135,
+  "median_real": -0.0565
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2022,
+  "n": 2189,
+  "median_real": 0.1211
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2023,
+  "n": 2225,
+  "median_real": -0.0351
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2024,
+  "n": 2266,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "brand",
+  "group": "Fiat",
+  "to_year": 2025,
+  "n": 2317,
+  "median_real": -0.0474
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2010,
+  "n": 28,
+  "median_real": -0.1629
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2011,
+  "n": 33,
+  "median_real": -0.0897
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2012,
+  "n": 37,
+  "median_real": -0.0828
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2013,
+  "n": 37,
+  "median_real": -0.247
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2014,
+  "n": 45,
+  "median_real": -0.0334
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2015,
+  "n": 45,
+  "median_real": -0.1007
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2016,
+  "n": 53,
+  "median_real": -0.1269
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2017,
+  "n": 53,
+  "median_real": -0.0815
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2018,
+  "n": 58,
+  "median_real": -0.063
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2019,
+  "n": 58,
+  "median_real": -0.0804
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2020,
+  "n": 58,
+  "median_real": -0.0701
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2021,
+  "n": 67,
+  "median_real": -0.0734
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2022,
+  "n": 67,
+  "median_real": -0.0204
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2023,
+  "n": 70,
+  "median_real": -0.0352
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2024,
+  "n": 76,
+  "median_real": -0.0894
+ },
+ {
+  "group_type": "brand",
+  "group": "Fibravan",
+  "to_year": 2025,
+  "n": 78,
+  "median_real": -0.0715
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2005,
+  "n": 1021,
+  "median_real": -0.0237
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2006,
+  "n": 1084,
+  "median_real": -0.0015
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2007,
+  "n": 1154,
+  "median_real": -0.0227
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2008,
+  "n": 1231,
+  "median_real": -0.0471
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2009,
+  "n": 1300,
+  "median_real": -0.0799
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2010,
+  "n": 1364,
+  "median_real": -0.1527
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2011,
+  "n": 1258,
+  "median_real": -0.0863
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2012,
+  "n": 1528,
+  "median_real": -0.0755
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2013,
+  "n": 1594,
+  "median_real": -0.1669
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2014,
+  "n": 1645,
+  "median_real": -0.0568
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2015,
+  "n": 1716,
+  "median_real": -0.0976
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2016,
+  "n": 1779,
+  "median_real": -0.1256
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2017,
+  "n": 1826,
+  "median_real": -0.0808
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2018,
+  "n": 1886,
+  "median_real": -0.0366
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2019,
+  "n": 1953,
+  "median_real": -0.0611
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2020,
+  "n": 2003,
+  "median_real": -0.0704
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2021,
+  "n": 2042,
+  "median_real": -0.0575
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2022,
+  "n": 2079,
+  "median_real": 0.0969
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2023,
+  "n": 2098,
+  "median_real": -0.0113
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2024,
+  "n": 2117,
+  "median_real": -0.0781
+ },
+ {
+  "group_type": "brand",
+  "group": "Ford",
+  "to_year": 2025,
+  "n": 2153,
+  "median_real": -0.0497
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2005,
+  "n": 1082,
+  "median_real": -0.0183
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2006,
+  "n": 1183,
+  "median_real": 0.0099
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2007,
+  "n": 1281,
+  "median_real": -0.0181
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2008,
+  "n": 1366,
+  "median_real": -0.046
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2009,
+  "n": 1442,
+  "median_real": -0.0687
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2010,
+  "n": 1510,
+  "median_real": -0.1505
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2011,
+  "n": 1524,
+  "median_real": -0.0828
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2012,
+  "n": 1637,
+  "median_real": -0.0818
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2013,
+  "n": 1685,
+  "median_real": -0.1712
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2014,
+  "n": 1770,
+  "median_real": -0.0604
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2015,
+  "n": 1858,
+  "median_real": -0.0973
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2016,
+  "n": 1922,
+  "median_real": -0.1275
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2017,
+  "n": 1974,
+  "median_real": -0.0845
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2018,
+  "n": 2036,
+  "median_real": -0.0382
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2019,
+  "n": 2093,
+  "median_real": -0.0573
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2020,
+  "n": 2145,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2021,
+  "n": 2197,
+  "median_real": -0.0538
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2022,
+  "n": 2256,
+  "median_real": 0.1339
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2023,
+  "n": 2309,
+  "median_real": -0.0137
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2024,
+  "n": 2363,
+  "median_real": -0.0727
+ },
+ {
+  "group_type": "brand",
+  "group": "GM - Chevrolet",
+  "to_year": 2025,
+  "n": 2421,
+  "median_real": -0.0449
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2005,
+  "n": 156,
+  "median_real": -0.046
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2006,
+  "n": 170,
+  "median_real": -0.0338
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2007,
+  "n": 191,
+  "median_real": -0.0503
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2008,
+  "n": 201,
+  "median_real": -0.0721
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2009,
+  "n": 215,
+  "median_real": -0.1181
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2010,
+  "n": 229,
+  "median_real": -0.184
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2011,
+  "n": 255,
+  "median_real": -0.1017
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2012,
+  "n": 284,
+  "median_real": -0.085
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2013,
+  "n": 307,
+  "median_real": -0.1784
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2014,
+  "n": 334,
+  "median_real": -0.0724
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2015,
+  "n": 356,
+  "median_real": -0.1018
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2016,
+  "n": 375,
+  "median_real": -0.1346
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2017,
+  "n": 392,
+  "median_real": -0.0897
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2018,
+  "n": 416,
+  "median_real": -0.0335
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2019,
+  "n": 434,
+  "median_real": -0.0551
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2020,
+  "n": 466,
+  "median_real": -0.0804
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2021,
+  "n": 490,
+  "median_real": -0.0442
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2022,
+  "n": 510,
+  "median_real": 0.1444
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2023,
+  "n": 520,
+  "median_real": -0.0414
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2024,
+  "n": 531,
+  "median_real": -0.0899
+ },
+ {
+  "group_type": "brand",
+  "group": "Honda",
+  "to_year": 2025,
+  "n": 546,
+  "median_real": -0.0243
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2005,
+  "n": 184,
+  "median_real": -0.0521
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2006,
+  "n": 206,
+  "median_real": -0.0578
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2007,
+  "n": 219,
+  "median_real": -0.0594
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2008,
+  "n": 225,
+  "median_real": -0.0781
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2009,
+  "n": 239,
+  "median_real": -0.0722
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2010,
+  "n": 250,
+  "median_real": -0.1604
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2011,
+  "n": 241,
+  "median_real": -0.106
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2012,
+  "n": 277,
+  "median_real": -0.0803
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2013,
+  "n": 296,
+  "median_real": -0.198
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2014,
+  "n": 317,
+  "median_real": -0.053
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2015,
+  "n": 348,
+  "median_real": -0.1032
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2016,
+  "n": 386,
+  "median_real": -0.1297
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2017,
+  "n": 419,
+  "median_real": -0.0872
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2018,
+  "n": 459,
+  "median_real": -0.0656
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2019,
+  "n": 500,
+  "median_real": -0.0852
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2020,
+  "n": 547,
+  "median_real": -0.0773
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2021,
+  "n": 583,
+  "median_real": -0.0599
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2022,
+  "n": 618,
+  "median_real": 0.1223
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2023,
+  "n": 662,
+  "median_real": -0.0366
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2024,
+  "n": 691,
+  "median_real": -0.0973
+ },
+ {
+  "group_type": "brand",
+  "group": "Hyundai",
+  "to_year": 2025,
+  "n": 732,
+  "median_real": -0.0659
+ },
+ {
+  "group_type": "brand",
+  "group": "IVECO",
+  "to_year": 2020,
+  "n": 3,
+  "median_real": -0.0705
+ },
+ {
+  "group_type": "brand",
+  "group": "IVECO",
+  "to_year": 2021,
+  "n": 7,
+  "median_real": 0.0521
+ },
+ {
+  "group_type": "brand",
+  "group": "IVECO",
+  "to_year": 2022,
+  "n": 39,
+  "median_real": 0.0833
+ },
+ {
+  "group_type": "brand",
+  "group": "IVECO",
+  "to_year": 2023,
+  "n": 66,
+  "median_real": 0.014
+ },
+ {
+  "group_type": "brand",
+  "group": "IVECO",
+  "to_year": 2024,
+  "n": 103,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "brand",
+  "group": "IVECO",
+  "to_year": 2025,
+  "n": 124,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2013,
+  "n": 9,
+  "median_real": -0.2615
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2014,
+  "n": 14,
+  "median_real": -0.0932
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2015,
+  "n": 27,
+  "median_real": -0.1098
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2016,
+  "n": 40,
+  "median_real": -0.1506
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2017,
+  "n": 46,
+  "median_real": -0.1332
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2018,
+  "n": 49,
+  "median_real": -0.08
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2019,
+  "n": 53,
+  "median_real": -0.1132
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2020,
+  "n": 60,
+  "median_real": -0.1001
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2021,
+  "n": 71,
+  "median_real": -0.0467
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2022,
+  "n": 84,
+  "median_real": 0.0204
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2023,
+  "n": 98,
+  "median_real": -0.0674
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2024,
+  "n": 106,
+  "median_real": -0.1171
+ },
+ {
+  "group_type": "brand",
+  "group": "JAC",
+  "to_year": 2025,
+  "n": 108,
+  "median_real": -0.0795
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2005,
+  "n": 43,
+  "median_real": -0.0514
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2006,
+  "n": 56,
+  "median_real": -0.0647
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2007,
+  "n": 58,
+  "median_real": -0.0813
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2008,
+  "n": 70,
+  "median_real": -0.1125
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2009,
+  "n": 82,
+  "median_real": -0.1738
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2010,
+  "n": 101,
+  "median_real": -0.1923
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2011,
+  "n": 103,
+  "median_real": -0.1299
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2012,
+  "n": 112,
+  "median_real": -0.084
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2013,
+  "n": 115,
+  "median_real": -0.1828
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2014,
+  "n": 121,
+  "median_real": -0.0743
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2015,
+  "n": 130,
+  "median_real": -0.1016
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2016,
+  "n": 150,
+  "median_real": -0.1338
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2017,
+  "n": 163,
+  "median_real": -0.0914
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2018,
+  "n": 178,
+  "median_real": -0.0678
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2019,
+  "n": 191,
+  "median_real": -0.1057
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2020,
+  "n": 210,
+  "median_real": -0.0869
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2021,
+  "n": 237,
+  "median_real": -0.0719
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2022,
+  "n": 241,
+  "median_real": 0.0252
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2023,
+  "n": 250,
+  "median_real": -0.035
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2024,
+  "n": 269,
+  "median_real": -0.0893
+ },
+ {
+  "group_type": "brand",
+  "group": "Jaguar",
+  "to_year": 2025,
+  "n": 278,
+  "median_real": -0.0719
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2005,
+  "n": 56,
+  "median_real": -0.0593
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2006,
+  "n": 59,
+  "median_real": -0.0575
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2007,
+  "n": 61,
+  "median_real": -0.068
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2008,
+  "n": 66,
+  "median_real": -0.0917
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2009,
+  "n": 73,
+  "median_real": -0.1289
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2010,
+  "n": 80,
+  "median_real": -0.2124
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2011,
+  "n": 81,
+  "median_real": -0.1341
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2012,
+  "n": 95,
+  "median_real": -0.1019
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2013,
+  "n": 103,
+  "median_real": -0.1343
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2014,
+  "n": 108,
+  "median_real": -0.0694
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2015,
+  "n": 114,
+  "median_real": -0.0971
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2016,
+  "n": 123,
+  "median_real": -0.1304
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2017,
+  "n": 133,
+  "median_real": -0.0882
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2018,
+  "n": 154,
+  "median_real": -0.047
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2019,
+  "n": 183,
+  "median_real": -0.0786
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2020,
+  "n": 205,
+  "median_real": -0.0848
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2021,
+  "n": 230,
+  "median_real": -0.0558
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2022,
+  "n": 247,
+  "median_real": 0.1128
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2023,
+  "n": 266,
+  "median_real": -0.057
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2024,
+  "n": 290,
+  "median_real": -0.1193
+ },
+ {
+  "group_type": "brand",
+  "group": "Jeep",
+  "to_year": 2025,
+  "n": 315,
+  "median_real": -0.1063
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2005,
+  "n": 155,
+  "median_real": -0.0735
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2006,
+  "n": 167,
+  "median_real": -0.0652
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2007,
+  "n": 187,
+  "median_real": -0.0734
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2008,
+  "n": 199,
+  "median_real": -0.0839
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2009,
+  "n": 228,
+  "median_real": -0.1082
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2010,
+  "n": 249,
+  "median_real": -0.1639
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2011,
+  "n": 238,
+  "median_real": -0.1157
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2012,
+  "n": 293,
+  "median_real": -0.0817
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2013,
+  "n": 317,
+  "median_real": -0.1643
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2014,
+  "n": 338,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2015,
+  "n": 361,
+  "median_real": -0.1049
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2016,
+  "n": 376,
+  "median_real": -0.1364
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2017,
+  "n": 390,
+  "median_real": -0.0948
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2018,
+  "n": 397,
+  "median_real": -0.0638
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2019,
+  "n": 407,
+  "median_real": -0.0875
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2020,
+  "n": 423,
+  "median_real": -0.0773
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2021,
+  "n": 432,
+  "median_real": -0.0721
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2022,
+  "n": 440,
+  "median_real": 0.0662
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2023,
+  "n": 447,
+  "median_real": -0.0335
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2024,
+  "n": 453,
+  "median_real": -0.0895
+ },
+ {
+  "group_type": "brand",
+  "group": "Kia Motors",
+  "to_year": 2025,
+  "n": 462,
+  "median_real": -0.0643
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2005,
+  "n": 124,
+  "median_real": -0.0549
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2006,
+  "n": 139,
+  "median_real": -0.0524
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2007,
+  "n": 157,
+  "median_real": -0.0687
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2008,
+  "n": 168,
+  "median_real": -0.0612
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2009,
+  "n": 198,
+  "median_real": -0.119
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2010,
+  "n": 215,
+  "median_real": -0.1588
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2011,
+  "n": 192,
+  "median_real": -0.1105
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2012,
+  "n": 259,
+  "median_real": -0.0754
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2013,
+  "n": 282,
+  "median_real": -0.1564
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2014,
+  "n": 303,
+  "median_real": -0.0642
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2015,
+  "n": 334,
+  "median_real": -0.1006
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2016,
+  "n": 367,
+  "median_real": -0.1383
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2017,
+  "n": 409,
+  "median_real": -0.0917
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2018,
+  "n": 431,
+  "median_real": -0.063
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2019,
+  "n": 483,
+  "median_real": -0.0992
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2020,
+  "n": 526,
+  "median_real": -0.0883
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2021,
+  "n": 555,
+  "median_real": -0.0792
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2022,
+  "n": 569,
+  "median_real": 0.0475
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2023,
+  "n": 613,
+  "median_real": -0.0559
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2024,
+  "n": 617,
+  "median_real": -0.1179
+ },
+ {
+  "group_type": "brand",
+  "group": "Land Rover",
+  "to_year": 2025,
+  "n": 679,
+  "median_real": -0.1249
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2005,
+  "n": 32,
+  "median_real": -0.0651
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2006,
+  "n": 32,
+  "median_real": -0.0484
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2007,
+  "n": 34,
+  "median_real": -0.0772
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2008,
+  "n": 36,
+  "median_real": -0.1149
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2009,
+  "n": 41,
+  "median_real": -0.1756
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2010,
+  "n": 41,
+  "median_real": -0.244
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2011,
+  "n": 44,
+  "median_real": -0.147
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2012,
+  "n": 48,
+  "median_real": -0.0809
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2013,
+  "n": 48,
+  "median_real": -0.179
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2014,
+  "n": 56,
+  "median_real": -0.0665
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2015,
+  "n": 62,
+  "median_real": -0.1014
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2016,
+  "n": 69,
+  "median_real": -0.1266
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2017,
+  "n": 81,
+  "median_real": -0.0891
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2018,
+  "n": 87,
+  "median_real": -0.069
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2019,
+  "n": 92,
+  "median_real": -0.1083
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2020,
+  "n": 103,
+  "median_real": -0.0961
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2021,
+  "n": 110,
+  "median_real": -0.0757
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2022,
+  "n": 121,
+  "median_real": -0.0146
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2023,
+  "n": 131,
+  "median_real": -0.0354
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2024,
+  "n": 140,
+  "median_real": -0.0935
+ },
+ {
+  "group_type": "brand",
+  "group": "Lexus",
+  "to_year": 2025,
+  "n": 147,
+  "median_real": -0.097
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2011,
+  "n": 11,
+  "median_real": -0.1063
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2012,
+  "n": 18,
+  "median_real": -0.0947
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2013,
+  "n": 42,
+  "median_real": -0.1276
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2014,
+  "n": 57,
+  "median_real": -0.0968
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2015,
+  "n": 75,
+  "median_real": -0.138
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2016,
+  "n": 87,
+  "median_real": -0.177
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2017,
+  "n": 101,
+  "median_real": -0.1341
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2018,
+  "n": 114,
+  "median_real": -0.0656
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2019,
+  "n": 131,
+  "median_real": -0.0788
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2020,
+  "n": 146,
+  "median_real": -0.1005
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2021,
+  "n": 163,
+  "median_real": -0.0421
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2022,
+  "n": 176,
+  "median_real": 0.1393
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2023,
+  "n": 188,
+  "median_real": -0.0271
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2024,
+  "n": 199,
+  "median_real": -0.1084
+ },
+ {
+  "group_type": "brand",
+  "group": "MINI",
+  "to_year": 2025,
+  "n": 208,
+  "median_real": -0.12
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2005,
+  "n": 35,
+  "median_real": -0.0477
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2006,
+  "n": 40,
+  "median_real": -0.0375
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2007,
+  "n": 44,
+  "median_real": -0.0786
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2008,
+  "n": 50,
+  "median_real": -0.0836
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2009,
+  "n": 53,
+  "median_real": -0.1538
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2010,
+  "n": 57,
+  "median_real": -0.1492
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2011,
+  "n": 61,
+  "median_real": -0.1198
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2012,
+  "n": 67,
+  "median_real": -0.0863
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2013,
+  "n": 73,
+  "median_real": -0.2011
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2014,
+  "n": 78,
+  "median_real": -0.0527
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2015,
+  "n": 80,
+  "median_real": -0.102
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2016,
+  "n": 85,
+  "median_real": -0.1267
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2017,
+  "n": 89,
+  "median_real": -0.098
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2018,
+  "n": 103,
+  "median_real": -0.0687
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2019,
+  "n": 109,
+  "median_real": -0.1134
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2020,
+  "n": 116,
+  "median_real": -0.0702
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2021,
+  "n": 122,
+  "median_real": -0.0619
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2022,
+  "n": 122,
+  "median_real": -0.0158
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2023,
+  "n": 124,
+  "median_real": -0.035
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2024,
+  "n": 126,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "brand",
+  "group": "Maserati",
+  "to_year": 2025,
+  "n": 129,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2005,
+  "n": 580,
+  "median_real": -0.0572
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2006,
+  "n": 645,
+  "median_real": -0.0674
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2007,
+  "n": 695,
+  "median_real": -0.0763
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2008,
+  "n": 743,
+  "median_real": -0.0903
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2009,
+  "n": 809,
+  "median_real": -0.1518
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2010,
+  "n": 876,
+  "median_real": -0.1805
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2011,
+  "n": 817,
+  "median_real": -0.1461
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2012,
+  "n": 1026,
+  "median_real": -0.0837
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2013,
+  "n": 1072,
+  "median_real": -0.1652
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2014,
+  "n": 1142,
+  "median_real": -0.0636
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2015,
+  "n": 1212,
+  "median_real": -0.1005
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2016,
+  "n": 1284,
+  "median_real": -0.1304
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2017,
+  "n": 1379,
+  "median_real": -0.0846
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2018,
+  "n": 1459,
+  "median_real": -0.0541
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2019,
+  "n": 1562,
+  "median_real": -0.0936
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2020,
+  "n": 1633,
+  "median_real": -0.074
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2021,
+  "n": 1709,
+  "median_real": -0.0641
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2022,
+  "n": 1759,
+  "median_real": 0.0576
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2023,
+  "n": 1828,
+  "median_real": -0.03
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2024,
+  "n": 1886,
+  "median_real": -0.0826
+ },
+ {
+  "group_type": "brand",
+  "group": "Mercedes-Benz",
+  "to_year": 2025,
+  "n": 1956,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2005,
+  "n": 329,
+  "median_real": -0.0562
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2006,
+  "n": 354,
+  "median_real": -0.0528
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2007,
+  "n": 374,
+  "median_real": -0.0782
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2008,
+  "n": 407,
+  "median_real": -0.0889
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2009,
+  "n": 438,
+  "median_real": -0.12
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2010,
+  "n": 468,
+  "median_real": -0.1746
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2011,
+  "n": 404,
+  "median_real": -0.1067
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2012,
+  "n": 525,
+  "median_real": -0.0798
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2013,
+  "n": 556,
+  "median_real": -0.1627
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2014,
+  "n": 592,
+  "median_real": -0.0516
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2015,
+  "n": 621,
+  "median_real": -0.1015
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2016,
+  "n": 653,
+  "median_real": -0.1364
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2017,
+  "n": 692,
+  "median_real": -0.0883
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2018,
+  "n": 720,
+  "median_real": -0.0501
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2019,
+  "n": 755,
+  "median_real": -0.081
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2020,
+  "n": 785,
+  "median_real": -0.0744
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2021,
+  "n": 814,
+  "median_real": -0.0544
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2022,
+  "n": 840,
+  "median_real": 0.1204
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2023,
+  "n": 866,
+  "median_real": -0.0231
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2024,
+  "n": 879,
+  "median_real": -0.0894
+ },
+ {
+  "group_type": "brand",
+  "group": "Mitsubishi",
+  "to_year": 2025,
+  "n": 895,
+  "median_real": -0.0621
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2005,
+  "n": 150,
+  "median_real": -0.0656
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2006,
+  "n": 165,
+  "median_real": -0.0284
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2007,
+  "n": 182,
+  "median_real": -0.0476
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2008,
+  "n": 203,
+  "median_real": -0.0557
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2009,
+  "n": 229,
+  "median_real": -0.1238
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2010,
+  "n": 249,
+  "median_real": -0.1741
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2011,
+  "n": 201,
+  "median_real": -0.1054
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2012,
+  "n": 315,
+  "median_real": -0.0814
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2013,
+  "n": 353,
+  "median_real": -0.1645
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2014,
+  "n": 391,
+  "median_real": -0.074
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2015,
+  "n": 415,
+  "median_real": -0.1069
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2016,
+  "n": 431,
+  "median_real": -0.1328
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2017,
+  "n": 453,
+  "median_real": -0.0952
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2018,
+  "n": 479,
+  "median_real": -0.0492
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2019,
+  "n": 502,
+  "median_real": -0.072
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2020,
+  "n": 527,
+  "median_real": -0.0758
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2021,
+  "n": 554,
+  "median_real": -0.0552
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2022,
+  "n": 576,
+  "median_real": 0.1212
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2023,
+  "n": 595,
+  "median_real": -0.0357
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2024,
+  "n": 610,
+  "median_real": -0.1033
+ },
+ {
+  "group_type": "brand",
+  "group": "Nissan",
+  "to_year": 2025,
+  "n": 627,
+  "median_real": -0.0592
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2005,
+  "n": 306,
+  "median_real": -0.049
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2006,
+  "n": 338,
+  "median_real": -0.0519
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2007,
+  "n": 387,
+  "median_real": -0.0652
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2008,
+  "n": 420,
+  "median_real": -0.0814
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2009,
+  "n": 460,
+  "median_real": -0.1155
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2010,
+  "n": 491,
+  "median_real": -0.1988
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2011,
+  "n": 522,
+  "median_real": -0.1112
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2012,
+  "n": 575,
+  "median_real": -0.0909
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2013,
+  "n": 621,
+  "median_real": -0.1963
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2014,
+  "n": 662,
+  "median_real": -0.0738
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2015,
+  "n": 704,
+  "median_real": -0.1058
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2016,
+  "n": 727,
+  "median_real": -0.1371
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2017,
+  "n": 752,
+  "median_real": -0.1006
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2018,
+  "n": 786,
+  "median_real": -0.0481
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2019,
+  "n": 810,
+  "median_real": -0.0814
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2020,
+  "n": 846,
+  "median_real": -0.0946
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2021,
+  "n": 872,
+  "median_real": -0.0747
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2022,
+  "n": 895,
+  "median_real": 0.0475
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2023,
+  "n": 916,
+  "median_real": -0.0444
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2024,
+  "n": 944,
+  "median_real": -0.097
+ },
+ {
+  "group_type": "brand",
+  "group": "Peugeot",
+  "to_year": 2025,
+  "n": 963,
+  "median_real": -0.0716
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2005,
+  "n": 102,
+  "median_real": 0.0019
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2006,
+  "n": 119,
+  "median_real": -0.0637
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2007,
+  "n": 150,
+  "median_real": -0.0802
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2008,
+  "n": 169,
+  "median_real": -0.1284
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2009,
+  "n": 191,
+  "median_real": -0.1839
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2010,
+  "n": 197,
+  "median_real": -0.1055
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2011,
+  "n": 232,
+  "median_real": -0.119
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2012,
+  "n": 253,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2013,
+  "n": 280,
+  "median_real": -0.1377
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2014,
+  "n": 291,
+  "median_real": -0.0702
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2015,
+  "n": 326,
+  "median_real": -0.1009
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2016,
+  "n": 353,
+  "median_real": -0.1287
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2017,
+  "n": 371,
+  "median_real": -0.0869
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2018,
+  "n": 417,
+  "median_real": -0.0523
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2019,
+  "n": 458,
+  "median_real": -0.087
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2020,
+  "n": 518,
+  "median_real": -0.0654
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2021,
+  "n": 553,
+  "median_real": -0.0644
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2022,
+  "n": 577,
+  "median_real": 0.0609
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2023,
+  "n": 638,
+  "median_real": 0.0222
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2024,
+  "n": 694,
+  "median_real": -0.0811
+ },
+ {
+  "group_type": "brand",
+  "group": "Porsche",
+  "to_year": 2025,
+  "n": 737,
+  "median_real": -0.0868
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2005,
+  "n": 273,
+  "median_real": -0.0263
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2006,
+  "n": 327,
+  "median_real": -0.0325
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2007,
+  "n": 387,
+  "median_real": -0.0631
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2008,
+  "n": 439,
+  "median_real": -0.0789
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2009,
+  "n": 496,
+  "median_real": -0.1117
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2010,
+  "n": 554,
+  "median_real": -0.2166
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2011,
+  "n": 575,
+  "median_real": -0.1066
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2012,
+  "n": 659,
+  "median_real": -0.095
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2013,
+  "n": 701,
+  "median_real": -0.1862
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2014,
+  "n": 749,
+  "median_real": -0.0704
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2015,
+  "n": 797,
+  "median_real": -0.1038
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2016,
+  "n": 849,
+  "median_real": -0.137
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2017,
+  "n": 897,
+  "median_real": -0.1021
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2018,
+  "n": 954,
+  "median_real": -0.0439
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2019,
+  "n": 1012,
+  "median_real": -0.0698
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2020,
+  "n": 1072,
+  "median_real": -0.0931
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2021,
+  "n": 1138,
+  "median_real": -0.0633
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2022,
+  "n": 1186,
+  "median_real": 0.0885
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2023,
+  "n": 1226,
+  "median_real": -0.0488
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2024,
+  "n": 1268,
+  "median_real": -0.0948
+ },
+ {
+  "group_type": "brand",
+  "group": "Renault",
+  "to_year": 2025,
+  "n": 1302,
+  "median_real": -0.0612
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2005,
+  "n": 32,
+  "median_real": -0.0755
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2006,
+  "n": 37,
+  "median_real": -0.092
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2007,
+  "n": 43,
+  "median_real": -0.0933
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2008,
+  "n": 43,
+  "median_real": -0.1226
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2009,
+  "n": 49,
+  "median_real": -0.1951
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2010,
+  "n": 60,
+  "median_real": -0.1611
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2011,
+  "n": 20,
+  "median_real": -0.1204
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2012,
+  "n": 76,
+  "median_real": -0.071
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2013,
+  "n": 82,
+  "median_real": -0.1783
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2014,
+  "n": 84,
+  "median_real": -0.0752
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2015,
+  "n": 86,
+  "median_real": -0.1061
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2016,
+  "n": 89,
+  "median_real": -0.1339
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2017,
+  "n": 89,
+  "median_real": -0.0852
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2018,
+  "n": 89,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2019,
+  "n": 89,
+  "median_real": -0.1099
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2020,
+  "n": 97,
+  "median_real": -0.0726
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2021,
+  "n": 97,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2022,
+  "n": 97,
+  "median_real": -0.0169
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2023,
+  "n": 97,
+  "median_real": -0.0352
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2024,
+  "n": 97,
+  "median_real": -0.0895
+ },
+ {
+  "group_type": "brand",
+  "group": "SSANGYONG",
+  "to_year": 2025,
+  "n": 97,
+  "median_real": -0.0715
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2005,
+  "n": 185,
+  "median_real": -0.063
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2006,
+  "n": 194,
+  "median_real": -0.0646
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2007,
+  "n": 206,
+  "median_real": -0.0796
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2008,
+  "n": 210,
+  "median_real": -0.0945
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2009,
+  "n": 220,
+  "median_real": -0.154
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2010,
+  "n": 240,
+  "median_real": -0.2007
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2011,
+  "n": 246,
+  "median_real": -0.1209
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2012,
+  "n": 264,
+  "median_real": -0.0717
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2013,
+  "n": 273,
+  "median_real": -0.171
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2014,
+  "n": 274,
+  "median_real": -0.0587
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2015,
+  "n": 289,
+  "median_real": -0.102
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2016,
+  "n": 298,
+  "median_real": -0.1299
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2017,
+  "n": 309,
+  "median_real": -0.0822
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2018,
+  "n": 312,
+  "median_real": -0.0587
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2019,
+  "n": 315,
+  "median_real": -0.0949
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2020,
+  "n": 326,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2021,
+  "n": 333,
+  "median_real": -0.0737
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2022,
+  "n": 336,
+  "median_real": 0.0202
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2023,
+  "n": 343,
+  "median_real": -0.0156
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2024,
+  "n": 346,
+  "median_real": -0.0766
+ },
+ {
+  "group_type": "brand",
+  "group": "Subaru",
+  "to_year": 2025,
+  "n": 347,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2005,
+  "n": 166,
+  "median_real": -0.0474
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2006,
+  "n": 168,
+  "median_real": -0.0342
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2007,
+  "n": 168,
+  "median_real": -0.0472
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2008,
+  "n": 166,
+  "median_real": -0.0787
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2009,
+  "n": 166,
+  "median_real": -0.0966
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2010,
+  "n": 170,
+  "median_real": -0.1235
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2011,
+  "n": 179,
+  "median_real": -0.088
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2012,
+  "n": 189,
+  "median_real": -0.0565
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2013,
+  "n": 194,
+  "median_real": -0.1458
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2014,
+  "n": 203,
+  "median_real": -0.0598
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2015,
+  "n": 213,
+  "median_real": -0.0891
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2016,
+  "n": 225,
+  "median_real": -0.1257
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2017,
+  "n": 239,
+  "median_real": -0.0796
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2018,
+  "n": 253,
+  "median_real": -0.0446
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2019,
+  "n": 269,
+  "median_real": -0.0864
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2020,
+  "n": 284,
+  "median_real": -0.0702
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2021,
+  "n": 303,
+  "median_real": -0.0621
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2022,
+  "n": 312,
+  "median_real": 0.0931
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2023,
+  "n": 324,
+  "median_real": -0.0029
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2024,
+  "n": 328,
+  "median_real": -0.0668
+ },
+ {
+  "group_type": "brand",
+  "group": "Suzuki",
+  "to_year": 2025,
+  "n": 334,
+  "median_real": -0.0636
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2005,
+  "n": 352,
+  "median_real": -0.0462
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2006,
+  "n": 370,
+  "median_real": -0.0271
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2007,
+  "n": 395,
+  "median_real": -0.0428
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2008,
+  "n": 425,
+  "median_real": -0.0529
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2009,
+  "n": 450,
+  "median_real": -0.0923
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2010,
+  "n": 472,
+  "median_real": -0.1312
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2011,
+  "n": 400,
+  "median_real": -0.086
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2012,
+  "n": 524,
+  "median_real": -0.0657
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2013,
+  "n": 542,
+  "median_real": -0.1605
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2014,
+  "n": 581,
+  "median_real": -0.0593
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2015,
+  "n": 614,
+  "median_real": -0.0971
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2016,
+  "n": 650,
+  "median_real": -0.1227
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2017,
+  "n": 679,
+  "median_real": -0.0795
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2018,
+  "n": 719,
+  "median_real": -0.0322
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2019,
+  "n": 755,
+  "median_real": -0.0558
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2020,
+  "n": 805,
+  "median_real": -0.0671
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2021,
+  "n": 863,
+  "median_real": -0.0446
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2022,
+  "n": 908,
+  "median_real": 0.1231
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2023,
+  "n": 941,
+  "median_real": -0.0169
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2024,
+  "n": 975,
+  "median_real": -0.0838
+ },
+ {
+  "group_type": "brand",
+  "group": "Toyota",
+  "to_year": 2025,
+  "n": 1009,
+  "median_real": -0.0497
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2005,
+  "n": 1082,
+  "median_real": -0.0189
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2006,
+  "n": 1161,
+  "median_real": 0.0041
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2007,
+  "n": 1241,
+  "median_real": -0.0255
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2008,
+  "n": 1337,
+  "median_real": -0.0498
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2009,
+  "n": 1412,
+  "median_real": -0.0783
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2010,
+  "n": 1488,
+  "median_real": -0.1561
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2011,
+  "n": 1577,
+  "median_real": -0.0879
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2012,
+  "n": 1654,
+  "median_real": -0.0796
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2013,
+  "n": 1752,
+  "median_real": -0.1769
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2014,
+  "n": 1843,
+  "median_real": -0.0618
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2015,
+  "n": 1934,
+  "median_real": -0.0999
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2016,
+  "n": 2039,
+  "median_real": -0.1268
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2017,
+  "n": 2153,
+  "median_real": -0.0839
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2018,
+  "n": 2244,
+  "median_real": -0.0368
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2019,
+  "n": 2317,
+  "median_real": -0.0649
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2020,
+  "n": 2379,
+  "median_real": -0.0758
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2021,
+  "n": 2430,
+  "median_real": -0.0494
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2022,
+  "n": 2475,
+  "median_real": 0.1349
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2023,
+  "n": 2521,
+  "median_real": -0.0057
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2024,
+  "n": 2554,
+  "median_real": -0.0671
+ },
+ {
+  "group_type": "brand",
+  "group": "VW - VolksWagen",
+  "to_year": 2025,
+  "n": 2587,
+  "median_real": -0.0464
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2005,
+  "n": 213,
+  "median_real": -0.0932
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2006,
+  "n": 238,
+  "median_real": -0.1015
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2007,
+  "n": 243,
+  "median_real": -0.1087
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2008,
+  "n": 272,
+  "median_real": -0.1343
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2009,
+  "n": 297,
+  "median_real": -0.2658
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2010,
+  "n": 318,
+  "median_real": -0.2539
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2011,
+  "n": 325,
+  "median_real": -0.1509
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2012,
+  "n": 338,
+  "median_real": -0.086
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2013,
+  "n": 352,
+  "median_real": -0.1847
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2014,
+  "n": 358,
+  "median_real": -0.0639
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2015,
+  "n": 375,
+  "median_real": -0.1024
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2016,
+  "n": 388,
+  "median_real": -0.1316
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2017,
+  "n": 414,
+  "median_real": -0.0845
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2018,
+  "n": 431,
+  "median_real": -0.0677
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2019,
+  "n": 461,
+  "median_real": -0.1114
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2020,
+  "n": 483,
+  "median_real": -0.0735
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2021,
+  "n": 507,
+  "median_real": -0.0757
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2022,
+  "n": 528,
+  "median_real": 0.0063
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2023,
+  "n": 550,
+  "median_real": -0.0352
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2024,
+  "n": 561,
+  "median_real": -0.0895
+ },
+ {
+  "group_type": "brand",
+  "group": "Volvo",
+  "to_year": 2025,
+  "n": 571,
+  "median_real": -0.0718
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2005,
+  "n": 388,
+  "median_real": -0.0114
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2006,
+  "n": 410,
+  "median_real": 0.0135
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2007,
+  "n": 422,
+  "median_real": -0.012
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2008,
+  "n": 434,
+  "median_real": -0.0376
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2009,
+  "n": 437,
+  "median_real": -0.0641
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2010,
+  "n": 438,
+  "median_real": -0.1564
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2011,
+  "n": 437,
+  "median_real": -0.0802
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2012,
+  "n": 437,
+  "median_real": -0.0776
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2013,
+  "n": 441,
+  "median_real": -0.2032
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2014,
+  "n": 442,
+  "median_real": -0.0396
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2015,
+  "n": 442,
+  "median_real": -0.0998
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2016,
+  "n": 442,
+  "median_real": -0.1253
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2017,
+  "n": 442,
+  "median_real": -0.0789
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2018,
+  "n": 442,
+  "median_real": -0.0328
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2019,
+  "n": 442,
+  "median_real": -0.08
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2020,
+  "n": 442,
+  "median_real": -0.0715
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2021,
+  "n": 442,
+  "median_real": -0.0757
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2022,
+  "n": 439,
+  "median_real": 0.0282
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2023,
+  "n": 439,
+  "median_real": 0.0038
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2024,
+  "n": 442,
+  "median_real": -0.0791
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "alcohol",
+  "to_year": 2025,
+  "n": 442,
+  "median_real": -0.0508
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2005,
+  "n": 1236,
+  "median_real": -0.0525
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2006,
+  "n": 1289,
+  "median_real": -0.0329
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2007,
+  "n": 1334,
+  "median_real": -0.0369
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2008,
+  "n": 1352,
+  "median_real": -0.0379
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2009,
+  "n": 1370,
+  "median_real": -0.0556
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2010,
+  "n": 1384,
+  "median_real": -0.0826
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2011,
+  "n": 1394,
+  "median_real": -0.0875
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2012,
+  "n": 2476,
+  "median_real": -0.0677
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2013,
+  "n": 2607,
+  "median_real": -0.1534
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2014,
+  "n": 2770,
+  "median_real": -0.0554
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2015,
+  "n": 2916,
+  "median_real": -0.0968
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2016,
+  "n": 3072,
+  "median_real": -0.126
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2017,
+  "n": 3207,
+  "median_real": -0.0802
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2018,
+  "n": 3345,
+  "median_real": -0.0424
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2019,
+  "n": 3503,
+  "median_real": -0.0731
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2020,
+  "n": 3664,
+  "median_real": -0.059
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2021,
+  "n": 3818,
+  "median_real": -0.0497
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2022,
+  "n": 3991,
+  "median_real": 0.1104
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2023,
+  "n": 4172,
+  "median_real": -0.0088
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2024,
+  "n": 4308,
+  "median_real": -0.0786
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "diesel",
+  "to_year": 2025,
+  "n": 4513,
+  "median_real": -0.0713
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2005,
+  "n": 7578,
+  "median_real": -0.0418
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2006,
+  "n": 8256,
+  "median_real": -0.0323
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2007,
+  "n": 8954,
+  "median_real": -0.0541
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2008,
+  "n": 9709,
+  "median_real": -0.075
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2009,
+  "n": 10500,
+  "median_real": -0.1061
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2010,
+  "n": 11315,
+  "median_real": -0.1768
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2011,
+  "n": 11315,
+  "median_real": -0.1018
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2012,
+  "n": 12158,
+  "median_real": -0.0848
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2013,
+  "n": 12948,
+  "median_real": -0.1788
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2014,
+  "n": 13746,
+  "median_real": -0.0641
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2015,
+  "n": 14675,
+  "median_real": -0.1016
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2016,
+  "n": 15550,
+  "median_real": -0.1307
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2017,
+  "n": 16417,
+  "median_real": -0.0882
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2018,
+  "n": 17246,
+  "median_real": -0.0489
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2019,
+  "n": 18087,
+  "median_real": -0.0785
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2020,
+  "n": 18896,
+  "median_real": -0.0791
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2021,
+  "n": 19744,
+  "median_real": -0.064
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2022,
+  "n": 20370,
+  "median_real": 0.0887
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2023,
+  "n": 21056,
+  "median_real": -0.0344
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2024,
+  "n": 21671,
+  "median_real": -0.0892
+ },
+ {
+  "group_type": "fuel_group",
+  "group": "gasoline",
+  "to_year": 2025,
+  "n": 22319,
+  "median_real": -0.0654
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2005,
+  "n": 1840,
+  "median_real": -0.0159
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2006,
+  "n": 1991,
+  "median_real": 0.0349
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2007,
+  "n": 2142,
+  "median_real": 0.0091
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2008,
+  "n": 2299,
+  "median_real": -0.0363
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2009,
+  "n": 2461,
+  "median_real": -0.0638
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2010,
+  "n": 2627,
+  "median_real": -0.1439
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2011,
+  "n": 2629,
+  "median_real": -0.0807
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2012,
+  "n": 3014,
+  "median_real": -0.0723
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2013,
+  "n": 3199,
+  "median_real": -0.1824
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2014,
+  "n": 3391,
+  "median_real": -0.0457
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2015,
+  "n": 3606,
+  "median_real": -0.0986
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2016,
+  "n": 3812,
+  "median_real": -0.1241
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2017,
+  "n": 4013,
+  "median_real": -0.0793
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2018,
+  "n": 4206,
+  "median_real": -0.0419
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2019,
+  "n": 4406,
+  "median_real": -0.0847
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2020,
+  "n": 4600,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2021,
+  "n": 4800,
+  "median_real": -0.0743
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2022,
+  "n": 4960,
+  "median_real": 0.04
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2023,
+  "n": 5133,
+  "median_real": -0.0056
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2024,
+  "n": 5284,
+  "median_real": -0.0699
+ },
+ {
+  "group_type": "price_band",
+  "group": "q1",
+  "to_year": 2025,
+  "n": 5454,
+  "median_real": -0.061
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2005,
+  "n": 1840,
+  "median_real": -0.0283
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2006,
+  "n": 1991,
+  "median_real": -0.006
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2007,
+  "n": 2142,
+  "median_real": -0.0283
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2008,
+  "n": 2299,
+  "median_real": -0.0497
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2009,
+  "n": 2461,
+  "median_real": -0.0773
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2010,
+  "n": 2627,
+  "median_real": -0.1657
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2011,
+  "n": 2629,
+  "median_real": -0.0879
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2012,
+  "n": 3014,
+  "median_real": -0.0758
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2013,
+  "n": 3199,
+  "median_real": -0.1798
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2014,
+  "n": 3392,
+  "median_real": -0.0572
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2015,
+  "n": 3607,
+  "median_real": -0.0991
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2016,
+  "n": 3813,
+  "median_real": -0.1274
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2017,
+  "n": 4013,
+  "median_real": -0.0838
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2018,
+  "n": 4207,
+  "median_real": -0.0424
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2019,
+  "n": 4406,
+  "median_real": -0.0722
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2020,
+  "n": 4600,
+  "median_real": -0.0645
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2021,
+  "n": 4801,
+  "median_real": -0.0565
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2022,
+  "n": 4960,
+  "median_real": 0.0832
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2023,
+  "n": 5133,
+  "median_real": -0.016
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2024,
+  "n": 5284,
+  "median_real": -0.0682
+ },
+ {
+  "group_type": "price_band",
+  "group": "q2",
+  "to_year": 2025,
+  "n": 5455,
+  "median_real": -0.0357
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2005,
+  "n": 1841,
+  "median_real": -0.0419
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2006,
+  "n": 1991,
+  "median_real": -0.0314
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2007,
+  "n": 2142,
+  "median_real": -0.0537
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2008,
+  "n": 2299,
+  "median_real": -0.0698
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2009,
+  "n": 2462,
+  "median_real": -0.0992
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2010,
+  "n": 2628,
+  "median_real": -0.174
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2011,
+  "n": 2629,
+  "median_real": -0.094
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2012,
+  "n": 3014,
+  "median_real": -0.0811
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2013,
+  "n": 3199,
+  "median_real": -0.1749
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2014,
+  "n": 3391,
+  "median_real": -0.0637
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2015,
+  "n": 3606,
+  "median_real": -0.101
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2016,
+  "n": 3813,
+  "median_real": -0.1298
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2017,
+  "n": 4013,
+  "median_real": -0.0887
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2018,
+  "n": 4206,
+  "median_real": -0.0426
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2019,
+  "n": 4407,
+  "median_real": -0.0644
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2020,
+  "n": 4601,
+  "median_real": -0.0719
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2021,
+  "n": 4801,
+  "median_real": -0.052
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2022,
+  "n": 4960,
+  "median_real": 0.1128
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2023,
+  "n": 5134,
+  "median_real": -0.0275
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2024,
+  "n": 5284,
+  "median_real": -0.0828
+ },
+ {
+  "group_type": "price_band",
+  "group": "q3",
+  "to_year": 2025,
+  "n": 5455,
+  "median_real": -0.0469
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2005,
+  "n": 1840,
+  "median_real": -0.0516
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2006,
+  "n": 1991,
+  "median_real": -0.0576
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2007,
+  "n": 2142,
+  "median_real": -0.0742
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2008,
+  "n": 2299,
+  "median_real": -0.0914
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2009,
+  "n": 2461,
+  "median_real": -0.1238
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2010,
+  "n": 2627,
+  "median_real": -0.1807
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2011,
+  "n": 2629,
+  "median_real": -0.1135
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2012,
+  "n": 3014,
+  "median_real": -0.0921
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2013,
+  "n": 3199,
+  "median_real": -0.1769
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2014,
+  "n": 3392,
+  "median_real": -0.0683
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2015,
+  "n": 3607,
+  "median_real": -0.1037
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2016,
+  "n": 3813,
+  "median_real": -0.1369
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2017,
+  "n": 4013,
+  "median_real": -0.0984
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2018,
+  "n": 4207,
+  "median_real": -0.0507
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2019,
+  "n": 4406,
+  "median_real": -0.0724
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2020,
+  "n": 4600,
+  "median_real": -0.0926
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2021,
+  "n": 4801,
+  "median_real": -0.0574
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2022,
+  "n": 4960,
+  "median_real": 0.1204
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2023,
+  "n": 5133,
+  "median_real": -0.0369
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2024,
+  "n": 5284,
+  "median_real": -0.0962
+ },
+ {
+  "group_type": "price_band",
+  "group": "q4",
+  "to_year": 2025,
+  "n": 5455,
+  "median_real": -0.0714
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2005,
+  "n": 1841,
+  "median_real": -0.0654
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2006,
+  "n": 1991,
+  "median_real": -0.0875
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2007,
+  "n": 2142,
+  "median_real": -0.106
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2008,
+  "n": 2299,
+  "median_real": -0.1278
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2009,
+  "n": 2462,
+  "median_real": -0.1828
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2010,
+  "n": 2628,
+  "median_real": -0.1989
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2011,
+  "n": 2630,
+  "median_real": -0.1509
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2012,
+  "n": 3015,
+  "median_real": -0.0924
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2013,
+  "n": 3200,
+  "median_real": -0.1621
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2014,
+  "n": 3392,
+  "median_real": -0.078
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2015,
+  "n": 3607,
+  "median_real": -0.1039
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2016,
+  "n": 3813,
+  "median_real": -0.1436
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2017,
+  "n": 4014,
+  "median_real": -0.1013
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2018,
+  "n": 4207,
+  "median_real": -0.065
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2019,
+  "n": 4407,
+  "median_real": -0.0955
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2020,
+  "n": 4601,
+  "median_real": -0.0899
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2021,
+  "n": 4801,
+  "median_real": -0.0674
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2022,
+  "n": 4960,
+  "median_real": 0.0743
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2023,
+  "n": 5134,
+  "median_real": -0.0356
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2024,
+  "n": 5285,
+  "median_real": -0.1081
+ },
+ {
+  "group_type": "price_band",
+  "group": "q5",
+  "to_year": 2025,
+  "n": 5455,
+  "median_real": -0.1051
+ }
+]

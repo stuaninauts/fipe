@@ -63,3 +63,13 @@ def test_no_table_exposes_a_price_per_model():
 @pytest.mark.skipif(not export.PRICES.exists(), reason="needs the local raw data (docs/adr/0001)")
 def test_committed_export_matches_the_local_data():
     assert export.main(["--check"]) == 0
+
+
+def test_explore_cubes_agree_with_the_headline_tables():
+    cube = load("explore_retention").query("group_type == 'all'").drop(columns=["group_type", "group"])
+    base = load("retention_by_age")
+    assert cube.reset_index(drop=True).equals(base.reset_index(drop=True))
+    yearly = load("explore_yearly").query("group_type == 'all'").set_index("to_year")
+    headline = load("yearly_change").set_index("to_year")
+    assert (yearly["n"] == headline["n"]).all()
+    assert (yearly["median_real"] == headline["median_real"]).all()
