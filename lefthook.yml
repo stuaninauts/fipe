@@ -1,0 +1,12 @@
+# Hooks locais de git. Instale uma vez por clone: `uv sync && uv run lefthook install` (o lefthook vem do PyPI, grupo dev).
+# O gitleaks é um binário separado: https://github.com/gitleaks/gitleaks/releases (v8.x no PATH).
+pre-commit:
+  jobs:
+    - name: gitleaks
+      run: gitleaks git --pre-commit --redact --staged --verbose
+    - name: sem dado bruto nem arquivo grande
+      run: bash scripts/hooks/check-staged.sh
+commit-msg:
+  jobs:
+    - name: conventional commits
+      run: bash scripts/hooks/commit-msg.sh {1}
