@@ -50,9 +50,14 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
   `uv run python -m fipe.inflation --update`. `price_real_brl` está em reais do último mês da série
   ([ADR 0004](docs/adr/0004-valores-reais-ipca.md)); mês de referência sem IPCA é erro, nunca NaN silencioso.
 
-## Análises e export ([ADR 0005](docs/adr/0005-analises-e-export.md))
+## Análises e export ([ADR 0005](docs/adr/0005-analises-e-export.md), [ADR 0006](docs/adr/0006-seguir-o-mesmo-carro.md))
 - `fipe/aggregate.py` é o **único** lugar que define um número publicado: só janeiros, mediana com p25/p75 e
   sempre o `n`. Para seguir um carro entre anos, use `CAR`.
+- Métodos principais seguem o mesmo carro: coorte (comprado zero km em janeiro Y), perda por idade e janelas de
+  quatro anos. O corte no mesmo janeiro é secundário e sempre dito como "comparado com um zero km de hoje".
+- Comparação entre grupos (marca, combustível, versão) é relativa ao ano da compra e à faixa de preço. Combustível
+  só com compras a partir de 2011 (troca de rótulo do diesel). Família do modelo: `fipe/family.py`.
+- Número agregado de todos os anos da coorte não vira manchete: depende da janela de anos.
 - `uv run python -m fipe.export` regrava `web/public/data/` (JSON, CSV e `manifest.json`) a partir de
   `data/processed/prices.parquet`; `--check` confere se o versionado está em dia. Nunca editar esses arquivos à mão.
 - O export só tem agregados: nenhuma coluna com código FIPE, modelo ou preço de um carro (`tests/test_export.py`).
