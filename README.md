@@ -1,10 +1,15 @@
 # FIPE
 
-Analysis of Brazilian used car prices from the FIPE price table, from 2004 onward. A Python pipeline builds
-aggregate tables (price indices, depreciation curves, inflation-adjusted values) and a static site will publish
-them at `fipe.stuaninauts.com`.
+How much a car loses value in Brazil, from two decades of the FIPE price table (January 2004 to 2025), following
+the same car over time and adjusting for inflation. A Python pipeline builds aggregate tables and a static,
+bilingual site (PT/EN) publishes them at `fipe.stuaninauts.com`.
 
-> 🚧 Being rebuilt. The pipeline and the site are not here yet.
+> 🚧 The site is not live yet.
+
+The six analyses: what a car keeps after its first year, how much it loses at each age, how what is left depends
+on the year of purchase, the 2022 used-car shock and what was left of it, what holds value (entry versions,
+cheaper cars, some brands, diesel) and what the FIPE table does and does not measure. An explore page compares
+brands, fuels and price bands.
 
 ## Background
 
@@ -20,14 +25,28 @@ FIPE (Fundação Instituto de Pesquisas Econômicas) publishes its table without
 collected locally and never committed; this repository and the site publish only aggregates, with attribution
 ([ADR 0001](docs/adr/0001-dados-brutos-locais.md)).
 
+## How it works
+
+| Step | Code | Output |
+|---|---|---|
+| Collect (rate limited, resumable) | `fipe/collect.py` | local SQLite cache in `data/raw/` |
+| Clean (car identity, prices, duplicates) | `fipe/clean.py` | `data/processed/prices.parquet` (local) |
+| Inflation (IBGE IPCA) | `fipe/inflation.py` | real values, `reference/ipca.csv` |
+| Analyses (cohort, loss by age, what holds value) | `fipe/aggregate.py` | `web/public/data/` (aggregates only) |
+| Site (Astro, charts drawn at build time) | `web/` | `fipe.stuaninauts.com` |
+
+The export is pinned by golden tests, since CI has no raw data.
+
 ## Development
 
-Requires [uv](https://docs.astral.sh/uv/) (Python 3.13).
+Requires [uv](https://docs.astral.sh/uv/) (Python 3.13) and, for the site, Node (version in `web/.node-version`).
 
 ```bash
 uv sync
 uv run lefthook install   # git hooks: secret scan, raw-data guard, commit message format
 uv run ruff check && uv run ruff format --check && uv run pytest
+uv run python -m fipe.pipeline && uv run python -m fipe.export   # needs the local raw data
+cd web && npm ci && npm run check && npm run build
 ```
 
 Decisions are recorded (in Portuguese) in [`docs/adr/`](docs/adr/). Contributions go through a branch and a pull
