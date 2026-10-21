@@ -1,0 +1,178 @@
+[
+ {
+  "ref_year": 2004,
+  "ref_month": 1,
+  "prices": 9970,
+  "new_car_prices": 767,
+  "codigos_fipe": 2275,
+  "brands": 58
+ },
+ {
+  "ref_year": 2005,
+  "ref_month": 1,
+  "prices": 10806,
+  "new_car_prices": 846,
+  "codigos_fipe": 2453,
+  "brands": 58
+ },
+ {
+  "ref_year": 2006,
+  "ref_month": 1,
+  "prices": 11590,
+  "new_car_prices": 876,
+  "codigos_fipe": 2624,
+  "brands": 59
+ },
+ {
+  "ref_year": 2007,
+  "ref_month": 1,
+  "prices": 12404,
+  "new_car_prices": 906,
+  "codigos_fipe": 2792,
+  "brands": 61
+ },
+ {
+  "ref_year": 2008,
+  "ref_month": 1,
+  "prices": 13247,
+  "new_car_prices": 936,
+  "codigos_fipe": 2949,
+  "brands": 64
+ },
+ {
+  "ref_year": 2009,
+  "ref_month": 1,
+  "prices": 13991,
+  "new_car_prices": 850,
+  "codigos_fipe": 3106,
+  "brands": 68
+ },
+ {
+  "ref_year": 2010,
+  "ref_month": 1,
+  "prices": 15109,
+  "new_car_prices": 1023,
+  "codigos_fipe": 3324,
+  "brands": 73
+ },
+ {
+  "ref_year": 2011,
+  "ref_month": 1,
+  "prices": 16103,
+  "new_car_prices": 1025,
+  "codigos_fipe": 3523,
+  "brands": 78
+ },
+ {
+  "ref_year": 2012,
+  "ref_month": 1,
+  "prices": 17150,
+  "new_car_prices": 1147,
+  "codigos_fipe": 3719,
+  "brands": 79
+ },
+ {
+  "ref_year": 2013,
+  "ref_month": 1,
+  "prices": 18271,
+  "new_car_prices": 1310,
+  "codigos_fipe": 4013,
+  "brands": 83
+ },
+ {
+  "ref_year": 2014,
+  "ref_month": 1,
+  "prices": 19411,
+  "new_car_prices": 1375,
+  "codigos_fipe": 4272,
+  "brands": 86
+ },
+ {
+  "ref_year": 2015,
+  "ref_month": 1,
+  "prices": 20332,
+  "new_car_prices": 1265,
+  "codigos_fipe": 4535,
+  "brands": 87
+ },
+ {
+  "ref_year": 2016,
+  "ref_month": 1,
+  "prices": 21275,
+  "new_car_prices": 1202,
+  "codigos_fipe": 4780,
+  "brands": 87
+ },
+ {
+  "ref_year": 2017,
+  "ref_month": 1,
+  "prices": 22495,
+  "new_car_prices": 1455,
+  "codigos_fipe": 5106,
+  "brands": 87
+ },
+ {
+  "ref_year": 2018,
+  "ref_month": 1,
+  "prices": 23149,
+  "new_car_prices": 1114,
+  "codigos_fipe": 5318,
+  "brands": 87
+ },
+ {
+  "ref_year": 2019,
+  "ref_month": 1,
+  "prices": 24111,
+  "new_car_prices": 1102,
+  "codigos_fipe": 5596,
+  "brands": 89
+ },
+ {
+  "ref_year": 2020,
+  "ref_month": 1,
+  "prices": 25053,
+  "new_car_prices": 1043,
+  "codigos_fipe": 5888,
+  "brands": 90
+ },
+ {
+  "ref_year": 2021,
+  "ref_month": 1,
+  "prices": 25835,
+  "new_car_prices": 1028,
+  "codigos_fipe": 6069,
+  "brands": 90
+ },
+ {
+  "ref_year": 2022,
+  "ref_month": 1,
+  "prices": 26660,
+  "new_car_prices": 983,
+  "codigos_fipe": 6279,
+  "brands": 91
+ },
+ {
+  "ref_year": 2023,
+  "ref_month": 1,
+  "prices": 27242,
+  "new_car_prices": 790,
+  "codigos_fipe": 6532,
+  "brands": 92
+ },
+ {
+  "ref_year": 2024,
+  "ref_month": 1,
+  "prices": 28098,
+  "new_car_prices": 824,
+  "codigos_fipe": 6770,
+  "brands": 97
+ },
+ {
+  "ref_year": 2025,
+  "ref_month": 1,
+  "prices": 29001,
+  "new_car_prices": 945,
+  "codigos_fipe": 6971,
+  "brands": 98
+ }
+]

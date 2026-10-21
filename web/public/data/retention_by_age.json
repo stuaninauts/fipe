@@ -1,0 +1,258 @@
+[
+ {
+  "scope": "all",
+  "age": 0,
+  "n": 13517,
+  "median_ratio": 0.9002,
+  "p25_ratio": 0.8822,
+  "p75_ratio": 0.9163
+ },
+ {
+  "scope": "all",
+  "age": 1,
+  "n": 17364,
+  "median_ratio": 0.86,
+  "p25_ratio": 0.8304,
+  "p75_ratio": 0.8841
+ },
+ {
+  "scope": "all",
+  "age": 2,
+  "n": 15075,
+  "median_ratio": 0.7983,
+  "p25_ratio": 0.7561,
+  "p75_ratio": 0.8374
+ },
+ {
+  "scope": "all",
+  "age": 3,
+  "n": 11175,
+  "median_ratio": 0.7214,
+  "p25_ratio": 0.6733,
+  "p75_ratio": 0.7685
+ },
+ {
+  "scope": "all",
+  "age": 4,
+  "n": 8126,
+  "median_ratio": 0.6521,
+  "p25_ratio": 0.5981,
+  "p75_ratio": 0.7038
+ },
+ {
+  "scope": "all",
+  "age": 5,
+  "n": 5851,
+  "median_ratio": 0.5902,
+  "p25_ratio": 0.5297,
+  "p75_ratio": 0.6492
+ },
+ {
+  "scope": "all",
+  "age": 6,
+  "n": 4187,
+  "median_ratio": 0.5355,
+  "p25_ratio": 0.468,
+  "p75_ratio": 0.5963
+ },
+ {
+  "scope": "all",
+  "age": 7,
+  "n": 2998,
+  "median_ratio": 0.4835,
+  "p25_ratio": 0.4108,
+  "p75_ratio": 0.5503
+ },
+ {
+  "scope": "all",
+  "age": 8,
+  "n": 2169,
+  "median_ratio": 0.4391,
+  "p25_ratio": 0.3615,
+  "p75_ratio": 0.5068
+ },
+ {
+  "scope": "all",
+  "age": 9,
+  "n": 1594,
+  "median_ratio": 0.4,
+  "p25_ratio": 0.3197,
+  "p75_ratio": 0.4724
+ },
+ {
+  "scope": "all",
+  "age": 10,
+  "n": 1176,
+  "median_ratio": 0.3606,
+  "p25_ratio": 0.2829,
+  "p75_ratio": 0.436
+ },
+ {
+  "scope": "all",
+  "age": 11,
+  "n": 894,
+  "median_ratio": 0.325,
+  "p25_ratio": 0.2522,
+  "p75_ratio": 0.4076
+ },
+ {
+  "scope": "all",
+  "age": 12,
+  "n": 685,
+  "median_ratio": 0.2977,
+  "p25_ratio": 0.225,
+  "p75_ratio": 0.3799
+ },
+ {
+  "scope": "all",
+  "age": 13,
+  "n": 534,
+  "median_ratio": 0.2678,
+  "p25_ratio": 0.1981,
+  "p75_ratio": 0.3557
+ },
+ {
+  "scope": "all",
+  "age": 14,
+  "n": 420,
+  "median_ratio": 0.2424,
+  "p25_ratio": 0.1737,
+  "p75_ratio": 0.3307
+ },
+ {
+  "scope": "all",
+  "age": 15,
+  "n": 327,
+  "median_ratio": 0.2221,
+  "p25_ratio": 0.1648,
+  "p75_ratio": 0.3056
+ },
+ {
+  "scope": "recent",
+  "age": 0,
+  "n": 2891,
+  "median_ratio": 0.9202,
+  "p25_ratio": 0.8863,
+  "p75_ratio": 0.946
+ },
+ {
+  "scope": "recent",
+  "age": 1,
+  "n": 3620,
+  "median_ratio": 0.8769,
+  "p25_ratio": 0.8386,
+  "p75_ratio": 0.9152
+ },
+ {
+  "scope": "recent",
+  "age": 2,
+  "n": 2795,
+  "median_ratio": 0.8097,
+  "p25_ratio": 0.7573,
+  "p75_ratio": 0.8658
+ },
+ {
+  "scope": "recent",
+  "age": 3,
+  "n": 1909,
+  "median_ratio": 0.7369,
+  "p25_ratio": 0.6848,
+  "p75_ratio": 0.7999
+ },
+ {
+  "scope": "recent",
+  "age": 4,
+  "n": 1310,
+  "median_ratio": 0.6775,
+  "p25_ratio": 0.6213,
+  "p75_ratio": 0.739
+ },
+ {
+  "scope": "recent",
+  "age": 5,
+  "n": 921,
+  "median_ratio": 0.62,
+  "p25_ratio": 0.5585,
+  "p75_ratio": 0.683
+ },
+ {
+  "scope": "recent",
+  "age": 6,
+  "n": 674,
+  "median_ratio": 0.562,
+  "p25_ratio": 0.4924,
+  "p75_ratio": 0.6334
+ },
+ {
+  "scope": "recent",
+  "age": 7,
+  "n": 511,
+  "median_ratio": 0.512,
+  "p25_ratio": 0.4344,
+  "p75_ratio": 0.5866
+ },
+ {
+  "scope": "recent",
+  "age": 8,
+  "n": 404,
+  "median_ratio": 0.4701,
+  "p25_ratio": 0.3811,
+  "p75_ratio": 0.5336
+ },
+ {
+  "scope": "recent",
+  "age": 9,
+  "n": 325,
+  "median_ratio": 0.4295,
+  "p25_ratio": 0.3428,
+  "p75_ratio": 0.4842
+ },
+ {
+  "scope": "recent",
+  "age": 10,
+  "n": 247,
+  "median_ratio": 0.3801,
+  "p25_ratio": 0.2891,
+  "p75_ratio": 0.4532
+ },
+ {
+  "scope": "recent",
+  "age": 11,
+  "n": 196,
+  "median_ratio": 0.3592,
+  "p25_ratio": 0.2624,
+  "p75_ratio": 0.4238
+ },
+ {
+  "scope": "recent",
+  "age": 12,
+  "n": 145,
+  "median_ratio": 0.3138,
+  "p25_ratio": 0.2299,
+  "p75_ratio": 0.3971
+ },
+ {
+  "scope": "recent",
+  "age": 13,
+  "n": 111,
+  "median_ratio": 0.2805,
+  "p25_ratio": 0.1948,
+  "p75_ratio": 0.3714
+ },
+ {
+  "scope": "recent",
+  "age": 14,
+  "n": 86,
+  "median_ratio": 0.2491,
+  "p25_ratio": 0.1714,
+  "p75_ratio": 0.3433
+ },
+ {
+  "scope": "recent",
+  "age": 15,
+  "n": 65,
+  "median_ratio": 0.2232,
+  "p25_ratio": 0.1597,
+  "p75_ratio": 0.3182
+ }
+]
