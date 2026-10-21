@@ -1,0 +1,13 @@
+# Headers HTTP servidos pela Cloudflare (Workers static assets).
+# script-src/style-src NÃO entram aqui: ficam na <meta> CSP que o Astro gera com hashes
+# (security.csp em astro.config.mjs). Políticas se somam, então repetir aqui bloquearia os hashes.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

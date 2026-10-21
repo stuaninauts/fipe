@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { change, int, manifest, month, one, yearly } from '../lib/data';
+import { yearBars } from '../lib/charts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+const s = one(yearly, { to_year: 2022 });
+const others = yearly.filter((r) => r.to_year !== 2022).map((r) => r.median_real);
+const y2010 = one(yearly, { to_year: 2010 });
+const y2013 = one(yearly, { to_year: 2013 });
+const base = month(manifest.price_base, lang, t(lang, 'months.short'));
+
+const chart = yearBars(
+  yearly.map((r) => ({ year: r.to_year, value: r.median_real })),
+  {
+    focus: [2022],
+    labelled: [2010, 2013],
+    format: (v) => change(v, lang, 0),
+    domain: [-0.22, 0.13],
+    aria: L(
+      'Barras por ano com a variação real mediana do preço do mesmo carro usado de um janeiro para o outro. Só 2022 fica acima de zero.',
+      'Bars per year with the median real change in the price of the same used car from one January to the next. Only 2022 is above zero.',
+    ),
+  },
+);
+---
+
+<Base lang={lang} page="shock" title={L('O choque de 2022', 'The 2022 shock')}>
+  <article class="wrap page">
+    <p class="eyebrow">{t(lang, 'nav.analyses')}</p>
+    <h1>{L('Em 2022, carro usado virou investimento', 'In 2022, a used car became an investment')}</h1>
+    <p class="lede">
+      {L(
+        `De janeiro de 2021 a janeiro de 2022, o mesmo carro usado ficou ${change(s.median_nominal, lang)} mais caro. Descontada a inflação, ${change(s.median_real, lang)}: a única alta real em ${yearly.length} anos.`,
+        `From January 2021 to January 2022 the same used car got ${change(s.median_nominal, lang)} more expensive. After inflation, ${change(s.median_real, lang)}: the only real gain in ${yearly.length} years.`,
+      )}
+    </p>
+
+    <figure class="figure">
+      <Fragment set:html={chart} />
+      <figcaption>
+        {L(
+          `Variação real mediana do preço do mesmo carro usado, de janeiro a janeiro (ano de chegada no eixo). ${t(lang, 'unit.real')} ${base}.`,
+          `Median real change in the price of the same used car, January to January (year of arrival on the axis). ${t(lang, 'unit.real')} ${base}.`,
+        )}
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>
+        {L(
+          `Em todos os outros anos o carro perdeu valor real, entre ${change(Math.max(...others), lang, 0)} e ${change(Math.min(...others), lang, 0)} por ano. É o esperado: ele fica um ano mais velho entre uma tabela e a outra.`,
+          `In every other year the car lost real value, between ${change(Math.max(...others), lang, 0)} and ${change(Math.min(...others), lang, 0)} a year. That is the expected path: it is one year older from one table to the next.`,
+        )}
+      </p>
+      <p>
+        {L(
+          `Em 2022 o zero km também subiu: ${change(s.new_median_nominal, lang)} no mesmo código FIPE, contra ${change(s.ipca, lang)} de IPCA. Metade dos ${int(s.n, lang)} carros usados comparados subiu entre ${change(s.p25_real, lang)} e ${change(s.p75_real, lang)} acima da inflação.`,
+          `Brand-new prices rose too in 2022: ${change(s.new_median_nominal, lang)} for the same FIPE code, against ${change(s.ipca, lang)} of IPCA inflation. Half of the ${int(s.n, lang)} used cars compared rose between ${change(s.p25_real, lang)} and ${change(s.p75_real, lang)} beyond inflation.`,
+        )}
+      </p>
+      <h2>{L('Dois tombos que ainda pedem explicação', 'Two drops still waiting for an explanation')}</h2>
+      <p>
+        {L(
+          `Em ${y2010.to_year} e ${y2013.to_year} o usado caiu ${change(y2010.median_nominal, lang, 0)} e ${change(y2013.median_nominal, lang, 0)} no valor nominal. Nos mesmos anos o zero km caiu ${change(y2010.new_median_nominal, lang)} e ${change(y2013.new_median_nominal, lang)}, as únicas quedas claras no preço dos novos na série. Os dados mostram que o usado acompanhou o novo; a causa ainda não foi verificada aqui.`,
+          `In ${y2010.to_year} and ${y2013.to_year} used prices fell ${change(y2010.median_nominal, lang, 0)} and ${change(y2013.median_nominal, lang, 0)} in nominal terms. In the same years brand-new prices fell ${change(y2010.new_median_nominal, lang)} and ${change(y2013.new_median_nominal, lang)}, the only clear drops in new car prices in the series. The data shows used prices following new ones; the cause has not been checked here.`,
+        )}
+      </p>
+      <p class="note">
+        {L(
+          'Como foi medido: cada carro (código FIPE, ano-modelo e grupo de combustível) presente em dois janeiros seguidos vira um par; o número é a mediana da variação dos pares. ',
+          'How it was measured: each car (FIPE code, model year and fuel group) present in two consecutive Januaries makes a pair; the number is the median change across pairs. ',
+        )}
+        <a href={path(lang, 'method')}>{t(lang, 'nav.method')}</a>.
+      </p>
+    </div>
+
+    <details class="data">
+      <summary>{t(lang, 'table.show')}</summary>
+      <div class="table-wrap">
+        <table class="num">
+          <thead>
+            <tr>
+              <th>{L('Período', 'Period')}</th>
+              <th>{t(lang, 'table.n')}</th>
+              <th>{L('Nominal', 'Nominal')}</th>
+              <th>{L('Real', 'Real')}</th>
+              <th>IPCA</th>
+              <th>{L('Zero km (nominal)', 'Brand new (nominal)')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {yearly.map((r) => (
+              <tr class={r.to_year === 2022 ? 'focus' : undefined}>
+                <td>{r.from_year}–{r.to_year}</td>
+                <td>{int(r.n, lang)}</td>
+                <td>{change(r.median_nominal, lang)}</td>
+                <td>{change(r.median_real, lang)}</td>
+                <td>{change(r.ipca, lang)}</td>
+                <td>{change(r.new_median_nominal, lang)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </article>
+</Base>

@@ -1,0 +1,47 @@
+---
+import { hreflang, otherLang, path, t, type Lang, type Page } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  page?: Page;
+  alternate?: string;
+}
+
+const { lang, page, alternate } = Astro.props;
+const analyses: Page[] = ['shock', 'brandNew', 'depreciation'];
+const links: { key: Page | 'analyses'; label: string; href: string; current: boolean }[] = [
+  { key: 'analyses', label: t(lang, 'nav.analyses'), href: `${path(lang, 'home')}#analises`, current: !!page && analyses.includes(page) },
+  { key: 'explore', label: t(lang, 'nav.explore'), href: path(lang, 'explore'), current: page === 'explore' },
+  { key: 'method', label: t(lang, 'nav.method'), href: path(lang, 'method'), current: page === 'method' },
+  { key: 'quality', label: t(lang, 'nav.quality'), href: path(lang, 'quality'), current: page === 'quality' },
+];
+const other = otherLang(lang);
+---
+
+<header>
+  <nav class="wrap top" aria-label={t(lang, 'nav.label')}>
+    <a class="brand" href={path(lang, 'home')}>{t(lang, 'site.name')}</a>
+    <ul>
+      {links.map((l) => (
+        <li>
+          <a href={l.href} aria-current={l.current ? 'page' : undefined}>{l.label}</a>
+        </li>
+      ))}
+      {alternate && (
+        <li>
+          <a class="lang" href={alternate} hreflang={hreflang(other)} lang={hreflang(other)} aria-label={t(lang, 'nav.langLabel')}>{t(lang, 'nav.lang')}</a>
+        </li>
+      )}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .top { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; justify-content: space-between; padding-top: 12px; padding-bottom: 12px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; }
+  li a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; color: var(--muted); text-decoration: none; }
+  li a:hover { color: var(--ink); }
+  li a[aria-current='page'] { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
+  .lang { border: 1px solid var(--line); border-radius: 4px; margin-left: 6px; font-family: var(--mono); font-size: 13px; }
+</style>

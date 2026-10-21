@@ -1,0 +1,142 @@
+/* Fonts are self-hosted (bundled from @fontsource), no external CDN (docs/adr/0002). */
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-serif/500.css';
+@import '@fontsource/ibm-plex-serif/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+:root {
+  color-scheme: light dark;
+  --bg: #f7f1ef;
+  --surface: #fcf8f7;
+  --ink: #2d2828;
+  --muted: #554c4c;
+  --soft: #6f6564;
+  --line: #d5c4c0;
+  --line-soft: #e9dcd9;
+  --accent: #8c4f5a;
+  --accent-ink: #8c4f5a;
+  --accent-tint: #f0e3e5;
+  --blue: #2f4a66;
+  --blue-ink: #2f4a66;
+  --blue-tint: #e5ebf2;
+  --bar: #d5c4c0;
+  --bar-ref: #b9aeaa;
+  --chip-on: #ffffff;
+  /* Categorical series (explore page): validated with the dataviz palette checker on both surfaces.
+     Light aqua and yellow sit below 3:1 against the surface, so series always carry direct labels and a table. */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --band: #e9dcd9;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --serif: 'IBM Plex Serif', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --wrap: 1120px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1a18;
+    --surface: #242220;
+    --ink: #f2ebe8;
+    --muted: #d3c8c4;
+    --soft: #b4a8a4;
+    --line: #4c4442;
+    --line-soft: #3a3432;
+    --accent-ink: #e2a3ae;
+    --accent-tint: #3d2b2f;
+    --blue-ink: #a9c3de;
+    --blue-tint: #26313d;
+    --bar: #5a514e;
+    --bar-ref: #7a706c;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --band: #3a3432;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; }
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--blue-ink); outline-offset: 2px; }
+summary { cursor: pointer; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus { left: 16px; top: 16px; background: var(--ink); color: var(--bg); padding: 8px 12px; z-index: 10; }
+.eyebrow { font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--soft); }
+.mono { font-family: var(--mono); }
+
+/* Page furniture */
+.page { padding-top: 40px; padding-bottom: 72px; display: grid; gap: 28px; }
+.lede { font-size: clamp(19px, 2.4vw, 22px); color: var(--muted); max-width: 760px; line-height: 1.5; }
+.prose { max-width: 720px; display: grid; gap: 16px; }
+.prose h2 { font-size: 24px; margin-top: 16px; }
+.note { font-size: 14px; color: var(--soft); max-width: 720px; }
+.big { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 7vw, 64px); line-height: 1; color: var(--accent-ink); }
+.figure { display: grid; gap: 10px; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 6px; padding: 20px; }
+.figure figcaption { font-size: 14px; color: var(--soft); }
+.cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card { display: grid; gap: 10px; align-content: start; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 6px; padding: 22px; color: var(--ink); text-decoration: none; }
+.card:hover { border-color: var(--line); }
+.card h3 { font-size: 20px; }
+.card p { color: var(--muted); font-size: 16px; }
+details.data { font-size: 14px; }
+details.data summary { min-height: 44px; display: flex; align-items: center; color: var(--accent-ink); }
+.table-wrap { overflow-x: auto; }
+table.num { border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
+table.num th, table.num td { padding: 6px 12px; text-align: right; border-bottom: 1px solid var(--line-soft); white-space: nowrap; }
+table.num th:first-child, table.num td:first-child { text-align: left; }
+table.num thead th { color: var(--soft); font-weight: 500; }
+table.num tr.focus td { color: var(--accent-ink); font-weight: 500; }
+.small-n { opacity: 0.45; }
+
+/* Verdict chips */
+.chip { display: inline-block; font-weight: 600; font-size: 14px; line-height: 1.3; padding: 6px 12px; border-radius: 4px; }
+.chip-myth { background: var(--accent); color: var(--chip-on); }
+.chip-truth { background: var(--blue); color: var(--chip-on); }
+.chip-edge { background: var(--blue-tint); color: var(--blue-ink); }
+.chip-neutral { background: var(--line-soft); color: var(--ink); }
+.chip-lg { font-size: 16px; padding: 8px 16px; }
+.chip-sm { font-size: 12px; padding: 4px 8px; width: 140px; text-align: center; }
+
+/* Charts drawn by Plot (src/lib/charts.ts): the rules Plot would inline, plus our colors. */
+svg.chart { display: block; height: auto; max-width: 100%; overflow: visible; font-family: var(--mono); font-size: 12px; color: var(--soft); }
+svg.chart text { white-space: pre; }
+svg.chart .bar { color: var(--bar); }
+svg.chart .bar-ref { color: var(--bar-ref); }
+svg.chart .bar-focus.tone-accent { color: var(--accent); }
+svg.chart .bar-focus.tone-blue { color: var(--blue); }
+svg.chart .bar-label { color: var(--muted); font-size: 13px; }
+svg.chart .rule-mean, svg.chart .baseline { color: var(--soft); }
+figure { margin: 0; }
+svg.chart .dot { color: var(--bar-ref); }
+svg.chart .dot-focus { color: var(--accent); }
+svg.chart .limit-95, svg.chart .limit-998 { color: var(--soft); }
+svg.chart [aria-label='x-axis label'], svg.chart [aria-label='y-axis tick label'], svg.chart [aria-label='x-axis tick label'] { color: var(--soft); }
+svg.chart .band { color: var(--band); }
+svg.chart .line { color: var(--accent); }
+svg.chart .line-ref { color: var(--bar-ref); }
+svg.chart .series-1 { color: var(--series-1); }
+svg.chart .series-2 { color: var(--series-2); }
+svg.chart .series-3 { color: var(--series-3); }
+svg.chart .series-4 { color: var(--series-4); }
+svg.chart .series-5 { color: var(--series-5); }
+svg.chart .label-strong { color: var(--ink); font-weight: 500; }
+svg.chart-narrow { display: none; }
+@media (max-width: 640px) {
+  svg.chart-wide { display: none; }
+  svg.chart-narrow { display: block; }
+}

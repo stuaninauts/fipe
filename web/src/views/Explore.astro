@@ -1,0 +1,165 @@
+---
+/** Explorar: the explore cubes of the export, by brand, fuel group or price band. The first state is
+ *  rendered at build time (works without JS); src/scripts/explore.ts takes over the controls. */
+import * as Plot from '@observablehq/plot';
+import Base from '../layouts/Base.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { exploreRetention, exploreYearly, int, share } from '../lib/data';
+import { render } from '../lib/charts';
+import {
+  availableGroups, chartOptions, defaultGroups, groupLabel, MAX_GROUPS, MIN_N, points,
+  type By, type Labels, type State,
+} from '../lib/explore';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+
+const labels: Labels = {
+  fuel: { gasoline: L('Gasolina e flex', 'Petrol and flex'), alcohol: L('Álcool', 'Ethanol'), diesel: 'Diesel' },
+  band: {
+    q1: L('Mais baratos', 'Cheapest'),
+    q2: L('2º quinto', '2nd fifth'),
+    q3: L('3º quinto', '3rd fifth'),
+    q4: L('4º quinto', '4th fifth'),
+    q5: L('Mais caros', 'Most expensive'),
+  },
+  age: L('idade (anos) →', 'age (years) →'),
+  year: L('ano →', 'year →'),
+  retention: L('Linhas com a parcela do preço de zero km mantida por idade, uma por grupo escolhido.', 'Lines with the share of the brand-new price kept by age, one per chosen group.'),
+  yearly: L('Linhas com a variação real anual do mesmo carro usado, uma por grupo escolhido.', 'Lines with the yearly real change of the same used car, one per chosen group.'),
+};
+
+const initial: State = { view: 'retention', by: 'price_band', scope: 'all', groups: defaultGroups(exploreRetention, 'price_band') };
+const fmtShare = (v: number) => share(v, lang);
+const pts = points(initial, exploreRetention, exploreYearly, labels);
+const chart = render(chartOptions(Plot, initial, pts, fmtShare, labels));
+const byOptions: { id: By; label: string }[] = [
+  { id: 'price_band', label: L('Faixa de preço do zero km', 'Brand-new price band') },
+  { id: 'brand', label: L('Marca', 'Brand') },
+  { id: 'fuel_group', label: L('Combustível', 'Fuel') },
+];
+const groups = Object.fromEntries(byOptions.map((b) => [b.id, availableGroups(exploreRetention, b.id)]));
+const config = {
+  lang,
+  labels,
+  initial,
+  maxGroups: MAX_GROUPS,
+  minN: MIN_N,
+  text: {
+    groupsHint: L(`Escolha até ${MAX_GROUPS}.`, `Pick up to ${MAX_GROUPS}.`),
+    tooMany: L(`No máximo ${MAX_GROUPS} grupos ao mesmo tempo.`, `At most ${MAX_GROUPS} groups at a time.`),
+    empty: L('Escolha pelo menos um grupo.', 'Pick at least one group.'),
+    age: L('Idade', 'Age'),
+    year: L('Ano', 'Year'),
+    loading: L('Carregando…', 'Loading…'),
+    error: L('Não foi possível carregar os dados.', 'Could not load the data.'),
+  },
+};
+---
+
+<Base lang={lang} page="explore" title={t(lang, 'nav.explore')}>
+  <article class="wrap page">
+    <p class="eyebrow">{t(lang, 'nav.explore')}</p>
+    <h1>{L('Quem segura mais valor', 'Who holds value best')}</h1>
+    <p class="lede">
+      {L(
+        'Compare faixas de preço, marcas e combustíveis: quanto do preço de novo cada grupo mantém com o tempo e como variou de um ano para o outro.',
+        'Compare price bands, brands and fuels: how much of the brand-new price each group keeps over time and how it moved from year to year.',
+      )}
+    </p>
+
+    <div id="explore" class="explore" data-config={JSON.stringify(config)} data-groups={JSON.stringify(groups)}>
+      <form class="controls" hidden>
+        <fieldset>
+          <legend>{L('O que ver', 'What to see')}</legend>
+          <label><input type="radio" name="view" value="retention" checked /> {L('Valor mantido por idade', 'Value kept by age')}</label>
+          <label><input type="radio" name="view" value="yearly" /> {L('Variação real ano a ano', 'Real change year to year')}</label>
+        </fieldset>
+        <fieldset>
+          <legend>{L('Comparar por', 'Compare by')}</legend>
+          <select name="by" aria-label={L('Comparar por', 'Compare by')}>
+            {byOptions.map((b) => <option value={b.id} selected={b.id === initial.by}>{b.label}</option>)}
+          </select>
+        </fieldset>
+        <fieldset class="scope">
+          <legend>{L('Período', 'Period')}</legend>
+          <label><input type="radio" name="scope" value="all" checked /> {L('Todos os janeiros', 'All Januaries')}</label>
+          <label><input type="radio" name="scope" value="recent" /> {L('Últimos 5', 'Last 5')}</label>
+        </fieldset>
+        <fieldset class="groups">
+          <legend>{L('Grupos', 'Groups')} <span class="hint" data-hint></span></legend>
+          <div class="group-list" data-groups-list></div>
+        </fieldset>
+        <p class="status" role="status" aria-live="polite" data-status></p>
+      </form>
+
+      <figure class="figure">
+        <div data-chart><Fragment set:html={chart} /></div>
+        <figcaption data-caption>
+          {L(
+            `Parcela mediana do preço de zero km mantida por idade, no mesmo janeiro. Pontos com menos de ${MIN_N} preços ficam fora das linhas.`,
+            `Median share of the brand-new price kept by age, same January. Points resting on fewer than ${MIN_N} prices are left out of the lines.`,
+          )}
+        </figcaption>
+      </figure>
+
+      <details class="data">
+        <summary>{t(lang, 'table.show')}</summary>
+        <div class="table-wrap" data-table>
+          <table class="num">
+            <thead>
+              <tr>
+                <th>{L('Idade', 'Age')}</th>
+                {initial.groups.map((g) => <th>{groupLabel(initial, g, labels)}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {[...new Set(pts.map((p) => p.x))].map((x) => (
+                <tr>
+                  <td>{x}</td>
+                  {initial.groups.map((g) => {
+                    const p = pts.find((q) => q.group === g && q.x === x);
+                    return <td class={p?.small ? 'small-n' : undefined}>{p ? `${share(p.y, lang)} (n=${int(p.n, lang)})` : '–'}</td>;
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
+    <p class="note">
+      {L(
+        `Faixa de preço: quintos do preço de zero km dentro de cada janeiro (na variação ano a ano, quintos do preço do usado no primeiro janeiro). Marcas com pelo menos 300 comparações. Medianas, sempre com o n. `,
+        `Price band: fifths of the brand-new price within each January (for the year-to-year change, fifths of the used price in the first January). Brands with at least 300 comparisons. Medians, always with n. `,
+      )}
+      <a href={path(lang, 'method')}>{t(lang, 'nav.method')}</a>.
+    </p>
+  </article>
+</Base>
+
+<script>
+  import '../scripts/explore.ts';
+</script>
+
+<style is:global>
+  /* Global: the group checkboxes are created by src/scripts/explore.ts, outside Astro's scoped styles. */
+  .explore { display: grid; gap: 20px; }
+  .controls { display: grid; gap: 14px 28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); align-items: start; }
+  .controls[hidden] { display: none; }
+  .explore fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
+  .explore legend { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--soft); padding: 0; margin-bottom: 4px; }
+  .explore label { display: flex; align-items: center; gap: 8px; min-height: 32px; font-size: 15px; cursor: pointer; }
+  .explore input[type='radio'], .explore input[type='checkbox'] { width: 18px; height: 18px; accent-color: var(--accent); }
+  .explore select { min-height: 40px; font: inherit; font-size: 15px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .explore .groups { grid-column: 1 / -1; }
+  .explore .group-list { display: flex; flex-wrap: wrap; gap: 2px 18px; }
+  .explore .hint { text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .explore .status { grid-column: 1 / -1; font-size: 14px; color: var(--accent-ink); min-height: 20px; }
+  .explore .scope[hidden] { display: none; }
+</style>

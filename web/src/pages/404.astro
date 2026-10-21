@@ -1,0 +1,25 @@
+---
+/** One 404 for both languages (Cloudflare serves it for any unknown path). */
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n/ui';
+---
+
+<Base lang="pt" title={t('pt', 'notFound.title')}>
+  <section class="wrap nf">
+    <h1>404 · {t('pt', 'notFound.title')}</h1>
+    <p>{t('pt', 'notFound.body')} <span lang="en">/ {t('en', 'notFound.body')}</span></p>
+    <p class="actions">
+      <a class="btn primary" href="/">{t('pt', 'notFound.back')}</a>
+      <a class="btn" href="/en/" lang="en">{t('en', 'notFound.back')}</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .nf { padding-top: 96px; padding-bottom: 96px; display: grid; gap: 18px; justify-items: start; }
+  h1 { font-size: clamp(28px, 5vw, 40px); }
+  p { color: var(--muted); }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid var(--ink); border-radius: 4px; color: var(--ink); text-decoration: none; font-weight: 500; }
+  .btn.primary { background: var(--ink); color: var(--bg); }
+</style>

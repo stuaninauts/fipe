@@ -1,0 +1,30 @@
+---
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer>
+  <div class="wrap row">
+    <div class="text">
+      <p>{t(lang, 'footer.source')}</p>
+      <p>{t(lang, 'footer.credit')}</p>
+    </div>
+    <p class="links">
+      <a href="https://github.com/stuaninauts/fipe">{t(lang, 'footer.code')}</a>
+      <a href="https://stuaninauts.com">stuaninauts.com</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--line-soft); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; padding-top: 28px; padding-bottom: 44px; font-size: 13px; color: var(--soft); }
+  .text { max-width: 680px; display: grid; gap: 6px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .links a { display: inline-flex; align-items: center; min-height: 24px; }
+</style>

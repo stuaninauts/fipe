@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { coverage, first, last, manifest, month } from '../lib/data';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+const from = first(coverage).ref_year;
+const to = last(coverage).ref_year;
+const base = month(manifest.price_base, lang, t(lang, 'months.short'));
+const repo = 'https://github.com/stuaninauts/fipe';
+const adr = (file: string) => `${repo}/blob/main/docs/adr/${file}`;
+---
+
+<Base lang={lang} page="method" title={t(lang, 'nav.method')}>
+  <article class="wrap page">
+    <p class="eyebrow">{t(lang, 'nav.method')}</p>
+    <h1>{L('Como os números foram feitos', 'How the numbers were made')}</h1>
+
+    <div class="prose">
+      <h2>{L('De onde vêm os preços', 'Where the prices come from')}</h2>
+      <p>
+        {L(
+          `A Tabela FIPE publica todo mês um preço médio de mercado para cada carro vendido no Brasil. O site usa a tabela de janeiro de cada ano, de ${from} a ${to}, coletada do site da FIPE. A FIPE não oferece uma API pública documentada nem licença aberta para a tabela: os preços brutos ficam fora do repositório, e o site publica só agregados.`,
+          `Every month the FIPE table publishes an average market price for each car sold in Brazil. The site uses the January table of each year, ${from} to ${to}, collected from the FIPE website. FIPE offers neither a documented public API nor an open license for the table: raw prices stay out of the repository, and the site publishes aggregates only.`,
+        )}
+      </p>
+
+      <h2>{L('O que é "o mesmo carro"', 'What "the same car" means')}</h2>
+      <p>
+        {L(
+          'Um carro é o código FIPE, o ano-modelo e o grupo de combustível. Nome e ano não bastam: o mesmo nome aparece a gasolina e a álcool, com preços diferentes. O ano-modelo 32000 que a FIPE usa para zero km vira uma marcação de "novo", e nunca entra numa conta como ano.',
+          'A car is its FIPE code, model year and fuel group. Name and year are not enough: the same name shows up for petrol and ethanol, with different prices. The model year 32000 that FIPE uses for brand-new cars becomes a "new" flag and never enters a calculation as a year.',
+        )}
+      </p>
+      <p>
+        {L(
+          'Em 2024 a FIPE separou Flex, Híbrido, Elétrico e Gás Natural do antigo rótulo Gasolina. Para seguir um carro entre anos, esses rótulos formam um só grupo; álcool e diesel ficam à parte. ',
+          'In 2024 FIPE split Flex, Hybrid, Electric and Natural Gas out of the old Gasolina label. To follow a car across years these labels form one group; ethanol and diesel stay apart. ',
+        )}
+        <a href={path(lang, 'quality')}>{t(lang, 'nav.quality')}</a>.
+      </p>
+
+      <h2>{L('Por que só janeiros e por que mediana', 'Why only Januaries and why the median')}</h2>
+      <p>
+        {L(
+          'Uma tabela por ano basta para as perguntas do site e mantém a coleta pequena e respeitosa com o servidor da FIPE. A mediana não se deixa levar por carros raros e caros; toda mediana vem com o número de preços em que se apoia (n) e, nos gráficos, com a faixa entre o 1º e o 3º quartil.',
+          'One table a year is enough for the questions on the site and keeps the collection small and polite to the FIPE server. The median is not swayed by rare, expensive cars; every median comes with the number of prices behind it (n) and, in the charts, the band between the 1st and 3rd quartile.',
+        )}
+      </p>
+
+      <h2>{L('Inflação', 'Inflation')}</h2>
+      <p>
+        {L(
+          `Valores reais usam o IPCA do IBGE (número-índice mensal) e estão em reais de ${base}, o último mês publicado. A tabela de janeiro usa o IPCA de janeiro. Comparações dentro do mesmo janeiro, como a do zero km e a da idade, não precisam de correção: a inflação se cancela.`,
+          `Real values use IBGE's IPCA (monthly index) and are in reais of ${base}, the latest published month. The January table uses January's IPCA. Comparisons within the same January, such as the brand-new and the age ones, need no adjustment: inflation cancels out.`,
+        )}
+      </p>
+
+      <h2>{L('Limitações', 'Limitations')}</h2>
+      <ul>
+        <li>{L('A FIPE publica preço médio pedido no mercado, não o preço fechado em cada venda.', 'FIPE publishes an average market asking price, not the price closed in each sale.')}</li>
+        <li>{L('De um janeiro para o outro o carro também fica um ano mais velho: a variação anual mistura idade e mercado.', 'From one January to the next the car is also one year older: the yearly change mixes ageing and market.')}</li>
+        <li>{L('A curva por idade só vê modelos que ainda têm preço de zero km; nas idades altas sobram os de vida longa.', 'The age curve only sees models that still have a brand-new price; at high ages only long-lived ones remain.')}</li>
+        <li>{L('A análise é descritiva: mostra o que aconteceu nos dados, sem afirmar causas.', 'The analysis is descriptive: it shows what happened in the data, without claiming causes.')}</li>
+      </ul>
+
+      <h2>{L('Código e decisões', 'Code and decisions')}</h2>
+      <p>
+        {L('Pipeline em Python com testes, site estático em Astro. Decisões registradas (em português): ', 'Python pipeline with tests, static site in Astro. Recorded decisions (in Portuguese): ')}
+        <a href={adr('0001-dados-brutos-locais.md')}>{L('dados', 'data')}</a>,
+        <a href={adr('0002-site-estatico.md')}>{L('site', 'site')}</a>,
+        <a href={adr('0004-valores-reais-ipca.md')}>{L('inflação', 'inflation')}</a>,
+        <a href={adr('0005-analises-e-export.md')}>{L('análises', 'analyses')}</a>.
+      </p>
+      <p>
+        {L(
+          'A primeira versão, de 2023, foi o trabalho final de Classificação e Pesquisa de Dados (INF/UFRGS), em dupla com Gustavo Lacroix (@gpl27): scraper, índices em C (B-tree e trie) e um dashboard em Shiny. ',
+          'The first version, from 2023, was the final assignment for Sorting and Searching Data (INF/UFRGS), built with Gustavo Lacroix (@gpl27): a scraper, C indexes (B-tree and trie) and a Shiny dashboard. ',
+        )}
+        <a href={`${repo}/tree/v1.0-academic`}>v1.0-academic</a>.
+      </p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+</style>

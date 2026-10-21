@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { change, coverage, first, int, last, manifest, month, newVsUsed, one, retention, share, shareRange, yearly } from '../lib/data';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const L = (pt: string, en: string) => (lang === 'pt' ? pt : en);
+
+const from = first(coverage).ref_year;
+const to = last(coverage).ref_year;
+const prices = coverage.reduce((s, r) => s + r.prices, 0);
+const shock = one(yearly, { to_year: 2022 });
+const gap = newVsUsed.filter((r) => r.ref_year <= 2021).map((r) => r.median_ratio);
+const r5 = one(retention, { scope: 'all', age: 5 });
+const r10 = one(retention, { scope: 'all', age: 10 });
+const base = month(manifest.price_base, lang, t(lang, 'months.short'));
+---
+
+<Base lang={lang} page="home">
+  <section class="wrap page">
+    <p class="eyebrow">{L(`Tabela FIPE, ${from} a ${to}`, `FIPE price table, ${from} to ${to}`)}</p>
+    <h1 class="title">{t(lang, 'site.title')}</h1>
+    <p class="lede">
+      {L(
+        `${int(prices, lang)} preços de janeiro de carros vendidos no Brasil, com a inflação descontada. Três perguntas, respondidas com o mesmo carro comparado com ele mesmo.`,
+        `${int(prices, lang)} January prices of cars sold in Brazil, adjusted for inflation. Three questions, answered by comparing the same car with itself.`,
+      )}
+    </p>
+
+    <h2 id="analises" class="section">{t(lang, 'nav.analyses')}</h2>
+    <div class="cards">
+      <a class="card" href={path(lang, 'shock')}>
+        <span class="big">{change(shock.median_real, lang)}</span>
+        <h3>{L('O choque de 2022', 'The 2022 shock')}</h3>
+        <p>{L(
+          'De janeiro de 2021 a janeiro de 2022, o mesmo carro usado ficou mais caro, acima da inflação. Foi a única vez em duas décadas.',
+          'From January 2021 to January 2022 the same used car got more expensive, beyond inflation. The only time in two decades.',
+        )}</p>
+      </a>
+      <a class="card" href={path(lang, 'brandNew')}>
+        <span class="big">{shareRange(Math.min(...gap), Math.max(...gap), lang)}</span>
+        <h3>{L('O mito do zero km', 'The brand-new myth')}</h3>
+        <p>{L(
+          `É quanto um carro do ano usado valia do mesmo carro zero km, de ${from} a 2021. A perda ao sair da loja ficou perto de 10%, não 20%.`,
+          `What a used car of the current model year was worth next to the same car brand new, ${from} to 2021. Driving off the lot cost about 10%, not 20%.`,
+        )}</p>
+      </a>
+      <a class="card" href={path(lang, 'depreciation')}>
+        <span class="big">{share(r5.median_ratio, lang)}</span>
+        <h3>{L('Quanto um carro vale com o tempo', 'What a car is worth over time')}</h3>
+        <p>{L(
+          `Do preço de novo é o que um carro mantém aos 5 anos, em mediana. Aos 10, ${share(r10.median_ratio, lang)}.`,
+          `Of its brand-new price is what a car keeps at 5 years, in the median. At 10, ${share(r10.median_ratio, lang)}.`,
+        )}</p>
+      </a>
+    </div>
+
+    <div class="cards">
+      <a class="card" href={path(lang, 'explore')}>
+        <h3>{t(lang, 'nav.explore')}</h3>
+        <p>{L(
+          'Compare marcas, combustíveis e faixas de preço: quem segura mais valor e quem sentiu mais o choque.',
+          'Compare brands, fuels and price bands: who holds value best and who felt the shock most.',
+        )}</p>
+      </a>
+      <a class="card" href={path(lang, 'method')}>
+        <h3>{t(lang, 'nav.method')}</h3>
+        <p>{L(
+          `Como um carro é identificado, por que só janeiros, o que a mediana esconde. Valores reais em reais de ${base}.`,
+          `How a car is identified, why only Januaries, what the median hides. Real values in reais of ${base}.`,
+        )}</p>
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .title { font-size: clamp(34px, 6vw, 56px); max-width: 900px; }
+  .section { font-size: 26px; margin-top: 12px; }
+</style>

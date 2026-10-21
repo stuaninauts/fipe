@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "fipe",
+  "compatibility_date": "2026-10-20",
+  // Site 100% estático: sem Worker, só os arquivos de dist/ (docs/adr/0002).
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "fipe.stuaninauts.com", "custom_domain": true }],
+  // Evita o site duplicado em *.workers.dev (conteúdo duplicado para buscadores).
+  "workers_dev": false,
+  // Previews dos PRs (Workers Builds roda `wrangler preview` fora da main). A URL fica em
+  // *.workers.dev, que a Cloudflare serve com X-Robots-Tag: noindex.
+  "preview_urls": true,
+  "previews": {}
+}

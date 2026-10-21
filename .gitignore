@@ -26,3 +26,8 @@ legacy/bin/
 CLAUDE.local.md
 .claude/settings.local.json
 .claude/worktrees/
+
+# Site (Astro): dependências e saída do build
+web/node_modules/
+web/dist/
+web/.astro/
