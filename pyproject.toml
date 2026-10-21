@@ -5,7 +5,10 @@ description = "FIPE car price analysis: pipeline that builds the aggregates behi
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pandas>=3.0.6",
+    "pyarrow>=26.0.0",
+]
 
 [dependency-groups]
 dev = [

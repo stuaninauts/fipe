@@ -20,8 +20,10 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
 - **Crédito:** a versão original é em dupla com @gpl27; README e site dizem isso.
 
 ## Identidade de um preço (fonte comum dos bugs da versão antiga)
-- Um carro é `(codigo_fipe, model_year, fuel)`. Um preço é esse carro numa referência `(ref_year, ref_month)`.
-  Nome + ano não identifica carro (mistura gasolina e álcool).
+- Um preço é único em `(ref_year, ref_month, codigo_fipe, is_new, model_year, fuel)`. Para seguir um carro entre
+  meses, use `CAR = (codigo_fipe, is_new, model_year, fuel_group)` de `fipe/clean.py`: em jan/2024 a FIPE trocou o
+  rótulo "Gasolina" por Flex, Híbrido, Elétrico e Gás Natural nos mesmos carros, e `fuel_group` (álcool, diesel,
+  gasolina) atravessa essa troca. Nome + ano não identifica carro (mistura gasolina e álcool).
 - `codigo_fipe` é texto com zeros à esquerda (`"001004-9"`), nunca número.
 - O ano 32000 da API significa zero km: vira `is_new = True`, e 32000 nunca chega a uma conta ou a um gráfico.
 - Preço vem como `"R$ 1.234,56"` e vira número em reais; valores são nominais até passarem pela correção do IPCA,
@@ -35,6 +37,18 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
   `data/raw/fipe_api.sqlite`). `uv run python -m fipe.collect --list` lista os meses de referência;
   `uv run python -m fipe.collect janeiro/2024` coleta um mês inteiro (1 chamada por segundo por padrão). Rodar de
   novo só pede o que falta, inclusive o que falhou. Testes usam transporte falso, nunca a rede.
+- `--known <csv>` pula os preços que já estão num CSV do scraper v1 (casa marca, modelo, ano e combustível pelos
+  rótulos da API) e conta as linhas do CSV que não casaram com nada.
+
+## Pipeline
+- `uv run python -m fipe.pipeline` lê tudo em `data/raw/` (CSVs do v1 em `janeiros-*/` e o cache do coletor),
+  limpa (`fipe/clean.py`), corrige pela inflação (`fipe/inflation.py`) e grava `data/processed/prices.parquet` e
+  `coverage.csv` (locais, não versionados).
+- `fipe/clean.py` é o único lugar que define a identidade de um preço e a validação; mudou regra, muda teste em
+  `tests/test_clean.py`. Onde a coleta e o CSV têm o mesmo preço, vale o da coleta.
+- IPCA: `reference/ipca.csv` é versionado (IBGE, uso livre com citação); atualizar com
+  `uv run python -m fipe.inflation --update`. `price_real_brl` está em reais do último mês da série
+  ([ADR 0004](docs/adr/0004-valores-reais-ipca.md)); mês de referência sem IPCA é erro, nunca NaN silencioso.
 
 ## Git (GitHub Flow)
 - Nunca commitar nem dar push na `main`. Branch `<tipo>/<descricao-kebab>` → PR → CI verde → "Rebase and merge".
@@ -50,8 +64,8 @@ os dados e refaz o resto no padrão do CopaData. A tag `v1.0-academic` marca a v
   e de arquivo grande, e formato da mensagem. Se o gitleaks apontar algo, não contorne: remova e avise o humano.
 
 ## Comandos
-- Python 3.13 pelo uv (`requires-python` no `pyproject.toml`; sem `.python-version`, que quebraria o pyenv): `uv sync`, `uv run pytest`, `uv run ruff check`,
-  `uv run ruff format`.
+- Python 3.13 pelo uv (`requires-python` no `pyproject.toml`; sem `.python-version`, que quebraria o pyenv):
+  `uv sync`, `uv run pytest`, `uv run ruff check`, `uv run ruff format`.
 - Antes de qualquer PR: `uv run ruff check && uv run ruff format --check && uv run pytest` precisam passar.
 
 ## Escrita
